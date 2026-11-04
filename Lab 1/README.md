@@ -1,18 +1,12 @@
-# Lab 1
+# Module 01 — Artificial Neural Networks & Optimization
 
-Thư mục thực hành Lab 1.
+Thư mục dự án triển khai nền tảng mạng nơ-ron nhân tạo và giải thuật tối ưu hóa trong PyTorch theo chuẩn kỹ nghệ phần mềm máy học (Spec-Driven MLOps).
 
-## Tài liệu quản lý & theo dõi Lab 1
-Bộ tài liệu theo dõi tiến độ và kiểm chứng kết quả nằm trong thư mục [`docs/`](./docs/):
-
-- [`docs/01_DEFINE.md`](./docs/01_DEFINE.md): Mục tiêu & đề bài Lab 1
-- [`docs/02_REQUIREMENTS.md`](./docs/02_REQUIREMENTS.md): Yêu cầu chi tiết từng bài tập & tiêu chí đạt
-- [`docs/03_DESIGN.md`](./docs/03_DESIGN.md): Thiết kế giải thuật / pipeline
-- [`docs/04_BREAKDOWN.md`](./docs/04_BREAKDOWN.md): Tiến độ thực hiện
-- [`docs/05_TOOLS.md`](./docs/05_TOOLS.md): Môi trường, thư viện & câu lệnh chạy
-- [`docs/06_VERIFICATION.md`](./docs/06_VERIFICATION.md): Bằng chứng chạy thực nghiệm & kết quả
-- [`docs/07_WORK_LOG.md`](./docs/07_WORK_LOG.md): Nhật ký làm bài
-- [`docs/08_RELEASE.md`](./docs/08_RELEASE.md): Nghiệm thu & nộp bài
-
-> Xem hướng dẫn 14 bước quy trình đầy đủ tại [Workflow chung](../workflow/docs/00_MINDMAP.md).
-
+## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
+1. **[`docs/lab_1_description.md`](./docs/lab_1_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý Checkpoints.
+2. **[`docs/data.md`](./docs/data.md)**: Hợp đồng dữ liệu FashionMNIST, Transforms, DataLoaders.
+3. **[`docs/model.md`](./docs/model.md)**: Thiết kế kiến trúc mạng nơ-ron MLP/CNN kế thừa `torch.nn.Module`.
+4. **[`docs/training.md`](./docs/training.md)**: Cấu hình giải thuật tối ưu SGD/Adam, Loss function, quy trình smoke test.
+5. **[`docs/evaluation.md`](./docs/evaluation.md)**: Báo cáo định lượng hệ thống (Accuracy, Loss, thời gian & tài nguyên).
+6. **[`docs/demo.md`](./docs/demo.md)**: Kịch bản và mã nguồn suy luận nhanh với ảnh mẫu.
+7. **[`docs/plan_progress_status.md`](./docs/plan_progress_status.md)**: Lộ trình triển khai, bảng phân rã nhiệm vụ (TODO / DONE).

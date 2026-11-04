@@ -1,19 +1,14 @@
-# Lab 3
+# Module 03 — Transformers Fine-Tuning & Sentiment Analysis
 
-Thư mục thực hành Lab 3.
+Thư mục dự án triển khai quy trình tinh chỉnh mô hình ngôn ngữ lớn (Transformers) và phân tích cảm xúc theo chuẩn kỹ nghệ phần mềm máy học (Spec-Driven MLOps).
 
-## Tài liệu quản lý & theo dõi Lab 3
-Bộ tài liệu theo dõi tiến độ và kiểm chứng kết quả nằm trong thư mục [`docs/`](./docs/):
+## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
+1. **[`docs/lab_3_description.md`](./docs/lab_3_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý 5 Checkpoints.
+2. **[`docs/data.md`](./docs/data.md)**: Hợp đồng dữ liệu IMDB, Tokenizer, phân vùng train/val/test split.
+3. **[`docs/model.md`](./docs/model.md)**: Kiến trúc DistilBERT, số lượng tham số, thiết kế classification head.
+4. **[`docs/training.md`](./docs/training.md)**: Cấu hình Trainer, optimizer AdamW, learning rate, quy trình smoke test và early stopping (0-2%).
+5. **[`docs/evaluation.md`](./docs/evaluation.md)**: Báo cáo định lượng hệ thống (Accuracy, F1, Loss, thời gian huấn luyện, latency suy luận, VRAM GPU).
+6. **[`docs/demo.md`](./docs/demo.md)**: Kịch bản và mã nguồn suy luận nhanh (Quick Inference) với dữ liệu thực tế.
+7. **[`docs/plan_progress_status.md`](./docs/plan_progress_status.md)**: Lộ trình triển khai, bảng phân rã nhiệm vụ (TODO / DONE) và nhật ký kỹ thuật.
 
-- [`docs/01_DEFINE.md`](./docs/01_DEFINE.md): Mục tiêu & đề bài Lab 3 (NLP / Transformers Fine-tuning)
-- [`docs/02_REQUIREMENTS.md`](./docs/02_REQUIREMENTS.md): Yêu cầu chi tiết từng Exercise & tiêu chí đạt
-- [`docs/03_DESIGN.md`](./docs/03_DESIGN.md): Thiết kế pipeline mô hình (DistilBERT, IMDB dataset, Tokenizer, Trainer)
-- [`docs/04_BREAKDOWN.md`](./docs/04_BREAKDOWN.md): Tiến độ thực hiện các Exercise
-- [`docs/05_TOOLS.md`](./docs/05_TOOLS.md): Môi trường (`transformers`, `datasets`, `evaluate`, `accelerate`, `torch`)
-- [`docs/06_VERIFICATION.md`](./docs/06_VERIFICATION.md): Bằng chứng kết quả huấn luyện (Loss, Accuracy, F1...)
-- [`docs/07_WORK_LOG.md`](./docs/07_WORK_LOG.md): Nhật ký làm bài & phân tích thực nghiệm
-- [`docs/08_RELEASE.md`](./docs/08_RELEASE.md): Checklist trước khi nộp notebook / báo cáo
-
-> File notebook thực hành: [`../Lab_3 (1).ipynb`](../Lab_3%20(1).ipynb)  
-> Xem hướng dẫn 14 bước quy trình đầy đủ tại [Workflow chung](../workflow/docs/00_MINDMAP.md).
-
+> **Notebook thực hành**: [`../Lab_3 (1).ipynb`](../Lab_3%20(1).ipynb)
