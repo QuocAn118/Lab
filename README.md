@@ -8,9 +8,15 @@ Thư mục này áp dụng bộ quy trình chuẩn hóa và kiểm chứng chấ
 
 ```text
 Lab/
-├── Learning/                     # Slide lý thuyết & bài giảng Deep Learning (Chapter 01 - 06)
+├── Learning/                     # Slide lý thuyết & tài liệu Markdown chuyên sâu
 │   ├── README.md                 # Mục lục chi tiết & liên kết bài giảng
-│   └── Chapter 01 ... 06.pdf
+│   ├── Chapter 01/               # Introduction to Deep Learning (.pdf & .md)
+│   ├── Chapter 02/               # Artificial Neural Networks (.pdf & .md)
+│   ├── Chapter 03/               # Training Deep Neural Networks (.pdf & .md)
+│   ├── Chapter 04/               # Fine-Tune Models & Training Algorithms (.pdf & .md)
+│   ├── Chapter 05.1/             # CNNs Part 1 (.pdf & .md)
+│   ├── Chapter 05.2/             # Object Detection Survey (.pdf & .md)
+│   └── Chapter 06/               # Recurrent Neural Networks - RNNs (.pdf & .md)
 ├── workflow/                     # Bộ khung quy trình chuẩn 14 bước & docs mẫu
 │   ├── 01-define/ ... 14-definition-of-done/
 │   ├── docs/                     # Bộ template tài liệu gốc
