@@ -11,6 +11,7 @@ Lab 3/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── .gitattributes               # Lưu file model bằng Git LFS
 ├── configs/exercise_2.yaml      # Tham số của Exercise 2
 ├── docs/                        # 7 file đặc tả
 ├── notebooks/
@@ -30,7 +31,7 @@ Lab 3/
 │   ├── test_exercise_2.py       # Test logic
 │   └── test_smoke.py            # Smoke test 2 batch
 ├── reports/                     # Tạo khi chạy: metrics.json, figures/
-└── checkpoints/                 # Tạo khi chạy, không đưa lên git
+└── checkpoints/                 # Tạo khi chạy; file model lưu bằng Git LFS
 ```
 
 ## Cách Chạy Trên Google Colab
