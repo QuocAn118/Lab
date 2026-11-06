@@ -46,9 +46,9 @@ Tất cả lệnh từ repo gốc; dùng `Lab 3/.venv/Scripts/python.exe`:
 | Full | `lab3.py train --mode full --output "Lab 3/outputs/full"` | PASS thực thi 3 epochs và test độc lập |
 | 5 checkpoint | Nạp từng thư mục bằng `load_demo` trên câu “I loved this movie.” | PASS cả 5; 2 nhãn và suy luận POSITIVE |
 | Demo best | `lab3.py demo --checkpoint "Lab 3/outputs/full/checkpoints/best"` và ô demo notebook | PASS; nạp từ đĩa |
-| Nguồn | `lab3.py audit --run "Lab 3/outputs/full"` | PASS 19 file, 11 ô code; nguồn Markdown và manifest full |
+| Nguồn | `lab3.py audit` sau khi sắp lại bảy bước; manifest full đã kiểm ở lần trước | PASS 19 file, 8 ô code; nguồn Markdown |
 | Các run khác | `verify_artifacts` cho smoke/module-a | PASS; smoke 41 artifact |
-| Notebook rút gọn | NBClient, kernel `lab3`, `allow_errors=False`; chạy 11 ô code | PASS; nạp checkpoint full, đánh giá lại đủ 25.000 test, hai biểu đồ và demo |
+| Notebook rút gọn | NBClient, kernel `lab3`, `allow_errors=False`; chạy 8 ô code | PASS; Exercise 1 và bảy bước Exercise 2, nạp checkpoint full, đánh giá lại đủ 25.000 test, hai biểu đồ và demo |
 | Schema/code notebook | `nbformat.validate`, `ast.parse` mọi ô code | PASS |
 | Dependency | `pip check` | PASS; no broken requirements |
 | Hình | Mở PNG full loss và confusion matrix để kiểm tra | PASS bố cục; chữ trắng trên ô tối |
@@ -68,13 +68,13 @@ Mô hình ngẫu nhiên nhỏ trong unit test chỉ kiểm cơ chế, không ph�
 - [Báo cáo full](../outputs/full/report.md), [metric gốc đo](../outputs/full/metrics.json), [nguồn artifact](../outputs/full/artifacts.md).
 - `provenance.json`: SHA-256 từng artifact, snapshot các Markdown căn cứ, source code thực đã train và hash code hiệu chỉnh sau đó. Giữ log gốc và JSON trước sửa cờ.
 - `run_config.json`: revision chính xác model/dataset, seed, fingerprint, class counts và hash index từng split. `lab3_source.py` là source thực của run, có thể khác bản hiện tại ở phần cờ dừng/hiển thị đã ghi nhận.
-- Notebook đã lưu output thực; khi Run All, nó kiểm hash và tái dùng run hoàn tất. Dùng output mới/rỗng để chạy lại; không ghi đè bằng chứng.
+- Notebook đã lưu output thực; khi Run All, nó nạp checkpoint full có sẵn để đánh giá, không kiểm hash trong luồng chính. Luồng huấn luyện mới tạo thư mục run theo thời gian.
 
 ## 5.1. Notebook rút gọn
 
-Bản hiện tại có **11 ô code, 104 dòng code gồm cả header nguồn**, chỉ định nghĩa hai hàm nhỏ `tokenize` và `compute_metrics`. Không import `lab3.py`, không có class tùy biến, kiểm tra AST/hash hoặc bộ kiểm thử trong luồng chính. Dùng trực tiếp `Trainer`, `EarlyStoppingCallback` và API thư viện.
+Bản hiện tại có **8 ô code: một ô Exercise 1 độc lập và bảy ô Step 1–7 cho Exercise 2**, chỉ định nghĩa hai hàm nhỏ `tokenize` và `compute_metrics`. Thứ tự bước đối chiếu từ notebook kế thừa ở Git commit `755af75`; chưa xác minh độc lập tác giả của bản đó. Không import `lab3.py`, không có class tùy biến, kiểm tra AST/hash hoặc bộ kiểm thử trong luồng chính. Dùng trực tiếp `Trainer`, `EarlyStoppingCallback` và API thư viện.
 
-Đã chạy toàn bộ notebook bằng NBClient, không có ô lỗi. Model full đã có được nạp và đánh giá lại đủ 25.000 mẫu test: accuracy **91.012%**, macro F1 **0.9101182914**, test loss **0.3465386629**. Hai biểu đồ confusion matrix/loss và demo có output thực. Biểu đồ loss dùng history full đã có, được ghi rõ trong notebook; không coi đây là full training mới.
+Đã chạy lại toàn bộ tám ô sau khi sắp xếp bằng NBClient, không có ô lỗi. Model full đã có được nạp và đánh giá lại đủ 25.000 mẫu test: accuracy **91.012%**, macro F1 **0.9101182914**, test loss **0.3465386629**. Hai biểu đồ confusion matrix/loss và demo có output thực. Biểu đồ loss dùng history full đã có; không coi đây là full training mới. Schema, cú pháp tám ô, audit nguồn và 10 kiểm thử CLI đều PASS sau thay đổi.
 
 Luồng `TRAIN=True` được kiểm chứng riêng bằng bản thực thi tạm trên 32 train / 16 validation / 16 test, 1 epoch = 2 optimizer steps. Đã chạy train, validation, lưu best, nạp lại, đánh giá và vẽ hình thành công. Artifact thử nghiệm nằm trong thư mục tạm riêng và được dọn sau kiểm chứng; không dùng metric nhỏ làm kết quả full.
 

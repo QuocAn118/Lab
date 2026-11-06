@@ -44,7 +44,17 @@ KPI accuracy >= .85 và macro F1 >= .85; GPU <=4 GiB, host <=6 GiB và latency <
 
 ## 6. Notebook rút gọn
 
-Ưu tiên cách viết tuần tự, ít hàm: import → pretrained inference → IMDB split/tokenize → model/metrics → Trainer → đánh giá → loss curve/demo. Chỉ giữ một hàm tokenize và một hàm compute_metrics; dùng `EarlyStoppingCallback` có sẵn, không có lớp callback tự viết.
+Exercise 1 có một ô code riêng, tự import thư viện để chạy độc lập. Exercise 2 có đúng bảy ô code theo thứ tự bước trong notebook kế thừa tại Git commit `755af75`:
+
+1. Chuẩn bị thư viện và seed; môi trường được cài theo README, không tự chạy pip mỗi lần Run All.
+2. Tải IMDB và chia train/validation/test.
+3. Tải model và tokenizer.
+4. Tokenize dữ liệu và tạo data collator.
+5. Cấu hình TrainingArguments.
+6. Định nghĩa metrics, tạo Trainer và huấn luyện; nếu đã có checkpoint thì nạp để đánh giá theo công tắc TRAIN.
+7. Đánh giá test, confusion matrix, loss curve và demo từ checkpoint.
+
+Đây là cấu trúc trình bày theo notebook kế thừa, chưa xác minh độc lập nguồn gốc tác giả. Giữ tham số và phạm vi dữ liệu đã chốt; không mặc định khôi phục cấu hình lấy mẫu nhỏ của bản cũ. Chỉ giữ một hàm tokenize và một hàm compute_metrics; dùng `EarlyStoppingCallback` có sẵn, không có lớp callback tự viết.
 
 Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn vẫn được ghi bằng comment `Sources:` ở từng ô và metadata; đầu ra thực nghiệm được giữ nguyên.
 

@@ -4,16 +4,23 @@ Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook chỉ gồm các �
 
 ## Nội dung
 
-1. Pretrained sentiment analysis.
-2. Chia IMDB thành train/validation/test và tokenize.
-3. Fine-tune DistilBERT bằng Trainer và early stopping có sẵn.
-4. Đánh giá, confusion matrix, loss curve và demo.
+**Exercise 1:** pretrained sentiment analysis, trong một ô code chạy độc lập.
+
+**Exercise 2:** đúng 7 bước, mỗi bước một ô code:
+
+1. Chuẩn bị thư viện.
+2. Tải và chia dữ liệu IMDB.
+3. Tải model và tokenizer.
+4. Tokenize dữ liệu.
+5. Cấu hình huấn luyện.
+6. Tạo Trainer và huấn luyện.
+7. Đánh giá, confusion matrix, loss curve và demo.
 
 ## Cách chạy
 
 Mở notebook, chọn kernel **Python (Lab 3)**, chạy lần lượt hoặc **Run All**. Nếu đã có checkpoint full, mặc định nạp model để đánh giá; đặt `TRAIN=True` trong ô khai báo model để huấn luyện mới. Mỗi run mới được lưu riêng trong `Lab 3/outputs/simple-training/`.
 
-Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12.10)** có đường dẫn **`Lab 3\.venv\Scripts\python.exe`**. Tên hiển thị có thể khác tên kernel đăng ký. Chạy **Run All** hoặc bắt đầu từ ô **Import thư viện**. Mục **Existing Jupyter Server…** dành cho kết nối server có URL, không cần cho môi trường cục bộ này.
+Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12.10)** có đường dẫn **`Lab 3\.venv\Scripts\python.exe`**. Tên hiển thị có thể khác tên kernel đăng ký. Chạy **Run All**; khi chỉ chạy Exercise 2, bắt đầu từ **Step 1**. Mục **Existing Jupyter Server…** dành cho kết nối server có URL, không cần cho môi trường cục bộ này.
 
 Môi trường hiện tại đã được chuẩn bị. Khi cài trên Windows mới, chạy từ repo gốc:
 

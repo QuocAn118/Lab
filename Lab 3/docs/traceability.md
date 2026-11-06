@@ -16,7 +16,7 @@ Các hàm trong bảng thuộc `lab3.py`.
 
 ## Phạm vi notebook rút gọn
 
-Theo `implementation.md` §6, notebook giữ hai bài thực hành, train/validation/test độc lập, model tốt nhất và nguồn Markdown. Chính sách 5 checkpoint, audit và benchmark chi tiết thuộc pipeline CLI đã có; không lặp lại trong nội dung notebook đơn giản.
+Theo `implementation.md` §6, notebook có một ô Exercise 1 độc lập và bảy ô Step 1–7 cho Exercise 2, theo thứ tự notebook kế thừa ở commit `755af75`. Giữ train/validation/test độc lập, model tốt nhất và nguồn Markdown. Chính sách 5 checkpoint, audit và benchmark chi tiết thuộc pipeline CLI đã có; không lặp lại trong nội dung notebook đơn giản.
 
 ## File do AI tạo/sửa trong lần này
 
@@ -27,7 +27,7 @@ Theo `implementation.md` §6, notebook giữ hai bài thực hành, train/valida
 | `requirements.txt`, `requirements-lock.txt`, `.gitignore` | `implementation.md` §4; `sources.md` | Môi trường/phạm vi gói nộp |
 | `README.md` | `lab_3_description.md`, `implementation.md`, `verification.md` | Chạy và bàn giao |
 | `AGENTS.md` | `AI_Usage.md`, `implementation.md` | Quy tắc chỉnh sửa về sau |
-| `../Lab_3 (1).ipynb` | `implementation.md` và bộ đặc tả | Bản thực hành rút gọn: 11 ô code, 2 hàm nhỏ; API thư viện trực tiếp, không class tùy biến và không phụ thuộc lab3.py |
+| `../Lab_3 (1).ipynb` | `implementation.md` §6 và bộ đặc tả | 8 ô code: Exercise 1 + 7 bước Exercise 2; 2 hàm nhỏ; API thư viện trực tiếp, không class tùy biến và không phụ thuộc lab3.py |
 | `docs/*.md` | Mục Nguồn và phạm vi từng file | Đặc tả, nguồn và báo cáo |
 | `outputs/<run>/**` | `artifacts.md`, `provenance.json` mỗi run | Bằng chứng; không đưa trọng số vào Git |
 
