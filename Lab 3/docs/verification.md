@@ -80,6 +80,10 @@ Luồng `TRAIN=True` được kiểm chứng riêng bằng bản thực thi tạ
 
 Các kiểm thử 10 cases, 5 checkpoint và benchmark hệ thống ở phần trên thuộc pipeline CLI đã kiểm chứng trước đó. Notebook rút gọn chỉ giữ checkpoint tốt nhất khi chạy mới; nguồn cho artifact mới nằm trong SOURCES.md của run. Không cần chạy CLI để sử dụng notebook.
 
+## 5.2. Kiểm tra kernel trong VS Code
+
+Đã xác nhận extension Python/Jupyter và `ipykernel` được cài. Bộ chọn kernel đang ở màn hình nhập URL server, trong khi môi trường cục bộ nằm tại `Lab 3\.venv\Scripts\python.exe`. Đã chọn **Python Environments → .venv (3.12.10)** và quan sát kernel khởi động thành công. Lần thực thi ô pretrained trước ô import gây `NameError: pipeline is not defined`; chạy **Run All** sau khi chọn đúng môi trường đã hoàn tất đến ô demo. Test accuracy hiển thị trong VS Code là **0.91012**, demo trả POSITIVE/NEGATIVE đúng với hai câu mẫu. Căn cứ kỹ thuật: [sources.md S-11](sources.md).
+
 ## 6. Giới hạn
 
 Phạm vi nghiệm thu dựa trên yêu cầu dự án và đặc tả hiện có. Nguồn gốc tác giả của notebook kế thừa chưa được xác minh độc lập. Không đo trên Colab T4, không triển khai web, không cung cấp resume optimizer. Module B chỉ huấn luyện tiếng Anh; câu trung tính vẫn buộc phân loại hai lớp. RSS host là đỉnh quan sát, không đo đỉnh tuyệt đối. Các ngưỡng chất lượng/phần cứng được kết luận trong đúng điều kiện đo nêu trên.

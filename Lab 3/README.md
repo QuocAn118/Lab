@@ -1,6 +1,6 @@
 # Lab 3 — Phân tích cảm xúc với Transformers
 
-Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook viết tuần tự, dùng API thư viện trực tiếp và không phụ thuộc `lab3.py`.
+Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook chỉ gồm các ô code viết tuần tự, dùng API thư viện trực tiếp và không phụ thuộc `lab3.py`.
 
 ## Nội dung
 
@@ -11,7 +11,9 @@ Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook viết tuần tự
 
 ## Cách chạy
 
-Mở notebook, chọn kernel **Python (Lab 3)**, chạy lần lượt hoặc **Run All**. Nếu đã có checkpoint full, mặc định nạp model để đánh giá; đặt `TRAIN=True` tại phần 5 để huấn luyện mới. Mỗi run mới được lưu riêng trong `Lab 3/outputs/simple-training/`.
+Mở notebook, chọn kernel **Python (Lab 3)**, chạy lần lượt hoặc **Run All**. Nếu đã có checkpoint full, mặc định nạp model để đánh giá; đặt `TRAIN=True` trong ô khai báo model để huấn luyện mới. Mỗi run mới được lưu riêng trong `Lab 3/outputs/simple-training/`.
+
+Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12.10)** có đường dẫn **`Lab 3\.venv\Scripts\python.exe`**. Tên hiển thị có thể khác tên kernel đăng ký. Chạy **Run All** hoặc bắt đầu từ ô **Import thư viện**. Mục **Existing Jupyter Server…** dành cho kết nối server có URL, không cần cho môi trường cục bộ này.
 
 Môi trường hiện tại đã được chuẩn bị. Khi cài trên Windows mới, chạy từ repo gốc:
 

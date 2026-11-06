@@ -46,6 +46,8 @@ KPI accuracy >= .85 và macro F1 >= .85; GPU <=4 GiB, host <=6 GiB và latency <
 
 Ưu tiên cách viết tuần tự, ít hàm: import → pretrained inference → IMDB split/tokenize → model/metrics → Trainer → đánh giá → loss curve/demo. Chỉ giữ một hàm tokenize và một hàm compute_metrics; dùng `EarlyStoppingCallback` có sẵn, không có lớp callback tự viết.
 
+Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn vẫn được ghi bằng comment `Sources:` ở từng ô và metadata; đầu ra thực nghiệm được giữ nguyên.
+
 - Giữ nguyên train/validation/test độc lập, seed 42, max_length 256, batch 16, LR 2e-5 và tối đa 3 epochs.
 - `TRAIN` là công tắc huấn luyện. Nếu đã có checkpoint full, mặc định nạp lại để đánh giá; nếu chưa có checkpoint thì chạy huấn luyện mới. Không gọi việc nạp model là đã train lại.
 - Notebook chỉ quản lý model tốt nhất bằng `load_best_model_at_end=True`, lưu tại `outputs/simple-training/<run>/best`. Chính sách 5 checkpoint và benchmark chi tiết ở §1–5 tiếp tục thuộc pipeline CLI đã kiểm chứng, không bắt buộc lặp lại trong notebook rút gọn.

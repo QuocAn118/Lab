@@ -18,6 +18,7 @@ Yêu cầu dự án → đặc tả nội bộ → quyết định triển khai 
 | S-08 | [NBClient executing notebooks](https://nbclient.readthedocs.io/en/latest/client.html) | Chạy notebook bằng kernel thực và lưu output |
 | S-09 | [Installing the IPython kernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) | Đăng ký kernel riêng cho `.venv` |
 | S-10 | [nbformat Python API](https://nbformat.readthedocs.io/en/latest/api.html) | Đọc/ghi và kiểm tra schema notebook |
+| S-11 | [VS Code: Manage Jupyter Kernels](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management) | Chọn Python environment cục bộ cho notebook |
 
 Chỉ diễn giải API cần dùng, không chép toàn văn nguồn. Revision model/dataset thực tải và phiên bản thư viện được ghi trong artifact của mỗi run. Số tham số được đếm từ model, thay vì mặc định thông số marketing.
 
