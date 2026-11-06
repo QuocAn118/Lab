@@ -1,8 +1,8 @@
 """Lab 3: pretrained inference and reproducible IMDB fine-tuning.
 
-Sources: docs/implementation.md (R-01..R-09); docs/AI_Usage.md;
-docs/data.md; docs/model.md; docs/training.md; docs/evaluation.md; docs/demo.md.
-Technical references are registered in docs/sources.md.
+Sources: docs/08_implementation.md (R-01..R-09); docs/11_AI_Usage.md;
+docs/02_data.md; docs/03_model.md; docs/04_training.md; docs/05_evaluation.md; docs/07_demo.md.
+Technical references are registered in docs/10_sources.md.
 """
 from __future__ import annotations
 
@@ -34,8 +34,8 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
                           TrainingArguments, pipeline, set_seed)
 
 ROOT = Path(__file__).resolve().parent
-SOURCES = ["docs/implementation.md", "docs/AI_Usage.md", "docs/data.md",
-           "docs/model.md", "docs/training.md", "docs/evaluation.md", "docs/demo.md"]
+SOURCES = ["docs/08_implementation.md", "docs/11_AI_Usage.md", "docs/02_data.md",
+           "docs/03_model.md", "docs/04_training.md", "docs/05_evaluation.md", "docs/07_demo.md"]
 BASE_MODEL = "distilbert/distilbert-base-uncased"
 INFERENCE_MODEL = "tabularisai/multilingual-sentiment-analysis"
 DATASET = "stanfordnlp/imdb"
@@ -78,7 +78,7 @@ def fresh_directory(path):
 
 @dataclass
 class RunConfig:
-    """Sources: docs/implementation.md §1–2; docs/training.md."""
+    """Sources: docs/08_implementation.md §1–2; docs/04_training.md."""
     mode: str = "full"
     seed: int = 42
     max_length: int = 256
@@ -103,7 +103,7 @@ def stratified_indices(labels, size, seed):
 
 
 def prepare_data(config, tokenizer, dataset_revision):
-    """R-02/R-03; docs/data.md and docs/implementation.md §2."""
+    """R-02/R-03; docs/02_data.md and docs/08_implementation.md §2."""
     train, test = load_dataset(DATASET, revision=dataset_revision,
                                split=["train", "test"])
     train_idx, val_idx = train_test_split(np.arange(len(train)), test_size=0.2,
@@ -139,7 +139,7 @@ def prepare_data(config, tokenizer, dataset_revision):
 
 
 def compute_metrics(prediction):
-    """R-07; docs/evaluation.md: binary and macro are distinct metrics."""
+    """R-07; docs/05_evaluation.md: binary and macro are distinct metrics."""
     logits, labels = prediction
     if isinstance(logits, tuple):
         logits = logits[0]
@@ -155,7 +155,7 @@ def compute_metrics(prediction):
 
 @dataclass
 class StopPolicy:
-    """R-06; docs/implementation.md §3: absolute accuracy delta > .01."""
+    """R-06; docs/08_implementation.md §3: absolute accuracy delta > .01."""
     patience: int = 2
     threshold: float = 0.01
     best_accuracy: float = -math.inf
@@ -243,14 +243,14 @@ class CheckpointCallback(TrainerCallback):
 
 
 def validate_texts(texts):
-    """R-01/R-08; docs/demo.md: actionable errors instead of empty input."""
+    """R-01/R-08; docs/07_demo.md: actionable errors instead of empty input."""
     if not texts or any(not isinstance(t, str) or not t.strip() for t in texts):
         raise ValueError("Provide one or more non-empty text strings")
     return texts
 
 
 def infer_pretrained(texts):
-    """R-01; docs/model.md §4: multilingual five-class Module A."""
+    """R-01; docs/03_model.md §4: multilingual five-class Module A."""
     validate_texts(texts)
     revision = HfApi().model_info(INFERENCE_MODEL).sha
     tokenizer = AutoTokenizer.from_pretrained(INFERENCE_MODEL, revision=revision)
@@ -286,7 +286,7 @@ def load_demo(checkpoint, texts):
 
 
 def measure_latency(model, tokenizer, text, repetitions=20):
-    """R-07; docs/implementation.md §5: end-to-end tokenization + forward."""
+    """R-07; docs/08_implementation.md §5: end-to-end tokenization + forward."""
     def sync():
         if model.device.type == "cuda":
             torch.cuda.synchronize()
@@ -310,7 +310,7 @@ def measure_latency(model, tokenizer, text, repetitions=20):
 
 
 def environment():
-    """R-09; docs/AI_Usage.md §2. Record actual installed versions."""
+    """R-09; docs/11_AI_Usage.md §2. Record actual installed versions."""
     return {"python": platform.python_version(), "platform": platform.platform(),
             "versions": {name: importlib.metadata.version(name) for name in
                          ["torch", "transformers", "datasets", "accelerate", "scikit-learn",
@@ -320,7 +320,7 @@ def environment():
 
 
 def plot_results(output, trainer_history, confusion):
-    """R-07; docs/evaluation.md. PNG embeds Markdown source metadata."""
+    """R-07; docs/05_evaluation.md. PNG embeds Markdown source metadata."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -367,7 +367,7 @@ def render_report(output, result):
     text += ["", "![Loss](loss_curve.png)", "", "![Confusion matrix](confusion_matrix.png)", "",
              "Chi tiết số đo, phân lớp, latency, RAM/GPU và cấu hình: [metrics.json](metrics.json).",
              "Nguồn/hash từng artifact: [artifacts.md](artifacts.md).", "", "## Nguồn và phạm vi", "",
-             "- Đặc tả: `docs/implementation.md`, `docs/evaluation.md`, `docs/AI_Usage.md` (tính từ Lab 3/).",
+             "- Đặc tả: `docs/08_implementation.md`, `docs/05_evaluation.md`, `docs/11_AI_Usage.md` (tính từ Lab 3/).",
              "- Dữ liệu trực tiếp: `metrics.json`, `epoch_history.json`, `trainer_history.json` cùng run.",
              "- Sinh bằng `lab3.py::render_report`; không sao chép số từ run khác.", ""]
     (output / "report.md").write_text("\n".join(text), encoding="utf-8")
@@ -417,7 +417,7 @@ def verify_artifacts(output):
 
 
 def train_run(config, output):
-    """Sources: docs/implementation.md R-02..R-09; docs/training.md."""
+    """Sources: docs/08_implementation.md R-02..R-09; docs/04_training.md."""
     set_seed(config.seed)
     torch.set_num_threads(min(8, torch.get_num_threads()))
     if torch.cuda.is_available():
@@ -481,7 +481,7 @@ def train_run(config, output):
     callback.sample_resources()
     ram_gib = callback.peak_rss / 1024**3
     with (output / "test_predictions.csv").open("w", encoding="utf-8", newline="") as f:
-        f.write("# Sources: docs/data.md; docs/evaluation.md; docs/implementation.md R-07\n")
+        f.write("# Sources: docs/02_data.md; docs/05_evaluation.md; docs/08_implementation.md R-07\n")
         writer = csv.writer(f)
         writer.writerow(["test_subset_index", "actual", "predicted"])
         writer.writerows(zip(range(len(predicted)), prediction.label_ids.tolist(), predicted.tolist()))
@@ -516,7 +516,7 @@ def train_run(config, output):
 
 
 def audit_sources():
-    """R-09; docs/AI_Usage.md: enforce file-level Markdown references."""
+    """R-09; docs/11_AI_Usage.md: enforce file-level Markdown references."""
     import re
     errors, count = [], 0
     for file in sorted(ROOT.rglob("*")):
@@ -570,7 +570,7 @@ class Tee:
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    train = sub.add_parser("train", help="smoke/quick/full; see docs/implementation.md")
+    train = sub.add_parser("train", help="smoke/quick/full; see docs/08_implementation.md")
     train.add_argument("--mode", choices=["smoke", "quick", "full"], default="full")
     train.add_argument("--output", type=Path)
     infer = sub.add_parser("infer", help="Module A: pretrained multilingual sentiment")

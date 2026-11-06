@@ -59,10 +59,10 @@ Hệ thống huấn luyện tự động lưu trữ và quản lý các mốc tr
 
 ## 5. Hợp đồng triển khai và truy nguồn
 
-Các lựa chọn cụ thể, mã R-01–R-09, chế độ smoke/quick/full và cách đo được chốt tại [implementation.md](implementation.md). `best_val_pause` là checkpoint thực tại lần validation cuối; chỉ báo early stopping khi cờ tương ứng là true. Đích suy luận trong phạm vi bài là CLI/notebook.
+Các lựa chọn cụ thể, mã R-01–R-09, chế độ smoke/quick/full và cách đo được chốt tại [08_implementation.md](08_implementation.md). `best_val_pause` là checkpoint thực tại lần validation cuối; chỉ báo early stopping khi cờ tương ứng là true. Đích suy luận trong phạm vi bài là CLI/notebook.
 
 ## Nguồn và phạm vi
 
 - Mục 1–4 kế thừa đặc tả trước lần triển khai 2026-11-06. Các KPI được sử dụng làm mục tiêu kỹ thuật trong phạm vi dự án.
-- [sources.md](sources.md): nguồn API/model/dataset chính thức.
-- [AI_Usage.md](AI_Usage.md): yêu cầu khai nguồn; [implementation.md](implementation.md): quyết định bổ sung.
+- [10_sources.md](10_sources.md): nguồn API/model/dataset chính thức.
+- [11_AI_Usage.md](11_AI_Usage.md): yêu cầu khai nguồn; [08_implementation.md](08_implementation.md): quyết định bổ sung.

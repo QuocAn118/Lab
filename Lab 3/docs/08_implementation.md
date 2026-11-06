@@ -4,15 +4,15 @@
 
 | Mã | Hành vi phải có | Căn cứ |
 | --- | --- | --- |
-| R-01 | Module A: phân tích cảm xúc, trả token/nhãn/xác suất; từ chối chuỗi rỗng | `lab_3_description.md` §1; notebook cũ Exercise 1 |
-| R-02 | Module B: IMDB, seed 42, chia train/validation riêng; test không chọn model | `data.md` §1–2 |
-| R-03 | DistilBERT hai nhãn NEGATIVE/POSITIVE; pad động, dài tối đa 256 | `model.md` §1; `data.md` §2 |
-| R-04 | AdamW, LR 2e-5, batch 16, 3 epochs, decay .01, clip 1.0; FP16 khi CUDA | `training.md` §1 và quyết định triển khai |
-| R-05 | Smoke riêng 2 bước optimizer, loss/gradient hữu hạn; không dùng kết quả smoke làm full | `training.md` §2 |
-| R-06 | Lưu final_epoch, best_val_loss, best_val_acc, best_val_pause, best; early stop patience 2, ngưỡng .01 điểm accuracy tuyệt đối | `lab_3_description.md` §4; `training.md` §3 |
-| R-07 | Test accuracy, macro/binary F1, precision, recall, confusion matrix; thời gian, GPU/RAM, loss curve | `evaluation.md`; `lab_3_description.md` §3 |
-| R-08 | Nạp lại best từ đĩa để demo và benchmark; không dựa model còn nằm trong RAM | `demo.md` |
-| R-09 | Mọi file có nguồn MD, bằng chứng không bịa, lưu cấu hình/hash/revision | `AI_Usage.md` §2 |
+| R-01 | Module A: phân tích cảm xúc, trả token/nhãn/xác suất; từ chối chuỗi rỗng | `01_lab_3_description.md` §1; notebook cũ Exercise 1 |
+| R-02 | Module B: IMDB, seed 42, chia train/validation riêng; test không chọn model | `02_data.md` §1–2 |
+| R-03 | DistilBERT hai nhãn NEGATIVE/POSITIVE; pad động, dài tối đa 256 | `03_model.md` §1; `02_data.md` §2 |
+| R-04 | AdamW, LR 2e-5, batch 16, 3 epochs, decay .01, clip 1.0; FP16 khi CUDA | `04_training.md` §1 và quyết định triển khai |
+| R-05 | Smoke riêng 2 bước optimizer, loss/gradient hữu hạn; không dùng kết quả smoke làm full | `04_training.md` §2 |
+| R-06 | Lưu final_epoch, best_val_loss, best_val_acc, best_val_pause, best; early stop patience 2, ngưỡng .01 điểm accuracy tuyệt đối | `01_lab_3_description.md` §4; `04_training.md` §3 |
+| R-07 | Test accuracy, macro/binary F1, precision, recall, confusion matrix; thời gian, GPU/RAM, loss curve | `05_evaluation.md`; `01_lab_3_description.md` §3 |
+| R-08 | Nạp lại best từ đĩa để demo và benchmark; không dựa model còn nằm trong RAM | `07_demo.md` |
+| R-09 | Mọi file có nguồn MD, bằng chứng không bịa, lưu cấu hình/hash/revision | `11_AI_Usage.md` §2 |
 
 ## 2. Chế độ chạy
 
@@ -65,8 +65,14 @@ Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn
 - Vẽ loss trực tiếp trong notebook. Khi nạp model full đã có, loss history lấy từ run full và ghi rõ nguồn; test metrics được tính lại. Không gán output cũ cho một lượt huấn luyện mới.
 - Mỗi ô code giữ một dòng nguồn Markdown. Run huấn luyện mới có `SOURCES.md` áp dụng cho toàn bộ artifact bên dưới thư mục run. Không đưa chức năng audit, manifest, benchmark hệ thống hoặc kiểm thử CLI vào luồng trình bày chính.
 
+## 7. Thứ tự tài liệu và hướng dẫn trình bày
+
+Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển thị theo thứ tự đọc: 01 tổng quan, 02 dữ liệu, 03 mô hình, 04 huấn luyện, 05 đánh giá, 06 kết quả kiểm chứng, 07 demo, 08 triển khai, 09 tiến độ, 10 nguồn tham khảo, 11 khai báo AI, 12 truy vết. File `huong_dan_trinh_bay.md` không đánh số. Đây là thứ tự học và trình bày, không phải mức ưu tiên thay thế quy tắc dự án.
+
+Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
+
 ## Nguồn và phạm vi
 
-- [lab_3_description.md](lab_3_description.md), [data.md](data.md), [model.md](model.md), [training.md](training.md), [evaluation.md](evaluation.md), [demo.md](demo.md): đặc tả đã có.
-- [AI_Usage.md](AI_Usage.md): quy tắc bắt buộc.
-- [sources.md S-01–S-07](sources.md): API chính thức. Các quyết định triển khai bổ sung được ghi nhận tại §1–5 và phân biệt với đặc tả kế thừa.
+- [01_lab_3_description.md](01_lab_3_description.md), [02_data.md](02_data.md), [03_model.md](03_model.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md), [07_demo.md](07_demo.md): đặc tả đã có.
+- [11_AI_Usage.md](11_AI_Usage.md): quy tắc bắt buộc.
+- [10_sources.md S-01–S-07](10_sources.md): API chính thức. Các quyết định triển khai bổ sung được ghi nhận tại §1–5 và phân biệt với đặc tả kế thừa.

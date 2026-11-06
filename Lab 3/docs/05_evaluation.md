@@ -24,10 +24,10 @@
 - `checkpoint_policy.json`: nguồn best, có thực sự early stop không.
 - `provenance.json`, `artifacts.md`: nguồn và hash artifact.
 
-Xem [verification.md](verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.
+Xem [06_verification.md](06_verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.
 
 ## Nguồn và phạm vi
 
-- Tiêu chí nghiệm thu kế thừa [lab_3_description.md](lab_3_description.md) và đặc tả đánh giá hiện có trong dự án.
-- [implementation.md](implementation.md): phương pháp đo; [sources.md](sources.md): metric definitions.
-- [AI_Usage.md](AI_Usage.md): chỉ báo kết quả có bằng chứng.
+- Tiêu chí nghiệm thu kế thừa [01_lab_3_description.md](01_lab_3_description.md) và đặc tả đánh giá hiện có trong dự án.
+- [08_implementation.md](08_implementation.md): phương pháp đo; [10_sources.md](10_sources.md): metric definitions.
+- [11_AI_Usage.md](11_AI_Usage.md): chỉ báo kết quả có bằng chứng.

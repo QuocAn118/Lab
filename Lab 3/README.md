@@ -2,6 +2,8 @@
 
 Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook chỉ gồm các ô code viết tuần tự, dùng API thư viện trực tiếp và không phụ thuộc `lab3.py`.
 
+Tài liệu trong `docs/` được đánh số theo thứ tự đọc. Bắt đầu từ [Hướng dẫn trình bày](docs/huong_dan_trinh_bay.md), sau đó đọc 01–07 cho nội dung bài; 08–12 là tài liệu triển khai, tiến độ và nguồn để tra cứu thêm.
+
 ## Nội dung
 
 **Exercise 1:** pretrained sentiment analysis, trong một ô code chạy độc lập.
@@ -38,6 +40,6 @@ Dataset/model được tải từ Hugging Face ở lần đầu. Checkpoint và 
 
 ## Nguồn và phạm vi
 
-- [Đặc tả](docs/lab_3_description.md), [thiết kế notebook rút gọn](docs/implementation.md), [training](docs/training.md).
-- [Nguồn và khai báo AI](docs/AI_Usage.md), [nguồn kỹ thuật](docs/sources.md), [kiểm chứng](docs/verification.md).
+- [Đặc tả](docs/01_lab_3_description.md), [thiết kế notebook rút gọn](docs/08_implementation.md), [training](docs/04_training.md).
+- [Nguồn và khai báo AI](docs/11_AI_Usage.md), [nguồn kỹ thuật](docs/10_sources.md), [kiểm chứng](docs/06_verification.md).
 - Mỗi ô code có nguồn Markdown. Artifact mới có SOURCES.md đi kèm; các run full đã có giữ manifest lịch sử.

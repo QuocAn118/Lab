@@ -25,6 +25,6 @@ Model B huấn luyện IMDB **tiếng Anh**, hai lớp. Câu trung tính vẫn p
 
 ## Nguồn và phạm vi
 
-- [lab_3_description.md](lab_3_description.md): hai module.
-- [model.md](model.md), [implementation.md](implementation.md): ngôn ngữ, nhãn và R-01/R-08.
-- [sources.md](sources.md): model cards; [AI_Usage.md](AI_Usage.md): không bịa số đo.
+- [01_lab_3_description.md](01_lab_3_description.md): hai module.
+- [03_model.md](03_model.md), [08_implementation.md](08_implementation.md): ngôn ngữ, nhãn và R-01/R-08.
+- [10_sources.md](10_sources.md): model cards; [11_AI_Usage.md](11_AI_Usage.md): không bịa số đo.

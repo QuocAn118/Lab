@@ -23,6 +23,6 @@
 
 ## Nguồn và phạm vi
 
-- Mục 1–3: đặc tả có sẵn; mục 4 chốt phạm vi từ [lab_3_description.md](lab_3_description.md) và notebook Exercise 1.
-- [sources.md S-04–S-05](sources.md): model cards; [AI_Usage.md](AI_Usage.md): khai báo AI.
+- Mục 1–3: đặc tả có sẵn; mục 4 chốt phạm vi từ [01_lab_3_description.md](01_lab_3_description.md) và notebook Exercise 1.
+- [10_sources.md S-04–S-05](10_sources.md): model cards; [11_AI_Usage.md](11_AI_Usage.md): khai báo AI.
 

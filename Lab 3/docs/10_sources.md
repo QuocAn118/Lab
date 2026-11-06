@@ -24,6 +24,6 @@ Chỉ diễn giải API cần dùng, không chép toàn văn nguồn. Revision m
 
 ## Nguồn và phạm vi
 
-- [AI_Usage.md §1–2](AI_Usage.md): quy tắc khai nguồn.
-- [lab_3_description.md](lab_3_description.md): phạm vi cần nguồn.
+- [11_AI_Usage.md §1–2](11_AI_Usage.md): quy tắc khai nguồn.
+- [01_lab_3_description.md](01_lab_3_description.md): phạm vi cần nguồn.
 - Các liên kết chính thức trong bảng là nguồn trực tiếp của thông tin kỹ thuật.

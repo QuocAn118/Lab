@@ -1,6 +1,6 @@
 """Offline behavioral tests; the tiny random model is NOT a trained deliverable.
-Sources: docs/implementation.md R-02..R-09; docs/verification.md;
-docs/training.md; docs/evaluation.md; docs/AI_Usage.md.
+Sources: docs/08_implementation.md R-02..R-09; docs/06_verification.md;
+docs/04_training.md; docs/05_evaluation.md; docs/11_AI_Usage.md.
 Run from repository root: python "Lab 3/test.py".
 """
 import json

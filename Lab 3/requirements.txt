@@ -1,5 +1,5 @@
-# Sources: docs/implementation.md §4; docs/sources.md S-01, S-06, S-07
-# Install the correct torch wheel first; see README.md and docs/verification.md.
+# Sources: docs/08_implementation.md §4; docs/10_sources.md S-01, S-06, S-07
+# Install the correct torch wheel first; see README.md and docs/06_verification.md.
 torch==2.9.1
 transformers==4.57.1
 datasets==4.3.0

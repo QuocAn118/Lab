@@ -1,4 +1,4 @@
-# Sources: docs/AI_Usage.md §2; docs/implementation.md §4
+# Sources: docs/11_AI_Usage.md §2; docs/08_implementation.md §4
 .venv/
 __pycache__/
 .ipynb_checkpoints/
