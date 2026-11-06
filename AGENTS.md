@@ -31,9 +31,13 @@ Lab/
 │   └── test.py
 ├── Lab 3/
 │   ├── docs/                     # Hệ thống 7 file đặc tả Module 03 (Transformers Fine-Tuning)
-│   ├── README.md
-│   └── test.py
-├── Lab_3 (1).ipynb               # Notebook thực nghiệm NLP/Transformers
+│   ├── configs/                  # Tham số Exercise 2
+│   ├── src/                      # exercise_1/, exercise_2/
+│   ├── tests/                    # Test logic và smoke test
+│   ├── notebooks/                # Notebook chạy trên Colab, notebook cũ
+│   ├── reports/                  # metrics.json, figures/ (tạo khi chạy)
+│   ├── requirements.txt
+│   └── README.md
 └── README.md                     # Tài liệu điều phối tổng quan
 ```
 

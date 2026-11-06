@@ -1,41 +1,33 @@
-# Thử Nghiệm & Trực Quan Hóa (Demo Specification) — Lab 3
+# Thử Nghiệm Thực Tế (Demo Specification) — Lab 3
 
-## 1. Mục Đích File Demo
-Kiểm chứng thực tế mô hình sau khi huấn luyện với các câu đánh giá thực tế (Inference Test).
+Mục đích: Kiểm chứng model với những câu thực tế, ngoài tập dữ liệu. Các lệnh chạy trong thư mục `Lab 3` trên Colab, với `PYTHONPATH=src` đã được notebook thiết lập.
 
-## 2. Mã Nguồn Chạy Thử Nghiệm Nhanh
-```python
-import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+## 1. Exercise 1: Phân Tích Cảm Xúc
 
-# Tải model từ checkpoint tốt nhất
-checkpoint_path = "./checkpoints/best"
-tokenizer = AutoTokenizer.from_pretrained(checkpoint_path)
-model = AutoModelForSequenceClassification.from_pretrained(checkpoint_path)
-model.eval()
-
-test_sentences = [
-    "This movie was an absolute masterpiece! The acting and plot were brilliant.",
-    "Waste of time. The acting was terrible and the storyline made no sense.",
-    "It was an average film, neither great nor awful."
-]
-
-for sentence in test_sentences:
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-        pred_class = torch.argmax(probs, dim=-1).item()
-        label = "POSITIVE" if pred_class == 1 else "NEGATIVE"
-        confidence = probs[0][pred_class].item() * 100
-        print(f"Text: '{sentence}'")
-        print(f"-> Dự đoán: {label} (Độ tin cậy: {confidence:.2f}%)\n")
+```bash
+python -m exercise_1.sentiment_analysis --text "Hôm qua em tuyệt lắm!"
+python -m exercise_1.sentiment_analysis --text "The movie was boring and far too long."
 ```
 
-## 3. Bảng Kết Quả Thử Nghiệm Mẫu
+Câu được truyền qua tham số `--text` thay vì `input()`, để notebook gọi được mà không phải chờ nhập tay. Câu rỗng sẽ báo lỗi.
 
-| Câu Thử Nghiệm | Dự Đoán | Độ Tin Cậy (%) | Nhãn Thực Tế | Đúng/Sai |
+| Câu thử | Token | Nhãn dự đoán | Điểm | Nguồn |
+| :--- | :--- | :---: | :---: | :--- |
+| *"Hôm qua em tuyệt lắm!"* | `H`, `##ô`, `##m`, `qua`, `em`, `tuyệt`, `l`, `##ắm`, `!` | Very Positive | 0,6411 | Colab, GPU T4, 2026-11-06 |
+| *"The movie was boring and far too long."* | `The`, `movie`, `was`, `bor`, `##ing`, `and`, `far`, `too`, `long`, `.` | Negative | 0,8546 | Colab, GPU T4, 2026-11-06 |
+
+## 2. Exercise 2: Model Đã Fine-Tune
+
+```bash
+python -m exercise_2.demo
+```
+
+Lệnh này tải mốc `checkpoints/best` và ghi kết quả vào mục `demo` của `reports/metrics.json`. Danh sách câu thử nằm trong `src/exercise_2/demo.py`.
+
+| Câu thử | Dự đoán | Độ tin cậy | Nhãn thật | Đúng/Sai |
 | :--- | :---: | :---: | :---: | :---: |
-| *"This movie was an absolute masterpiece!..."* | POSITIVE | 99.2% | POSITIVE | Đúng |
-| *"Waste of time. The acting was terrible..."* | NEGATIVE | 98.7% | NEGATIVE | Đúng |
+| *"This movie was an absolute masterpiece! The acting and plot were brilliant."* | POSITIVE | 98,03% | POSITIVE | Đúng |
+| *"Waste of time. The acting was terrible and the storyline made no sense."* | NEGATIVE | 98,49% | NEGATIVE | Đúng |
+| *"It was an average film, neither great nor awful."* | NEGATIVE | 91,48% | Không có | Chỉ quan sát |
 
+Câu thứ ba mang tính trung tính, trong khi model chỉ có 2 lớp, nên câu này không có nhãn đúng và không tính đúng/sai. Model vẫn trả lời NEGATIVE với độ tin cậy 91,48%, cho thấy độ tin cậy cao không có nghĩa là câu trả lời đáng tin khi gặp câu nằm ngoài 2 lớp.

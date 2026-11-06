@@ -1,16 +1,44 @@
 # Kiến Trúc Mô Hình (Model Specification) — Lab 3
 
-## 1. Mô Hình Lựa Chọn
-- **Backbone**: `distilbert-base-uncased` (Phiên bản rút gọn tinh gọn nhẹ hơn 40% của BERT, giữ lại 97% hiệu năng và tốc độ nhanh hơn 60%).
-- **Lớp phân loại (Classification Head)**:
-  - Tầng đầu ra: `AutoModelForSequenceClassification.from_pretrained(..., num_labels=2)`.
-  - Hàm kích hoạt đầu ra: Softmax (cho xác suất 2 lớp).
+Lab 3 dùng hai model khác nhau cho hai mục đích khác nhau.
 
-## 2. Thông Số Mô Hình (Model Parameters)
-- Tổng số tham số (Total Parameters): $\approx 66\text{M}$ tham số.
-- Số tham số có thể huấn luyện (Trainable Parameters): Toàn bộ hoặc tầng Classifier.
-- Kiểu dữ liệu trọng số: FP32 hoặc Mixed Precision FP16 (tiết kiệm VRAM).
+| | Exercise 1 | Exercise 2 |
+| :--- | :--- | :--- |
+| **Model** | `tabularisai/multilingual-sentiment-analysis` | `distilbert-base-uncased` |
+| **Cách dùng** | Chỉ suy luận, không huấn luyện | Fine-tune trên IMDB |
+| **Số nhãn** | 5 | 2 |
+| **Mã nguồn** | `src/exercise_1/sentiment_analysis.py` | `src/exercise_2/model.py` |
 
-## 3. Kiến Trúc Khảo Sát Bổ Sung (Nghiên Cứu Mở Rộng)
-- So sánh hiệu năng và tốc độ giữa Transformer (`DistilBERT`) với các mô hình CNN truyền thống khi xử lý dữ liệu phân loại.
+## 1. Exercise 1
+- **Lý do chọn**: Model hỗ trợ nhiều ngôn ngữ nên phân tích được cả câu tiếng Việt và tiếng Anh.
+- **Kiến trúc**: Họ DistilBERT, đã huấn luyện sẵn cho bài toán cảm xúc.
+- **Nhãn đầu ra**: `Very Negative`, `Negative`, `Neutral`, `Positive`, `Very Positive`.
 
+## 2. Exercise 2
+
+### Backbone
+`distilbert-base-uncased`, bản rút gọn của BERT. Model nhỏ và nhanh hơn BERT nên phù hợp với lượng tài nguyên hạn chế.
+
+### Lớp phân loại
+Model được tải qua `AutoModelForSequenceClassification` với `num_labels=2`. Thư viện khởi tạo mới các lớp sau:
+
+| Thứ tự | Lớp | Kích thước |
+| :---: | :--- | :--- |
+| 1 | `pre_classifier` (Linear) | $768 \to 768$ |
+| 2 | ReLU | |
+| 3 | `dropout` | $p = 0.2$ |
+| 4 | `classifier` (Linear) | $768 \to 2$ |
+
+- **Đầu ra của model**: Logits của 2 lớp. Hàm mất mát Cross-Entropy nhận trực tiếp logits.
+- **Softmax**: Chỉ dùng trong `demo.py` để đổi logits thành xác suất hiển thị.
+- **Nhãn**: `id2label = {0: "NEGATIVE", 1: "POSITIVE"}`.
+
+### Tham số
+
+| Chỉ số | Giá trị | Nguồn |
+| :--- | :---: | :--- |
+| Tổng tham số | 66.955.010 | Đo bằng `python -m exercise_2.model` |
+| Tham số huấn luyện được | 66.955.010 | Đo bằng `python -m exercise_2.model` |
+
+- **Phạm vi huấn luyện**: Toàn bộ model, không đóng băng tầng nào.
+- **Kiểu dữ liệu**: Mixed Precision FP16 khi có GPU, FP32 khi chạy CPU.
