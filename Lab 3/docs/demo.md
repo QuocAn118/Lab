@@ -1,41 +1,30 @@
-# Thử Nghiệm & Trực Quan Hóa (Demo Specification) — Lab 3
+# Demo — Lab 3
 
-## 1. Mục Đích File Demo
-Kiểm chứng thực tế mô hình sau khi huấn luyện với các câu đánh giá thực tế (Inference Test).
+## 1. Module A: pretrained đa ngôn ngữ
 
-## 2. Mã Nguồn Chạy Thử Nghiệm Nhanh
-```python
-import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+Từ repo gốc, dùng Python trong môi trường đã cài requirements:
 
-# Tải model từ checkpoint tốt nhất
-checkpoint_path = "./checkpoints/best"
-tokenizer = AutoTokenizer.from_pretrained(checkpoint_path)
-model = AutoModelForSequenceClassification.from_pretrained(checkpoint_path)
-model.eval()
-
-test_sentences = [
-    "This movie was an absolute masterpiece! The acting and plot were brilliant.",
-    "Waste of time. The acting was terrible and the storyline made no sense.",
-    "It was an average film, neither great nor awful."
-]
-
-for sentence in test_sentences:
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-        pred_class = torch.argmax(probs, dim=-1).item()
-        label = "POSITIVE" if pred_class == 1 else "NEGATIVE"
-        confidence = probs[0][pred_class].item() * 100
-        print(f"Text: '{sentence}'")
-        print(f"-> Dự đoán: {label} (Độ tin cậy: {confidence:.2f}%)\n")
+```powershell
+& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' infer --text 'Bộ phim này rất hay!' --text 'The movie was boring.' --output 'Lab 3/outputs/module-a'
 ```
 
-## 3. Bảng Kết Quả Thử Nghiệm Mẫu
+Trả token, nhãn và score model năm lớp. Mỗi lần lưu cần output mới. Score không đảm bảo chính xác mọi câu tiếng Việt.
 
-| Câu Thử Nghiệm | Dự Đoán | Độ Tin Cậy (%) | Nhãn Thực Tế | Đúng/Sai |
-| :--- | :---: | :---: | :---: | :---: |
-| *"This movie was an absolute masterpiece!..."* | POSITIVE | 99.2% | POSITIVE | Đúng |
-| *"Waste of time. The acting was terrible..."* | NEGATIVE | 98.7% | NEGATIVE | Đúng |
+## 2. Module B: nạp checkpoint fine-tune
 
+```powershell
+& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best'
+& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best' --text 'I loved this movie.'
+```
+
+Model B huấn luyện IMDB **tiếng Anh**, hai lớp. Câu trung tính vẫn phải chọn một lớp; không dùng nhãn NEUTRAL làm đáp án cho bài nhị phân. Ba câu demo nằm trong `lab3.py::DEMO_TEXTS`; kết quả thật lưu trong `metrics.json` của run.
+
+## 3. Nguyên tắc báo cáo
+
+Đã bỏ bảng 99.2%/98.7% minh họa cũ vì không có bằng chứng đo. Không điền kết quả trước khi chạy. `demo` nạp model/tokenizer từ đĩa, báo lỗi khi thiếu checkpoint hoặc câu rỗng.
+
+## Nguồn và phạm vi
+
+- [lab_3_description.md](lab_3_description.md): hai module.
+- [model.md](model.md), [implementation.md](implementation.md): ngôn ngữ, nhãn và R-01/R-08.
+- [sources.md](sources.md): model cards; [AI_Usage.md](AI_Usage.md): không bịa số đo.

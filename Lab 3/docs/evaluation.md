@@ -1,31 +1,33 @@
-# Performance Evaluation & System Benchmarks — Lab 3
+# Đánh giá và tiêu chí nghiệm thu — Lab 3
 
-## 1. Training & Validation Progress Log
+## 1. Hợp đồng đo lường
 
-| Epoch | Train Loss | Val Loss | Val Accuracy | Val Precision | Val Recall | Val F1-Score | Checkpoint Flag |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | - | - | - | - | - | - | Baseline |
-| **2** | - | - | - | - | - | - | `best_val_loss` |
-| **3** | - | - | - | - | - | - | `best_val_acc` / `final_epoch` |
+Đánh giá `best_val_acc` trên validation và test sau khi nạp từ đĩa. Chỉ validation dùng chọn checkpoint/early stopping. Lưu test accuracy, precision, recall, binary F1 (POSITIVE), macro F1 (trung bình hai lớp), confusion matrix và dự đoán từng mẫu.
 
----
+| Chỉ tiêu | Ngưỡng nội bộ | Điều kiện |
+| --- | ---: | --- |
+| Validation / test accuracy | >=85% | Full split |
+| Test macro F1 | >=.85 | Full split |
+| Epoch wall time | <=180 giây | Chỉ so trực tiếp Colab T4 |
+| Inference mean latency | <=25 ms | Batch 1, tokenize/transfer/forward; 3 warm-up, 20 lần |
+| Peak GPU allocated | <=4 GiB | PyTorch allocation, khác tổng VRAM hệ điều hành |
+| Host observed RSS | <=6 GiB | Cao nhất tại callback; có thể bỏ lỡ đỉnh giữa hai mẫu |
 
-## 2. Quantitative System Benchmarks
+Đơn vị bộ nhớ chốt GiB (1024³ bytes). Latency trên một review test có token count; không khái quát mọi độ dài. Epoch wall gồm train/eval/save; không gồm nạp lại và test sau train.
 
-| Performance Metric | Measured Value | Target Benchmark | Compliance Status |
-| :--- | :--- | :--- | :---: |
-| **Classification Accuracy** | [Chờ đo lường %] | $\ge 85.0\%$ | Pending |
-| **Macro F1-Score** | [Chờ đo lường] | $\ge 0.85$ | Pending |
-| **Training Speed** | [Giây / Epoch] | $\le 180\text{s}$ (GPU Colab T4) | Pending |
-| **Inference Latency** | [ms / Sample] | $\le 25\text{ms}$ | Pending |
-| **Peak GPU VRAM Footprint** | [MB / GB] | $\le 4.0\text{GB}$ | Pending |
-| **Host System RAM Footprint** | [GB] | $\le 6.0\text{GB}$ | Pending |
+## 2. File bằng chứng mỗi run
 
----
+- `run_config.json`: mode, seed, splits/counts/fingerprints/index hashes, revision và môi trường.
+- `trainer_history.json`, `epoch_history.json`: loss/metric, quyết định callback.
+- `metrics.json`: số đo và KPI true/false hoặc N/A. `test_predictions.csv` có dòng nguồn đầu (đọc bằng `comment='#'`).
+- `loss_curve.png`, `confusion_matrix.png`, `report.md`: hình và báo cáo cùng run.
+- `checkpoint_policy.json`: nguồn best, có thực sự early stop không.
+- `provenance.json`, `artifacts.md`: nguồn và hash artifact.
 
-## 3. Checkpoint Artifacts & Model Registry
-- `final_epoch`: `checkpoints/final_epoch/`
-- `best_val_loss`: `checkpoints/best_val_loss/` (Loss: ...)
-- `best_val_acc`: `checkpoints/best_val_acc/` (Accuracy: ...)
-- `best_val_pause`: Dừng tại Epoch ... (Early Stopping triggered: $\Delta < 1.0\%$)
-- `best`: `checkpoints/best/` (Production Artifact được chọn đóng gói deploy)
+Xem [verification.md](verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.
+
+## Nguồn và phạm vi
+
+- Tiêu chí nghiệm thu kế thừa [lab_3_description.md](lab_3_description.md) và đặc tả đánh giá hiện có trong dự án.
+- [implementation.md](implementation.md): phương pháp đo; [sources.md](sources.md): metric definitions.
+- [AI_Usage.md](AI_Usage.md): chỉ báo kết quả có bằng chứng.

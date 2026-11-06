@@ -1,0 +1,13 @@
+# Sources: docs/implementation.md §4; docs/sources.md S-01, S-06, S-07
+# Install the correct torch wheel first; see README.md and docs/verification.md.
+torch==2.9.1
+transformers==4.57.1
+datasets==4.3.0
+accelerate==1.11.0
+scikit-learn==1.7.2
+numpy==2.2.6
+matplotlib==3.10.7
+psutil==7.1.3
+ipykernel==6.30.1
+nbclient==0.10.2
+nbformat==5.10.4

@@ -56,3 +56,13 @@ Hệ thống huấn luyện tự động lưu trữ và quản lý các mốc tr
 | **`best_val_acc`** | `checkpoints/best_val_acc/` | Trọng số đạt độ chính xác phân loại cao nhất trên tập kiểm định. |
 | **`best_val_pause`** | `EarlyStopping(patience=2)` | **Early Stopping Policy**: Tự động ngắt huấn luyện nếu tỷ lệ cải thiện metric sau $N$ epochs dưới ngưỡng $0\% \sim 2\%$ để chống Overfitting và tối ưu chi phí tính toán. |
 | **`best`** | `checkpoints/best/` | Checkpoint tối ưu tổng thể được lựa chọn để đóng gói release và phục vụ suy luận thực tế (Production Deployment). |
+
+## 5. Hợp đồng triển khai và truy nguồn
+
+Các lựa chọn cụ thể, mã R-01–R-09, chế độ smoke/quick/full và cách đo được chốt tại [implementation.md](implementation.md). `best_val_pause` là checkpoint thực tại lần validation cuối; chỉ báo early stopping khi cờ tương ứng là true. Đích suy luận trong phạm vi bài là CLI/notebook.
+
+## Nguồn và phạm vi
+
+- Mục 1–4 kế thừa đặc tả trước lần triển khai 2026-11-06. Các KPI được sử dụng làm mục tiêu kỹ thuật trong phạm vi dự án.
+- [sources.md](sources.md): nguồn API/model/dataset chính thức.
+- [AI_Usage.md](AI_Usage.md): yêu cầu khai nguồn; [implementation.md](implementation.md): quyết định bổ sung.

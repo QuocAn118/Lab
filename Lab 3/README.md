@@ -1,14 +1,34 @@
-# Module 03 — Transformers Fine-Tuning & Sentiment Analysis
+# Lab 3 — Phân tích cảm xúc với Transformers
 
-Thư mục dự án triển khai quy trình tinh chỉnh mô hình ngôn ngữ lớn (Transformers) và phân tích cảm xúc theo chuẩn kỹ nghệ phần mềm máy học (Spec-Driven MLOps).
+Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook viết tuần tự, dùng API thư viện trực tiếp và không phụ thuộc `lab3.py`.
 
-## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
-1. **[`docs/lab_3_description.md`](./docs/lab_3_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý 5 Checkpoints.
-2. **[`docs/data.md`](./docs/data.md)**: Hợp đồng dữ liệu IMDB, Tokenizer, phân vùng train/val/test split.
-3. **[`docs/model.md`](./docs/model.md)**: Kiến trúc DistilBERT, số lượng tham số, thiết kế classification head.
-4. **[`docs/training.md`](./docs/training.md)**: Cấu hình Trainer, optimizer AdamW, learning rate, quy trình smoke test và early stopping (0-2%).
-5. **[`docs/evaluation.md`](./docs/evaluation.md)**: Báo cáo định lượng hệ thống (Accuracy, F1, Loss, thời gian huấn luyện, latency suy luận, VRAM GPU).
-6. **[`docs/demo.md`](./docs/demo.md)**: Kịch bản và mã nguồn suy luận nhanh (Quick Inference) với dữ liệu thực tế.
-7. **[`docs/plan_progress_status.md`](./docs/plan_progress_status.md)**: Lộ trình triển khai, bảng phân rã nhiệm vụ (TODO / DONE) và nhật ký kỹ thuật.
+## Nội dung
 
-> **Notebook thực hành**: [`../Lab_3 (1).ipynb`](../Lab_3%20(1).ipynb)
+1. Pretrained sentiment analysis.
+2. Chia IMDB thành train/validation/test và tokenize.
+3. Fine-tune DistilBERT bằng Trainer và early stopping có sẵn.
+4. Đánh giá, confusion matrix, loss curve và demo.
+
+## Cách chạy
+
+Mở notebook, chọn kernel **Python (Lab 3)**, chạy lần lượt hoặc **Run All**. Nếu đã có checkpoint full, mặc định nạp model để đánh giá; đặt `TRAIN=True` tại phần 5 để huấn luyện mới. Mỗi run mới được lưu riêng trong `Lab 3/outputs/simple-training/`.
+
+Môi trường hiện tại đã được chuẩn bị. Khi cài trên Windows mới, chạy từ repo gốc:
+
+```powershell
+$env:PYTHONUTF8='1'
+python -m venv 'Lab 3/.venv'
+& 'Lab 3/.venv/Scripts/python.exe' -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
+& 'Lab 3/.venv/Scripts/python.exe' -m pip install -r 'Lab 3/requirements.txt'
+& 'Lab 3/.venv/Scripts/python.exe' -m ipykernel install --user --name lab3 --display-name 'Python (Lab 3)'
+```
+
+Dataset/model được tải từ Hugging Face ở lần đầu. Checkpoint và loss history full hiện có nằm trong `outputs/full/`; giữ thư mục này khi muốn dùng lại kết quả. Nếu chưa có checkpoint, notebook thực hiện huấn luyện mới. CPU có thể chạy chậm hơn GPU.
+
+`lab3.py`, `test.py` và các manifest full là phần hỗ trợ nâng cao đã có; không cần đọc hoặc chạy chúng để theo dõi nội dung notebook rút gọn.
+
+## Nguồn và phạm vi
+
+- [Đặc tả](docs/lab_3_description.md), [thiết kế notebook rút gọn](docs/implementation.md), [training](docs/training.md).
+- [Nguồn và khai báo AI](docs/AI_Usage.md), [nguồn kỹ thuật](docs/sources.md), [kiểm chứng](docs/verification.md).
+- Mỗi ô code có nguồn Markdown. Artifact mới có SOURCES.md đi kèm; các run full đã có giữ manifest lịch sử.
