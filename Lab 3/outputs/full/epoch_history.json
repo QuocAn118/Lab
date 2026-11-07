@@ -1,0 +1,65 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T12:31:31.872133+00:00",
+    "metadata_correction": "See metadata_corrections.md; stopping flag only, scores and weights unchanged."
+  },
+  "epochs": [
+    {
+      "epoch": 1.0,
+      "step": 1250,
+      "val_loss": 0.23846293985843658,
+      "val_accuracy": 0.9104,
+      "val_f1_macro": 0.9103910391039104,
+      "val_f1_binary": 0.9094949494949495,
+      "val_precision": 0.9187755102040817,
+      "val_recall": 0.9004,
+      "epoch_wall_seconds": 113.11458599999605,
+      "best_val_acc": true,
+      "best_val_loss": true,
+      "stale_evaluations": 0,
+      "early_stopped": false,
+      "early_stopping_triggered": false
+    },
+    {
+      "epoch": 2.0,
+      "step": 2500,
+      "val_loss": 0.25744903087615967,
+      "val_accuracy": 0.9132,
+      "val_f1_macro": 0.913167990247925,
+      "val_f1_binary": 0.9115008156606852,
+      "val_precision": 0.9297004991680532,
+      "val_recall": 0.894,
+      "epoch_wall_seconds": 111.24329260000377,
+      "best_val_acc": true,
+      "best_val_loss": false,
+      "stale_evaluations": 1,
+      "early_stopped": false,
+      "early_stopping_triggered": false
+    },
+    {
+      "epoch": 3.0,
+      "step": 3750,
+      "val_loss": 0.339618980884552,
+      "val_accuracy": 0.9134,
+      "val_f1_macro": 0.9133994145800426,
+      "val_f1_binary": 0.9131742530579506,
+      "val_precision": 0.9155609167671894,
+      "val_recall": 0.9108,
+      "epoch_wall_seconds": 109.95272359999944,
+      "best_val_acc": true,
+      "best_val_loss": false,
+      "stale_evaluations": 2,
+      "early_stopped": false,
+      "early_stopping_triggered": true
+    }
+  ]
+}

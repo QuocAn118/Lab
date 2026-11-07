@@ -1,0 +1,44 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T12:23:26.629474+00:00"
+  },
+  "model": "tabularisai/multilingual-sentiment-analysis",
+  "model_revision": "eea032081f8d247b4303ef3565e7cec1b6f201c9",
+  "predictions": [
+    {
+      "text": "Bộ phim này rất hay!",
+      "tokens": [
+        "Bộ",
+        "phim",
+        "này",
+        "rất",
+        "hay",
+        "!"
+      ],
+      "label": "Positive",
+      "score": 0.6520066261291504
+    },
+    {
+      "text": "The movie was boring.",
+      "tokens": [
+        "The",
+        "movie",
+        "was",
+        "bor",
+        "##ing",
+        "."
+      ],
+      "label": "Negative",
+      "score": 0.7641708254814148
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T13:03:35.459587+00:00"
+  },
+  "epochs": [
+    {
+      "epoch": 1.0,
+      "step": 2,
+      "val_loss": 0.697174072265625,
+      "val_accuracy": 0.5,
+      "val_f1_macro": 0.3333333333333333,
+      "val_f1_binary": 0.0,
+      "val_precision": 0.0,
+      "val_recall": 0.0,
+      "epoch_wall_seconds": 1.0682586999901105,
+      "best_val_acc": true,
+      "best_val_loss": true,
+      "stale_evaluations": 0,
+      "early_stopping_triggered": false,
+      "early_stopped": false
+    }
+  ]
+}
