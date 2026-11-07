@@ -16,8 +16,6 @@ Các hàm trong bảng thuộc `lab3.py`.
 
 ## Phạm vi notebook rút gọn
 
-Bổ sung Exercise 1 ngày 2026-11-07: nguồn `08_implementation.md` phần bổ sung Exercise 1 và `07_demo.md` §1; triển khai ô `lab3-exercise-0` trong notebook; 10 câu Việt/Anh, bảng kỳ vọng/dự đoán/score, gộp nhãn chỉ khi đối chiếu. Hướng dẫn nhận xét tại `huong_dan_trinh_bay.md`. Kiểm tra JSON và giữ nguyên bảy ô Exercise 2; chưa chạy suy luận mới do Python cục bộ không khả dụng. Output cũ của riêng ô Exercise 1 đã xóa, không sử dụng làm bằng chứng cho nội dung bổ sung.
-
 Theo `08_implementation.md` §6, notebook có một ô Exercise 1 độc lập và bảy ô Step 1–7 cho Exercise 2, theo thứ tự notebook kế thừa ở commit `755af75`. Giữ train/validation/test độc lập, model tốt nhất và nguồn Markdown. Chính sách 5 checkpoint, audit và benchmark chi tiết thuộc pipeline CLI đã có; không lặp lại trong nội dung notebook đơn giản.
 
 ## File do AI tạo/sửa trong lần này

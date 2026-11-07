@@ -34,15 +34,6 @@ Notebook có tám ô code: một ô Exercise 1 và bảy ô cho Exercise 2. Chư
 
 ## 4. Giải thích bảy bước Exercise 2
 
-### Phần bổ sung Exercise 1: đối chiếu 10 câu
-
-Ô Exercise 1 hiện thử năm cặp Việt/Anh: tích cực, tiêu cực, trung tính, phủ định và cảm xúc trái chiều. Chạy riêng ô đầu để hiển thị token câu đầu và bảng nhóm thử, câu, kỳ vọng chủ quan, nhãn dự đoán, score, đối chiếu. Không cần chạy Exercise 2.
-
-Kỳ vọng Positive/Negative/Neutral do người viết ví dụ đặt, không phải nhãn dataset chuẩn. Very Positive và Very Negative được gộp khi đối chiếu nhưng bảng vẫn giữ nhãn model gốc. Câu trái chiều không gán một đáp án duy nhất. Mười câu không đủ để kết luận accuracy hay chất lượng đa ngôn ngữ.
-
-Khi trình bày: giải thích pretrained là dùng trọng số có sẵn; pipeline gồm tiền xử lý, model và xử lý đầu ra; tokenizer chuyển văn bản thành token IDs. So sánh từng cặp ngôn ngữ, quan sát câu phủ định và chọn trường hợp khác kỳ vọng để nhận xét. Score cao vẫn có thể sai; chưa chạy thì không điền kết quả hoặc khẳng định model xử lý đúng các trường hợp này.
-
-
 | Bước | Code làm gì? | Giải thích khi trình bày |
 | --- | --- | --- |
 | 1. Chuẩn bị thư viện | Import thư viện, đặt seed 42 và kiểm tra CUDA | Chuẩn bị công cụ xử lý dữ liệu, model và huấn luyện. Seed giúp tái lập; không bảo đảm mọi phần cứng cho kết quả giống hệt. |

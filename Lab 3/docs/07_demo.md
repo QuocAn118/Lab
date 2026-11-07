@@ -12,9 +12,6 @@ Trả token, nhãn và score model năm lớp. Mỗi lần lưu cần output m�
 
 ## 2. Module B: nạp checkpoint fine-tune
 
-Notebook Exercise 1 có thêm 10 câu theo năm cặp Việt/Anh để khảo sát tích cực, tiêu cực, trung tính, phủ định và cảm xúc trái chiều. Chạy riêng ô đầu; bảng kết quả được sinh từ model thật khi thực thi. Nhãn kỳ vọng chỉ là đối chiếu chủ quan; câu trái chiều để mở. Không tính accuracy từ bộ ví dụ này. Hợp đồng chi tiết: [08_implementation.md](08_implementation.md), phần bổ sung Exercise 1 ngày 2026-11-07.
-
-
 ```powershell
 & 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best'
 & 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best' --text 'I loved this movie.'
