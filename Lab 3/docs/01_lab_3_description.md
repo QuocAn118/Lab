@@ -1,68 +1,49 @@
-# Module 03 — Transformers Fine-Tuning & Sentiment Analysis Specification
+# Lab 3 — Phân tích cảm xúc với Transformers
 
-## 1. Project Overview & Objectives
-- **Domain**: Natural Language Processing (NLP) / Text Classification.
-- **Frameworks**: Hugging Face Ecosystem (`transformers`, `datasets`, `evaluate`, `accelerate`) & PyTorch.
-- **Core Deliverables**:
-  - **Module A (Inference Pipeline)**: End-to-end sentiment analysis inference pipeline leveraging pre-trained transformer checkpoints.
-  - **Module B (Fine-Tuning Architecture)**: Domain adaptation & fine-tuning of `distilbert-base-uncased` for binary sentiment classification on the IMDB benchmark.
+## 1. Bài toán
 
----
+Bài này dùng mô hình Transformer để xác định cảm xúc của một đoạn văn bản. Có hai phần: dùng model đã huấn luyện sẵn để dự đoán, sau đó fine-tune DistilBERT trên dữ liệu đánh giá phim IMDB.
 
-## 2. Engineering Methodology (Spec-Driven Development)
+## 2. Nội dung thực hiện
 
-Mô hình triển khai kiểm thử nghiêm ngặt theo tiêu chuẩn kỹ nghệ phần mềm máy học (MLOps Lifecycle):
+**Exercise 1 — Dùng model có sẵn**
 
-```mermaid
-flowchart LR
-    Spec["1. Specification\n(docs/*.md)"] --> Gen["2. Implementation\n(Code Synthesis)"]
-    Gen --> Smoke["3. Smoke Test\n(Dry Run 1-2 Batches)"]
-    Smoke --> Run["4. Execution\n(Full Training Run)"]
-    Run --> Check["5. Verification\n(Metric Validation)"]
-```
+Nạp model `tabularisai/multilingual-sentiment-analysis`, nhập một câu, xem các token và kết quả dự đoán. Model trả về nhãn cảm xúc cùng score. Phần này chỉ chạy suy luận, không cập nhật trọng số.
 
-1. **Specification**: Định nghĩa chi tiết hợp đồng dữ liệu, tham số mô hình và tiêu chí nghiệm thu trước khi viết mã nguồn.
-2. **Implementation**: Triển khai logic theo đúng kiến trúc đã thiết kế.
-3. **Smoke Test**: Kiểm tra luồng tính toán với mini-batch ($1 \sim 2$ batches) để xác thực tính toàn vẹn của tensor shapes, gradient computation và giới hạn bộ nhớ VRAM.
-4. **Execution**: Huấn luyện đầy đủ trên toàn bộ dữ liệu.
-5. **Verification**: Đối chiếu kết quả nghiệm thu với mục tiêu chất lượng ban đầu.
+**Exercise 2 — Fine-tune DistilBERT**
 
----
+1. Chuẩn bị thư viện và đặt seed 42.
+2. Tải IMDB, chia train thành 20.000 mẫu train và 5.000 mẫu validation; giữ 25.000 mẫu test riêng.
+3. Nạp `distilbert-base-uncased` với hai nhãn: `0 = NEGATIVE`, `1 = POSITIVE`.
+4. Tokenize văn bản, cắt ở 256 token và padding theo batch.
+5. Đặt batch size 16, learning rate 2e-5, tối đa 3 epochs, optimizer AdamW và weight decay 0.01.
+6. Huấn luyện, đánh giá validation sau mỗi epoch và lưu model có validation accuracy tốt nhất. Early stopping dùng patience 2 và ngưỡng cải thiện 0.01.
+7. Đánh giá tập test bằng accuracy, precision, recall, binary F1, macro F1; xem confusion matrix, loss curve và thử dự đoán câu mới.
 
-## 3. Key Performance Indicators (KPIs & Metrics)
+Validation dùng để chọn model. Test chỉ dùng để đánh giá cuối, không dùng để chỉnh tham số hoặc chọn checkpoint.
 
-Toàn bộ quá trình thực nghiệm phải được đo lường và định lượng theo 3 chiều:
+## 3. Kết quả cần lưu
 
-1. **Model Accuracy & Quality**:
-   - Validation & Test Accuracy: Target $\ge 85.0\%$.
-   - F1-Score (Macro / Binary) & Precision / Recall balance.
-2. **Computational Latency (Time Processing)**:
-   - Training Throughput: Thời gian hoàn tất mỗi epoch (`seconds/epoch`).
-   - Inference Latency: Thời gian phản hồi cho mỗi mẫu văn bản (`milliseconds/sample`).
-3. **Resource Footprint**:
-   - Peak GPU VRAM Allocation: Giám sát bằng `torch.cuda.max_memory_allocated()`.
-   - Host System RAM Utilization: Đảm bảo khả năng mở rộng trong môi trường hạn chế tài nguyên.
+- Model và tokenizer để nạp lại khi dự đoán.
+- Kết quả đánh giá và biểu đồ loss/confusion matrix.
+- Thời gian bắt đầu, kết thúc và tổng thời lượng của mỗi lần train.
+- Thời lượng từng epoch và thông tin thời gian đi kèm checkpoint.
 
----
+Notebook chỉ gồm các ô code. Nếu checkpoint đã có, mặc định nạp model để đánh giá; đặt `TRAIN=True` để huấn luyện mới. Nạp model hoặc chạy test không được tính là một lần train mới.
 
-## 4. Checkpoint Policy & Early Stopping Management
+## 4. Checkpoint và thời gian
 
-Hệ thống huấn luyện tự động lưu trữ và quản lý các mốc trọng số theo quy chuẩn:
+Trong notebook, Trainer lưu checkpoint theo epoch và giữ tối đa hai checkpoint. Model tốt nhất được lưu thêm tại `outputs/simple-training/<run>/best`.
 
-| Checkpoint Identifier | Path | Trigger Condition & Description |
-| :--- | :--- | :--- |
-| **`final_epoch`** | `checkpoints/final_epoch/` | Trọng số mô hình ở epoch cuối cùng của chu trình huấn luyện. |
-| **`best_val_loss`** | `checkpoints/best_val_loss/` | Trọng số đạt giá trị hàm mất mát nhỏ nhất trên tập kiểm định. |
-| **`best_val_acc`** | `checkpoints/best_val_acc/` | Trọng số đạt độ chính xác phân loại cao nhất trên tập kiểm định. |
-| **`best_val_pause`** | `EarlyStopping(patience=2)` | **Early Stopping Policy**: Tự động ngắt huấn luyện nếu tỷ lệ cải thiện metric sau $N$ epochs dưới ngưỡng $0\% \sim 2\%$ để chống Overfitting và tối ưu chi phí tính toán. |
-| **`best`** | `checkpoints/best/` | Checkpoint tối ưu tổng thể được lựa chọn để đóng gói release và phục vụ suy luận thực tế (Production Deployment). |
+Mỗi run có `training_time.json`. Mỗi checkpoint cũng có file này để tra epoch, bước cập nhật, thời điểm lưu và số giây đã train. File tổng kết chứa thời lượng toàn bộ lượt train và các epoch đã chạy. Cách đo cụ thể nằm trong [04_training.md §6](04_training.md).
 
-## 5. Hợp đồng triển khai và truy nguồn
+Chương trình `lab3.py` có cách lưu chi tiết hơn gồm `final_epoch`, `best_val_loss`, `best_val_acc`, `best_val_pause` và `best`. Phần mở rộng này được tách khỏi code notebook để bài dễ theo dõi.
 
-Các lựa chọn cụ thể, mã R-01–R-09, chế độ smoke/quick/full và cách đo được chốt tại [08_implementation.md](08_implementation.md). `best_val_pause` là checkpoint thực tại lần validation cuối; chỉ báo early stopping khi cờ tương ứng là true. Đích suy luận trong phạm vi bài là CLI/notebook.
+Với kết quả cũ thiếu log thời gian, chỉ sử dụng số đã ghi trong báo cáo; mốc bắt đầu hoặc kết thúc chưa lưu thì để trống. Không lấy ngày sửa file làm thời điểm huấn luyện.
 
 ## Nguồn và phạm vi
 
-- Mục 1–4 kế thừa đặc tả trước lần triển khai 2026-11-06. Các KPI được sử dụng làm mục tiêu kỹ thuật trong phạm vi dự án.
-- [10_sources.md](10_sources.md): nguồn API/model/dataset chính thức.
-- [11_AI_Usage.md](11_AI_Usage.md): yêu cầu khai nguồn; [08_implementation.md](08_implementation.md): quyết định bổ sung.
+- [02_data.md](02_data.md), [03_model.md](03_model.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md): dữ liệu, mô hình, tham số và cách đánh giá.
+- [08_implementation.md](08_implementation.md): cấu trúc một ô Exercise 1 và bảy bước Exercise 2.
+- [10_sources.md](10_sources.md): tài liệu chính thức của thư viện, model và dataset.
+- [11_AI_Usage.md](11_AI_Usage.md): quy tắc khai nguồn và phạm vi hỗ trợ AI.

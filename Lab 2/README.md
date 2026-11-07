@@ -4,7 +4,7 @@ Thư mục dự án huấn luyện mạng sâu và học chuyển giao (Transfer
 
 ## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
 1. **[`docs/lab_2_description.md`](./docs/lab_2_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý Checkpoints.
-2. **[`docs/data.md`](./docs/data.md)**: Hợp đồng dữ liệu CIFAR-10, Data Augmentation, DataLoaders.
+2. **[`docs/data.md`](./docs/data.md)**:  dữ liệu CIFAR-10, Data Augmentation, DataLoaders.
 3. **[`docs/model.md`](./docs/model.md)**: Kiến trúc Backbone Pre-trained (ResNet/VGG/DenseNet) và chiến lược Transfer Learning.
 4. **[`docs/training.md`](./docs/training.md)**: Cấu hình AdamW, LR Scheduler, Batch Normalization, Dropout, smoke test.
 5. **[`docs/evaluation.md`](./docs/evaluation.md)**: Báo cáo định lượng hệ thống (Accuracy, Loss, thời gian & tài nguyên).

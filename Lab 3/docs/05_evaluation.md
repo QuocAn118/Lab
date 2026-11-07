@@ -1,6 +1,6 @@
 # Đánh giá và tiêu chí nghiệm thu — Lab 3
 
-## 1. Hợp đồng đo lường
+## 1. Đo lường
 
 Đánh giá `best_val_acc` trên validation và test sau khi nạp từ đĩa. Chỉ validation dùng chọn checkpoint/early stopping. Lưu test accuracy, precision, recall, binary F1 (POSITIVE), macro F1 (trung bình hai lớp), confusion matrix và dự đoán từng mẫu.
 

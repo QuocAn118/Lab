@@ -14,7 +14,7 @@
 ## 3. Kiến Trúc Khảo Sát Bổ Sung (Nghiên Cứu Mở Rộng)
 - So sánh hiệu năng và tốc độ giữa Transformer (`DistilBERT`) với các mô hình CNN truyền thống khi xử lý dữ liệu phân loại.
 
-## 4. Hợp đồng triển khai
+## 4. Triển khai
 
 - Module A giữ model Exercise 1 của notebook cũ: `tabularisai/multilingual-sentiment-analysis`, năm nhãn; trả token, label, score. Không đánh giá model này bằng nhãn IMDB nhị phân.
 - Module B: `distilbert/distilbert-base-uncased` (ID đầy đủ của backbone cũ), fine-tune toàn bộ tham số, head 2 lớp, `0=NEGATIVE`, `1=POSITIVE`. Softmax dùng khi suy luận; train nhận logits tính cross entropy.

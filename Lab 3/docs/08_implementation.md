@@ -1,4 +1,4 @@
-# Thiết kế triển khai và hợp đồng chạy — Lab 3
+# Thiết kế triển khai và  chạy — Lab 3
 
 ## 1. Yêu cầu và quyết định đã chốt
 
@@ -32,7 +32,7 @@ Callback đánh giá theo epoch; nếu accuracy tốt hơn trước bất kỳ m
 
 - `lab3.py`: CLI `infer`, `train`, `demo`, `audit`; cấu hình, dữ liệu, metrics, callback, đo và báo cáo.
 - `test.py`: unittest offline, model DistilBERT rất nhỏ khởi tạo ngẫu nhiên **chỉ dùng test**, kiểm gradient, checkpoint và nạp lại. Không thay thế smoke pretrained.
-- `Lab_3 (1).ipynb`: bản thực hành rút gọn theo yêu cầu hiện tại, chỉ dùng API thư viện trực tiếp, không import `lab3.py`, không định nghĩa class hoặc kiểm tra AST/hash trong luồng chính. Đọc hợp đồng riêng của notebook tại §6.
+- `Lab_3 (1).ipynb`: bản thực hành rút gọn, dùng API thư viện trực tiếp, không import `lab3.py` hoặc kiểm tra AST/hash trong luồng chính. Callback ghi thời gian được giới hạn ở việc lưu metadata. Đọc  riêng tại §6.
 - `requirements.txt`: phiên bản môi trường chạy; `requirements-lock.txt` ghi freeze môi trường đã kiểm chứng.
 - `outputs/`: run artifacts, không đưa trọng số nhiều GB vào Git; nguồn/hash qua `artifacts.md` và `provenance.json`.
 
@@ -54,7 +54,7 @@ Exercise 1 có một ô code riêng, tự import thư viện để chạy độc
 6. Định nghĩa metrics, tạo Trainer và huấn luyện; nếu đã có checkpoint thì nạp để đánh giá theo công tắc TRAIN.
 7. Đánh giá test, confusion matrix, loss curve và demo từ checkpoint.
 
-Đây là cấu trúc trình bày theo notebook kế thừa, chưa xác minh độc lập nguồn gốc tác giả. Giữ tham số và phạm vi dữ liệu đã chốt; không mặc định khôi phục cấu hình lấy mẫu nhỏ của bản cũ. Chỉ giữ một hàm tokenize và một hàm compute_metrics; dùng `EarlyStoppingCallback` có sẵn, không có lớp callback tự viết.
+Đây là cấu trúc trình bày theo notebook kế thừa, chưa xác minh độc lập nguồn gốc tác giả. Giữ tham số và phạm vi dữ liệu đã chốt; không mặc định khôi phục cấu hình lấy mẫu nhỏ của bản cũ. Giữ hàm tokenize và compute_metrics ngắn; dùng `EarlyStoppingCallback` có sẵn. Một callback nhỏ chỉ ghi thời gian mỗi epoch/checkpoint theo [04_training.md §6](04_training.md), không thay đổi thuật toán train hoặc chính sách chọn model.
 
 Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn vẫn được ghi bằng comment `Sources:` ở từng ô và metadata; đầu ra thực nghiệm được giữ nguyên.
 

@@ -11,5 +11,5 @@
 ## Nguồn và phạm vi
 
 - [docs/11_AI_Usage.md](docs/11_AI_Usage.md): yêu cầu dự án và quy tắc truy nguồn.
-- [docs/08_implementation.md](docs/08_implementation.md), [docs/06_verification.md](docs/06_verification.md): hợp đồng và kiểm chứng.
+- [docs/08_implementation.md](docs/08_implementation.md), [docs/06_verification.md](docs/06_verification.md):  và kiểm chứng.
 - Áp dụng thư mục Lab 3 và phần notebook Lab 3 khi chỉnh sửa liên quan.

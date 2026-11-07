@@ -185,6 +185,11 @@ class CheckpointCallback(TrainerCallback):
         self.epoch_start = None
         self.peak_rss = 0
         self.early_stopped = False
+        self.training_start = None
+        self.training_started_at = None
+        self.training_duration = None
+        self.current_epoch = None
+        self.current_step = None
 
     def sample_resources(self):
         self.peak_rss = max(self.peak_rss, psutil.Process().memory_info().rss)
@@ -193,6 +198,24 @@ class CheckpointCallback(TrainerCallback):
         destination = self.output / "checkpoints" / name
         model.save_pretrained(destination, safe_serialization=True)
         self.tokenizer.save_pretrained(destination)
+        write_json(destination / "training_time.json", {
+            "scope": "checkpoint", "checkpoint": name,
+            "epoch": self.current_epoch, "step": self.current_step,
+            "started_at": self.training_started_at, "saved_at": utc_now(),
+            "elapsed_train_seconds": self.training_duration if self.training_duration is not None
+                else (time.perf_counter() - self.training_start) if self.training_start is not None else None,
+            "epoch_seconds": self.history[-1]["epoch_wall_seconds"]
+                if self.training_duration is not None and self.history
+                else (time.perf_counter() - self.epoch_start) if self.epoch_start is not None else None})
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        if self.training_start is None:
+            self.training_start = time.perf_counter()
+            self.training_started_at = utc_now()
+
+    def on_train_end(self, args, state, control, **kwargs):
+        if self.training_start is not None:
+            self.training_duration = time.perf_counter() - self.training_start
 
     def on_epoch_begin(self, args, state, control, **kwargs):
         self.epoch_start = time.perf_counter()
@@ -215,6 +238,8 @@ class CheckpointCallback(TrainerCallback):
         if metrics is None or "eval_accuracy" not in metrics:
             return control
         acc, loss = float(metrics["eval_accuracy"]), float(metrics["eval_loss"])
+        self.current_epoch = float(state.epoch)
+        self.current_step = state.global_step
         improved_acc, improved_loss, stop = self.policy.observe(acc, loss)
         if improved_acc:
             self.save(model, "best_val_acc")
@@ -452,12 +477,31 @@ def train_run(config, output):
     print("RUN " + json.dumps({"config": asdict(config), "splits": splits,
                                  "environment": env}), flush=True)
     start = time.perf_counter()
-    training = trainer.train()
-    train_seconds = time.perf_counter() - start
+    callback.training_start, callback.training_started_at = start, utc_now()
+    completed = False
+    try:
+        training = trainer.train()
+        completed = True
+    finally:
+        train_seconds = time.perf_counter() - start
+        callback.training_duration = train_seconds
+        training_ended_at = utc_now()
+        write_json(output / "training_time.json", {
+            "scope": "run", "status": "completed" if completed else "interrupted_or_failed",
+            "started_at": callback.training_started_at, "ended_at": training_ended_at,
+            "total_train_seconds": train_seconds, "epochs": callback.history,
+            "note": "Elapsed wall time for trainer.train(), before final model export/test."})
     if not callback.history or not callback.gradient_norms or not any(n > 0 for n in callback.gradient_norms):
         raise RuntimeError("No validation or finite nonzero gradient evidence")
     callback.save(trainer.model, "final_epoch")
     shutil.copytree(output / "checkpoints/best_val_acc", output / "checkpoints/best")
+    for checkpoint in (output / "checkpoints").iterdir():
+        timing_path = checkpoint / "training_time.json"
+        timing_data = json.loads(timing_path.read_text(encoding="utf-8"))
+        timing_data.pop("_provenance", None)
+        timing_data.update(checkpoint=checkpoint.name, total_train_seconds=train_seconds,
+                           training_ended_at=training_ended_at)
+        write_json(timing_path, timing_data)
     write_json(output / "checkpoint_policy.json", {"policy": asdict(callback.policy),
                "early_stopped": callback.early_stopped, "best_source": "best_val_acc",
                "early_stopping_triggered": callback.policy.stale >= callback.policy.patience,

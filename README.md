@@ -43,8 +43,8 @@ Lab/
 
 Mỗi module thực nghiệm được kiểm chứng theo quy trình 5 bước nghiêm ngặt:
 
-1. **Specification (`docs/`)**: Soạn thảo hợp đồng dữ liệu, kiến trúc mô hình, siêu tham số và chỉ số KPIs trước khi lập trình.
-2. **Implementation**: Triển khai mã nguồn đáp ứng đúng hợp đồng đặc tả.
+1. **Specification (`docs/`)**: Soạn thảo  dữ liệu, kiến trúc mô hình, siêu tham số và chỉ số KPIs trước khi lập trình.
+2. **Implementation**: Triển khai mã nguồn đáp ứng đúng  đặc tả.
 3. **Smoke Test**: Chạy thử mồi với mini-batch ($1 \sim 2$ batches) để xác thực tính toàn vẹn của tensor shapes, gradient computation và giới hạn VRAM.
 4. **Execution (Full Run)**: Huấn luyện đầy đủ trên toàn bộ dữ liệu, tự động lưu 5 mốc Checkpoints.
 5. **Verification**: Đo lường định lượng các chỉ số Performance (Accuracy, Throughput, Latency, Memory) và đối chiếu với tiêu chí nghiệm thu.
@@ -58,7 +58,7 @@ Trong mỗi thư mục `Lab 1`, `Lab 2`, `Lab 3`, hệ thống tài liệu đặ
 | File Đặc Tả | Phạm Vi & Vai Trò Trong Hệ Thống |
 | :--- | :--- |
 | **`lab_{số}_description.md`** | Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs (Accuracy, Time, Resource) và chính sách quản lý 5 Checkpoints |
-| **`data.md`** | Hợp đồng dữ liệu: Nguồn dataset, kích thước, phân vùng train/val/test, tiền xử lý (Tokenizer/Transforms) |
+| **`data.md`** |  dữ liệu: Nguồn dataset, kích thước, phân vùng train/val/test, tiền xử lý (Tokenizer/Transforms) |
 | **`model.md`** | Kiến trúc mô hình: Lựa chọn backbone, số lượng tham số, thiết kế classification head |
 | **`training.md`** | Cấu hình huấn luyện: Hyperparameters, Optimizers, Loss function, quy trình Smoke Test & Early Stopping |
 | **`evaluation.md`** | Báo cáo định lượng hệ thống: Accuracy, F1, Loss, thời gian huấn luyện, độ trễ suy luận và VRAM/RAM |

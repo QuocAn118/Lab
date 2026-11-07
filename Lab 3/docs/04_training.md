@@ -37,9 +37,17 @@ Early stopping dùng ngưỡng accuracy tuyệt đối > .01 (1 điểm phần t
 
 Notebook dùng `Trainer` và `EarlyStoppingCallback` trực tiếp. Cấu hình huấn luyện chính giữ nguyên; Trainer lưu tối đa 2 checkpoint theo epoch, nạp model có validation accuracy tốt nhất và lưu bản suy luận tại `outputs/simple-training/<run>/best`. Không dùng callback tùy biến của pipeline CLI. Nếu đã có model full, notebook mặc định nạp model để đánh giá; bật `TRAIN=True` để huấn luyện mới. Chi tiết tại [08_implementation.md §6](08_implementation.md).
 
+## 6. Ghi thời gian huấn luyện
+
+Mỗi lượt train mới lưu `training_time.json` trong thư mục run: thời điểm bắt đầu/kết thúc có múi giờ, tổng số giây và trạng thái hoàn tất hoặc gián đoạn. Dùng `time.perf_counter()` đo thời lượng; thời gian tải dữ liệu/model trước `trainer.train()` không tính vào tổng này.
+
+Mỗi checkpoint lưu thêm `training_time.json`, ghi epoch, bước cập nhật, thời điểm lưu, thời lượng epoch và số giây đã train tới lúc lưu. Thời lượng epoch tính từ đầu epoch tới khi lưu checkpoint, gồm validation và ghi trọng số. Callback nhỏ trong notebook chỉ ghi thời gian; early stopping vẫn dùng thư viện. `best` có bản tổng kết của run và đường dẫn checkpoint được chọn. Tệp tổng kết giữ thời lượng mọi epoch đã chạy, kể cả checkpoint bị xoay vòng bởi `save_total_limit=2`.
+
+Nếu chỉ nạp checkpoint để đánh giá thì đọc thời gian đã lưu, không tạo một thời lượng train mới. Với run cũ mất log gốc, chỉ bổ sung thời lượng đã ghi rõ trong [06_verification.md](06_verification.md), đánh dấu là khôi phục từ báo cáo; không suy ra thời điểm train từ ngày sửa file.
+
 ## Nguồn và phạm vi
 
 - Mục 1–3: đặc tả có sẵn; mục 4 là quyết định triển khai và ghi rõ khác biệt.
 - [10_sources.md S-01–S-02](10_sources.md): Trainer/callback API.
-- [11_AI_Usage.md](11_AI_Usage.md), [08_implementation.md](08_implementation.md): khai nguồn và hợp đồng kiểm thử.
+- [11_AI_Usage.md](11_AI_Usage.md), [08_implementation.md](08_implementation.md): khai nguồn và  kiểm thử.
 
