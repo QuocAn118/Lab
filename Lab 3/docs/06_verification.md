@@ -95,6 +95,12 @@ Description được viết lại bằng các việc thực hiện trong hai exe
 - Full run cũ được bổ sung training_time.json từ số đã ghi trong tài liệu này: tổng 334.46 giây, các epoch 113.11 / 111.24 / 109.95 giây. Status recovered_from_documentation; started_at/ended_at/saved_at chưa có bằng chứng nên null. Xem [nguồn khôi phục](../outputs/full/timing_sources.md).
 - Bản sao hiện tại không có metrics.json, epoch_history.json, trainer_history.json, report.md và provenance.json của full run cũ. best_val_pause hiện chỉ có config.json. Các dòng PASS lịch sử bên trên mô tả lần kiểm chứng trước, không xác nhận các tệp đó còn đầy đủ ở bản sao hiện tại.
 
+## 5.4. Rút gọn phần trình bày notebook
+
+Notebook giảm từ 171 xuống 98 dòng code, vẫn giữ 8 ô (Exercise 1 và 7 bước Exercise 2). Ô Step 6 giảm từ 72 xuống 19 dòng. Phần ghi thời gian, train/lưu checkpoint và đọc/vẽ loss nằm trong `notebook_helpers.py`; dữ liệu, model, metrics và cấu hình Trainer vẫn ở notebook.
+
+Đã kiểm chứng hai lượt train nhỏ tách biệt có đủ log epoch/checkpoint/best, nạp lại model thành công và không trùng thư mục run. Khi gây lỗi giữa lượt train, tổng kết vẫn được ghi và callback thời gian được gỡ. Kiểm tra đọc loss có/không có log đều đạt. Notebook đã chạy lại đủ 8 ô, test accuracy .91012 và macro F1 .9101182914; không full train lại hoặc thay trọng số model full.
+
 ## 6. Giới hạn
 
 Lần sắp xếp docs ngày 2026-11-06: 10 kiểm thử offline PASS; audit nguồn PASS cho 20 file và 8 ô notebook; kiểm hash 45 artifact full PASS. Kiểm tra schema, cú pháp và 95 liên kết nội bộ PASS. Đối chiếu với revision trước xác nhận notebook giữ nguyên output và mã tính toán; CLI chỉ đổi tham chiếu tài liệu. Không chạy thêm full training hoặc smoke mới cho lần đổi tên tài liệu.

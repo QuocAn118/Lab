@@ -45,6 +45,8 @@ Mỗi checkpoint lưu thêm `training_time.json`, ghi epoch, bước cập nhậ
 
 Nếu chỉ nạp checkpoint để đánh giá thì đọc thời gian đã lưu, không tạo một thời lượng train mới. Với run cũ mất log gốc, chỉ bổ sung thời lượng đã ghi rõ trong [06_verification.md](06_verification.md), đánh dấu là khôi phục từ báo cáo; không suy ra thời điểm train từ ngày sửa file.
 
+Các tiện ích nằm trong `notebook_helpers.py`; notebook gọi `train_and_save`, `show_training_time` và `plot_loss`. Mỗi lần train có thư mục mới, vẫn ghi thời gian khi bị lỗi hoặc ngắt. Giữ tệp hỗ trợ trong thư mục `Lab 3/` khi sao chép notebook.
+
 ## Nguồn và phạm vi
 
 - Mục 1–3: đặc tả có sẵn; mục 4 là quyết định triển khai và ghi rõ khác biệt.

@@ -26,7 +26,7 @@ Tên cũ trong bảng chỉ dùng đối chiếu các bản lưu lịch sử. Ar
 
 Lab 3 thực hiện phân tích cảm xúc văn bản bằng Transformers. Exercise 1 dùng một model đã huấn luyện sẵn để dự đoán cảm xúc. Exercise 2 fine-tune DistilBERT trên các đánh giá phim tiếng Anh của IMDB để phân loại NEGATIVE hoặc POSITIVE, sau đó đánh giá trên tập test riêng.
 
-Notebook có tám ô code: một ô Exercise 1 và bảy ô cho Exercise 2. Chương trình `lab3.py` cung cấp thêm CLI, benchmark và quản lý artifact; phạm vi của nó rộng hơn phần trình bày trong notebook.
+Notebook có tám ô code: một ô Exercise 1 và bảy ô cho Exercise 2. Nội dung chính hiện có 98 dòng; phần ghi thời gian/lưu model/vẽ loss được chuyển sang `notebook_helpers.py`. Chương trình `lab3.py` cung cấp thêm CLI, benchmark và quản lý artifact; phạm vi của nó rộng hơn phần trình bày trong notebook.
 
 ## 3. Giải thích Exercise 1
 

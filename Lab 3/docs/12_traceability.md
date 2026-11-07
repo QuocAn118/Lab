@@ -10,7 +10,7 @@
 | R-06 Checkpoint/stop | `08_implementation.md` §3 | `StopPolicy`, `CheckpointCallback` | Ngưỡng/tie/NaN; checkpoint nạp được |
 | R-07 Metrics/resources | `05_evaluation.md` §1–2 | `compute_metrics`, `measure_latency`, `plot_results` | Known-label metrics; báo cáo cùng run |
 | R-08 Demo | `07_demo.md` §2–3 | `load_demo` | Save/reload safetensors; CLI demo |
-| R-10 Thời gian train/checkpoint | `04_training.md` §6 | Notebook `TrainingTime`, `save_training_time`; CLI `CheckpointCallback`, `train_run` | Hai lượt train riêng, đủ 3 epoch, lỗi giữa lượt; 5 checkpoint CLI có thời gian |
+| R-10 Thời gian train/checkpoint | `04_training.md` §6 | `notebook_helpers.py`: `TrainingTime`, `train_and_save`; CLI `CheckpointCallback`, `train_run` | Hai lượt train riêng, đủ 3 epoch, lỗi giữa lượt; 5 checkpoint CLI có thời gian |
 | R-09 Nguồn MD | `11_AI_Usage.md` §2 | `record_provenance`, `audit_sources` | CLI audit; artifact hash |
 
 Các hàm trong bảng thuộc `lab3.py`.
@@ -28,6 +28,7 @@ Theo `08_implementation.md` §6, notebook có một ô Exercise 1 độc lập v
 | --- | --- | --- |
 | `docs/huong_dan_trinh_bay.md` | `08_implementation.md` §6–7; `06_verification.md`; đặc tả dữ liệu/model/training/evaluation | Thứ tự đọc 01–12, bảng tên cũ/tên mới và giải thích bảy bước; bám đặc tả hiện có |
 | `lab3.py` | `08_implementation.md` và bảng trên | Code chính |
+| `notebook_helpers.py` | `08_implementation.md` §6; `04_training.md` §6; `05_evaluation.md` | Tách phần ghi thời gian/lưu model/vẽ loss khỏi notebook, giữ hành vi |
 | `test.py` | `08_implementation.md` §4; `06_verification.md` | Test offline |
 | `requirements.txt`, `requirements-lock.txt`, `.gitignore` | `08_implementation.md` §4; `10_sources.md` | Môi trường/phạm vi gói nộp |
 | `README.md` | `01_lab_3_description.md`, `08_implementation.md`, `06_verification.md` | Chạy và bàn giao |

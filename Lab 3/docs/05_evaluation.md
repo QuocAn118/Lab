@@ -26,6 +26,12 @@
 
 Xem [06_verification.md](06_verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.
 
+## 3. Báo cáo theo từng lượt chạy
+
+Mỗi lần chạy được ghi riêng trong `report/<run-id>/`. File log console, cấu hình, lịch sử train, thời gian, kết quả test, dự đoán từng mẫu và ảnh được tách theo tên tại [08_implementation.md §9](08_implementation.md). Dùng `summary.md` để đọc nhanh, `manifest.json` để kiểm hash. Không chép score smoke thành kết quả full và không coi đánh giá checkpoint có sẵn là train mới.
+
+Các file được nhập từ output cũ có bản kê nguồn/hash. Phần full mất log chỉ có dữ liệu còn giữ hoặc số đã báo cáo; danh sách thiếu được ghi rõ. Report mới ghi stdout/stderr trong phạm vi train/đánh giá, không khẳng định đã thu được console trước khi thao tác bắt đầu.
+
 ## Nguồn và phạm vi
 
 - Tiêu chí nghiệm thu kế thừa [01_lab_3_description.md](01_lab_3_description.md) và đặc tả đánh giá hiện có trong dự án.

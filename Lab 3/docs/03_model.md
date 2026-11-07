@@ -78,6 +78,7 @@ Kiến trúc đối chiếu [config.json của best](../outputs/full/checkpoints
 ### 3.4. Source file — file mã nguồn
 
 - [Lab_3 (1).ipynb](../../Lab_3%20%281%29.ipynb): nguồn thực hành chính; Exercise 2 Step 3 nạp model/tokenizer, Step 4 tokenize, Step 5–6 cấu hình và train, Step 7 đánh giá/demo.
+- [notebook_helpers.py](../notebook_helpers.py): phần hỗ trợ ghi thời gian, train/lưu model và vẽ loss; không đổi kiến trúc hoặc tham số huấn luyện.
 - [lab3.py](../lab3.py): pipeline CLI bổ sung; `train_run` tạo model/Trainer, `load_demo` nạp model đã lưu.
 - [04_training.md](04_training.md): cấu hình train và cách ghi thời gian.
 - [10_sources.md](10_sources.md): nguồn API, pretrained model và dataset.
