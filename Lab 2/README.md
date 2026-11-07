@@ -5,6 +5,43 @@ Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR
 - **Exercise 2**: Điều chỉnh learning rate và batch size.
 - **Exercise 3**: Theo dõi quá trình huấn luyện bằng TensorBoard.
 
+> **Trạng thái**: Chưa có code. 5 thành viên tự tạo `src/lab_2/` và `notebooks/Lab_2_colab.ipynb` theo đặc tả trong `docs/`. Bài chưa chạy được cho đến khi các phần được viết xong.
+
+## Phân Công
+
+| Thành viên | Tạo file | Đặc tả từng hàm | Kiểm tra |
+| :---: | :--- | :--- | :--- |
+| **TV1** | `src/lab_2/data.py` | `docs/data.md` mục 5 | `tests/test_data.py` |
+| **TV2** | `src/lab_2/model.py` | `docs/model.md` mục 7 | `tests/test_model.py` |
+| **TV3** | `src/lab_2/training.py` | `docs/training.md` mục 8 | `tests/test_training.py`, `tests/test_smoke.py` |
+| **TV4** | `src/lab_2/evaluation.py` | `docs/evaluation.md` mục 8 | `tests/test_evaluation.py` |
+| **TV5** | `src/lab_2/common.py`, `src/lab_2/demo.py`, `notebooks/Lab_2_colab.ipynb` | `docs/lab_2_description.md` mục 9, `docs/demo.md` mục 4 | `tests/test_common.py`, `tests/test_demo.py`, `tests/test_integration.py` |
+
+Thứ tự làm và cách đẩy code: xem [`plan_progress_status.md`](./docs/plan_progress_status.md) mục 2. TV5 làm `common.py` đầu tiên vì mọi file đều cần file này.
+
+## Bắt Đầu Viết Phần Của Bạn
+
+Lấy code về. Lệnh dưới bỏ qua việc tải checkpoint của Lab 3, vì các file đó khá nặng và Lab 2 không cần:
+
+```bash
+# Windows PowerShell: $env:GIT_LFS_SKIP_SMUDGE = "1"; git clone -b QuocAn https://github.com/QuocAn118/Lab.git
+GIT_LFS_SKIP_SMUDGE=1 git clone -b QuocAn https://github.com/QuocAn118/Lab.git
+```
+
+Đứng trong thư mục `Lab 2`:
+
+```bash
+pip install -r requirements.txt
+
+# Windows PowerShell: $env:PYTHONPATH = "src"
+# Linux, macOS, Colab:
+export PYTHONPATH=src
+
+python -m pytest tests/test_data.py -q   # đổi thành file test của bạn
+```
+
+Ban đầu test báo `ModuleNotFoundError` vì chưa có file. Tạo file của bạn theo đặc tả, viết từng hàm và chạy test cho đến khi đạt. Máy cá nhân chỉ cần chạy test; việc huấn luyện đầy đủ chạy trên Colab.
+
 ## Cấu Trúc Thư Mục
 
 ```text
@@ -15,24 +52,33 @@ Lab 2/
 ├── configs/lab_2.yaml           # Tham số và 4 lần chạy
 ├── docs/                        # 7 file đặc tả
 ├── notebooks/
-│   ├── Lab_2_colab.ipynb        # Notebook chạy trên Colab, chỉ gọi code trong src/
+│   ├── Lab_2_colab.ipynb        # TV5 tạo: Notebook chạy trên Colab, chỉ gọi code trong src/
 │   └── Lab 2.ipynb              # Notebook cũ, giữ làm tham khảo
-├── src/lab_2/
-│   ├── common.py                # Đọc cấu hình, ghi báo cáo, đo RAM
-│   ├── data.py                  # Bước 5
-│   ├── model.py                 # Bước 2, 3, 4
-│   ├── training.py              # Bước 6, Exercise 1, 2, 3
-│   ├── evaluation.py            # Bước 7
-│   └── demo.py
+├── src/lab_2/                   # Các thành viên tự tạo
+│   ├── common.py                # TV5: Đọc cấu hình, ghi báo cáo, đo RAM
+│   ├── data.py                  # TV1: Bước 5
+│   ├── model.py                 # TV2: Bước 2, 3, 4
+│   ├── training.py              # TV3: Bước 6, Exercise 1, 2, 3
+│   ├── evaluation.py            # TV4: Bước 7
+│   └── demo.py                  # TV5
 ├── tests/
-│   ├── test_lab_2.py            # Test logic
-│   └── test_smoke.py            # Smoke test 2 batch
+│   ├── conftest.py              # Fixture dùng chung
+│   ├── test_common.py           # TV5
+│   ├── test_data.py             # TV1
+│   ├── test_model.py            # TV2
+│   ├── test_training.py         # TV3
+│   ├── test_evaluation.py       # TV4
+│   ├── test_demo.py             # TV5
+│   ├── test_integration.py      # Cả nhóm: ghép các file
+│   └── test_smoke.py            # TV3: Smoke test 2 batch
 ├── reports/                     # Tạo khi chạy: metrics.json, figures/, runs/
 ├── checkpoints/                 # Tạo khi chạy
 └── data/                        # Tạo khi chạy, không đưa lên git
 ```
 
 ## Cách Chạy Trên Google Colab
+
+Làm sau khi các phần đã được ghép xong.
 
 1. Tải cả thư mục `Lab 2` lên `MyDrive` trên Google Drive. Drive cần trống khoảng 1 GB.
 2. Mở `notebooks/Lab_2_colab.ipynb` bằng Google Colab.
@@ -46,7 +92,6 @@ Nếu đặt thư mục ở nơi khác trên Drive, hãy sửa `PROJECT_DIR` tro
 Muốn chạy từng phần, hãy đứng trong thư mục `Lab 2` và đặt `PYTHONPATH=src`:
 
 ```bash
-pip install -r requirements.txt
 python -m pytest tests -q -s
 python -m lab_2.data
 python -m lab_2.model
@@ -67,7 +112,7 @@ tensorboard --logdir reports/runs
 4. **[`training.md`](./docs/training.md)**: Siêu tham số, các lần chạy, smoke test, TensorBoard, early stopping.
 5. **[`evaluation.md`](./docs/evaluation.md)**: So sánh các lần chạy, đối chiếu KPI, kết quả test.
 6. **[`demo.md`](./docs/demo.md)**: Lệnh chạy và kết quả suy luận.
-7. **[`plan_progress_status.md`](./docs/plan_progress_status.md)**: Tiến độ, nhật ký, việc dùng AI.
+7. **[`plan_progress_status.md`](./docs/plan_progress_status.md)**: Thành viên, cách làm việc nhóm, tiến độ, nhật ký, việc dùng AI.
 
 ## Giới Hạn
 
