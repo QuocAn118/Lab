@@ -67,6 +67,10 @@ Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn
 
 ## 7. Thứ tự tài liệu và hướng dẫn trình bày
 
+### Bổ sung Exercise 1 ngày 2026-11-07
+
+Giữ một ô code độc lập, dùng model pretrained hiện tại và không huấn luyện. Thử 10 câu thành 5 cặp Việt/Anh: tích cực, tiêu cực, trung tính, phủ định và cảm xúc trái chiều. Hiển thị token câu đầu và bảng HTML gồm câu, nhóm thử, nhãn kỳ vọng chủ quan, nhãn dự đoán, score và đối chiếu. Nhãn kỳ vọng dùng Positive/Negative/Neutral; nhóm trái chiều không gán đáp án duy nhất. Very Positive/Very Negative được gộp về Positive/Negative chỉ để đối chiếu, vẫn hiển thị nhãn gốc. Không coi các ví dụ tự chọn là benchmark hoặc score là accuracy. Xóa output cũ của riêng ô thay đổi; chỉ ghi nhận kết quả sau khi chạy thật.
+
 Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển thị theo thứ tự đọc: 01 tổng quan, 02 dữ liệu, 03 mô hình, 04 huấn luyện, 05 đánh giá, 06 kết quả kiểm chứng, 07 demo, 08 triển khai, 09 tiến độ, 10 nguồn tham khảo, 11 khai báo AI, 12 truy vết. File `huong_dan_trinh_bay.md` không đánh số. Đây là thứ tự học và trình bày, không phải mức ưu tiên thay thế quy tắc dự án.
 
 Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
