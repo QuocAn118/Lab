@@ -42,4 +42,4 @@ Dataset/model được tải từ Hugging Face ở lần đầu. Checkpoint và 
 
 - [Đặc tả](docs/01_lab_3_description.md), [thiết kế notebook rút gọn](docs/08_implementation.md), [training](docs/04_training.md).
 - [Nguồn và khai báo AI](docs/11_AI_Usage.md), [nguồn kỹ thuật](docs/10_sources.md), [kiểm chứng](docs/06_verification.md).
-- Mỗi ô code có nguồn Markdown. Artifact mới có SOURCES.md đi kèm; các run full đã có giữ manifest lịch sử.
+- Mỗi ô code có nguồn Markdown. Artifact mới có SOURCES.md đi kèm; các run full đã có giữ manifest lịch sử..
