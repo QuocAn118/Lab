@@ -52,15 +52,15 @@ flowchart LR
 
 Một người có thể viết code trước khi đợt trước xong, nhưng test của họ chỉ chạy được khi các file cần import đã có. Trước đó test báo `ModuleNotFoundError`, đây là điều bình thường.
 
-**Cách đẩy code**, làm việc trên nhánh `QuocAn`:
+**Cách đẩy code**, làm việc trên nhánh `main`:
 
 ```bash
-git pull origin QuocAn
+git pull origin main
 # Viết code, chạy test của mình cho đến khi đạt
 git add "Lab 2/src/lab_2/<file của bạn>"
 git commit -m "Lab 2: them <file của bạn>"
-git pull --rebase origin QuocAn
-git push origin QuocAn
+git pull --rebase origin main
+git push origin main
 ```
 
 **Quy tắc ghép:**
@@ -115,4 +115,4 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 
 | Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
 | :--- | :--- | :--- | :--- |
-| Claude Code (Claude Opus 5.5) | Rà soát tài liệu, viết đặc tả và test | Đối chiếu đề bài với đặc tả và notebook; cập nhật `docs/`; viết test; viết một bản code đầy đủ để kiểm tra test và đặc tả, lưu riêng ở nhánh `lab2-ban-day-du` trên máy người điều phối, không có trong nhánh `QuocAn` | Làm notebook ban đầu; cung cấp đề bài; chọn model, số lần chạy, số epoch, số ảnh, cách chia việc; duyệt các điểm sửa. Phần code của từng thành viên: chưa thực hiện. Nếu dùng hoặc tham khảo nhánh trên, phải ghi rõ tại đây |
+| Claude Code (Claude Opus 5.5) | Rà soát tài liệu, viết đặc tả và test | Đối chiếu đề bài với đặc tả và notebook; cập nhật `docs/`; viết test; viết một bản code đầy đủ để kiểm tra test và đặc tả, lưu riêng ở nhánh `lab2-ban-day-du` trên máy người điều phối, không có trong nhánh `main` và `QuocAn` | Làm notebook ban đầu; cung cấp đề bài; chọn model, số lần chạy, số epoch, số ảnh, cách chia việc; duyệt các điểm sửa. Phần code của từng thành viên: chưa thực hiện. Nếu dùng hoặc tham khảo nhánh trên, phải ghi rõ tại đây |

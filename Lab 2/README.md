@@ -21,11 +21,10 @@ Thứ tự làm và cách đẩy code: xem [`plan_progress_status.md`](./docs/pl
 
 ## Bắt Đầu Viết Phần Của Bạn
 
-Lấy code về. Lệnh dưới bỏ qua việc tải checkpoint của Lab 3, vì các file đó khá nặng và Lab 2 không cần:
+Lấy code về:
 
 ```bash
-# Windows PowerShell: $env:GIT_LFS_SKIP_SMUDGE = "1"; git clone -b QuocAn https://github.com/QuocAn118/Lab.git
-GIT_LFS_SKIP_SMUDGE=1 git clone -b QuocAn https://github.com/QuocAn118/Lab.git
+git clone -b main https://github.com/QuocAn118/Lab.git
 ```
 
 Đứng trong thư mục `Lab 2`:
