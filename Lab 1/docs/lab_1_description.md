@@ -7,7 +7,7 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-07 — chuẩn hóa theo khung tài liệu Lab 3 và hướng dẫn của cô |
+| Last updated | 2026-11-07 — chuẩn hóa theo khung tài liệu Lab 3 và hướng dẫn của cô; thêm quy định lưu vết (§10) |
 | Updated by | HoangDang |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
 | Trạng thái | Đặc tả. Code và thực nghiệm **chưa** thực hiện |
@@ -214,11 +214,17 @@ Thời gian đánh giá không được tính vào thời gian train. Không l�
 - `outputs/<run_id>/` và `checkpoints/<run_id>/` phải chưa tồn tại khi bắt đầu; nếu trùng thì dừng, chọn mã mới, không ghi đè.
 - Cùng một lần chạy dùng cùng `run_id` cho cấu hình, kết quả và checkpoint.
 - `config.json` ghi thêm `created_by` (người chạy) và `started_at`.
+- Lưu vết theo [team_plan_integrity.md §9](team_plan_integrity.md): mọi run chạy qua `src/run_tracking.py` và có `manifest.json`; mọi file đăng ký nguồn gốc trong `docs/provenance.json`; kiểm tra bằng `tools/check_provenance.py`.
 
 ```text
 Lab 1/
 ├── README.md
+├── .gitignore
+├── tools/
+│   └── check_provenance.py        # Kiểm tra lưu vết
 ├── docs/
+│   ├── provenance.json            # Sổ đăng ký nguồn gốc file
+│   ├── team_plan_integrity.md
 │   ├── lab_1_description.md
 │   ├── data.md
 │   ├── model.md
@@ -234,6 +240,7 @@ Lab 1/
 │       ├── 3_5_evaluate.md
 │       └── 3_6_save_load.md
 ├── src/                           # Code dự kiến
+│   ├── run_tracking.py            # Đã có: lưu vết run và file đầu ra
 │   ├── prepare_data.py
 │   ├── data_pipeline.py
 │   ├── model.py
@@ -241,7 +248,7 @@ Lab 1/
 │   ├── evaluate.py
 │   └── model_io.py
 ├── data/FashionMNIST/raw/         # Dữ liệu tải về, không commit
-├── outputs/
+├── outputs/                       # Mỗi file lẻ có <file>.prov.json đi kèm
 │   ├── data_summary.json
 │   ├── data_samples.png
 │   ├── batch_check.json
@@ -249,6 +256,7 @@ Lab 1/
 │   ├── compare_runs.csv
 │   ├── compare_loss.png
 │   └── <run_id>/                  # run_xxx hoặc smoke_xxx
+│       ├── manifest.json          # Ai chạy, commit, đặc tả, môi trường, hash mọi file
 │       ├── config.json
 │       ├── history.csv            # epoch, train_loss, train_accuracy, val_loss, val_accuracy, epoch_seconds
 │       ├── metrics.json

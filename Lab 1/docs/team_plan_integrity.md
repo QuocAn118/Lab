@@ -7,7 +7,7 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-07 — bản đầu |
+| Last updated | 2026-11-07 — thêm mục 9 Lưu vết |
 | Updated by | HoangDang |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
@@ -129,6 +129,11 @@ TV5 chạy và đánh dấu; mỗi mục phải có bằng chứng đi kèm.
 - [ ] `traceability.md` phủ đủ yêu cầu 3.1–3.6, mục 6.1, 7 và 8 của đặc tả.
 - [ ] `AI_Usage.md` có đủ các phần do AI sinh.
 - [ ] Mọi file `docs/` có bảng thông tin cập nhật; changelog đầy đủ.
+
+**Lưu vết**
+- [ ] `python "Lab 1/tools/check_provenance.py" --strict` báo PASS.
+- [ ] Mọi run (kể cả smoke, lỗi) có manifest và đã được commit.
+- [ ] Mọi file trọng số của run báo cáo có trên Drive, hash khớp manifest.
 - [ ] Mỗi thành viên giải thích được module của mình.
 
 ## 8. Tài liệu bổ sung so với danh sách cơ bản
@@ -139,3 +144,103 @@ TV5 chạy và đánh dấu; mỗi mục phải có bằng chứng đi kèm.
 | `verification.md` | TV5 | Kết quả kiểm chứng thực tế từng run và giới hạn |
 | `traceability.md` | TV5 | Yêu cầu → code → kiểm tra → bằng chứng |
 | `AI_Usage.md` | TV5 (mọi người cùng ghi) | Khai báo sử dụng AI |
+| `provenance.json` | TV5 (mọi người cùng ghi qua công cụ) | Sổ đăng ký nguồn gốc file, mục 9.2 |
+
+## 9. Lưu vết
+
+Mục tiêu: với **bất kỳ file nào** trong `Lab 1/` phải trả lời được: *ai tạo, lúc nào, từ đặc tả nào, bằng cách nào, đã sửa những gì*. Với **bất kỳ lần chạy nào**, kể cả smoke hoặc chạy lỗi, phải biết: *ai chạy, code nào, cấu hình nào, trên máy nào, ra file gì*.
+
+| Cần lưu vết | Công cụ | Nơi lưu | Kiểm tra tự động |
+| --- | --- | --- | --- |
+| Mọi thay đổi nội dung | git: commit, pull request | Lịch sử git | `git log`, `git blame` |
+| File nào tạo từ markdown nào | Sổ đăng ký + header `Spec:` trong code | `docs/provenance.json`, đầu mỗi file `.py` | `tools/check_provenance.py` |
+| Mọi lần train / smoke | `src/run_tracking.py` — `Run` | `outputs/<run_id>/manifest.json` | `tools/check_provenance.py` |
+| File đầu ra không thuộc run | `src/run_tracking.py` — `record_artifact` | `outputs/<file>.prov.json` | `tools/check_provenance.py` |
+
+### 9.1. Thay đổi (git)
+
+- Mỗi người commit bằng tài khoản của mình (`git config user.name`). Làm chung thì thêm dòng `Co-authored-by: Tên <email>` cuối commit.
+- Commit nhỏ, mỗi commit một việc; message theo mẫu `loại(lab1-module): nội dung`, ví dụ `docs(lab1-data): cập nhật split 54k/6k`.
+- Không để thay đổi chưa commit qua ngày. Không dùng `git push --force` và không sửa lịch sử đã push.
+- Merge vào `main` qua pull request; mô tả PR ghi: đặc tả liên quan, phần AI sinh, người review, kết quả `check_provenance.py`.
+- Changelog trong `plan_progress_status.md` ghi các thay đổi ảnh hưởng nhiều file hoặc thay đổi quyết định.
+
+### 9.2. Nguồn gốc file (markdown → file)
+
+Mọi file thuộc `README.md`, `.gitignore`, `docs/**/*.md`, `src/*.py`, `tools/*.py` phải có một mục trong `docs/provenance.json`:
+
+```json
+{
+  "path": "src/model.py",
+  "sources": [{"path": "docs/requirements/3_3_build_model.md", "sha256": "..."}],
+  "method": "ai-assisted",
+  "created_by": "TV2",
+  "recorded_at": "2026-11-08T09:00:00+07:00",
+  "status": "active",
+  "note": "Sinh bằng <công cụ AI>, TV1 review",
+  "reviews": [{"at": "...", "by": "TV2", "sources_changed": ["docs/requirements/3_3_build_model.md"], "note": "..."}]
+}
+```
+
+- `sources` là file markdown (kèm mục `#§x` nếu cần) hoặc `external:<mô tả>` cho nguồn ngoài repo như đề bài, slide, hướng dẫn của cô.
+- `sha256` là hash của nguồn **tại lần rà gần nhất**. Khi đặc tả đổi, công cụ báo `nguồn đã đổi` cho mọi file sinh từ nó; người phụ trách rà lại file đó rồi ghi nhận bằng `--ack`. Mỗi lần ghi nhận được thêm vào `reviews`.
+- File code phải có dòng `Spec: <đường dẫn>` trong 15 dòng đầu cho mỗi nguồn; công cụ báo lỗi nếu header không khớp sổ đăng ký.
+- Không sửa tay `provenance.json`; dùng lệnh:
+
+```powershell
+# Đăng ký file mới
+python "Lab 1/tools/check_provenance.py" --add src/model.py --source "docs/requirements/3_3_build_model.md" --by TenBan --method ai-assisted --note "Sinh bằng <công cụ AI>, TV1 review"
+# Ghi nhận đã rà lại sau khi đặc tả đổi
+python "Lab 1/tools/check_provenance.py" --ack src/model.py --by TenBan --note "Cập nhật theo §6 mới"
+# Kiểm tra toàn bộ
+python "Lab 1/tools/check_provenance.py"
+```
+
+### 9.3. Lần chạy (train, smoke, đánh giá)
+
+Mọi script tạo kết quả phải chạy trong `Run`:
+
+```python
+from run_tracking import Run
+
+with Run("run_001", purpose="Cấu hình cơ sở", config=config,
+         specs=["docs/requirements/3_4_train.md"]) as run:
+    train(..., out_dir=run.out_dir, ckpt_dir=run.ckpt_dir)
+    run.note("early stopping tại epoch 7")
+```
+
+`manifest.json` của mỗi run ghi:
+
+| Nhóm | Trường |
+| --- | --- |
+| Định danh | `run_id`, `kind` (normal/smoke), `purpose`, `command` |
+| Người và thời gian | `created_by`, `started_at`, `finished_at`, `duration_seconds` |
+| Trạng thái | `status`: running → completed / failed / interrupted; `error` nếu lỗi |
+| Code | `git.commit`, `git.branch`, `git.dirty`, `git.dirty_files`; hash từng file `src/*.py` và đặc tả nguồn của nó |
+| Đặc tả và cấu hình | `specs` kèm hash; `config_sha256` |
+| Môi trường | Python, PyTorch, torchvision, máy, CPU/GPU |
+| Đầu ra | Đường dẫn, kích thước, SHA-256 của **mọi** file trong `outputs/<run_id>/` và `checkpoints/<run_id>/`; cờ `ignored_by_git` cho file trọng số |
+| Sự kiện | `notes` ghi ngay lúc xảy ra, giữ lại kể cả khi run bị kill |
+
+Quy tắc:
+
+- **Normal run (`run_xxx`) chỉ chạy được khi code đã commit**; `Run` từ chối nếu còn thay đổi chưa commit. Smoke run được chạy khi chưa commit nhưng ghi lại danh sách file đang sửa.
+- `run_id` đã tồn tại thì dừng, không ghi đè.
+- **Không xóa run nào**, kể cả run lỗi hoặc smoke. Commit thư mục `outputs/<run_id>/` (và `checkpoint_index.json`) ngay sau khi chạy xong, với message `run(lab1): run_001 completed — <mục đích>`.
+- Sửa, thêm hoặc xóa file trong run sau khi kết thúc sẽ bị công cụ phát hiện qua hash.
+- File trọng số `.pth` không lên git; tải lên Drive chung theo đường dẫn `Lab1/checkpoints/<run_id>/` và ghi link vào `model.md`. Hash trong manifest dùng để xác nhận file trên Drive đúng là file đã chạy.
+
+### 9.4. File đầu ra lẻ và file bị bỏ qua
+
+- File trong `outputs/` không thuộc run nào (ví dụ `data_summary.json`, `compare_runs.csv`) phải gọi `record_artifact(path, specs=[...], inputs=[...])` ngay sau khi ghi. Tạo lại file thì lần cũ được giữ trong `history`.
+- `.gitignore` của Lab 1 chỉ bỏ qua môi trường, cache, `data/` và file trọng số. Mọi file JSON/CSV/PNG/TXT trong `outputs/` đều được commit làm bằng chứng.
+
+### 9.5. Tự động kiểm tra khi commit
+
+Hook `.githooks/pre-commit` chạy `check_provenance.py` mỗi khi commit có file trong `Lab 1/` và chặn commit nếu có lỗi. Mỗi thành viên bật một lần sau khi clone:
+
+```powershell
+git config core.hooksPath .githooks
+```
+
+Không dùng `git commit --no-verify` để bỏ qua hook. Nếu buộc phải bỏ qua, ghi lý do vào changelog.

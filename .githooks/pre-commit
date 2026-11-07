@@ -1,0 +1,13 @@
+#!/bin/sh
+# Spec: Lab 1/docs/team_plan_integrity.md §9.5
+# Chặn commit khi lưu vết của Lab 1 có lỗi.
+if git diff --cached --name-only | grep -q '^Lab 1/'; then
+  PY=python
+  command -v "$PY" >/dev/null 2>&1 || PY=python3
+  if ! "$PY" "Lab 1/tools/check_provenance.py"; then
+    echo ""
+    echo "Commit bị chặn: sửa các lỗi lưu vết ở trên (xem Lab 1/docs/team_plan_integrity.md §9)."
+    exit 1
+  fi
+fi
+exit 0
