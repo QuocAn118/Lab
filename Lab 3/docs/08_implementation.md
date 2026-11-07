@@ -71,6 +71,12 @@ Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển th�
 
 Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
 
+## 8. Hồ sơ model
+
+`03_model.md` được trình bày theo bốn phần: (1) tên, ngày tạo, người tạo, ngày/người cập nhật mới nhất; (2) mục đích; (3) initial model gồm nguồn trọng số, kiến trúc, input/output và file mã nguồn; (4) trained model gồm thay đổi sau train, mô tả hoàn tất và đường dẫn lưu.
+
+Tên người tạo và người cập nhật model fine-tuned là **HoangDang**, theo xác nhận ngày 2026-11-07. Ngày ghi nhận bản fine-tuned lấy từ báo cáo 2026-11-06. Ngày cập nhật hồ sơ không được mô tả như ngày train lại hoặc sửa trọng số. Kiến trúc đối chiếu `config.json`; số tham số đếm từ trọng số đang lưu. Phân biệt model pretrained dùng cho Exercise 1 với model fine-tuned của Exercise 2.
+
 ## Nguồn và phạm vi
 
 - [01_lab_3_description.md](01_lab_3_description.md), [02_data.md](02_data.md), [03_model.md](03_model.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md), [07_demo.md](07_demo.md): đặc tả đã có.

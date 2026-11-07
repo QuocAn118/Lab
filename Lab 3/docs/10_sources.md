@@ -19,6 +19,7 @@ Yêu cầu dự án → đặc tả nội bộ → quyết định triển khai 
 | S-09 | [Installing the IPython kernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) | Đăng ký kernel riêng cho `.venv` |
 | S-10 | [nbformat Python API](https://nbformat.readthedocs.io/en/latest/api.html) | Đọc/ghi và kiểm tra schema notebook |
 | S-11 | [VS Code: Manage Jupyter Kernels](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management) | Chọn Python environment cục bộ cho notebook |
+| S-12 | [Transformers 4.57.1: DistilBERT](https://huggingface.co/docs/transformers/v4.57.1/en/model_doc/distilbert) | Kiến trúc, input/output và lớp DistilBertForSequenceClassification; đối chiếu ngày 2026-11-07 |
 
 Chỉ diễn giải API cần dùng, không chép toàn văn nguồn. Revision model/dataset thực tải và phiên bản thư viện được ghi trong artifact của mỗi run. Số tham số được đếm từ model, thay vì mặc định thông số marketing.
 

@@ -38,6 +38,10 @@ Dataset/model được tải từ Hugging Face ở lần đầu. Checkpoint và 
 
 `lab3.py`, `test.py` và các manifest full là phần hỗ trợ nâng cao đã có; không cần đọc hoặc chạy chúng để theo dõi nội dung notebook rút gọn.
 
+## Thời gian huấn luyện
+
+Mỗi run mới có `training_time.json`: bắt đầu/kết thúc, tổng số giây, trạng thái và thời lượng từng epoch. Checkpoint lưu thông tin thời gian tại lúc lưu; `best` giữ bản tổng kết. Nạp model cũ chỉ đọc thời gian đã có. Xem [cách ghi và đọc thời gian](docs/04_training.md).
+
 ## Nguồn và phạm vi
 
 - [Đặc tả](docs/01_lab_3_description.md), [thiết kế notebook rút gọn](docs/08_implementation.md), [training](docs/04_training.md).

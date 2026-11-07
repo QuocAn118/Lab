@@ -21,6 +21,7 @@ Yêu cầu dự án được ghi nhận ngày 2026-11-06: hoàn thiện Lab 3 v�
 | Thành phần / vai trò | Công việc | Phạm vi xác nhận |
 | --- | --- | --- |
 | Chủ dự án | Xác lập phạm vi hoàn thiện và yêu cầu truy nguồn qua Markdown | Yêu cầu dự án ghi nhận ngày 2026-11-06 |
+| HoangDang | Người tạo và người cập nhật model fine-tuned IMDB | Xác nhận tên cho cả hai vai trò ngày 2026-11-07; không áp dụng cho pretrained model bên ngoài |
 | OpenAI Codex | Đọc đặc tả, đối chiếu tài liệu chính thức, bổ sung code, notebook, kiểm thử, truy nguồn và báo cáo | Lần triển khai ngày 2026-11-06 |
 | Tác giả notebook/tài liệu cũ | Code và output có trước lần triển khai | Chưa xác nhận tác giả và môi trường chạy |
 

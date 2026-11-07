@@ -32,7 +32,7 @@ Latency batch 1, review test 256 token, 3 warm-up + 20 lần, gồm tokenize/tra
 
 **Nhận xét:** train loss giảm trong khi validation loss tăng từ epoch 1 → 3: dấu hiệu overfitting/tăng tự tin ở dự đoán sai. Validation accuracy chỉ tăng nhẹ. Theo chính sách đã chốt, `best` lấy epoch 3 có validation accuracy cao nhất; `best_val_loss` giữ epoch 1. Không đổi chính sách bằng cách nhìn test, không train lại để chọn test đẹp hơn. Có thể khảo sát giảm epochs/regularization trong thực nghiệm sau với validation, ngoài kết quả hiện tại.
 
-Điều kiện patience=2 kích hoạt đúng bước cuối: `early_stopping_triggered=true`, **`early_stopped=false`** vì đã chạy đủ lịch. Chi tiết sửa cờ và bản gốc được giữ tại [metadata_corrections.md](../outputs/full/metadata_corrections.md).
+Điều kiện patience=2 kích hoạt đúng bước cuối: `early_stopping_triggered=true`, **`early_stopped=false`** vì đã chạy đủ lịch. Chi tiết sửa cờ và bản gốc được giữ tại `metadata_corrections.md` (không còn trong bản sao hiện tại).
 
 ## 3. Kiểm tra đã chạy
 
@@ -65,14 +65,14 @@ Mô hình ngẫu nhiên nhỏ trong unit test chỉ kiểm cơ chế, không ph�
 
 ## 5. Bằng chứng và tái lập
 
-- [Báo cáo full](../outputs/full/report.md), [metric gốc đo](../outputs/full/metrics.json), [nguồn artifact](../outputs/full/artifacts.md).
+- Báo cáo full `outputs/full/report.md` (không còn trong bản sao hiện tại), [metric gốc đo](../outputs/full/metrics.json), [nguồn artifact](../outputs/full/artifacts.md).
 - `provenance.json`: SHA-256 từng artifact, snapshot các Markdown căn cứ, source code thực đã train và hash code hiệu chỉnh sau đó. Giữ log gốc và JSON trước sửa cờ.
 - `run_config.json`: revision chính xác model/dataset, seed, fingerprint, class counts và hash index từng split. `lab3_source.py` là source thực của run, có thể khác bản hiện tại ở phần cờ dừng/hiển thị đã ghi nhận.
 - Notebook đã lưu output thực; khi Run All, nó nạp checkpoint full có sẵn để đánh giá, không kiểm hash trong luồng chính. Luồng huấn luyện mới tạo thư mục run theo thời gian.
 
 ## 5.1. Notebook rút gọn
 
-Bản hiện tại có **8 ô code: một ô Exercise 1 độc lập và bảy ô Step 1–7 cho Exercise 2**, chỉ định nghĩa hai hàm nhỏ `tokenize` và `compute_metrics`. Thứ tự bước đối chiếu từ notebook kế thừa ở Git commit `755af75`; chưa xác minh độc lập tác giả của bản đó. Không import `lab3.py`, không có class tùy biến, kiểm tra AST/hash hoặc bộ kiểm thử trong luồng chính. Dùng trực tiếp `Trainer`, `EarlyStoppingCallback` và API thư viện.
+Bản hiện tại có **8 ô code: một ô Exercise 1 độc lập và bảy ô Step 1–7 cho Exercise 2**, giữ các hàm xử lý ngắn và bổ sung callback `TrainingTime` chỉ để ghi thời gian. Thứ tự bước đối chiếu từ notebook kế thừa ở Git commit `755af75`; chưa xác minh độc lập tác giả của bản đó. Không import `lab3.py`, không có kiểm tra AST/hash hoặc bộ kiểm thử trong luồng chính. Callback mới không thay cách train/chọn model. Dùng trực tiếp `Trainer`, `EarlyStoppingCallback` và API thư viện.
 
 Đã chạy lại toàn bộ tám ô sau khi sắp xếp bằng NBClient, không có ô lỗi. Model full đã có được nạp và đánh giá lại đủ 25.000 mẫu test: accuracy **91.012%**, macro F1 **0.9101182914**, test loss **0.3465386629**. Hai biểu đồ confusion matrix/loss và demo có output thực. Biểu đồ loss dùng history full đã có; không coi đây là full training mới. Schema, cú pháp tám ô, audit nguồn và 10 kiểm thử CLI đều PASS sau thay đổi.
 
@@ -83,6 +83,17 @@ Các kiểm thử 10 cases, 5 checkpoint và benchmark hệ thống ở phần t
 ## 5.2. Kiểm tra kernel trong VS Code
 
 Đã xác nhận extension Python/Jupyter và `ipykernel` được cài. Bộ chọn kernel đang ở màn hình nhập URL server, trong khi môi trường cục bộ nằm tại `Lab 3\.venv\Scripts\python.exe`. Đã chọn **Python Environments → .venv (3.12.10)** và quan sát kernel khởi động thành công. Lần thực thi ô pretrained trước ô import gây `NameError: pipeline is not defined`; chạy **Run All** sau khi chọn đúng môi trường đã hoàn tất đến ô demo. Test accuracy hiển thị trong VS Code là **0.91012**, demo trả POSITIVE/NEGATIVE đúng với hai câu mẫu. Căn cứ kỹ thuật: [10_sources.md S-11](10_sources.md).
+
+## 5.3. Description và thời gian train — 2026-11-07
+
+Description được viết lại bằng các việc thực hiện trong hai exercise, tách cách lưu checkpoint của notebook khỏi phần CLI. Giữ khai báo hỗ trợ AI tại 11_AI_Usage.md.
+
+- 10 kiểm thử CLI PASS, có kiểm tra thời gian đi kèm checkpoint và giới hạn thời gian train trước lúc xuất model cuối.
+- Smoke CLI pretrained PASS với 2 optimizer steps; file tổng kết và cả 5 checkpoint có training_time.json. Manifest của run kiểm thử xác minh 47 artifact PASS.
+- Luồng notebook được kiểm tra trên model nhỏ: hai lượt train liên tiếp có thư mục riêng, mỗi lượt ghi 3 epoch và lưu đủ thời gian vào run/best/checkpoint. Khi chủ động gây lỗi giữa lượt train, file tổng kết vẫn tồn tại với status interrupted_or_failed.
+- Notebook chạy lại đủ 8 ô trên checkpoint full hiện có; test accuracy .91012, macro F1 .9101182914. Không full train lại. Code không bị lỗi khi lịch sử loss cũ không còn; confusion matrix dùng labels=[0,1] để xử lý cả tập kiểm thử chỉ có một lớp.
+- Full run cũ được bổ sung training_time.json từ số đã ghi trong tài liệu này: tổng 334.46 giây, các epoch 113.11 / 111.24 / 109.95 giây. Status recovered_from_documentation; started_at/ended_at/saved_at chưa có bằng chứng nên null. Xem [nguồn khôi phục](../outputs/full/timing_sources.md).
+- Bản sao hiện tại không có metrics.json, epoch_history.json, trainer_history.json, report.md và provenance.json của full run cũ. best_val_pause hiện chỉ có config.json. Các dòng PASS lịch sử bên trên mô tả lần kiểm chứng trước, không xác nhận các tệp đó còn đầy đủ ở bản sao hiện tại.
 
 ## 6. Giới hạn
 
@@ -95,4 +106,4 @@ Phạm vi nghiệm thu dựa trên yêu cầu dự án và đặc tả hiện c�
 - [08_implementation.md](08_implementation.md), [05_evaluation.md](05_evaluation.md), [04_training.md](04_training.md): yêu cầu và cách đo.
 - [11_AI_Usage.md](11_AI_Usage.md), [12_traceability.md](12_traceability.md): vai trò AI và truy nguồn.
 - [10_sources.md](10_sources.md): tài liệu API chính thức.
-- [report.md của full run](../outputs/full/report.md) và các artifact liên kết: bằng chứng số đo, không phải kết quả giả định.
+- Báo cáo full gốc `outputs/full/report.md` (không còn trong bản sao hiện tại) và các artifact liên kết: bằng chứng số đo, không phải kết quả giả định.
