@@ -1,0 +1,2 @@
+# Hook shell phải giữ LF trên mọi máy (Lab 1/docs/team_plan_integrity.md §9.5)
+.githooks/* text eol=lf
