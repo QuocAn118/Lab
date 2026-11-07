@@ -1,0 +1,265 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "sha256": "123f390bef38a6c466b891c8abc2ae25475cb9b9d595fb07b7a7b3a4ced05dcc",
+      "bytes": 294,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "environment.json",
+      "sha256": "41be8b3fb4b7f302fbe9937d3d206db9bbec7fb2e41d681ae2255c54aa38ef93",
+      "bytes": 557,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "events.jsonl",
+      "sha256": "1fcf5809241398d1b871f6205f72f55eb20844b84b4dc519652d7e2355a4fe70",
+      "bytes": 346,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "inference.json",
+      "sha256": "1d1cdb53e73ce8f090b412636f405950dfd70fff616ec8d503cb46050e309f5f",
+      "bytes": 521,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "python.log",
+      "sha256": "486d727f62c2a8ff5c50f3007e88a5bf286d279d4c34a9cf00bca88d09b94e69",
+      "bytes": 95,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "run.json",
+      "sha256": "561a38355178ff226eb7a49c9333e99e4d8656ee4e0c951afde97cc57920990a",
+      "bytes": 471,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/01_lab_3_description.md",
+      "sha256": "73b34267961f7a2b004dc040c9a6baf6b6ce0a1ea271d10b734c021794a8c33c",
+      "bytes": 3622,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\01_lab_3_description.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/02_data.md",
+      "sha256": "3e148078d178bc28c72663c84e203ab941717358af79829a3be002c17b630757",
+      "bytes": 2235,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\02_data.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/03_model.md",
+      "sha256": "bbb1997ac61fb01acc99db33c12f5f16367d76e5f1b7c2b67d06425e8d264d83",
+      "bytes": 9747,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\03_model.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/04_training.md",
+      "sha256": "c309f83951b5d22e8d4b5f01bc07441b5add69708370ffa8a6fcad3442df730f",
+      "bytes": 5038,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\04_training.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/05_evaluation.md",
+      "sha256": "915f694e78d263dc640ff37819c5e75f29fa8a2e77134e99f462b8cfb550b410",
+      "bytes": 3168,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\05_evaluation.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/08_implementation.md",
+      "sha256": "85f69d78d1728f71c7d9a923f5c5cc78c94a2cd8b4d6f1052327af7d592fcb07",
+      "bytes": 12345,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\08_implementation.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/docs/11_AI_Usage.md",
+      "sha256": "e266d4f239a0314a37cab3d476501999883ac3654e6b6a7a9c9538be7347da47",
+      "bytes": 4432,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\11_AI_Usage.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/lab3.py",
+      "sha256": "33649b17adcf49a0f556af512f51f961983ae61742d37da643e41307e969b14c",
+      "bytes": 36527,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\lab3.py",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/Lab_3 (1).ipynb",
+      "sha256": "2d1908cd2814f18c98f70fd0ab02b7fe8ebbe10497d9d287c89df520eaab613b",
+      "bytes": 11291,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab_3 (1).ipynb",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/notebook_helpers.py",
+      "sha256": "68cf1dec43884c88e855a0822b0d3621ea353de0a2efb7822604d9c2cfdfb704",
+      "bytes": 11688,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\notebook_helpers.py",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "source_snapshot/reporting.py",
+      "sha256": "d03f2f77d4843dbc8944390c9d9cda4804d1c03b4138726102c81cf4435e3c19",
+      "bytes": 12022,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\reporting.py",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "434d4d9c0bb308add7970afa4d75b1d89cd448c46312d5c855942c78fe63bc9e",
+      "bytes": 356,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "stdout.log",
+      "sha256": "74ce9ba1384ffef063feef4d09a4b8651b12823357e89095c385dcd4cd6cbcb2",
+      "bytes": 203,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "summary.md",
+      "sha256": "d382b3f747b5cb9521b0daae8a20277bf2c69efca93c8a2e969f6d111252b07b",
+      "bytes": 583,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    }
+  ],
+  "note": "Manifest excludes itself."
+}

@@ -55,6 +55,7 @@ Khi notebook hiển thị chế độ nạp model đã huấn luyện, lần Run
 ## 6. Mở bằng chứng khi trình bày
 
 - [Kết quả đã ghi nhận](06_verification.md): chỉ số, cách đo và giới hạn.
+- [Report riêng](../report/README.md): chọn lượt chạy, mở log, cấu hình, thời gian, metrics và từng file dự đoán; nguồn/hash nằm trong manifest của lượt đó.
 - [Thời gian run cũ](../outputs/full/training_time.json) và [nguồn khôi phục](../outputs/full/timing_sources.md): 334.46 giây tổng; 113.11, 111.24, 109.95 giây theo epoch. Đây là số từ báo cáo, không phải log timestamp gốc.
 - [Notebook](../../Lab_3%20(1).ipynb): kết quả test, confusion matrix và demo được tính lại.
 - [Cấu hình train](04_training.md): giải thích tham số và cách ghi thời gian.

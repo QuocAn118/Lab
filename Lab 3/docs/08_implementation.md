@@ -94,6 +94,8 @@ Tên người tạo và người cập nhật model fine-tuned là **HoangDang**
 
 Đối với run cũ: sao chép nguyên byte các log còn có, ghi đường dẫn nguồn và hash để đối chiếu. Run full cũ chỉ có một phần file; số khôi phục từ báo cáo phải ghi `recovered_from_documentation`. Không tạo stdout/stderr, timestamp hoặc lịch sử loss giả cho phần đã mất. Manifest mới xác minh các file thực có trong report; manifest gốc được giữ riêng với tên `original_provenance.json`.
 
+Khi đưa lên Git, giữ trọng số/optimizer ở máy và bỏ qua chúng qua `.gitignore`; code, cấu hình, report và log vẫn được đưa lên repository. `.gitattributes` tắt chuyển đổi xuống dòng cho `report/**` và `outputs/**` để giữ nguyên byte bằng chứng và hash sau clone/checkout. Không thay nội dung report đã chốt chỉ để phù hợp cấu hình xuống dòng của Git.
+
 ## Nguồn và phạm vi
 
 - [01_lab_3_description.md](01_lab_3_description.md), [02_data.md](02_data.md), [03_model.md](03_model.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md), [07_demo.md](07_demo.md): đặc tả đã có.

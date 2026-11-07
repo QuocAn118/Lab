@@ -140,6 +140,7 @@ Các đường dẫn dưới đây tính từ thư mục repo `Lab/`.
 | `final_epoch` của run cũ | `Lab 3/outputs/full/checkpoints/final_epoch/` | Không có trong bản sao hiện tại |
 | Notebook train mới | `Lab 3/outputs/simple-training/<run>/best/` | Đường dẫn sẽ được tạo khi `TRAIN=True` |
 | Thời gian train mới | `Lab 3/outputs/simple-training/<run>/training_time.json` | Cùng run; từng checkpoint cũng có file thời gian |
+| Report từng lượt chạy | `Lab 3/report/<run>/` | Log, cấu hình, thời gian, metrics, nguồn/hash; không chứa bản sao trọng số |
 
 Để nạp bản full, dùng `AutoModelForSequenceClassification.from_pretrained('Lab 3/outputs/full/checkpoints/best')` cùng tokenizer ở chính thư mục đó.
 

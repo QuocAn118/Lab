@@ -1,0 +1,20 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "kind": "recovered-full",
+  "evidence": "partial_existing_output_and_documentation_recovery",
+  "report_created_at": "2026-11-07T09:13:23.501286+07:00",
+  "status": "imported_partial",
+  "log_scope": "No original console log available; recovered duration is marked in training_time.json",
+  "started_at": null,
+  "ended_at": null,
+  "imported_at": "2026-11-07T09:13:23.502284+07:00",
+  "original_output": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full",
+  "original_run_date": "2026-11-06 (documented)"
+}

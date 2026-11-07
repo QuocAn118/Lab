@@ -1,0 +1,4 @@
+# Sources: docs/08_implementation.md §9; docs/11_AI_Usage.md §2.
+# Preserve raw evidence, including CRLF, progress characters and intentional spaces.
+report/** -text -whitespace
+outputs/** -text -whitespace

@@ -20,6 +20,7 @@ import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+from reporting import RunReport, collect_output
 
 import numpy as np
 import psutil
@@ -190,6 +191,7 @@ class CheckpointCallback(TrainerCallback):
         self.training_duration = None
         self.current_epoch = None
         self.current_step = None
+        self.report = None
 
     def sample_resources(self):
         self.peak_rss = max(self.peak_rss, psutil.Process().memory_info().rss)
@@ -232,6 +234,8 @@ class CheckpointCallback(TrainerCallback):
             self.gradient_norms.append(norm)
         if logs and "loss" in logs and not math.isfinite(float(logs["loss"])):
             raise RuntimeError("Non-finite training loss")
+        if self.report is not None and logs:
+            self.report.event("trainer_log", step=state.global_step, epoch=state.epoch, values=logs)
 
     def on_evaluate(self, args, state, control, metrics=None, model=None, **kwargs):
         # Ignore later standalone validation/test passes: this callback is train-only.
@@ -263,6 +267,8 @@ class CheckpointCallback(TrainerCallback):
                "early_stopping_triggered": stop, "early_stopped": self.early_stopped}
         self.history.append(row)
         write_json(self.output / "epoch_history.json", {"epochs": self.history})
+        if self.report is not None:
+            self.report.event("epoch_completed", **row)
         print("EPOCH " + json.dumps(row), flush=True)
         return control
 
@@ -441,7 +447,7 @@ def verify_artifacts(output):
     return {"status": "PASS", "artifacts_checked": len(manifest["artifacts"])}
 
 
-def train_run(config, output):
+def train_run(config, output, report=None):
     """Sources: docs/08_implementation.md R-02..R-09; docs/04_training.md."""
     set_seed(config.seed)
     torch.set_num_threads(min(8, torch.get_num_threads()))
@@ -456,6 +462,7 @@ def train_run(config, output):
         BASE_MODEL, revision=model_revision, num_labels=2,
         id2label={0: "NEGATIVE", 1: "POSITIVE"}, label2id={"NEGATIVE": 0, "POSITIVE": 1})
     callback = CheckpointCallback(output, tokenizer)
+    callback.report = report
     write_json(output / "run_config.json", {"config": asdict(config), "splits": splits,
                "environment": env, "model": BASE_MODEL, "model_revision": model_revision,
                "dataset": DATASET, "dataset_revision": dataset_revision})
@@ -565,7 +572,7 @@ def audit_sources():
     errors, count = [], 0
     for file in sorted(ROOT.rglob("*")):
         relative = file.relative_to(ROOT)
-        if any(part in {".venv", "outputs", "__pycache__", ".ipynb_checkpoints"} for part in relative.parts):
+        if any(part in {".venv", "outputs", "report", "__pycache__", ".ipynb_checkpoints"} for part in relative.parts):
             continue
         if not file.is_file() or file.suffix not in {".md", ".py", ".txt"} and file.name != ".gitignore":
             continue
@@ -625,36 +632,56 @@ def main(argv=None):
     demo.add_argument("--text", action="append")
     audit = sub.add_parser("audit", help="Check Markdown source traceability")
     audit.add_argument("--run", type=Path, help="Also verify an existing run's artifact hashes")
+    audit.add_argument("--report", type=Path, help="Verify every file hash in a report directory")
     args = parser.parse_args(argv)
     if args.command == "audit":
         print(json.dumps(audit_sources(), indent=2))
         if args.run:
             print(json.dumps(verify_artifacts(args.run), indent=2))
+        if args.report:
+            from reporting import verify_report
+            print(json.dumps(verify_report(args.report), indent=2))
     elif args.command == "infer":
-        result = infer_pretrained(args.text)
-        if args.output:
-            output = fresh_directory(args.output)
-            write_json(output / "inference.json", result)
-            record_provenance(output, "lab3.py " + " ".join(sys.argv[1:]))
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+        with RunReport("cli-infer") as report:
+            report.write_json("config.json", {"model": INFERENCE_MODEL, "texts": args.text})
+            result = infer_pretrained(args.text)
+            report.write_json("inference.json", result)
+            if args.output:
+                output = fresh_directory(args.output)
+                write_json(output / "inference.json", result)
+                record_provenance(output, "lab3.py " + " ".join(sys.argv[1:]))
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            print(f"Report: {report.directory}")
     elif args.command == "demo":
-        _, _, result = load_demo(args.checkpoint, args.text or DEMO_TEXTS)
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+        with RunReport("cli-demo") as report:
+            report.write_json("config.json", {"checkpoint": str(args.checkpoint.resolve()),
+                              "texts": args.text or DEMO_TEXTS})
+            _, _, result = load_demo(args.checkpoint, args.text or DEMO_TEXTS)
+            report.write_json("demo.json", {"predictions": result})
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            print(f"Report: {report.directory}")
     else:
         output = fresh_directory(args.output or ROOT / "outputs" /
                                   f"{args.mode}-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}")
         command = "lab3.py " + " ".join(sys.argv[1:])
-        try:
-            with (output / "run.log").open("w", encoding="utf-8") as log:
-                with contextlib.redirect_stdout(Tee(sys.stdout, log)):
-                    print("Sources: " + "; ".join(SOURCES), flush=True)
-                    train_run(RunConfig(mode=args.mode), output)
-        except Exception as exc:
-            write_json(output / "failure.json", {"exception": type(exc).__name__, "message": str(exc)})
-            raise
-        finally:
-            record_provenance(output, command)
-        print(f"Artifacts: {output}")
+        with RunReport(f"cli-{args.mode}") as report:
+            report.meta.update(model_output=str(output.resolve()), command=command,
+                               log_scope="train_run: preparation, training, validation, test, export and demo")
+            report.write_json("invocation.json", {"command": command, "config": asdict(RunConfig(mode=args.mode))})
+            try:
+                with (output / "run.log").open("w", encoding="utf-8") as log:
+                    with contextlib.redirect_stdout(Tee(sys.stdout, log)):
+                        print("Sources: " + "; ".join(SOURCES), flush=True)
+                        train_run(RunConfig(mode=args.mode), output, report=report)
+            except BaseException as exc:
+                write_json(output / "failure.json", {"exception": type(exc).__name__, "message": str(exc)})
+                raise
+            finally:
+                write_json(output / "report_ref.json", {"report_path": str(report.directory.resolve())})
+                record_provenance(output, command)
+                collect_output(report, output)
+            print(f"Artifacts: {output}")
+            print(f"Report: {report.directory}")
 
 
 if __name__ == "__main__":

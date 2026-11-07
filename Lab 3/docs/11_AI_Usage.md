@@ -15,6 +15,7 @@ Yêu cầu dự án được ghi nhận ngày 2026-11-06: hoàn thiện Lab 3 v�
 7. Các thư viện cài trong `.venv` và cache tải từ bên thứ ba không phải file AI sáng tác; không sửa nội dung của chúng. Chúng bị loại khỏi gói bàn giao, phiên bản được ghi lại để tái lập.
 8. Không cam kết đạt Accuracy/F1 hoặc tốc độ trước khi đo. Báo cả tiêu chí không đạt và giới hạn phần cứng.
 9. Sử dụng văn phong kỹ thuật trung lập trong tài liệu bàn giao: mô tả phạm vi, phương pháp, nguồn và kết quả; tránh cách xưng hô cá nhân và diễn giải bối cảnh trao đổi.
+10. Report mới ở `report/<run>/` dùng `SOURCES.md`, `source_snapshot/` và `manifest.json` cho nguồn/hash từng file. Giữ nguyên byte log được nhập từ output cũ; ghi nguồn gốc và phần thiếu. Không tạo log hoặc thời điểm thực nghiệm chưa có bằng chứng. `reporting.py` và tích hợp report được bổ sung với hỗ trợ OpenAI Codex ngày 2026-11-07; xem `08_implementation.md` §9.
 
 ## 3. Phạm vi đóng góp được ghi nhận
 

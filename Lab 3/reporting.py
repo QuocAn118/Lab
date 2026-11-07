@@ -217,3 +217,39 @@ def verify_report(directory):
     if actual != recorded:
         raise ValueError("Unrecorded files in report directory")
     return {"status": "PASS", "files_checked": len(recorded)}
+
+
+def collect_output(report, output):
+    """Copy existing evidence byte-for-byte; keep weight files in outputs/."""
+    output = Path(output)
+    names = {"run_config.json": "config.json", "metrics.json": "metrics.json",
+             "epoch_history.json": "epoch_history.json", "trainer_history.json": "trainer_history.json",
+             "training_time.json": "training_time.json", "checkpoint_policy.json": "checkpoint_policy.json",
+             "test_predictions.csv": "predictions.csv", "confusion_matrix.png": "confusion_matrix.png",
+             "loss_curve.png": "loss_curve.png", "report.md": "original_report.md",
+             "lab3_source.py": "executed_cli.py", "run.log": "original_run.log",
+             "failure.json": "failure.json", "provenance.json": "original_provenance.json",
+             "timing_sources.md": "timing_sources.md"}
+    missing = []
+    for source, destination in names.items():
+        path = output / source
+        if path.is_file():
+            report.copy(path, destination)
+        else:
+            missing.append(source)
+    checkpoints = []
+    directory = output / "checkpoints"
+    if directory.is_dir():
+        for path in sorted(directory.iterdir()):
+            if not path.is_dir():
+                continue
+            timing = path / "training_time.json"
+            if timing.is_file():
+                report.copy(timing, f"checkpoint_times/{path.name}.json")
+            checkpoints.append({"path": str(path.resolve()), "config_present": (path / "config.json").is_file(),
+                                "weights_present": (path / "model.safetensors").is_file(),
+                                "timing_present": timing.is_file()})
+    report.write_json("checkpoints.json", {"checkpoints": checkpoints, "weights_copied": False})
+    report.write_json("availability.json", {"original_output": str(output.resolve()),
+                      "not_present_in_original_output": missing,
+                      "note": "Only files present at collection time are copied; missing logs are not reconstructed."})
