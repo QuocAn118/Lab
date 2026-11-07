@@ -26,9 +26,14 @@ Lab/
 │   ├── README.md
 │   └── test.py
 ├── Lab 2/
-│   ├── docs/                     # Hệ thống 7 file đặc tả Module 02
-│   ├── README.md
-│   └── test.py
+│   ├── docs/                     # Hệ thống 7 file đặc tả Module 02 (Pre-trained Neural Networks)
+│   ├── configs/                  # Tham số và 4 lần chạy
+│   ├── src/lab_2/                # common, data, model, training, evaluation, demo
+│   ├── tests/                    # Test logic và smoke test
+│   ├── notebooks/                # Notebook chạy trên Colab, notebook cũ
+│   ├── reports/                  # metrics.json, figures/, runs/ (tạo khi chạy)
+│   ├── requirements.txt
+│   └── README.md
 ├── Lab 3/
 │   ├── docs/                     # Hệ thống 7 file đặc tả Module 03 (Transformers Fine-Tuning)
 │   ├── configs/                  # Tham số Exercise 2
