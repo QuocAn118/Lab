@@ -3,12 +3,11 @@
 - Model name: FashionMNIST MLP
 - Model class: NeuralNetwork
 - Author: Nguyen Thi Van Anh
-- Created on: --/11/2026
+- Created on: 09/11/2026
 - Updated on: --/11/2026
 - Updated by:
 - Framework: PyTorch
-- Reference: PyTorch – Learn the Basics – Build the Neural Network
-
+- Reference: https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html
 ## 2. Purpose
 The model is designed to perform multiclass image classification on the FashionMNIST dataset. For each input image, the model predicts one of 10 clothing and accessory classes:
 
@@ -60,13 +59,13 @@ The `forward` method defines the order in which data passes through the layers
 
 Flatten only changes the tensor shape; it does not change pixel values and has no learnable parameters
 
-Each Linear layer applies a transformation using weights and biases
+Each Linear layer applies a transformation using weights and biases<br>
 These parameters are updated during training
 
-ReLU replaces negative values with 0 and leaves positive values unchanged
+ReLU replaces negative values with 0 and leaves positive values unchanged<br>
 This activation function enables the network to learn nonlinear relationships. ReLU has no learnable parameters
 
-The output layer returns logits. Softmax is not included in the forward method when training with nn.CrossEntropyLoss because this loss function accepts logits directly
+The output layer returns logits. Softmax is not included in the forward method when training with `nn.CrossEntropyLoss` because this loss function accepts logits directly
 
 ## 3.2 Model input
 The input is a batch of FashionMNIST images that have been converted into tensors
@@ -152,26 +151,3 @@ Before handing over the model for training:
 5. Record the actual results in `model_summary.txt`
 
 **_Verification status:_** Not yet performed
-
-# 4. Trained Model
-
-Status: Not yet completed
-## 4.1. Training completion description
-- Training completion date: [To be updated]
-- Training run / configuration: [To be updated]
-- Number of completed epochs: [To be updated]
-- Architecture changes, if any: [To be updated]
-- Selected checkpoint: [To be updated]
-- Checkpoint selection criterion: [To be updated]
-
-## 4.2 Saving path and loading method
-- Saving path:
-
-## 4.3 Reload verification
-**Purpose:**
-Confirm that saving and reloading correctly restores the model
-
-**_Result:_** Not yet performed
-
-This check verifies the correctness of saving and loading<br>
-Classification accuracy is evaluated separately on the data
