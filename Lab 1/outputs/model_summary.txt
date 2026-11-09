@@ -1,0 +1,18 @@
+Cấu hình: {'name': 'FashionMLP', 'input_shape': [1, 28, 28], 'hidden_dims': [512, 512], 'activation': 'ReLU', 'num_classes': 10}
+
+Cấu trúc model:
+FashionMLP(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (linear): Sequential(
+    (0): Linear(in_features=784, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=512, out_features=512, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+
+Input shape: (2, 1, 28, 28)
+Output shape: (2, 10)
+Tổng tham số: 669706
+Tham số được phép học: 669706
