@@ -1,11 +1,11 @@
 # MLP Architecture for Image Classification — Lab 1
 ## 1. Model Name
 - Model name: FashionMNIST MLP
-- Model class: NeuralNetwork
+- Model class: FashionMLP
 - Author: Nguyen Thi Van Anh
 - Created on: 09/11/2026
-- Updated on: --/11/2026
-- Updated by:
+- Updated on: 09/11/2026
+- Updated by: Nguyen Thi Van Anh
 - Framework: PyTorch
 - Reference: https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html
 ## 2. Purpose
@@ -42,9 +42,12 @@ The model uses an MLP architecture consisting of:
 - A ReLU activation function after each hidden layer
 - One output Linear layer with 10 neurons
 
-The model is defined in the NeuralNetwork class, which inherits from `torch.nn.Module`
+The model is defined in the FashionMLP class, which inherits from `torch.nn.Module`
 The `__init__` method declares the layers
 The `forward` method defines the order in which data passes through the layers
+
+The baseline configuration uses two hidden layers with 512 neurons each<br>
+The current implementation allows changing the width of these two hidden layers through `model_config["hidden_dims"]`
 
 ### Detailed architecture
 
@@ -70,7 +73,7 @@ The output layer returns logits. Softmax is not included in the forward method w
 ## 3.2 Model input
 The input is a batch of FashionMNIST images that have been converted into tensors
 
-- Data type:
+- Data type: `torch.float32`
 - Shape: (B, 1, 28, 28)
 - B: number of images in the batch
 - 1: one grayscale channel
@@ -136,13 +139,17 @@ Before training, the model can already perform a forward pass and return logits,
 
 ## 3.7. Source file
 
-- Source file:
-- Model class: NeuralNetwork
+- Source file: `src\model.py`
+- Model class: `FashionMLP`
+- Model creation function: `build_model(model_config)`
+- Architecture verification function: `check_model()`
+- Verification command: `python src/model.py --check`
+- Verification report: `outputs/model_summary.txt`
 
 **_Reference:_**
 https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html
 
-## 3.8. Planned verification
+## 3.8. Model verification
 Before handing over the model for training:
 1. Create or retrieve a batch with shape (B, 1, 28, 28)
 2. Run a forward pass and verify that the output shape is (B, 10)
@@ -150,4 +157,15 @@ Before handing over the model for training:
 4. Count the total number of parameters and the number of trainable parameters
 5. Record the actual results in `model_summary.txt`
 
-**_Verification status:_** Not yet performed
+**_Verification status:_**<br>
+The model architecture was manually verified against the configuration
+using the printed model structure<br>
+| Check | Actual result | Status |
+|---|---|---|
+| Baseline architecture | 784 → 512 → 512 → 10, with ReLU after each hidden layer | Passed |
+| Input shape | (2, 1, 28, 28) | Passed |
+| Output shape | (2, 10) | Passed |
+| Output values | All values are finite; no NaN or Inf | Passed |
+| Total parameters | 669706 | Matches the calculated count |
+| Trainable parameters | 669706 | All parameters are trainable |
+| Report generation | `outputs/model_summary.txt` generated and inspected | Passed |
