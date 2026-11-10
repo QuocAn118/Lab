@@ -30,6 +30,8 @@ CLASSES = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
 SMOKE_LIMITS = {"train": 512, "val": 256, "test": 256}
 HISTORY_COLUMNS = ["epoch", "train_loss", "train_accuracy", "val_loss", "val_accuracy", "epoch_seconds"]
 RELOAD_SAMPLES = 16
+PATIENCE = 2  # Mục 6: dừng khi 2 epoch liên tiếp val accuracy tăng dưới MIN_DELTA.
+MIN_DELTA = 0.01
 
 
 def build_config(run_id, hidden_dims=(512, 512), optimizer="SGD", learning_rate=0.001,
@@ -43,16 +45,15 @@ def build_config(run_id, hidden_dims=(512, 512), optimizer="SGD", learning_rate=
         "model": {"name": "FashionMLP", "input_shape": [1, 28, 28], "hidden_dims": list(hidden_dims),
                   "activation": "ReLU", "num_classes": 10},
         "data": {"transforms": ["ToTensor"], "batch_size": 64, "num_workers": 0,
-                 "train_shuffle": True, "val_shuffle": False, "test_shuffle": False, "drop_last": False,
-                 "split_seed": 42, "limits": SMOKE_LIMITS if smoke else None},
+                 "train_shuffle": True, "test_shuffle": False, "drop_last": False,
+                 "limits": SMOKE_LIMITS if smoke else None},  # Smoke run: số ảnh mục 5.1.
         "training": {"epochs": epochs or (1 if smoke else 10), "seed": 42, "loss": "CrossEntropyLoss",
                      "optimizer": optimizer, "learning_rate": learning_rate,
-                     "momentum": 0.9 if optimizer == "SGD" else None, "device": device,
-                     "early_stopping": {"monitor": "val_accuracy", "patience": 2, "min_delta": 0.01}},
+                     "momentum": 0.9 if optimizer == "SGD" else None, "device": device},
     }
 
 
-def next_stale_count(best_acc, val_acc, stale, min_delta):
+def next_stale_count(best_acc, val_acc, stale, min_delta=MIN_DELTA):
     """Số epoch liên tiếp val accuracy tăng dưới min_delta so với mức tốt nhất trước đó."""
     if best_acc is None:
         return 0
@@ -94,11 +95,10 @@ def check_smoke_sizes(config, loaders):
 
 
 def train(config, run, loaders):
-    """Huấn luyện, ghi history.csv, checkpoint, checkpoint_index.json, train_summary.json."""
+    """Huấn luyện, ghi history.csv, 5 checkpoint và checkpoint_index.json."""
     train_loader, val_loader, _ = loaders  # Không dùng test để huấn luyện hay chọn checkpoint.
     check_smoke_sizes(config, loaders)
     cfg = config["training"]
-    stop_cfg = cfg["early_stopping"]
     device = cfg["device"]
     cuda = device.startswith("cuda")
 
@@ -111,8 +111,6 @@ def train(config, run, loaders):
         optimizer = torch.optim.Adam(model.parameters(), lr=cfg["learning_rate"])
     else:
         raise ValueError(f"Optimizer không hỗ trợ: {cfg['optimizer']}")
-    if cuda:
-        torch.cuda.reset_peak_memory_stats()
 
     index, index_path = {}, run.ckpt_dir / "checkpoint_index.json"
     train_seconds = 0.0
@@ -126,7 +124,6 @@ def train(config, run, loaders):
         torch.save(model.state_dict(), run.ckpt_dir / name)
         record(name, *info, **extra)
 
-    started_at = now_iso()
     best_loss = best_acc = None
     best_loss_epoch = best_acc_epoch = None
     stale, early_stopped = 0, False
@@ -153,14 +150,14 @@ def train(config, run, loaders):
             if best_loss is None or val_loss < best_loss:
                 best_loss, best_loss_epoch = val_loss, epoch
                 save("best_val_loss.pth", epoch, val_loss, val_acc)
-            stale = next_stale_count(best_acc, val_acc, stale, stop_cfg["min_delta"])
+            stale = next_stale_count(best_acc, val_acc, stale)
             if best_acc is None or val_acc > best_acc:  # Hòa thì giữ checkpoint sớm hơn.
                 best_acc, best_acc_epoch = val_acc, epoch
                 save("best_val_acc.pth", epoch, val_loss, val_acc)
-            if stale >= stop_cfg["patience"]:
+            if stale >= PATIENCE:
                 early_stopped = True
                 run.note(f"early stopping tại epoch {epoch}: {stale} epoch liên tiếp val_acc tăng dưới "
-                         f"{stop_cfg['min_delta']}")
+                         f"{MIN_DELTA}")
                 break
 
     last = (epoch, val_loss, val_acc)
@@ -170,14 +167,9 @@ def train(config, run, loaders):
     save_model(model, run.run_id)  # Ghi final_epoch.pth (TV2, model_io.py).
     record("final_epoch.pth", *last)
 
-    summary = {
-        "started_at": started_at, "finished_at": now_iso(), "device": device,
-        "train_seconds": round(train_seconds, 3), "epochs_run": epoch, "early_stopped": early_stopped,
-        "best_val_accuracy": best_acc, "best_val_accuracy_epoch": best_acc_epoch,
-        "best_val_loss": best_loss, "best_val_loss_epoch": best_loss_epoch,
-        "peak_gpu_memory_mb": round(torch.cuda.max_memory_allocated() / 2**20, 1) if cuda else None,
-    }
-    write_json(run.out_dir / "train_summary.json", summary)
+    summary = {"epochs_run": epoch, "early_stopped": early_stopped,
+               "best_val_accuracy": best_acc, "best_val_accuracy_epoch": best_acc_epoch,
+               "best_val_loss": best_loss, "best_val_loss_epoch": best_loss_epoch}
 
     sample = torch.stack([val_loader.dataset[i][0] for i in range(RELOAD_SAMPLES)])
     if not verify_reload(model, sample, run.run_id):
