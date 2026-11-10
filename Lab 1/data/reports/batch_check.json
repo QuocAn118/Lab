@@ -1,0 +1,16 @@
+{
+  "batch_size_requested": 64,
+  "image_shape": [
+    64,
+    1,
+    28,
+    28
+  ],
+  "image_dtype": "torch.float32",
+  "label_shape": [
+    64
+  ],
+  "label_dtype": "torch.int64",
+  "pixel_min": 0.0,
+  "pixel_max": 1.0
+}

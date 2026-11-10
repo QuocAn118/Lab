@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "artifact": "data/reports/batch_check.json",
+  "sha256": "b4c950d2d1d6f7944c1a6fac6a64eecd54ec8b0facc6ab6fbf1566b514fecd4c",
+  "bytes": 240,
+  "produced_by": "data/data_pipeline.py",
+  "created_by": "Thanh Binh",
+  "created_at": "2026-11-10T16:17:52+07:00",
+  "git": {
+    "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
+    "branch": "ThanhBinh",
+    "dirty": true,
+    "dirty_files": [
+      "M \"Lab 1/.gitignore\"",
+      " M \"Lab 1/docs/data.md\"",
+      " M \"Lab 1/docs/plan_progress_status.md\"",
+      " M \"Lab 1/docs/provenance.json\"",
+      " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
+      " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
+      " M \"Lab 1/src/run_tracking.py\"",
+      " M \"Lab 1/src/train.py\"",
+      " M \"Lab 1/tools/check_provenance.py\"",
+      "?? \"Lab 1/data/\"",
+      "?? \"Lab 1/docs/AI_Usage.md\""
+    ]
+  },
+  "specs": [
+    {
+      "path": "docs/requirements/3_2_transforms_dataloader.md",
+      "sha256": "3f8ec72cfe328e742f6a920db7c7fe3bfbdb83f53c50b8cd6142a0e5f1fb8c9e"
+    },
+    {
+      "path": "docs/lab_1_description.md",
+      "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+    },
+    {
+      "path": "docs/team_plan_integrity.md",
+      "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/reports/split_indices.json",
+      "sha256": "6bbf4c6854525173e12ec9da357181eb448ef823b3dae09dd3e4463113a55e5a"
+    }
+  ],
+  "note": "",
+  "history": [
+    {
+      "schema_version": 1,
+      "artifact": "outputs/batch_check.json",
+      "sha256": "b4c950d2d1d6f7944c1a6fac6a64eecd54ec8b0facc6ab6fbf1566b514fecd4c",
+      "bytes": 240,
+      "produced_by": "src/data_pipeline.py",
+      "created_by": "Thanh Binh",
+      "created_at": "2026-11-10T16:15:42+07:00",
+      "git": {
+        "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
+        "branch": "ThanhBinh",
+        "dirty": true,
+        "dirty_files": [
+          "M \"Lab 1/docs/data.md\"",
+          " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
+          " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
+          "?? \"Lab 1/docs/AI_Usage.md\"",
+          "?? \"Lab 1/outputs/batch_check.json\"",
+          "?? \"Lab 1/outputs/data_samples.png\"",
+          "?? \"Lab 1/outputs/data_samples.png.prov.json\"",
+          "?? \"Lab 1/outputs/data_summary.json\"",
+          "?? \"Lab 1/outputs/data_summary.json.prov.json\"",
+          "?? \"Lab 1/outputs/split_indices.json\"",
+          "?? \"Lab 1/outputs/split_indices.json.prov.json\"",
+          "?? \"Lab 1/src/data_pipeline.py\"",
+          "?? \"Lab 1/src/prepare_data.py\"",
+          "?? \"Lab 1/tests/test_data.py\""
+        ]
+      },
+      "specs": [
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "f548d3c4eecec6780b0c46c2567f5be5b91d1949f97446495be15d9a6a8abaff"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "outputs/split_indices.json",
+          "sha256": "6bbf4c6854525173e12ec9da357181eb448ef823b3dae09dd3e4463113a55e5a"
+        }
+      ],
+      "note": ""
+    }
+  ]
+}

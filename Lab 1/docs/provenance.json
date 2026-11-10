@@ -6,7 +6,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
           "section": "§9.4"
         }
       ],
@@ -15,14 +15,29 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Soạn với Claude Code",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Ignore raw dataset only"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "README.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -31,14 +46,194 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Tạo 2026-11-04 (ca3b03e)",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Link data module"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "data/README.md",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "b9aa3caf1b9f8eae6d6c2031e09aa1b04867b5a84ab792f42ed95df5afe2630e"
+        },
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "5179bd52ac4d7b3741748892fbc4ca5cae8cb08b22fa2cd02e75d0a68ee47047"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:17:42+07:00",
+      "status": "active",
+      "note": "Data layout and commands",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final commands reviewed"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "data/data_pipeline.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "5179bd52ac4d7b3741748892fbc4ca5cae8cb08b22fa2cd02e75d0a68ee47047"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.2; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/data_pipeline.py -> data/data_pipeline.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Update module and report paths"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "data/prepare_data.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "b9aa3caf1b9f8eae6d6c2031e09aa1b04867b5a84ab792f42ed95df5afe2630e"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.1; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:41+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/prepare_data.py -> data/prepare_data.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Update module and report paths"
+        },
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final data directory layout"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "docs/AI_Usage.md",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:16:00+07:00",
+      "status": "active",
+      "note": "AI disclosure",
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/data.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -47,14 +242,29 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:00+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Implement data sections 3.1 and 3.2"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/demo.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -63,14 +273,23 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/evaluation.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -79,7 +298,16 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/lab_1_description.md",
@@ -106,7 +334,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -115,14 +343,23 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/plan_progress_status.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -131,14 +368,35 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:17+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data implementation and actual validation results"
+        },
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data layout update"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/provenance.json",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
           "section": "§9.2"
         }
       ],
@@ -147,14 +405,23 @@
       "recorded_at": "2026-11-07T11:32:15+07:00",
       "status": "active",
       "note": "",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_1_prepare_data.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -163,14 +430,29 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data reports directory"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_2_transforms_dataloader.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -179,14 +461,23 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_3_build_model.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -195,14 +486,23 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_4_train.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -211,14 +511,23 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_5_evaluate.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -227,14 +536,23 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_6_save_load.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§6"
         }
       ],
@@ -243,14 +561,23 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/team_plan_integrity.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4-§5"
         },
         {
@@ -262,14 +589,23 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Soạn với Claude Code 2026-11-07, HoangDang rà",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "docs/training.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§4"
         }
       ],
@@ -278,6 +614,45 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "src/model.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_3_build_model.md",
+          "sha256": "658beee1e07293b62b5ca0271b449d6e7800d448c9566d09b0486936ae2db18b"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Van Anh",
+      "recorded_at": "2026-11-10T21:30:39+07:00",
+      "status": "active",
+      "note": "FashionMLP PyTorch implementation",
+      "reviews": []
+    },
+    {
+      "path": "src/model_io.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_6_save_load.md",
+          "sha256": "3f1aa965cea070c774740624601891b7147c47ae7b1f6535c50e5d6db6e42170"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Van Anh",
+      "recorded_at": "2026-11-10T21:30:43+07:00",
+      "status": "active",
+      "note": "Luu va tai checkpoint model",
       "reviews": []
     },
     {
@@ -285,12 +660,12 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
           "section": "§10"
         }
       ],
@@ -299,14 +674,60 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07; đã chạy thử smoke giả lập",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Include data module in code snapshots"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
+    },
+    {
+      "path": "src/train.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_4_train.md",
+          "sha256": "a35c291d8edc9e680cdaed7f43aab278b1d31d3ff0aaaeac96a16682001f5712"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "section": "6.1"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Quoc An",
+      "recorded_at": "2026-11-10T09:06:40+07:00",
+      "status": "active",
+      "note": "Sinh bằng Claude Code (Claude Opus 5.5), TV3 review; test: tests/test_train.py",
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     },
     {
       "path": "tools/check_provenance.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
           "section": "§9"
         }
       ],
@@ -315,7 +736,22 @@
       "recorded_at": "2026-11-07T11:32:15+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Track data code and reports; preserve registry on moves"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        }
+      ]
     }
   ]
 }
