@@ -302,6 +302,26 @@
       "reviews": []
     },
     {
+      "path": "src/train.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_4_train.md",
+          "sha256": "9329c867339fb8f83fe9b3afda4049032242c1e63c04d464faa0abd959ce52ba"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "6.1"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Quoc An",
+      "recorded_at": "2026-11-10T09:06:40+07:00",
+      "status": "active",
+      "note": "Sinh bằng Claude Code (Claude Opus 5.5), TV3 review; test: tests/test_train.py",
+      "reviews": []
+    },
+    {
       "path": "tools/check_provenance.py",
       "sources": [
         {
