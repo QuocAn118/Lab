@@ -2,6 +2,8 @@
 
 Thư mục dự án triển khai nền tảng mạng nơ-ron nhân tạo và giải thuật tối ưu hóa trong PyTorch theo chuẩn kỹ nghệ phần mềm máy học (Spec-Driven MLOps).
 
+Phần **3.1–3.2** được gom trong **[data/](data/README.md)**: code chuẩn bị dữ liệu, DataLoader, dữ liệu gốc, báo cáo và kiểm thử. Xem README trong đó để chạy.
+
 ## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
 1. **[`docs/lab_1_description.md`](./docs/lab_1_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý Checkpoints.
 2. **[`docs/data.md`](./docs/data.md)**:  dữ liệu FashionMNIST, Transforms, DataLoaders.

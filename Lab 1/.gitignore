@@ -6,8 +6,8 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
-# Dữ liệu tải về: tái tạo được bằng src/prepare_data.py; hash nằm trong outputs/data_summary.json
-data/
+# Chỉ bỏ qua dataset gốc; code và báo cáo data vẫn lưu trong Git.
+data/FashionMNIST/
 
 # Trọng số model: giữ trên máy/Drive. Hash và metadata vẫn commit qua manifest.json, checkpoint_index.json
 checkpoints/**/*.pth

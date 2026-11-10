@@ -137,7 +137,7 @@ def code_snapshot() -> list[dict]:
         for entry in json.loads(REGISTRY.read_text(encoding="utf-8")).get("entries", []):
             sources[entry["path"]] = [s["path"] for s in entry.get("sources", []) if "path" in s]
     snapshot = []
-    for path in sorted((LAB_ROOT / "src").glob("*.py")):
+    for path in sorted([*(LAB_ROOT / "src").glob("*.py"), *(LAB_ROOT / "data").glob("*.py")]):
         key = rel(path)
         snapshot.append({"path": key, "sha256": sha256_file(path),
                          "specs": sources.get(key, []), "registered": key in sources})

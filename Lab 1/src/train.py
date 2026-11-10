@@ -189,7 +189,10 @@ def main(argv=None):
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     config = build_config(args.run_id, args.hidden_dims, args.optimizer, args.lr, args.epochs, device)
-    from data_pipeline import create_dataloaders  # TV1; import ở đây để test không cần file này.
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from data.data_pipeline import create_dataloaders  # TV1; import ở đây để test không cần file này.
 
     with Run(args.run_id, purpose=args.purpose, config=config, specs=SPECS) as run:
         summary = train(config, run, create_dataloaders(config))

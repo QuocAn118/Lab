@@ -1,12 +1,16 @@
 # 3.1. Tải và chuẩn bị dữ liệu FashionMNIST
 
+Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+
+Theo đặc tả chung §1.3: tạo thêm `data/reports/split_indices.json` gồm `seed=42`, `train` (54.000 chỉ số), `val` (6.000 chỉ số), dùng `torch.randperm(60000)` với generator riêng. Giữ nguyên test. Báo cáo bổ sung `sha256` bốn tệp IDX (hash byte gốc), `split_samples`, `overlap_train_val`. Mọi đầu ra lẻ có sidecar từ `record_artifact`.
+
 ## 1. Mục đích
 
 Tải dữ liệu, kiểm tra cấu trúc và khảo sát ảnh cùng nhãn thật trước khi xây dựng mô hình.
 
 ## 2. File thực hiện
 
-- File code dự kiến: `src/prepare_data.py`.
+- File code dự kiến: `data/prepare_data.py`.
 - Thư viện sử dụng: `torchvision.datasets.FashionMNIST`, thư viện JSON và công cụ vẽ ảnh.
 - Tất cả đường dẫn tính từ thư mục `Lab 1`. Code phải xác định thư mục gốc từ vị trí file, không dựa vào thư mục đang chạy lệnh.
 
@@ -18,7 +22,7 @@ Tải dữ liệu, kiểm tra cấu trúc và khảo sát ảnh cùng nhãn th�
 
 ## 4. Các bước xử lý
 
-1. Tạo thư mục `data/` và `outputs/` nếu chưa có.
+1. Tạo thư mục `data/` và `data/reports/` nếu chưa có.
 2. Tải hoặc mở lại hai tập train và test đã có trên máy.
 3. Kiểm tra số mẫu, kích thước ảnh, số lớp và ánh xạ chỉ số sang tên lớp.
 4. Chọn 16 ảnh đầu tiên từ tập train để hiển thị cùng nhãn thật.
@@ -29,8 +33,8 @@ Tải dữ liệu, kiểm tra cấu trúc và khảo sát ảnh cùng nhãn th�
 | Đầu ra | Đường dẫn | Định dạng và cách lưu |
 | --- | --- | --- |
 | Dữ liệu train và test | `data/FashionMNIST/raw/` | Các tệp ảnh và nhãn IDX do torchvision tải và giải nén; các tệp nén `.gz` có thể được giữ lại. Không tự chuyển thành CSV hay PNG riêng lẻ. |
-| Thông tin dữ liệu | `outputs/data_summary.json` | JSON UTF-8, ghi bằng thư viện JSON sau khi kiểm tra dữ liệu. |
-| Ảnh khảo sát | `outputs/data_samples.png` | PNG, bố cục 4 × 4 ảnh xám, mỗi ảnh có tên nhãn thật. Lưu bằng chức năng xuất hình của thư viện vẽ. |
+| Thông tin dữ liệu | `data/reports/data_summary.json` | JSON UTF-8, ghi bằng thư viện JSON sau khi kiểm tra dữ liệu. |
+| Ảnh khảo sát | `data/reports/data_samples.png` | PNG, bố cục 4 × 4 ảnh xám, mỗi ảnh có tên nhãn thật. Lưu bằng chức năng xuất hình của thư viện vẽ. |
 
 Các tệp dữ liệu đã giải nén cần có trong `data/FashionMNIST/raw/`:
 
@@ -53,7 +57,7 @@ Khi chạy lại, sử dụng dữ liệu đã tải nếu hợp lệ; thay th�
 Lệnh dự kiến, chạy từ thư mục `Lab 1` sau khi code được triển khai:
 
 ```powershell
-python src/prepare_data.py
+python data/prepare_data.py
 ```
 
 - Kiểm tra tập train có 60.000 mẫu, tập test có 10.000 mẫu và có 10 lớp.

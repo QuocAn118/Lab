@@ -15,7 +15,14 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Soạn với Claude Code",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Ignore raw dataset only"
+        }
+      ]
     },
     {
       "path": "README.md",
@@ -31,6 +38,140 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Tạo 2026-11-04 (ca3b03e)",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Link data module"
+        }
+      ]
+    },
+    {
+      "path": "data/README.md",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "392adcbf0b6d19801d9ecec6776921fcea1ae1732631c259462fa43f8e934276"
+        },
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "3f8ec72cfe328e742f6a920db7c7fe3bfbdb83f53c50b8cd6142a0e5f1fb8c9e"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:17:42+07:00",
+      "status": "active",
+      "note": "Data layout and commands",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final commands reviewed"
+        }
+      ]
+    },
+    {
+      "path": "data/data_pipeline.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "3f8ec72cfe328e742f6a920db7c7fe3bfbdb83f53c50b8cd6142a0e5f1fb8c9e"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.2; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/data_pipeline.py -> data/data_pipeline.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Update module and report paths"
+        }
+      ]
+    },
+    {
+      "path": "data/prepare_data.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "392adcbf0b6d19801d9ecec6776921fcea1ae1732631c259462fa43f8e934276"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.1; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:41+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/prepare_data.py -> data/prepare_data.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Update module and report paths"
+        },
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final data directory layout"
+        }
+      ]
+    },
+    {
+      "path": "docs/AI_Usage.md",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:16:00+07:00",
+      "status": "active",
+      "note": "AI disclosure",
       "reviews": []
     },
     {
@@ -47,7 +188,14 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:00+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Implement data sections 3.1 and 3.2"
+        }
+      ]
     },
     {
       "path": "docs/demo.md",
@@ -131,7 +279,20 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:17+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data implementation and actual validation results"
+        },
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data layout update"
+        }
+      ]
     },
     {
       "path": "docs/provenance.json",
@@ -163,7 +324,14 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data reports directory"
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_2_transforms_dataloader.md",
@@ -299,7 +467,14 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07; đã chạy thử smoke giả lập",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Include data module in code snapshots"
+        }
+      ]
     },
     {
       "path": "src/train.py",
@@ -335,7 +510,14 @@
       "recorded_at": "2026-11-07T11:32:15+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Track data code and reports; preserve registry on moves"
+        }
+      ]
     }
   ]
 }
