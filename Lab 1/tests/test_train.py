@@ -73,8 +73,8 @@ def test_writes_history_checkpoints_and_reload_check():
 
     reload = json.loads((run.out_dir / "reload_check.json").read_text(encoding="utf-8"))
     assert reload["passed"] is True
-    assert json.loads((run.out_dir / "train_summary.json").read_text(encoding="utf-8")) == summary
-    assert summary["epochs_run"] == 2 and summary["peak_gpu_memory_mb"] is None
+    assert summary["epochs_run"] == 2
+    assert not (run.out_dir / "train_summary.json").exists()
 
 
 def test_early_stops_after_two_epochs_without_enough_gain():
@@ -89,10 +89,10 @@ def test_early_stops_after_two_epochs_without_enough_gain():
 
 
 def test_patience_counts_gain_against_best_so_far():
-    assert train.next_stale_count(None, 0.50, stale=0, min_delta=0.01) == 0
-    assert train.next_stale_count(0.50, 0.51, stale=1, min_delta=0.01) == 0  # đúng 0.01 vẫn tính là cải thiện
-    assert train.next_stale_count(0.50, 0.505, stale=0, min_delta=0.01) == 1
-    assert train.next_stale_count(0.50, 0.40, stale=1, min_delta=0.01) == 2
+    assert train.next_stale_count(None, 0.50, stale=0) == 0
+    assert train.next_stale_count(0.50, 0.51, stale=1) == 0  # đúng 0.01 vẫn tính là cải thiện
+    assert train.next_stale_count(0.50, 0.505, stale=0) == 1
+    assert train.next_stale_count(0.50, 0.40, stale=1) == 2
 
 
 def test_rejects_existing_run_id():
@@ -113,6 +113,11 @@ def test_config_for_experiments():
     assert base["model"]["hidden_dims"] == [512, 512]
     assert base["training"]["epochs"] == 10 and base["data"]["limits"] is None
     assert base["training"]["optimizer"] == "SGD" and base["training"]["momentum"] == 0.9
+    # Đúng các trường config.json trong 3_4_train.md mục 5, cộng data.limits cho smoke run.
+    assert set(base["data"]) == {"transforms", "batch_size", "num_workers", "train_shuffle",
+                                 "test_shuffle", "drop_last", "limits"}
+    assert set(base["training"]) == {"epochs", "seed", "loss", "optimizer", "learning_rate",
+                                     "momentum", "device"}
 
     adam = train.build_config("run_004", optimizer="Adam", device="cpu")
     assert adam["training"]["momentum"] is None
