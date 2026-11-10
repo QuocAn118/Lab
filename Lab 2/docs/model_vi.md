@@ -1,86 +1,213 @@
 # Kiến trúc mô hình (Model Architecture)
-Đươc tạo vào: 10/11/2026       
+Đươc tạo vào: 10/11/2026     
+Tác giả: Xuân Bảo    
+Được cập nhật vào: 10/11/2026   
 Tác giả: Xuân Bảo 
+
 ## 1. Tổng quan
 
-Dự án sử dụng **ResNet-18** làm mô hình cơ sở để thực hiện bài toán phân loại hình ảnh trên bộ dữ liệu CIFAR-10.
+Module Model chịu trách nhiệm triển khai các kiến trúc học sâu cho bài toán phân loại ảnh CIFAR-10, bao gồm 10 lớp.
 
-ResNet-18 là mạng nơ-ron tích chập (CNN), sử dụng các kết nối phần dư (Residual Connections) nhằm hỗ trợ quá trình huấn luyện mạng sâu và cải thiện khả năng trích xuất đặc trưng hình ảnh.
+Phần triển khai sử dụng PyTorch và Torchvision, hỗ trợ hai kiến trúc đã được huấn luyện trước:
 
-Mô hình được điều chỉnh từ bài toán phân loại ImageNet (1000 lớp) sang bài toán phân loại CIFAR-10 (10 lớp).
+- ResNet18
+- DenseNet121
 
-## 2. Kiến trúc mô hình
+Cả hai kiến trúc đều sử dụng trọng số pretrained từ ImageNet thông qua Transfer Learning. Feature extractor mặc định được đóng băng, trong khi classification head ban đầu được thay thế bằng một head mới phù hợp với bài toán phân loại 10 lớp.
 
-Mô hình được xây dựng bằng `torchvision.models.resnet18`.
+**File triển khai:** `Lab 2/model.py`
 
-Các thông số chính:
+## 2. Mục tiêu
 
-- Kiến trúc: ResNet-18
-- Framework: PyTorch
-- Kích thước đầu vào: `(batch_size, 3, 224, 224)`
-- Số lớp đầu ra: 10
-- Lớp phân loại cuối cùng: `nn.Linear(model.fc.in_features, 10)`
+Các mục tiêu của module bao gồm:
 
-Lớp Fully Connected ban đầu được thay thế bằng một lớp mới có 10 đầu ra để phù hợp với 10 lớp của CIFAR-10.
+- Triển khai và quản lý nhiều kiến trúc mô hình.
+- Tái sử dụng trọng số pretrained từ ImageNet.
+- Áp dụng Transfer Learning bằng cách đóng băng feature extractor.
+- Hỗ trợ Fine-tuning thông qua việc mở khóa có chọn lọc các module của mô hình.
+- Thay thế classification head ban đầu bằng các lớp Dropout và Linear.
+- Tính toán tổng số tham số và số tham số có thể huấn luyện.
+- Quản lý chế độ training và evaluation, đặc biệt là hoạt động của BatchNorm.
+- Lưu và khôi phục checkpoint của mô hình.
+- Xuất thông tin mô hình vào file `metrics.json`.
 
-## 3. Transfer Learning (Học chuyển giao)
+## 3. Kiến trúc mô hình
 
-Transfer Learning sử dụng trọng số đã được huấn luyện trước trên bộ dữ liệu ImageNet.
+### 3.1. Các mô hình được hỗ trợ
 
-Trong quá trình này:
+| Model | Kiến trúc | Classification Head |
+|---|---|---|
+| ResNet18 | Mạng Residual | `fc` |
+| DenseNet121 | Mạng kết nối dày đặc | `classifier` |
 
-- Đóng băng toàn bộ các lớp trích xuất đặc trưng bằng cách đặt `requires_grad = False`.
-- Chỉ cho phép lớp phân loại cuối cùng (`model.fc`) được cập nhật trọng số.
+Module định nghĩa các hằng số sau:
 
-Phương pháp này giúp mô hình tận dụng những đặc trưng hình ảnh đã học được từ ImageNet, đồng thời học cách phân loại 10 lớp của CIFAR-10.
+- `NUM_CLASSES = 10`: số lượng lớp cần phân loại.
+- `HEADS`: ánh xạ mỗi mô hình được hỗ trợ với classification head tương ứng.
+- `SUPPORTED_MODELS`: chứa danh sách tên các mô hình được hỗ trợ.
 
-Hàm triển khai: `freeze_backbone(model)`.
+### 3.2. Classification Head
 
-## 4. Fine-Tuning (Tinh chỉnh mô hình)
+Classification head ban đầu của ImageNet được thay thế bằng:
 
-Fine-Tuning cho phép cập nhật một số lớp đã được huấn luyện trước để mô hình thích nghi tốt hơn với bộ dữ liệu mới.
+```python
+nn.Sequential(
+    nn.Dropout(p=0.2),
+    nn.Linear(in_features, NUM_CLASSES)
+)
+```
 
-Cách triển khai:
+Classification head mới bao gồm:
 
-- Đóng băng toàn bộ tham số của mô hình.
-- Mở khóa khối tích chập cuối cùng (`layer4`).
-- Giữ lớp phân loại cuối cùng (`model.fc`) ở trạng thái có thể huấn luyện.
+- Dropout với xác suất 0.2 nhằm giảm hiện tượng overfitting.
+- Lớp Linear ánh xạ đặc trưng được trích xuất thành 10 giá trị đầu ra.
 
-Phương pháp này giúp mô hình điều chỉnh các đặc trưng cấp cao cho phù hợp với CIFAR-10, đồng thời giữ lại những đặc trưng cấp thấp đã học được.
+## 4. Transfer Learning và Fine-tuning
 
-Hàm triển khai: `unfreeze_layer4(model)`.
+### 4.1. Transfer Learning
 
-## 5. Quản lý tham số huấn luyện
+Theo mặc định, toàn bộ feature extractor được đóng băng bằng:
 
-Hàm `get_trainable_parameters(model)` trả về danh sách các tham số có thuộc tính `requires_grad = True`.
+```python
+model.requires_grad_(False)
+```
 
-Hàm này hỗ trợ xác định chính xác những tham số cần đưa vào Optimizer trong từng chế độ huấn luyện.
+Sau đó, classification head mới được gắn vào mô hình và giữ trạng thái có thể huấn luyện.
 
-## 6. Kiểm thử mô hình
+Trong quá trình Transfer Learning, chỉ các tham số của classification head được cập nhật.
 
-File `model.py` có tích hợp kiểm thử cơ bản (Smoke Test) nhằm xác nhận:
+### 4.2. Fine-tuning
 
-- Mô hình có thể được khởi tạo thành công.
-- Transfer Learning đóng băng đúng các lớp trích xuất đặc trưng.
-- Fine-Tuning mở khóa đúng `layer4` và lớp phân loại.
-- Mô hình nhận đầu vào có kích thước `(2, 3, 224, 224)`.
-- Mô hình tạo đầu ra có kích thước `(2, 10)`.
+Hàm `build_model()` hỗ trợ mở khóa có chọn lọc thông qua tham số `unfreeze`.
 
-### Kết quả kiểm thử
+Ví dụ:
 
-| Nội dung kiểm thử | Kết quả |
+```python
+model = build_model(
+    name="resnet18",
+    dropout=0.2,
+    unfreeze=["layer4"],
+    pretrained=True
+)
+```
+
+Trong cấu hình này:
+
+- Classification head có thể được huấn luyện.
+- Module `layer4` được mở khóa.
+- Tất cả các module còn lại của feature extractor tiếp tục bị đóng băng.
+
+## 5. Các hàm chính
+
+| Hàm | Mô tả |
 |---|---|
-| Khởi tạo Transfer Learning | PASS |
-| Khởi tạo Fine-Tuning | PASS |
-| Kích thước đầu vào | `(2, 3, 224, 224)` |
-| Kích thước đầu ra | `(2, 10)` |
-| Số tham số được huấn luyện trong Transfer Learning | 5.130 |
-| Số tham số được huấn luyện trong Fine-Tuning | 8.398.858 |
-| Smoke Test | PASS |
+| `head_of(model)` | Trả về classification head của mô hình. |
+| `build_model()` | Xây dựng mô hình và cấu hình Transfer Learning hoặc Fine-tuning. |
+| `trainable_parameters()` | Trả về danh sách các tham số có thể huấn luyện. |
+| `count_parameters()` | Tính tổng số tham số và số tham số có thể huấn luyện. |
+| `set_train_mode()` | Cấu hình chế độ training cho các module có tham số trainable. |
+| `save_checkpoint()` | Lưu trọng số mô hình và metadata huấn luyện. |
+| `load_checkpoint()` | Khôi phục mô hình từ checkpoint. |
+| `main()` | Xây dựng các cấu hình được hỗ trợ và xuất báo cáo mô hình. |
 
-## 7. Ghi chú
+### 5.1. Quản lý BatchNorm
 
-- Mặc định, mô hình sử dụng `pretrained=True` để tải trọng số đã được huấn luyện trước trên ImageNet.
-- Trong quá trình Smoke Test, sử dụng `pretrained=False` để không cần tải trọng số từ Internet.
-- Hình ảnh đầu vào cần được thay đổi kích thước và chuẩn hóa theo cấu hình tiền xử lý trong `data.md`.
-- Các thông tin về cấu hình huấn luyện và đánh giá mô hình được trình bày riêng trong `training.md` và `evaluation.md`.
+Hàm `set_train_mode()` trước tiên đưa toàn bộ mô hình về chế độ evaluation.
+
+Sau đó, hàm bật chế độ training cho classification head và các module trực tiếp sở hữu tham số có thể huấn luyện.
+
+Điều này giúp các lớp BatchNorm thuộc phần bị đóng băng không cập nhật running statistics trong quá trình huấn luyện.
+
+### 5.2. Quản lý Checkpoint
+
+Hàm `save_checkpoint()` lưu các thông tin:
+
+- `state_dict`: các tham số của mô hình.
+- `name`: tên kiến trúc mô hình.
+- `dropout`: xác suất Dropout.
+- `unfreeze`: danh sách các module được mở khóa.
+- `epoch`: epoch tại thời điểm lưu checkpoint.
+- `val_accuracy`: độ chính xác trên tập validation.
+- `val_loss`: validation loss.
+
+Checkpoint được ghi vào một file tạm trước, sau đó chuyển đến vị trí đích bằng `os.replace()` nhằm giảm nguy cơ tạo ra file không hoàn chỉnh.
+
+Hàm `load_checkpoint()` tái tạo mô hình với `pretrained=False`, nạp state dictionary đã lưu, chuyển mô hình đến thiết bị được yêu cầu và trả về mô hình đã khôi phục cùng metadata.
+
+## 6. Kết quả thống kê tham số
+
+Kết quả chạy thực tế `model.py`:
+
+| Model | Tổng số tham số | Số tham số có thể huấn luyện |
+|---|---:|---:|
+| ResNet18 | 11,181,642 | 5,130 |
+| DenseNet121 | 6,964,106 | 10,250 |
+| ResNet18 + layer4 | 11,181,642 | 8,398,858 |
+
+Nhận xét:
+
+- ResNet18 chỉ huấn luyện classification head trong cấu hình mặc định.
+- DenseNet121 có số tham số trainable ở classification head lớn hơn ResNet18.
+- Việc mở khóa `layer4` làm tăng đáng kể số tham số có thể huấn luyện của ResNet18.
+- Tổng số tham số không thay đổi khi chuyển từ Transfer Learning sang Fine-tuning.
+
+Cả ba kết quả thống kê tham số đều khớp với các giá trị kỳ vọng trong đặc tả Model.
+
+## 7. Báo cáo mô hình
+
+Sau khi thực thi `main()`, thông tin mô hình được lưu tại:
+
+```text
+Lab 2/
+└── reports/
+    └── metrics.json
+```
+
+Báo cáo bao gồm:
+
+- Tên kiến trúc mô hình.
+- Xác suất Dropout.
+- Các module được mở khóa.
+- Tổng số tham số.
+- Số tham số có thể huấn luyện.
+
+Thông tin mô hình được lưu dưới khóa `model`. Các phần báo cáo hiện có được giữ nguyên khi file JSON được cập nhật.
+
+## 8. Cách chạy
+
+Chạy lệnh sau từ thư mục gốc của repository:
+
+```powershell
+python ".\Lab 2\model.py"
+```
+
+Để kiểm tra cú pháp Python:
+
+```powershell
+python -m py_compile ".\Lab 2\model.py"
+```
+
+Trong lần chạy đầu tiên với `pretrained=True`, Torchvision có thể tải trọng số pretrained từ ImageNet.
+
+## 9. Kết quả kiểm chứng
+
+Bảng sau tổng hợp các kết quả kiểm chứng đã thực hiện:
+
+| Nội dung kiểm chứng | Trạng thái | Minh chứng |
+|---|---|---|
+| Kiểm tra cú pháp Python | PASS | `py_compile` hoàn thành không có lỗi. |
+| Khởi tạo ResNet18 | PASS | Số lượng tham số đúng kỳ vọng. |
+| Khởi tạo DenseNet121 | PASS | Số lượng tham số đúng kỳ vọng. |
+| Fine-tuning ResNet18 layer4 | PASS | Số lượng tham số đúng kỳ vọng. |
+| Tạo báo cáo mô hình | PASS | File `metrics.json` được tạo thành công. |
+| Unit tests | PASS | Pytest: 14/14 tests passed, 0 failed trong 7.48 giây. |
+
+## 10. Kết luận
+
+Module Model triển khai hai kiến trúc ResNet18 và DenseNet121 với trọng số pretrained từ ImageNet, đồng thời hỗ trợ cả Transfer Learning và Fine-tuning.
+
+Module cũng cung cấp các chức năng thống kê tham số, quản lý chế độ training có xét đến BatchNorm và lưu/khôi phục checkpoint.
+
+Kết quả chạy thực tế xác nhận cả ba cấu hình mô hình đều tạo ra số lượng tham số đúng kỳ vọng và báo cáo mô hình được tạo thành công.
+
+Cần thực hiện đầy đủ unit tests trước khi kết luận module đã được kiểm chứng hoàn toàn.

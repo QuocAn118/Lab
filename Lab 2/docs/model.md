@@ -1,86 +1,212 @@
 # Model Architecture
 Created at: 10/11/2026          
- Auth: Xuân Bảo 
-
+ Auth: Xuân Bảo   
+Updated at:10/11/2026   
+Auth: Xuân Bảo 
 ## 1. Overview
 
-The project uses **ResNet-18** as the baseline model for image classification on the CIFAR-10 dataset.
+The Model module is responsible for implementing deep learning architectures for the CIFAR-10 image classification task, which consists of 10 classes.
 
-ResNet-18 is a convolutional neural network (CNN) that uses residual connections to support deeper network training and improve feature extraction.
+The implementation uses PyTorch and Torchvision and supports two pretrained architectures:
 
-The model is adapted from ImageNet classification (1000 classes) to CIFAR-10 classification (10 classes).
+- ResNet18
+- DenseNet121
 
-## 2. Model Architecture
+Both architectures use ImageNet pretrained weights through Transfer Learning. The feature extractor is frozen by default, while the original classification head is replaced with a new head suitable for 10-class classification.
 
-The implementation uses `torchvision.models.resnet18`.
+**Implementation file:** `Lab 2/model.py`
 
-Main configuration:
+## 2. Objectives
 
-- Architecture: ResNet-18
-- Framework: PyTorch
-- Input shape: `(batch_size, 3, 224, 224)`
-- Output classes: 10
-- Final classification layer: `nn.Linear(model.fc.in_features, 10)`
+The objectives of this module are:
 
-The original fully connected layer is replaced with a new layer containing 10 output units to match the CIFAR-10 classes.
+- Implement and manage multiple model architectures.
+- Reuse ImageNet pretrained weights.
+- Apply Transfer Learning by freezing the feature extractor.
+- Support Fine-tuning by selectively unfreezing model submodules.
+- Replace the original classification head with Dropout and Linear layers.
+- Calculate total and trainable parameter counts.
+- Manage training and evaluation modes, especially BatchNorm behavior.
+- Save and restore model checkpoints.
+- Export model information to `metrics.json`.
 
-## 3. Transfer Learning
+## 3. Model Architectures
 
-Transfer Learning uses pretrained ImageNet weights.
+### 3.1. Supported Models
 
-The implementation freezes all feature extraction layers by setting `requires_grad = False`.
+| Model | Architecture | Classification Head |
+|---|---|---|
+| ResNet18 | Residual Network | `fc` |
+| DenseNet121 | Densely Connected Network | `classifier` |
 
-Only the final fully connected classification layer (`model.fc`) is trainable.
+The module defines the following constants:
 
-This allows the model to reuse pretrained visual features while learning to classify the 10 CIFAR-10 classes.
+- `NUM_CLASSES = 10`: number of target classes.
+- `HEADS`: maps each supported model to its classification head.
+- `SUPPORTED_MODELS`: contains the supported model names.
 
-Implementation: `freeze_backbone(model)`.
+### 3.2. Classification Head
 
-## 4. Fine-Tuning
+The original ImageNet classification head is replaced with:
 
-Fine-Tuning allows selected pretrained layers to be updated for the target dataset.
+```python
+nn.Sequential(
+    nn.Dropout(p=0.2),
+    nn.Linear(in_features, NUM_CLASSES)
+)
+```
 
-The implementation:
+The new classification head consists of:
 
-- Freezes all model parameters initially.
-- Unfreezes the final residual block (`layer4`).
-- Keeps the final classification layer (`model.fc`) trainable.
+- Dropout with probability 0.2 to reduce overfitting.
+- A Linear layer that maps extracted features to 10 output classes.
 
-This allows the model to adapt higher-level image features to CIFAR-10 while retaining lower-level pretrained features.
+## 4. Transfer Learning and Fine-tuning
 
-Implementation: `unfreeze_layer4(model)`.
+### 4.1. Transfer Learning
 
-## 5. Trainable Parameters
+By default, the entire feature extractor is frozen using:
 
-The function `get_trainable_parameters(model)` returns all parameters whose `requires_grad` attribute is `True`.
+```python
+model.requires_grad_(False)
+```
 
-This helps configure the optimizer to update only the selected layers in each training mode.
+A new classification head is then attached to the model and remains trainable.
 
-## 6. Model Testing
+During Transfer Learning, only the classification head parameters are updated.
 
-A smoke test is included in `model.py` to verify:
+### 4.2. Fine-tuning
 
-- The model can be initialized.
-- Transfer Learning freezes the backbone.
-- Fine-Tuning unfreezes `layer4` and the classifier.
-- The model accepts an input tensor with shape `(2, 3, 224, 224)`.
-- The model produces an output tensor with shape `(2, 10)`.
+The `build_model()` function supports selective unfreezing through the `unfreeze` argument.
 
-### Test Results
+Example:
 
-| Test | Result |
+```python
+model = build_model(
+    name="resnet18",
+    dropout=0.2,
+    unfreeze=["layer4"],
+    pretrained=True
+)
+```
+
+In this configuration:
+
+- The classification head is trainable.
+- The `layer4` module is unfrozen.
+- All other feature-extractor modules remain frozen.
+
+## 5. Main Functions
+
+| Function | Description |
 |---|---|
-| Transfer Learning initialization | PASS |
-| Fine-Tuning initialization | PASS |
-| Input shape | `(2, 3, 224, 224)` |
-| Output shape | `(2, 10)` |
-| Trainable parameters in Transfer Learning | 5,130 |
-| Trainable parameters in Fine-Tuning | 8,398,858 |
-| Model smoke test | PASS |
+| `head_of(model)` | Returns the classification head of a model. |
+| `build_model()` | Builds a model and configures Transfer Learning or Fine-tuning. |
+| `trainable_parameters()` | Returns all trainable parameters. |
+| `count_parameters()` | Calculates total and trainable parameter counts. |
+| `set_train_mode()` | Configures training modes for trainable modules. |
+| `save_checkpoint()` | Saves model weights and training metadata. |
+| `load_checkpoint()` | Restores a model from a checkpoint. |
+| `main()` | Builds supported configurations and exports the model report. |
 
-## 7. Notes
+### 5.1. BatchNorm Management
 
-- The model uses `pretrained=True` by default to load ImageNet pretrained weights.
-- The smoke test uses `pretrained=False` to avoid downloading weights during initial verification.
-- Input images must be resized and normalized according to the preprocessing configuration in `data.md`.
-- Training configuration and evaluation metrics are documented separately in `training.md` and `evaluation.md`.
+The `set_train_mode()` function first places the entire model in evaluation mode.
+
+It then enables training mode for the classification head and modules that directly own trainable parameters.
+
+This prevents frozen BatchNorm layers from updating their running statistics during training.
+
+### 5.2. Checkpoint Management
+
+The `save_checkpoint()` function stores:
+
+- `state_dict`: model parameters.
+- `name`: model architecture name.
+- `dropout`: Dropout probability.
+- `unfreeze`: list of unfrozen modules.
+- `epoch`: checkpoint epoch.
+- `val_accuracy`: validation accuracy.
+- `val_loss`: validation loss.
+
+The checkpoint is first written to a temporary file and then moved to its destination using `os.replace()` to reduce the risk of incomplete files.
+
+The `load_checkpoint()` function reconstructs the model with `pretrained=False`, loads the saved state dictionary, moves the model to the requested device, and returns the restored model with its metadata.
+
+## 6. Parameter Count Results
+
+The actual execution of `model.py` produced the following results:
+
+| Model | Total Parameters | Trainable Parameters |
+|---|---:|---:|
+| ResNet18 | 11,181,642 | 5,130 |
+| DenseNet121 | 6,964,106 | 10,250 |
+| ResNet18 + layer4 | 11,181,642 | 8,398,858 |
+
+Observations:
+
+- ResNet18 trains only its classification head in the default configuration.
+- DenseNet121 has more trainable parameters in its classification head than ResNet18.
+- Unfreezing `layer4` significantly increases the number of trainable ResNet18 parameters.
+- The total parameter count remains unchanged when switching from Transfer Learning to Fine-tuning.
+
+All three parameter counts match the expected values in the model specification.
+
+## 7. Model Report
+
+After executing `main()`, the model information is saved to:
+
+```text
+Lab 2/
+└── reports/
+    └── metrics.json
+```
+
+The report contains:
+
+- Model architecture name.
+- Dropout probability.
+- Unfrozen modules.
+- Total parameter count.
+- Trainable parameter count.
+
+The model information is stored under the `model` key. Existing report sections are preserved when the JSON file is updated.
+
+## 8. How to Run
+
+Run the following command from the repository root:
+
+```powershell
+python ".\Lab 2\model.py"
+```
+
+To check Python syntax:
+
+```powershell
+python -m py_compile ".\Lab 2\model.py"
+```
+
+The first execution with `pretrained=True` may download ImageNet pretrained weights through Torchvision.
+
+## 9. Verification Results
+
+The following table summarizes the verification results obtained so far:
+
+| Verification | Status | Evidence |
+|---|---|---|
+| Python syntax check | PASS | `py_compile` completed without errors. |
+| ResNet18 initialization | PASS | Expected parameter counts. |
+| DenseNet121 initialization | PASS | Expected parameter counts. |
+| ResNet18 layer4 fine-tuning | PASS | Expected parameter counts. |
+| Model report generation | PASS | `metrics.json` created successfully. |
+| Unit tests | PASS | Pytest: 14/14 tests passed, 0 failed in 7.48 seconds .. |
+
+## 10. Conclusion
+
+The Model module implements ResNet18 and DenseNet121 with ImageNet pretrained weights and supports both Transfer Learning and Fine-tuning.
+
+It also provides parameter counting, BatchNorm-aware training mode management, and checkpoint save/load utilities.
+
+Actual execution confirms that all three tested model configurations produce the expected parameter counts and that the model report is generated successfully.
+
+Full unit-test execution is still required before declaring the module completely verified.
