@@ -1,0 +1,19 @@
+# Spec: docs/team_plan_integrity.md §9.4
+# Môi trường và cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Dữ liệu tải về: tái tạo được bằng src/prepare_data.py; hash nằm trong outputs/data_summary.json
+data/
+
+# Trọng số model: giữ trên máy/Drive. Hash và metadata vẫn commit qua manifest.json, checkpoint_index.json
+checkpoints/**/*.pth
+checkpoints/**/*.pt
+checkpoints/**/*.safetensors
+checkpoints/**/*.bin
+
+# File tạm khi ghi manifest
+*.tmp

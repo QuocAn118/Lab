@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "path": ".gitignore",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "section": "§9.4"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Soạn với Claude Code",
+      "reviews": []
+    },
+    {
+      "path": "README.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Tạo 2026-11-04 (ca3b03e)",
+      "reviews": []
+    },
+    {
+      "path": "docs/data.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "docs/demo.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "docs/lab_1_description.md",
+      "sources": [
+        {
+          "external": "Đề bài Lab 1 và slide Chương 2 — Artificial Neural Networks"
+        },
+        {
+          "external": "Hướng dẫn của cô về khung tài liệu, checkpoint, performance"
+        },
+        {
+          "external": "Khung tài liệu Lab 3 (Lab 3/docs)"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Tạo 2026-11-04 (commit aee3dd8); chuẩn hóa 2026-11-07 với Claude Code, HoangDang rà",
+      "reviews": []
+    },
+    {
+      "path": "docs/model.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "docs/plan_progress_status.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "docs/provenance.json",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "section": "§9.2"
+        }
+      ],
+      "method": "generated-by-script",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:15+07:00",
+      "status": "active",
+      "note": "",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_1_prepare_data.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_2_transforms_dataloader.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_3_build_model.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_4_train.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_5_evaluate.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:13+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/requirements/3_6_save_load.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§6"
+        }
+      ],
+      "method": "manual",
+      "created_by": "chưa xác nhận",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
+      "reviews": []
+    },
+    {
+      "path": "docs/team_plan_integrity.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4-§5"
+        },
+        {
+          "external": "Hướng dẫn của cô: không bắt buộc tự code, phải bảo đảm toàn vẹn dữ liệu và tài liệu"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Soạn với Claude Code 2026-11-07, HoangDang rà",
+      "reviews": []
+    },
+    {
+      "path": "docs/training.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§4"
+        }
+      ],
+      "method": "manual",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
+      "reviews": []
+    },
+    {
+      "path": "src/run_tracking.py",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "section": "§9.3"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "§10"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:14+07:00",
+      "status": "active",
+      "note": "Sinh bằng Claude Code 2026-11-07; đã chạy thử smoke giả lập",
+      "reviews": []
+    },
+    {
+      "path": "src/train.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_4_train.md",
+          "sha256": "9329c867339fb8f83fe9b3afda4049032242c1e63c04d464faa0abd959ce52ba"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "section": "6.1"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Quoc An",
+      "recorded_at": "2026-11-10T09:06:40+07:00",
+      "status": "active",
+      "note": "Sinh bằng Claude Code (Claude Opus 5.5), TV3 review; test: tests/test_train.py",
+      "reviews": []
+    },
+    {
+      "path": "tools/check_provenance.py",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "section": "§9"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-07T11:32:15+07:00",
+      "status": "active",
+      "note": "Sinh bằng Claude Code 2026-11-07",
+      "reviews": []
+    }
+  ]
+}
