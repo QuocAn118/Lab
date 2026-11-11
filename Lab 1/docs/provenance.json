@@ -6,7 +6,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -14,14 +14,23 @@
       "recorded_at": "2026-11-11T09:55:36+07:00",
       "status": "active",
       "note": "Preserve generated artifact bytes and manifest sizes across checkout platforms.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": ".gitignore",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.4"
         }
       ],
@@ -68,6 +77,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -76,7 +93,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -123,6 +140,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -131,7 +156,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "6ceb7e84082b525dd11fc49ee80cfdc3d9fd21bbc3a4e10eba4932bc12801596"
+          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
@@ -187,6 +212,14 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -199,11 +232,11 @@
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -265,6 +298,15 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -273,15 +315,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "6ceb7e84082b525dd11fc49ee80cfdc3d9fd21bbc3a4e10eba4932bc12801596"
+          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -351,6 +393,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -359,7 +411,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -399,6 +451,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -407,7 +467,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -454,6 +514,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -462,7 +530,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -503,6 +571,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -511,7 +587,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -552,6 +628,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -580,7 +664,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -621,6 +705,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -629,7 +721,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -682,6 +774,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -690,7 +790,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.2"
         }
       ],
@@ -731,6 +831,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -739,7 +847,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -786,6 +894,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -794,7 +910,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -835,6 +951,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -843,7 +967,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -884,6 +1008,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -892,7 +1024,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -933,6 +1065,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -941,7 +1081,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -982,6 +1122,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -990,7 +1138,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -1031,6 +1179,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1039,7 +1195,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4-§5"
         },
         {
@@ -1083,6 +1239,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1091,11 +1255,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -1112,6 +1276,15 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1120,7 +1293,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -1161,6 +1334,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1169,11 +1350,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
         }
       ],
       "method": "ai-assisted",
@@ -1190,6 +1371,15 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1198,7 +1388,7 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
         }
       ],
       "method": "ai-assisted",
@@ -1214,6 +1404,14 @@
             "docs/verification.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1222,11 +1420,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/verification.md",
-          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
         }
       ],
       "method": "ai-assisted",
@@ -1243,6 +1441,15 @@
             "docs/verification.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1251,7 +1458,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         },
         {
           "path": "docs/evaluation.md",
@@ -1272,6 +1479,14 @@
             "docs/evaluation.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1284,7 +1499,7 @@
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         }
       ],
       "method": "ai-assisted",
@@ -1301,6 +1516,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1313,7 +1536,7 @@
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         }
       ],
       "method": "ai-assisted",
@@ -1330,6 +1553,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1418,12 +1649,12 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§10"
         }
       ],
@@ -1474,6 +1705,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1486,7 +1726,7 @@
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "6.1"
         }
       ],
@@ -1531,6 +1771,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1539,11 +1787,11 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
         }
       ],
       "method": "ai-assisted",
@@ -1560,6 +1808,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1568,7 +1825,7 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
         }
       ],
       "method": "ai-assisted",
@@ -1584,6 +1841,14 @@
             "docs/verification.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     },
@@ -1592,7 +1857,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9"
         }
       ],
@@ -1639,6 +1904,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
         }
       ]
     }

@@ -2389,5 +2389,23 @@
       "Drive upload not performed",
       "Unconfirmed student names/model creation date not invented"
     ]
+  },
+  "lab1_product_in_codebase": {
+    "at": "2026-11-11T10:16:25+07:00",
+    "by": "HoangDang",
+    "assisted_by": "OpenAI Codex",
+    "method": "Git LFS in existing working directories",
+    "checkpoint_files": 25,
+    "dataset_files": 8,
+    "total_binary_bytes": 144179618,
+    "paths": [
+      "Lab 1/src/",
+      "Lab 1/data/",
+      "Lab 1/checkpoints/",
+      "Lab 1/outputs/",
+      "Lab 1/docs/"
+    ],
+    "finalized_artifacts_unchanged": true,
+    "zip_role": "Historical local backup only"
   }
 }

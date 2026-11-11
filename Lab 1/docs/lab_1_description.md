@@ -7,7 +7,7 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
 | Trạng thái | Hoàn thành kỹ thuật: 17 test, smoke thật và bốn normal run PASS; có sản phẩm đầu vào/đầu ra và gói bàn giao cục bộ |
@@ -78,7 +78,7 @@ Trạng thái nghiệm thu hiện tại:
 
 - Model I/O hỗ trợ final/best. Train so sánh checkpoint `best` tải từ đĩa với bản sao trọng số tốt nhất giữ trong bộ nhớ trên 16 ảnh validation đầu tiên.
 - Đã có evaluation, demo, đồ thị, compare và verifier. Bằng chứng chạy thật có trong `verification.md`: smoke và cả bốn normal run PASS; mỗi normal run đánh giá đủ 10.000 ảnh.
-- Báo cáo data đã có trong `data/reports/`; dataset gốc trong `data/FashionMNIST/` không lưu trên Git, cần chuẩn bị lại trên máy chưa có dữ liệu.
+- Báo cáo data đã có trong `data/reports/`; dataset gốc trong `data/FashionMNIST/raw/` được quản lý bằng Git LFS cùng checkpoint. Sau clone/pull lấy nội dung bằng `git lfs pull origin hoangdang`.
 
 ## 5. Quy trình thực hiện
 
@@ -274,7 +274,7 @@ Lab 1/
 │   ├── prepare_data.py
 │   ├── data_pipeline.py
 │   ├── tests/test_data.py
-│   ├── FashionMNIST/raw/         # Dữ liệu tải về, không commit
+│   ├── FashionMNIST/raw/         # Input thật, Git LFS
 │   └── reports/                  # Mỗi báo cáo có <file>.prov.json
 │       ├── data_summary.json
 │       ├── split_indices.json
@@ -295,7 +295,7 @@ Lab 1/
 │       ├── verify_report.json    # Kiểm số liệu trước khi chốt manifest
 │       ├── loss_curve.png
 │       └── prediction_samples.png
-└── checkpoints/<run_id>/          # Không commit file .pth
+└── checkpoints/<run_id>/          # Trọng số thật, Git LFS
     ├── final_epoch.pth
     ├── best_val_loss.pth
     ├── best_val_acc.pth
@@ -332,4 +332,4 @@ Lab 1 được xem là hoàn thành khi:
 
 ## 12. Sản phẩm thực tế ngày 2026-11-11
 
-Model được chọn bằng validation: **run_004**, val 88,10%, test 87,70%. Xem [báo cáo](evaluation.md), [kiểm chứng](verification.md), [demo input/output](demo.md). Thư mục `outputs/run_001`–`run_004` và `checkpoints/` đã có trên máy. ZIP cục bộ `deliverables/Lab1-complete-20261111.zip` chứa source/input/output/trọng số; không nằm trong Git. Không đánh đồng kiểm chứng kỹ thuật với việc đã upload Drive hoặc xác nhận danh sách thành viên.
+Model được chọn bằng validation: **run_004**, val 88,10%, test 87,70%. Xem [báo cáo](evaluation.md), [kiểm chứng](verification.md), [demo input/output](demo.md). Thư mục `outputs/run_001`–`run_004` và `checkpoints/` đã có trên máy. Sản phẩm chính nằm trực tiếp trong repo: `src/`, `data/`, `checkpoints/`, `outputs/`, `docs/`. Input và 25 checkpoint được lưu qua Git LFS; không cần ZIP để dùng model. ZIP cũ chỉ là snapshot dự phòng. Không suy việc xác nhận danh sách thành viên từ nghiệm thu kỹ thuật.

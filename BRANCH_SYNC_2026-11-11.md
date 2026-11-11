@@ -6,8 +6,12 @@
 | --- | --- |
 | Created date | 2026-11-11 |
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T09:55:36+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+
+## Lab 1 product versioned in the codebase
+
+2026-11-11T10:16:25+07:00 — HoangDang, assisted by OpenAI Codex, changed the delivery method at user request: the existing dataset and all 25 checkpoints are now tracked with Git LFS in their working directories. Source, reports, images and CSV remain directly in the repo. ZIP is a historical backup, not the primary product. Finalized manifests and numeric results were preserved; historical ignored_by_git flags were not rewritten. See [Lab 1 README](Lab%201/README.md). Earlier ZIP/local-only statements below describe earlier phases.
 
 ## Lab 1 completion (2026-11-11)
 

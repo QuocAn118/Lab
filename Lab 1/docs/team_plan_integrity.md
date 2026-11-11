@@ -7,7 +7,7 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
@@ -93,7 +93,7 @@ Giao diện hiện có hỗ trợ final/best; sample batch là 16 ảnh validati
 
 - Mỗi người một nhánh theo module, ví dụ `lab1-data`, `lab1-model`.
 - Merge qua pull request có người review theo mục 3.
-- Không commit dataset gốc `data/FashionMNIST/` và `*.pth`. Code, kiểm thử và báo cáo `data/reports/` phải lưu trên Git; hash trong báo cáo/manifest làm bằng chứng cho file nặng.
+- Dataset gốc `data/FashionMNIST/raw/` và checkpoint được version qua Git LFS; không lưu binary lớn thành blob Git thường. Code, kiểm thử và báo cáo lưu trực tiếp trên Git; manifest giữ hash byte gốc.
 - Commit message ghi rõ module và nội dung, ví dụ `feat(lab1-data): save split indices`.
 
 ### 6.2. Dùng AI
@@ -135,7 +135,7 @@ TV5 chạy và đánh dấu; mỗi mục phải có bằng chứng đi kèm.
 **Lưu vết**
 - [ ] `python tools/check_provenance.py --strict` báo PASS.
 - [ ] Mọi run (kể cả smoke, lỗi) có manifest và đã được commit.
-- [ ] Mọi file trọng số của run báo cáo có trên Drive, hash khớp manifest.
+- [ ] Mọi file trọng số và input của run báo cáo có trên Git LFS, tải được bằng `git lfs pull`, hash khớp manifest/data summary.
 - [ ] Mỗi thành viên giải thích được module của mình.
 
 ## 8. Tài liệu bổ sung so với danh sách cơ bản
@@ -230,13 +230,13 @@ Quy tắc:
 - `run_id` đã tồn tại thì dừng, không ghi đè.
 - **Không xóa run nào**, kể cả run lỗi hoặc smoke. Commit thư mục `outputs/<run_id>/` (và `checkpoint_index.json`) ngay sau khi chạy xong, với message `run(lab1): run_001 completed — <mục đích>`.
 - Sửa, thêm hoặc xóa file trong run sau khi kết thúc sẽ bị công cụ phát hiện qua hash.
-- File trọng số `.pth` không lên git; tải lên Drive chung theo đường dẫn `Lab1/checkpoints/<run_id>/` và ghi link vào `model.md`. Hash trong manifest dùng để xác nhận file trên Drive đúng là file đã chạy.
+- File trọng số `.pth` được quản lý bằng Git LFS tại `checkpoints/<run_id>/`. Sau clone/pull, `git lfs pull origin hoangdang` khôi phục byte gốc. Hash trong manifest xác nhận đúng trọng số đã chạy; không yêu cầu ZIP/Drive riêng.
 - Đánh giá, demo, đồ thị và kiểm chứng phải tích hợp trước khi `Run` chốt manifest. Không thêm hoặc thay thế báo cáo vào run đã kết thúc; train hiện tại chưa ghép các bước này.
 
 ### 9.4. File đầu ra lẻ và file bị bỏ qua
 
 - File trong `outputs/` hoặc `data/reports/` không thuộc run nào phải gọi `record_artifact(path, specs=[...], inputs=[...])` ngay sau khi ghi. Tạo lại file thì lần cũ được giữ trong `history`; sidecar nằm cạnh file đầu ra.
-- `.gitignore` của Lab 1 chỉ bỏ qua môi trường, cache, dataset gốc `data/FashionMNIST/`, file trọng số và file tạm `.tmp`. Code, kiểm thử, README trong `data/` và báo cáo JSON/CSV/PNG/TXT trong `data/reports/`, `outputs/` đều được commit làm bằng chứng.
+- `.gitignore` bỏ qua môi trường, cache, file tạm và ZIP lịch sử trong `deliverables/`. Input và checkpoint được track qua LFS trong `.gitattributes`; code, kiểm thử, metadata và báo cáo được commit trực tiếp. Các cờ `ignored_by_git` trong manifest cũ phản ánh thời điểm chạy trước khi đổi cách lưu trữ; không sửa lại manifest đã chốt để thay cờ lịch sử.
 
 ### 9.5. Tự động kiểm tra khi commit
 
@@ -252,4 +252,4 @@ Không dùng `git commit --no-verify` để bỏ qua hook. Nếu buộc phải b
 
 ## 10. Bàn giao kỹ thuật ngày 2026-11-11
 
-17 test, smoke và bốn normal run PASS trên máy ghi trong manifest. Tác giả/người chạy/thời gian/commit được ghi trong Git và verification.md; bảng TV1–TV5 chưa có xác nhận tên nên không tự điền. `.gitattributes` giữ nguyên byte outputs/data reports/checkpoint index khi clone; `deliverables/` là ZIP cục bộ chứa dữ liệu/trọng số, được Git bỏ qua. Checklist upload Drive/xác nhận thành viên không được đánh dấu đã làm khi chưa có bằng chứng.
+17 test, smoke và bốn normal run PASS trên máy ghi trong manifest. Tác giả/người chạy/thời gian/commit được ghi trong Git và verification.md; bảng TV1–TV5 chưa có xác nhận tên nên không tự điền. `.gitattributes` giữ nguyên byte outputs/data reports/checkpoint index khi clone; `deliverables/` chỉ giữ ZIP dự phòng cũ. Theo yêu cầu mới, dữ liệu/trọng số nằm trực tiếp trong repo qua LFS; không ghi đè hoặc train lại artifact khi thay cách lưu trữ. Xác nhận thành viên vẫn phải dựa trên bằng chứng.

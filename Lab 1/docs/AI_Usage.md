@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-10T16:24:05+07:00 ; Thanh Binh ; eb86ab8 |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -28,3 +28,7 @@ HoangDang integrated code with OpenAI Codex: best checkpoint loading/reload veri
 ## Completion evidence (2026-11-11)
 
 HoangDang, assisted by OpenAI Codex, executed 17 tests, real smoke and four full-data normal runs on RTX 5060 Laptop, verified artifacts, generated comparison/demo outputs and prepared the local delivery ZIP. Metrics are read from the new run files, not copied from historical logs. No Drive upload or unconfirmed student authorship is claimed.
+
+## Repository product update
+
+2026-11-11T10:16:25+07:00 — HoangDang, assisted by OpenAI Codex: tracked existing input and all 25 checkpoint files with Git LFS at their original paths, updated delivery documentation and kept finalized artifacts unchanged. No retraining or changed metric is claimed. The previous ZIP entry records an earlier handoff phase.

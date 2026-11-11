@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -35,6 +35,6 @@
 ## 4. Bằng chứng và giới hạn
 
 - Báo cáo đã lưu: [data_summary.json](../data/reports/data_summary.json), [split_indices.json](../data/reports/split_indices.json), [batch_check.json](../data/reports/batch_check.json), [data_samples.png](../data/reports/data_samples.png).
-- Đây là bằng chứng của lần chuẩn bị dữ liệu đã lưu, không phải kết quả huấn luyện. Dataset gốc không lưu trên Git; phải chạy bước 3.1 trên máy chưa có dữ liệu trước khi kiểm thử tích hợp.
+- Đây là bằng chứng của lần chuẩn bị dữ liệu đã lưu, không phải kết quả huấn luyện. Dataset gốc được quản lý bằng Git LFS tại `data/FashionMNIST/raw/`; sau clone/pull chạy `git lfs pull origin hoangdang` từ gốc repo. Chỉ cần chạy bước 3.1 khi muốn tải/khảo sát lại hoặc khi chưa có dữ liệu.
 - `data/tests/test_data.py` kiểm tra số mẫu, split không trùng, thứ tự validation/test, batch và giới hạn smoke. Trạng thái kiểm tra hiện tại xem [tiến độ](plan_progress_status.md).
 

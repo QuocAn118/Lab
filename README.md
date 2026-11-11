@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -18,7 +18,7 @@ Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng d�
 
 | Phần | Tài liệu bắt đầu | Trạng thái triển khai |
 | --- | --- | --- |
-| Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 17 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm/ZIP cục bộ trong README Lab 1 |
+| Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 17 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm trực tiếp trong repo, input/model qua Git LFS; xem README Lab 1 |
 | Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | Có model độc lập và evaluation; chưa đủ các module package dùng chung để chạy toàn pipeline |
 | Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | Có notebook/pipeline và báo cáo lịch sử; bản nhập QuocAn và snapshot ThanhBinh được phân biệt rõ, chưa chạy lại trên môi trường hiện tại |
 
@@ -53,7 +53,7 @@ Không coi merge đủ lịch sử là đã nghiệm thu code. Trước PR, đ�
 
 ## Trọng số và dữ liệu
 
-- Dataset gốc và môi trường Python được bỏ qua bởi Git; chuẩn bị theo README từng lab.
+- Lab 1 lưu dataset gốc và checkpoint bằng Git LFS tại `data/FashionMNIST/raw/` và `checkpoints/`. Môi trường Python/cache vẫn bị bỏ qua; Lab 2–3 theo README tương ứng.
 - Các trọng số đã nhập vào Git LFS cần `git lfs install` và `git lfs pull` sau clone/pull để có nội dung nhị phân.
 - Snapshot local ThanhBinh nằm ở [thư mục nhập lịch sử](Lab%203/outputs/imported-thanhbinh-40acced/README.md); file `IMPORT.json` ánh xạ về đường dẫn và commit gốc. Không dùng ngày nhập làm ngày huấn luyện.
 

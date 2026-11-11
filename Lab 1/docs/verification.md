@@ -6,7 +6,7 @@
 | --- | --- |
 | Created date | 2026-11-11 |
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Trạng thái | Đang triển khai; chưa ghi nhận nghiệm thu |
 
@@ -44,13 +44,13 @@ Môi trường: Python 3.12.10, torch 2.9.1+cu128, torchvision 0.24.1+cu128, mat
 - Trước manifest: history/epoch/giá trị hữu hạn, CSV và thứ tự mẫu, tên lớp, số đúng/accuracy, per-class accuracy, performance, năm checkpoint/index, reload best, định dạng PNG.
 - Sau manifest: trạng thái completed, verify_report ban đầu PASS, không thiếu/thừa file và hash/kích thước mọi artifact khớp. CLI không ghi thêm file vào run.
 - Test hồi quy sửa CSV phải bị phát hiện, best khác final phải nạp đúng, không ghi đè checkpoint, từ chối loader rỗng/logits NaN và epoch sai; bảng so sánh phải giữ đúng giá trị từng run.
-- `.gitattributes` giữ nguyên byte các artifact generated để clone không đổi line ending/kích thước trong manifest. Git không chứa byte trọng số; bản ZIP cục bộ chứa chúng.
+- `.gitattributes` giữ nguyên byte các artifact generated để clone không đổi line ending/kích thước trong manifest. Dataset/trọng số được lưu bằng Git LFS: Git lưu pointer, LFS khôi phục byte gốc tại đúng đường dẫn.
 
 ## Sản phẩm và giới hạn bàn giao
 
-Source/requirements/tests/docs, raw dataset trên máy, data reports, model summary, smoke và bốn normal run, 25 checkpoint cùng index, CSV/đồ thị so sánh, ảnh input và JSON demo. ZIP cục bộ: `deliverables/Lab1-complete-20261111.zip`; PACKAGE.json bên trong liệt kê hash từng file.
+Sản phẩm chính là cây repo: source/requirements/tests/docs, raw dataset qua LFS, data reports, model summary, smoke và bốn normal run, 25 checkpoint LFS cùng index, CSV/đồ thị so sánh, ảnh input và JSON demo. Không cần giải nén ZIP; ZIP cũ là snapshot dự phòng của lần bàn giao trước.
 
-Mỗi cấu hình đo một lần, cùng seed/máy; thời gian không phải benchmark nhiều lần, ms/ảnh là trung bình theo batch. Chưa thử full training trên máy khác. Chưa upload dataset/checkpoint/ZIP lên Drive; giữ chính sách bỏ qua binary trên Git. Tên đầy đủ TV1–TV5/ngày tạo model chưa được chủ thể xác nhận vẫn ghi chưa xác nhận; không tự gán tác giả từ tên nhánh.
+Mỗi cấu hình đo một lần, cùng seed/máy; thời gian không phải benchmark nhiều lần, ms/ảnh là trung bình theo batch. Chưa thử full training trên máy khác. Không dùng Drive làm điều kiện lấy sản phẩm: dataset và checkpoint được version bằng Git LFS. Sau clone/pull cần tải LFS trước khi chạy demo/verifier. Tên đầy đủ TV1–TV5/ngày tạo model chưa được chủ thể xác nhận vẫn ghi chưa xác nhận; không tự gán tác giả từ tên nhánh.
 
 ## Nguồn và phạm vi
 

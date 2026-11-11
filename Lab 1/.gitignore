@@ -6,17 +6,10 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
-# Chỉ bỏ qua dataset gốc; code và báo cáo data vẫn lưu trong Git.
-data/FashionMNIST/
-
-# Trọng số model: giữ trên máy/Drive. Hash và metadata vẫn commit qua manifest.json, checkpoint_index.json
-checkpoints/**/*.pth
-checkpoints/**/*.pt
-checkpoints/**/*.safetensors
-checkpoints/**/*.bin
+# Dataset và checkpoint là sản phẩm trong repo, được quản lý bằng Git LFS.
 
 # File tạm khi ghi manifest
 *.tmp
 
-# Local handoff ZIP contains dataset and weights; provenance is inside the package.
+# Historical local ZIP; the working directories in this repo are authoritative.
 deliverables/

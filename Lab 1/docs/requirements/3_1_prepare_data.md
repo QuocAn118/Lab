@@ -8,13 +8,13 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Theo đặc tả chung §1.3: tạo thêm `data/reports/split_indices.json` gồm `seed=42`, `train` (54.000 chỉ số), `val` (6.000 chỉ số), dùng `torch.randperm(60000)` với generator riêng. Giữ nguyên test. Báo cáo bổ sung `sha256` bốn tệp IDX (hash byte gốc), `split_samples`, `overlap_train_val`. Mọi đầu ra lẻ có sidecar từ `record_artifact`.
 
-Trạng thái: code và báo cáo đã có; dataset gốc không lưu trên Git, cần chuẩn bị lại trên máy chưa có dữ liệu.
+Trạng thái: code và báo cáo đã có; dataset gốc được lưu qua Git LFS trong repo. Sau clone/pull dùng `git lfs pull origin hoangdang`; bước chuẩn bị vẫn hỗ trợ tải lại nếu dữ liệu chưa có.
 
 ## 1. Mục đích
 

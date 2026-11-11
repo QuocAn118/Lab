@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-10T16:24:05+07:00 ; Thanh Binh ; eb86ab8 |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -19,7 +19,7 @@ data/
 ├── README.md
 ├── prepare_data.py       # 3.1: tải, kiểm tra, khảo sát và chia tập
 ├── data_pipeline.py      # 3.2: transforms và ba DataLoader
-├── FashionMNIST/raw/     # Dataset gốc, được Git bỏ qua
+├── FashionMNIST/raw/     # Dataset gốc, Git LFS
 ├── reports/              # JSON, ảnh mẫu và sidecar nguồn gốc
 └── tests/test_data.py    # Kiểm thử dữ liệu thật
 ```

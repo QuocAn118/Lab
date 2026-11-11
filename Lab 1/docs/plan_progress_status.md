@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -29,7 +29,7 @@ Trạng thái căn cứ vào code và bằng chứng đang có trong repo. “C�
 
 Model chọn bằng validation là **run_004**, val **88.10%**, test **87.70%**. Cả bốn normal run cùng GPU; nguồn số liệu tại [evaluation.md](evaluation.md). Người hoàn thiện/chạy: HoangDang, hỗ trợ OpenAI Codex; không thay tác giả các phần kế thừa trong Git.
 
-Đã chạy test bằng Python .venv Lab 1, không dùng kết quả cũ. Các lỗi merge/nguồn gốc bên dưới là lịch sử, không phải trạng thái hiện tại. Những việc ngoài nghiệm thu kỹ thuật còn lại: xác nhận tên TV1–TV5/ngày tạo model và upload Drive; không tự tạo thông tin đó.
+Đã chạy test bằng Python .venv Lab 1, không dùng kết quả cũ. Các lỗi merge/nguồn gốc bên dưới là lịch sử, không phải trạng thái hiện tại. Sản phẩm chính đã chuyển sang cây repo, input/checkpoint dùng Git LFS, không yêu cầu ZIP hoặc Drive. Tên TV1–TV5/ngày tạo model chưa xác nhận vẫn giữ nguyên, không tự tạo thông tin đó.
 
 ## 1.2. Kiểm chứng lịch sử ngày 2026-11-10
 

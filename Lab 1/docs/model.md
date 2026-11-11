@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Nguyen Thi Van Anh (theo hồ sơ kế thừa) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T09:54:14+07:00 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -179,7 +179,7 @@ Selected run: **run_004**, chosen by highest validation accuracy across the four
 - [Reload check](../outputs/run_004/reload_check.json): passed, 16 validation samples, labels equal, max logit difference 0 on CPU.
 - [Performance](../outputs/run_004/performance.json), [metrics](../outputs/run_004/metrics.json), [manifest](../outputs/run_004/manifest.json).
 
-The original implementation author remains Nguyen Thi Van Anh according to the inherited profile. Completion/integration is by HoangDang with OpenAI Codex. The original creation date is still unconfirmed; commit dates are not substituted for that date. No verified Drive upload link is available; local weights are included in the handoff ZIP.
+The original implementation author remains Nguyen Thi Van Anh according to the inherited profile. Completion/integration is by HoangDang with OpenAI Codex. The original creation date is still unconfirmed; commit dates are not substituted for that date. All 25 checkpoint files, including the selected best model, are versioned in this repository through Git LFS. Run `git lfs pull origin hoangdang` after clone/pull; no ZIP or Drive link is required.
 
 ## Nguồn và phạm vi
 
