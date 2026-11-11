@@ -1,11 +1,22 @@
 # MLP Architecture for Image Classification — Lab 1
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | MLP Architecture for Image Classification — Lab 1 |
+| Created date | Chưa xác nhận |
+| Created by | Nguyen Thi Van Anh (theo hồ sơ kế thừa) |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Model Name
 - Model name: FashionMNIST MLP
 - Model class: FashionMLP
 - Author: Nguyen Thi Van Anh
 - Created on: chưa xác nhận
-- Updated on: 2026-11-10
-- Updated by: Codex (AI hỗ trợ, chờ nhóm review)
 - Implementation status: `src/model.py` exists; trained model and test metrics are not yet available.
 - Framework: PyTorch
 - Reference: PyTorch – Learn the Basics – Build the Neural Network
@@ -153,7 +164,9 @@ Before handing over the model for training:
 4. Count the total number of parameters and the number of trainable parameters
 5. Record the actual results in `model_summary.txt`
 
-**_Verification status:_** A saved [model_summary.txt](../outputs/model_summary.txt) records input `(2, 1, 28, 28)`, output `(2, 10)` and 669706 trainable parameters. This is an architecture check, not training evidence. Its provenance sidecar is still missing; do not treat it as a fully traced result.
+**_Verification status:_** A saved [model_summary.txt](../outputs/model_summary.txt) records input `(2, 1, 28, 28)`, output `(2, 10)` and 669706 trainable parameters. This is an architecture check, not training evidence. Its provenance sidecar is present and registered. The report is inherited architecture evidence; it was not regenerated during this documentation review.
+
+The current `check_model()` rewrites the summary without updating its provenance sidecar. Sidecar generation still needs to be integrated before a regenerated report can be accepted.
 
 # 4. Trained Model
 

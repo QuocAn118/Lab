@@ -1,6 +1,16 @@
 # 3.6. Lưu và tải lại mô hình
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | 3.6. Lưu và tải lại mô hình |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái: đã có `src/model_io.py`, lưu/tải và kiểm tra `final_epoch.pth`. Chính sách 5 checkpoint nằm ở train; tải và kiểm tra `best.pth` phục vụ test/demo còn thiếu. Các mục ghi “hiện tại” dưới đây mô tả code đang có, không thay thế yêu cầu chọn `best` ở đặc tả gốc §6.1.
 

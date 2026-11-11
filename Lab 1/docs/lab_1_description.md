@@ -7,8 +7,8 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-10 — đồng bộ đường dẫn, giao diện và trạng thái với repo |
-| Updated by | Nguyễn Hoàng Đăng |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
 | Trạng thái | Đã có code data, model, train và model I/O; chưa có bằng chứng smoke/normal run đầy đủ. Evaluation, demo và kiểm chứng checkpoint `best` còn thiếu |
 
@@ -98,7 +98,7 @@ Mỗi phần việc đi qua các bước sau. Không chạy normal run khi smoke
 - Mục đích: kiểm tra pipeline chạy hết từ đầu đến cuối, không dùng để báo cáo kết quả.
 - Dữ liệu: 512 ảnh train, 256 ảnh validation, 256 ảnh test; 1 epoch; cùng code và cấu hình với normal run.
 - Mã lần chạy: `smoke_` và ba chữ số, ví dụ `smoke_001`.
-- Đạt khi: shape đúng, loss hữu hạn, đủ các file đầu ra ở mục 8, tải lại checkpoint `best` thành công.
+- Đạt khi: shape đúng, loss hữu hạn, đủ các file đầu ra ở mục 10, tải lại checkpoint `best` thành công.
 
 ### 5.2. Normal run
 
@@ -116,7 +116,7 @@ Chi tiết từng yêu cầu nằm trong `docs/requirements/`. Bảng dưới l�
 | 3.2. Transforms và DataLoader | [3_2](requirements/3_2_transforms_dataloader.md) | `data/data_pipeline.py` — `create_dataloaders(config)` | train/val/test loader trong bộ nhớ; `data/reports/batch_check.json` | Ảnh `[B, 1, 28, 28]` float32, nhãn `[B]` int64; train xáo trộn, val/test giữ thứ tự |
 | 3.3. Xây dựng mạng | [3_3](requirements/3_3_build_model.md) | `src/model.py` — `FashionMLP`, `build_model(model_config)` | `outputs/model_summary.txt` | Input `[2, 1, 28, 28]` → output hữu hạn `[2, 10]`; không có Softmax trước CrossEntropyLoss |
 | 3.4. Huấn luyện | [3_4](requirements/3_4_train.md) | `src/train.py` | `config.json`, `history.csv`, các checkpoint ở mục 6.1 | Mỗi epoch có train và val; từ chối `run_id` đã tồn tại |
-| 3.5. Đánh giá | [3_5](requirements/3_5_evaluate.md) | `src/evaluate.py` | `metrics.json`, `predictions.csv`, `performance.json` | Đủ 10.000 dòng dự đoán; accuracy tính lại từ CSV khớp JSON |
+| 3.5. Đánh giá | [3_5](requirements/3_5_evaluate.md) | `src/evaluate.py` | `metrics.json`, `predictions.csv`, `performance.json` | Normal: 10.000 dòng; smoke: 256 dòng; accuracy tính lại từ CSV khớp JSON |
 | 3.6. Lưu và tải lại | [3_6](requirements/3_6_save_load.md) | `src/model_io.py` — `save_model(model, run_id)`, `load_model(run_id, device)`, `verify_reload(model, sample_batch, run_id)` | `reload_check.json` (hiện kiểm tra `final_epoch`) | Nhãn giống nhau; chênh lệch logits tối đa ≤ 1e-6; `passed=true`; còn phải hỗ trợ và kiểm tra `best` |
 
 ### Cấu hình cơ sở
@@ -158,7 +158,7 @@ Validation được đánh giá sau mỗi epoch. Mỗi lần chạy lưu 5 check
 
 ### 7.1. Thử nghiệm kiến trúc hoặc siêu tham số
 
-Mỗi thí nghiệm chỉ đổi **một** yếu tố so với `run_001`, các yếu tố còn lại giữ nguyên.
+Mỗi thí nghiệm chỉ đổi **một** yếu tố so với `run_001`, các yếu tố còn lại giữ nguyên. Nghiệm thu tối thiểu gồm `run_001` và ít nhất hai run trong `run_002`–`run_004`; kế hoạch khuyến nghị chạy đủ bốn run.
 
 | Run | Thay đổi so với cơ sở | Mục đích |
 | --- | --- | --- |
@@ -190,7 +190,7 @@ Mọi run được đánh giá theo ba nhóm. Kết quả ghi vào `outputs/<run
 
 | Nhóm | Chỉ số | Cách đo |
 | --- | --- | --- |
-| **Accuracy** | Test accuracy, test loss | Checkpoint `best` trên toàn bộ 10.000 ảnh test; accuracy lưu dạng tỷ lệ 0–1 |
+| **Accuracy** | Test accuracy, test loss | Checkpoint `best` trên 10.000 ảnh test cho normal, 256 ảnh cho smoke; accuracy lưu dạng tỷ lệ 0–1 |
 | | Best val accuracy, best val loss, epoch tương ứng | Từ `history.csv` |
 | | Accuracy theo từng lớp | Tính từ `predictions.csv` |
 | **Thời gian xử lý** | Thời gian bắt đầu, kết thúc, tổng thời gian train | Timestamp ISO 8601 và số giây (`time.perf_counter`) |
@@ -249,6 +249,7 @@ Lab 1/
 │   ├── model.py
 │   ├── train.py
 │   ├── evaluate.py               # Dự kiến
+│   ├── verify.py                 # Dự kiến: kiểm số liệu trước khi chốt run
 │   └── model_io.py
 ├── tests/test_train.py            # Kiểm thử train bằng tensor giả
 ├── data/
@@ -274,6 +275,7 @@ Lab 1/
 │       ├── predictions.csv
 │       ├── performance.json
 │       ├── reload_check.json
+│       ├── verify_report.json    # Kiểm số liệu trước khi chốt manifest
 │       ├── loss_curve.png
 │       └── prediction_samples.png
 └── checkpoints/<run_id>/          # Không commit file .pth
@@ -297,7 +299,8 @@ Lab 1/
 Lab 1 được xem là hoàn thành khi:
 
 - [ ] Smoke run đạt các điều kiện ở mục 5.1.
-- [ ] Ít nhất 3 normal run ở mục 7.1 có đủ file đầu ra ở mục 10.
+- [ ] `run_001` và ít nhất hai run trong `run_002`–`run_004` có đủ file đầu ra ở mục 10.
+- [ ] Mỗi run báo cáo có `verify_report.json` PASS; sau khi chốt manifest, kiểm tra hash ở chế độ chỉ đọc.
 - [ ] `reload_check.json` của mỗi run có `passed=true`.
 - [ ] `performance.json` có đủ ba nhóm accuracy, thời gian, tài nguyên.
 - [ ] `model.md`, `evaluation.md`, `plan_progress_status.md` đã cập nhật theo kết quả thực tế.

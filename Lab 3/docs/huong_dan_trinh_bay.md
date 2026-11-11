@@ -1,5 +1,17 @@
 # Hướng dẫn đọc tài liệu và trình bày Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Hướng dẫn đọc tài liệu và trình bày Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T22:10:18+07:00 ; HoangDang ; 77cd208 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Thứ tự đọc
 
 Đọc các file 01–07 để hiểu và trình bày bài. Các file 08–12 dùng để tra cứu cách triển khai, tiến độ và nguồn. Tiền tố số tạo thứ tự hiển thị khi sắp xếp theo tên trong Explorer.
@@ -57,7 +69,7 @@ Khi notebook hiển thị chế độ nạp model đã huấn luyện, lần Run
 - [Kết quả đã ghi nhận](06_verification.md): chỉ số, cách đo và giới hạn.
 - [Report riêng](../report/README.md): chọn lượt chạy, mở log, cấu hình, thời gian, metrics và từng file dự đoán; nguồn/hash nằm trong manifest của lượt đó.
 - [Thời gian run cũ](../outputs/full/training_time.json) và [nguồn khôi phục](../outputs/full/timing_sources.md): 334.46 giây tổng; 113.11, 111.24, 109.95 giây theo epoch. Đây là số từ báo cáo, không phải log timestamp gốc.
-- [Notebook](../../Lab_3%20(1).ipynb): kết quả test, confusion matrix và demo được tính lại.
+- [Notebook](../../Lab_3%20%281%29.ipynb): kết quả test, confusion matrix và demo được tính lại.
 - [Cấu hình train](04_training.md): giải thích tham số và cách ghi thời gian.
 
 Mỗi lượt train mới có thư mục riêng, training_time.json ở run, checkpoint và best. Khi chỉ nạp model để đánh giá, đọc file thời gian sẵn có; không tính thời gian đánh giá thành thời gian train. Nếu thiếu log loss cũ, notebook báo rõ và bỏ qua việc vẽ lại. Không lấy ngày sửa file làm thời điểm huấn luyện.

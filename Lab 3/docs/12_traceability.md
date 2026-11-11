@@ -1,5 +1,17 @@
 # Bảng truy vết — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Bảng truy vết — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T22:10:18+07:00 ; HoangDang ; 77cd208 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 | Yêu cầu | Nguồn Markdown | Triển khai | Kiểm chứng |
 | --- | --- | --- | --- |
 | R-01 Module A | `01_lab_3_description.md` §1; `03_model.md` §4 | `infer_pretrained`, `validate_texts` | CLI infer thật; test chuỗi rỗng |

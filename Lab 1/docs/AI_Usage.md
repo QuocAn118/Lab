@@ -1,10 +1,22 @@
 # Khai báo AI — Lab 1
 
-Last updated: 2026-11-10. Updated by: Codex.
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Khai báo AI — Lab 1 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-10T16:24:05+07:00 ; Thanh Binh ; eb86ab8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 | Ngày | Công cụ | Phần hỗ trợ | Prompt chính | Review |
 | --- | --- | --- | --- | --- |
 | 2026-11-10 | Codex, theo yêu cầu người dùng | prepare_data.py, data_pipeline.py, tài liệu data và kiểm thử | Triển khai 3.1 và 3.2 | Đối chiếu đặc tả và giao diện train; kiểm chứng ghi trong tiến độ. Chờ review của nhóm. |
 | 2026-11-10 | Codex, theo yêu cầu người dùng | README, đặc tả gốc, tài liệu thành phần, yêu cầu 3.1–3.6, phân công, tiến độ và registry | Kiểm tra và đồng bộ tài liệu Lab 1 | Đọc code, đối chiếu giao diện/đường dẫn/checkpoint; gỡ marker conflict Lab 1, giữ lịch sử lưu vết. Test train không thu thập được do thiếu torch; còn 3 lỗi provenance cũ, chưa chạy training. Chờ nhóm review. |
+
+| 2026-11-11 | OpenAI Codex, theo yêu cầu người dùng; người tích hợp HoangDang | Chuẩn hóa tài liệu sau đồng bộ nhánh | Đồng nhất metadata, đường dẫn, trạng thái, vòng đời Run và tiêu chí nghiệm thu | Rà tĩnh với code/config; kiểm liên kết, registry và hash artifact. Chưa chạy lại test/train vì thiếu thư viện. |
 
 Lịch sử registry cũng ghi nhận Claude Code hỗ trợ công cụ lưu vết và train; tác giả/công cụ tạo model và model I/O chưa được xác nhận đầy đủ. Nhóm cần bổ sung khai báo phần mình, không suy tác giả code từ người commit.

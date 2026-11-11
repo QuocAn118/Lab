@@ -1,6 +1,16 @@
 # Performance Evaluation & System Benchmarks — Lab 1
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Performance Evaluation & System Benchmarks — Lab 1 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái: **chưa có kết quả huấn luyện/đánh giá để báo cáo**. `src/evaluate.py` chưa có; các bảng dưới là mẫu chờ số liệu thật. Chi tiết đầu ra theo [3.5](requirements/3_5_evaluate.md) và [đặc tả gốc §8](lab_1_description.md).
 
@@ -14,7 +24,7 @@ Trạng thái: **chưa có kết quả huấn luyện/đánh giá để báo cá
 ---
 
 ## 2. Quantitative System Benchmarks
-- **Peak Validation Accuracy**: [Chờ đo lường %]
+- **Peak Validation Accuracy**: [Chờ đo, tỷ lệ 0–1]
 - **Average Training Speed**: [Giây / Epoch]
 - **Inference Latency**: [ms / Sample]
 - **Memory Footprint**: [MB / GB]

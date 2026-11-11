@@ -1,5 +1,24 @@
 # Nhật ký đồng bộ nhánh — 2026-11-11
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Created date | 2026-11-11 |
+| Created by | HoangDang, hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-11T08:52:28+07:00 — đợt chuẩn hóa sau push |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+
+## Trạng thái hiện hành sau xử lý ThanhBinh và chuẩn hóa
+
+- Đã xác nhận push **26b0f9e** lên **origin/hoangdang** lúc **2026-11-11T08:50:52+07:00**; Git LFS tải lên đủ 5 đối tượng trọng số, khoảng 1,3 GB. Đây là thời gian xác nhận thao tác, không phải ngày huấn luyện.
+- Nhánh local **ThanhBinh** đã được cập nhật tới kết quả merge **26b0f9e**. Commit raw **40acced** chỉ còn được giữ làm nguồn trong backup; bản tương đương dùng LFS **ecb71b1** đã được tích hợp. Không force-push hoặc sửa nhánh `main`.
+- Đã checkout đủ 20 trọng số của snapshot nhập trên máy này; `IMPORT.json` mô tả blob lưu trong Git và SHA-256 nội dung LFS gốc.
+- Đợt chuẩn hóa từ **2026-11-11T08:52:28+07:00**: đồng nhất bảng thông tin, phân biệt tác giả gốc/người tích hợp, sửa trạng thái và đường dẫn, quy trình evaluation/verification, tiêu chí số run và workflow nhánh cá nhân → PR main. Danh sách file và phép kiểm tra có trong trường `documentation_update` của JSON.
+- Lab 1 provenance strict hiện **PASS: 0 lỗi, 0 cảnh báo** sau khi rà tĩnh và ghi review bằng CLI. Đây không phải xác nhận các tính năng còn thiếu đã triển khai hoặc test/train đã chạy.
+- Không sửa thuật toán hoặc số đo thực nghiệm. Lab 1 vẫn thiếu phần `best`/evaluation/demo và tự ghi sidecar khi tạo lại summary; Lab 2 vẫn thiếu module package. Python hiện tại thiếu thư viện để chạy lại kiểm thử.
+- Commit và thời gian ghi phần tài liệu được giữ trong Git; trạng thái cuối trên remote được đối chiếu sau push. Các mục kiểm tra trước đây bên dưới là lịch sử của từng giai đoạn, không thay thế trạng thái này.
+
 ## Cập nhật tiếp theo: xử lý nhánh local ThanhBinh
 
 Snapshot `40acced` được nhập lúc **2026-11-11T08:43:09+07:00**, bởi **HoangDang**, hỗ trợ **OpenAI Codex**, vào `Lab 3/outputs/imported-thanhbinh-40acced/`. Tác giả/committer gốc là HoangDang, lúc **2026-11-07T07:33:28+07:00**; không suy tác giả từ tên nhánh.

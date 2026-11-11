@@ -1,5 +1,17 @@
 # Thử Nghiệm Thực Tế (Demo Specification) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Thử Nghiệm Thực Tế (Demo Specification) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 Mục đích: Kiểm chứng model đã huấn luyện bằng cách phân loại từng ảnh và xem xác suất của các lớp. Các lệnh chạy trong thư mục `Lab 2` trên Colab, với `PYTHONPATH=src` đã được notebook thiết lập.
 
 Mã nguồn: `src/lab_2/demo.py`.

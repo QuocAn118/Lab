@@ -1,8 +1,20 @@
 # 3.3. Xây dựng mạng neural
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+## 0. Thông tin tài liệu
 
-Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo này chưa có sidecar nguồn gốc. Chưa có bằng chứng huấn luyện.
+| Trường | Nội dung |
+| --- | --- |
+| Name | 3.3. Xây dựng mạng neural |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
+Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo đã có sidecar nguồn gốc `.prov.json`, nhưng chưa được tạo lại trong lần rà này. Chưa có bằng chứng huấn luyện.
+
+Giới hạn hiện tại: `check_model()` ghi lại `model_summary.txt` nhưng chưa gọi `record_artifact`. Chạy lại `--check` có thể làm sidecar cũ không còn khớp. Cần hoàn thiện bước ghi sidecar trong module trước khi nghiệm thu kết quả tạo lại; không sửa tay hash báo cáo.
 
 ## 1. Mục đích
 

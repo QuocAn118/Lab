@@ -1,5 +1,17 @@
 # Hồ sơ model — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Hồ sơ model — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Thông tin model
 
 | Trường | Nội dung |
@@ -7,8 +19,8 @@
 | Name | DistilBERT fine-tuned trên IMDB — Lab 3 |
 | Created date | 2026-11-06 — ngày bản fine-tuned được ghi nhận trong báo cáo |
 | Created by | HoangDang |
-| Last updated | 2026-11-07 — cập nhật hồ sơ model |
-| Updated by | HoangDang |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Ngày huấn luyện bản full đang sử dụng | 2026-11-06 |
 | Trạng thái | Đã huấn luyện và đánh giá; checkpoint `best` đang được sử dụng |
 

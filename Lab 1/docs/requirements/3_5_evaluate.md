@@ -1,6 +1,16 @@
 # 3.5. Đánh giá độ chính xác
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | 3.5. Đánh giá độ chính xác |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái: đặc tả; `src/evaluate.py` chưa có. `load_model(run_id, device)` hiện chỉ nạp checkpoint cuối, cần hoàn thiện hỗ trợ `best` trước khi tích hợp đánh giá.
 
@@ -16,7 +26,7 @@ Trạng thái: đặc tả; `src/evaluate.py` chưa có. `load_model(run_id, dev
 
 ## 3. Đầu vào
 
-- `--run-id`, ví dụ `run_001`, xác định đúng một thí nghiệm đã hoàn thành.
+- `run_id`, ví dụ `run_001`, xác định lần chạy đã hoàn tất huấn luyện nhưng vẫn ở trong khối `Run`, chưa chốt manifest. Evaluation dùng cấu hình và checkpoint của chính lần chạy đó.
 - `outputs/<run_id>/config.json`: cấu hình kiến trúc, transforms và thứ tự lớp nhãn.
 - `checkpoints/<run_id>/best.pth`: trọng số có val accuracy cao nhất của cùng lần chạy; hòa giữ epoch sớm hơn.
 - Tập test trong `data/FashionMNIST/raw/`.
@@ -53,11 +63,9 @@ Chỉ công bố kết quả sau khi duyệt thành công toàn bộ test loader
 
 ## 6. Cách chạy và kiểm tra
 
-CLI dự kiến từ thư mục `Lab 1` (chưa triển khai; cần phối hợp với vòng đời run, không chạy vào run đã chốt):
+Chưa có CLI evaluation riêng đã triển khai. Quy trình đích là train → tải/kiểm tra `best` → đánh giá test → demo/đồ thị → kiểm số liệu, ghi `verify_report.json` → thoát khối `Run` để chốt manifest. Chữ ký hàm tích hợp sẽ được chốt trước khi triển khai.
 
-```powershell
-python src/evaluate.py --run-id run_001
-```
+Sau khi manifest đã chốt, chỉ kiểm hash ở chế độ đọc; không thêm báo cáo vào run cũ. Kiểm tra nguồn gốc và hash bằng `python tools/check_provenance.py --strict` từ `Lab 1`.
 
 - Normal: `num_samples` và số dòng CSV đều bằng 10.000, `sample_index` từ 0 đến 9.999; smoke: 256 mẫu, chỉ số từ 0 đến 255. Không trùng hoặc thiếu.
 - Đếm lại số dòng có `true_label` bằng `predicted_label` phải khớp `num_correct` và `test_accuracy` trong JSON.

@@ -1,5 +1,17 @@
 # Lab 3 — Phân tích cảm xúc với Transformers
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Lab 3 — Phân tích cảm xúc với Transformers |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook giữ các ô code chính viết tuần tự. Tiện ích thời gian/lưu model/vẽ loss được tách vào `notebook_helpers.py`; không dùng pipeline `lab3.py`.
 
 Tài liệu trong `docs/` được đánh số theo thứ tự đọc. Bắt đầu từ [Hướng dẫn trình bày](docs/huong_dan_trinh_bay.md), sau đó đọc 01–07 cho nội dung bài; 08–12 là tài liệu triển khai, tiến độ và nguồn để tra cứu thêm.
@@ -34,7 +46,7 @@ Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12
 
 Giữ `Lab 3/notebook_helpers.py` đi kèm notebook khi sao chép.
 
-Môi trường hiện tại đã được chuẩn bị. Khi cài trên Windows mới, chạy từ repo gốc:
+Môi trường được mô tả trong báo cáo cũ không mặc nhiên có trên máy mới. Python đang kiểm tra ngày 2026-11-11 thiếu torch/transformers/datasets. Khối lệnh dưới tái hiện cấu hình PyTorch CUDA 12.8 của máy GPU được ghi trong báo cáo; nếu dùng phần cứng khác, chọn bản PyTorch phù hợp trước khi cài các dependency còn lại. Chạy từ repo gốc:
 
 ```powershell
 $env:PYTHONUTF8='1'
@@ -44,7 +56,7 @@ python -m venv 'Lab 3/.venv'
 & 'Lab 3/.venv/Scripts/python.exe' -m ipykernel install --user --name lab3 --display-name 'Python (Lab 3)'
 ```
 
-Dataset/model được tải từ Hugging Face ở lần đầu. Checkpoint và loss history full hiện có nằm trong `outputs/full/`; giữ thư mục này khi muốn dùng lại kết quả. Nếu chưa có checkpoint, notebook thực hiện huấn luyện mới. CPU có thể chạy chậm hơn GPU.
+Dataset/model được tải từ Hugging Face ở lần đầu. Các báo cáo trước đây dùng đường dẫn `outputs/full/`. Snapshot nhập từ nhánh local hiện nằm trong `outputs/imported-thanhbinh-40acced/full/`; xem `IMPORT.json` để ánh xạ. Không mặc định notebook tự tìm snapshot ở vị trí mới: kiểm tra đường dẫn model trước khi Run All; nếu không tìm được checkpoint, code có thể huấn luyện mới. CPU có thể chạy chậm hơn GPU.
 
 `lab3.py`, `test.py` và các manifest full là phần hỗ trợ nâng cao đã có; không cần đọc hoặc chạy chúng để theo dõi nội dung notebook rút gọn.
 

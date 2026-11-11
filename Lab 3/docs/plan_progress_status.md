@@ -1,5 +1,17 @@
 # Tiến Độ Thực Hiện (Project Status) — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Tiến Độ Thực Hiện (Project Status) — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
+
 ## 1. Bảng Công Việc
 
 `DONE` chỉ được ghi khi đã có bằng chứng tương ứng. Mã nghiệm thu `AC` xem tại `lab_3_description.md` mục 8.
@@ -37,3 +49,8 @@
 | Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
 | :--- | :--- | :--- | :--- |
 | Claude Code (Claude Opus 5.5) | Rà soát, thiết kế, viết code và tài liệu | Đối chiếu đặc tả; đề xuất cấu trúc thư mục; viết `src/`, `tests/`, notebook mới; cập nhật `docs/` | Làm notebook ban đầu; cung cấp đề bài; chọn số mẫu; quyết định phạm vi, cấu trúc và các điểm sửa đặc tả; chạy trên Colab. Phần khác: chưa xác nhận |
+
+## Nguồn và phạm vi
+
+- Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
+- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

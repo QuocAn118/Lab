@@ -6,7 +6,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
           "section": "§9.4"
         }
       ],
@@ -29,6 +29,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -37,7 +45,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -60,6 +68,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -68,11 +84,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "b9aa3caf1b9f8eae6d6c2031e09aa1b04867b5a84ab792f42ed95df5afe2630e"
+          "sha256": "8b7d8489d5008487265764cb78a9912e55775eec9643c558e5ed7c0c3f2e0ac1"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "5179bd52ac4d7b3741748892fbc4ca5cae8cb08b22fa2cd02e75d0a68ee47047"
+          "sha256": "ad9ff13e67d8ae788ec20ee837bd9f1cead613385d793961784ff522bdbe3110"
         }
       ],
       "method": "ai-assisted",
@@ -97,6 +113,15 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -105,15 +130,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "5179bd52ac4d7b3741748892fbc4ca5cae8cb08b22fa2cd02e75d0a68ee47047"
+          "sha256": "ad9ff13e67d8ae788ec20ee837bd9f1cead613385d793961784ff522bdbe3110"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab"
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
         }
       ],
       "method": "ai-assisted",
@@ -145,6 +170,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -153,15 +188,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "b9aa3caf1b9f8eae6d6c2031e09aa1b04867b5a84ab792f42ed95df5afe2630e"
+          "sha256": "8b7d8489d5008487265764cb78a9912e55775eec9643c558e5ed7c0c3f2e0ac1"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab"
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
         }
       ],
       "method": "ai-assisted",
@@ -201,6 +236,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -209,7 +254,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb"
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
         }
       ],
       "method": "ai-assisted",
@@ -225,6 +270,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -233,7 +286,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -256,6 +309,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -264,7 +325,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -281,6 +342,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -289,7 +358,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -306,6 +375,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -334,7 +411,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -351,6 +428,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -359,7 +444,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -388,6 +473,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -396,7 +489,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
           "section": "§9.2"
         }
       ],
@@ -413,6 +506,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -421,7 +522,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -444,6 +545,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -452,7 +561,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -469,6 +578,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -477,7 +594,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -494,6 +611,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -502,7 +627,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -519,6 +644,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -527,7 +660,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -544,6 +677,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -552,7 +693,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§6"
         }
       ],
@@ -569,6 +710,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -577,7 +726,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4-§5"
         },
         {
@@ -597,6 +746,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -605,7 +762,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§4"
         }
       ],
@@ -622,6 +779,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -630,7 +795,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_3_build_model.md",
-          "sha256": "658beee1e07293b62b5ca0271b449d6e7800d448c9566d09b0486936ae2db18b"
+          "sha256": "9e7cb83b5782612af240dad4d4aff37029c1ffcefa77bbf972fa6c3f2ead4904"
         }
       ],
       "method": "ai-assisted",
@@ -638,14 +803,23 @@
       "recorded_at": "2026-11-10T21:30:39+07:00",
       "status": "active",
       "note": "FashionMLP PyTorch implementation",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        }
+      ]
     },
     {
       "path": "src/model_io.py",
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "3f1aa965cea070c774740624601891b7147c47ae7b1f6535c50e5d6db6e42170"
+          "sha256": "353e682ac5f111c6ce78dc055ce2a0ffdf9b699f1f93823dc17d610a2ebd2fb9"
         }
       ],
       "method": "ai-assisted",
@@ -653,19 +827,28 @@
       "recorded_at": "2026-11-10T21:30:43+07:00",
       "status": "active",
       "note": "Luu va tai checkpoint model",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        }
+      ]
     },
     {
       "path": "src/run_tracking.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "§10"
         }
       ],
@@ -689,6 +872,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -697,11 +889,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "a35c291d8edc9e680cdaed7f43aab278b1d31d3ff0aaaeac96a16682001f5712"
+          "sha256": "dc79a1f60703e5a6c3a96e30198a74080e1819ed6574a8053dcd99974f479798"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "f83c29eb8baf41a28ae1429ed4dee5dfa0b66fef93b27305ef16166e43736cab",
+          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
           "section": "6.1"
         }
       ],
@@ -719,6 +911,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     },
@@ -727,7 +928,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "dedfa3942a020977f6b749565023f5a40572801bcb550174613c279d6fec63bb",
+          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
           "section": "§9"
         }
       ],
@@ -750,6 +951,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
         }
       ]
     }

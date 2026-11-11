@@ -1,8 +1,17 @@
 # Model Architecture
-Created at: 10/11/2026          
- Auth: Xuân Bảo   
-Updated at:10/11/2026   
-Auth: Xuân Bảo 
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Model Architecture |
+| Created date | 2026-11-10 (theo hồ sơ kế thừa) |
+| Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
+| Ghi nhận Git đầu tiên | File mới trong lần chuẩn hóa này |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Overview
 
 The Model module is responsible for implementing deep learning architectures for the CIFAR-10 image classification task, which consists of 10 classes.
@@ -209,4 +218,4 @@ It also provides parameter counting, BatchNorm-aware training mode management, a
 
 Actual execution confirms that all three tested model configurations produce the expected parameter counts and that the model report is generated successfully.
 
-Full unit-test execution is still required before declaring the module completely verified.
+The 14/14 result above is contributor-reported on branch xbao. It has not been rerun in the current environment. Shared-package integration and its tests remain incomplete.

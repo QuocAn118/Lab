@@ -1,5 +1,17 @@
 # Thử Nghiệm Thực Tế (Demo Specification) — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Thử Nghiệm Thực Tế (Demo Specification) — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
+
 Mục đích: Kiểm chứng model với những câu thực tế, ngoài tập dữ liệu. Các lệnh chạy trong thư mục `Lab 3` trên Colab, với `PYTHONPATH=src` đã được notebook thiết lập.
 
 ## 1. Exercise 1: Phân Tích Cảm Xúc
@@ -31,3 +43,8 @@ Lệnh này tải mốc `checkpoints/best` và ghi kết quả vào mục `demo`
 | *"It was an average film, neither great nor awful."* | NEGATIVE | 91,48% | Không có | Chỉ quan sát |
 
 Câu thứ ba mang tính trung tính, trong khi model chỉ có 2 lớp, nên câu này không có nhãn đúng và không tính đúng/sai. Model vẫn trả lời NEGATIVE với độ tin cậy 91,48%, cho thấy độ tin cậy cao không có nghĩa là câu trả lời đáng tin khi gặp câu nằm ngoài 2 lớp.
+
+## Nguồn và phạm vi
+
+- Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
+- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

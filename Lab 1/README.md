@@ -1,8 +1,19 @@
 # Lab 1 — FashionMNIST MLP bằng PyTorch
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Lab 1 — FashionMNIST MLP bằng PyTorch |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 Phân loại ảnh xám 28 × 28 thành 10 lớp trang phục bằng MLP 784 → 512 → 512 → 10. Cấu hình cơ sở: `ToTensor`, batch 64, SGD (lr 0.001, momentum 0.9), tối đa 10 epoch; split train/validation/test là 54.000/6.000/10.000, seed 42.
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
 
 Đã có code data, model, train và lưu/tải checkpoint. Chưa có bằng chứng smoke/normal run đầy đủ; evaluation, đồ thị và demo chưa triển khai. `load_model` hiện chỉ nạp checkpoint cuối, còn yêu cầu đánh giá bằng `best.pth` chưa hoàn tất.
 

@@ -1,5 +1,17 @@
 # Dữ Liệu Thực Nghiệm (Data Specification) — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Dữ Liệu Thực Nghiệm (Data Specification) — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
+
 Exercise 1 chỉ nhận một câu do người dùng nhập, không dùng dataset. Toàn bộ file này áp dụng cho Exercise 2.
 
 Mã nguồn: `src/exercise_2/data.py`. Tham số: mục `data` trong `configs/exercise_2.yaml`.
@@ -28,3 +40,8 @@ Mã nguồn: `src/exercise_2/data.py`. Tham số: mục `data` trong `configs/ex
 - **Độ dài tối đa**: `max_length = 256`, `truncation = True` cắt phần vượt quá.
 - **Padding**: Dùng `DataCollatorWithPadding` để pad động theo từng batch.
 - **Xử lý lỗi**: Nếu số mẫu yêu cầu lớn hơn số mẫu của dataset thì báo `ValueError`.
+
+## Nguồn và phạm vi
+
+- Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
+- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

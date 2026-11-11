@@ -1,5 +1,17 @@
 # Kiểm chứng thực tế — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Kiểm chứng thực tế — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Kết luận ngày 2026-11-06
 
 Đã triển khai và chạy thực tế cả hai module, full training của pipeline CLI và notebook. Bản notebook hiện tại đã được rút gọn: nạp checkpoint full để đánh giá lại; luồng huấn luyện mới được kiểm tra riêng trên dữ liệu nhỏ. Môi trường: Python 3.12.10, PyTorch 2.9.1+cu128, Transformers 4.57.1, Windows 11, **NVIDIA GeForce RTX 5060 Laptop GPU**. Dependency chính: requirements.txt; toàn bộ phiên bản thực: requirements-lock.txt.
@@ -65,7 +77,7 @@ Mô hình ngẫu nhiên nhỏ trong unit test chỉ kiểm cơ chế, không ph�
 
 ## 5. Bằng chứng và tái lập
 
-- Báo cáo full `outputs/full/report.md` (không còn trong bản sao hiện tại), [metric gốc đo](../outputs/full/metrics.json), [nguồn artifact](../outputs/full/artifacts.md).
+- Báo cáo full `outputs/full/report.md` (không còn trong bản sao hiện tại), [metric gốc đo](../outputs/imported-thanhbinh-40acced/full/metrics.json), [nguồn artifact](../outputs/full/artifacts.md).
 - `provenance.json`: SHA-256 từng artifact, snapshot các Markdown căn cứ, source code thực đã train và hash code hiệu chỉnh sau đó. Giữ log gốc và JSON trước sửa cờ.
 - `run_config.json`: revision chính xác model/dataset, seed, fingerprint, class counts và hash index từng split. `lab3_source.py` là source thực của run, có thể khác bản hiện tại ở phần cờ dừng/hiển thị đã ghi nhận.
 - Notebook đã lưu output thực; khi Run All, nó nạp checkpoint full có sẵn để đánh giá, không kiểm hash trong luồng chính. Luồng huấn luyện mới tạo thư mục run theo thời gian.

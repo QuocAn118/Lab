@@ -1,5 +1,17 @@
 # Kiến Trúc Mô Hình (Model Specification) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Kiến Trúc Mô Hình (Model Specification) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 > Tích hợp ngày 2026-11-11: bản triển khai của Xuân Bảo (Git: `hbao2123-debug`) nằm ở `Lab 2/model.py`, kiểm thử ở `Lab 2/test.py`; xem [model_implementation.md](model_implementation.md) và [model_vi.md](model_vi.md). Đường dẫn đích dùng chung `src/lab_2/model.py` bên dưới chưa có; chưa coi module đã ghép với evaluation. Người tích hợp: HoangDang, hỗ trợ OpenAI Codex; thời gian chính xác xem nhật ký đồng bộ tại gốc repo.
 
 Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2.yaml`.

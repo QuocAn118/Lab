@@ -1,5 +1,17 @@
 # Quy tắc dùng AI và truy nguồn — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Quy tắc dùng AI và truy nguồn — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Nguồn gốc quy tắc
 
 Yêu cầu dự án được ghi nhận ngày 2026-11-06: hoàn thiện Lab 3 và bảo đảm mọi file có hỗ trợ AI đều truy được về đặc tả Markdown. Phạm vi triển khai dựa trên các tài liệu hiện có trong `docs/`. Nguồn gốc tác giả của các tài liệu kế thừa chưa được xác minh độc lập.
@@ -27,6 +39,7 @@ Yêu cầu dự án được ghi nhận ngày 2026-11-06: hoàn thiện Lab 3 v�
 | HoangDang, hỗ trợ OpenAI Codex | Tích hợp lịch sử nhánh QuocAn, xử lý conflict, giữ bản hiện hành và ghi nguồn bản nhập; không sinh lại thuật toán hoặc kết quả thực nghiệm | Ngày 2026-11-11; tác giả và thời điểm commit gốc, kiểm tra và giới hạn trong `../../BRANCH_SYNC_2026-11-11.md` |
 | Tác giả notebook/tài liệu cũ | Code và output có trước lần triển khai | Chưa xác nhận tác giả và môi trường chạy |
 | HoangDang, hỗ trợ OpenAI Codex | Nhập snapshot local ThanhBinh vào thư mục riêng, chuyển trọng số sang Git LFS và ghi ánh xạ nguồn | Ngày 2026-11-11; nguồn gốc và thời gian trong `outputs/imported-thanhbinh-40acced/IMPORT.json`; không chạy lại huấn luyện |
+| HoangDang, hỗ trợ OpenAI Codex | Chuẩn hóa README, bảng thông tin, đường dẫn và cách phân biệt đặc tả/bản nhập/kết quả lịch sử | Ngày 2026-11-11; danh sách file, thời gian và kiểm tra trong nhật ký đồng bộ tại gốc repo; không sinh thêm code hoặc số đo thực nghiệm |
 
 Người thực hiện chịu trách nhiệm rà soát mã nguồn, kiểm chứng kết quả và công bố phạm vi hỗ trợ AI. Ghi nhận quyền tác giả và đóng góp theo bằng chứng, không quy toàn bộ mã nguồn cho một cá nhân khi chưa được xác nhận.
 

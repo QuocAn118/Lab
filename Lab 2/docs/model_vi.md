@@ -1,8 +1,17 @@
 # Kiến trúc mô hình (Model Architecture)
-Đươc tạo vào: 10/11/2026     
-Tác giả: Xuân Bảo    
-Được cập nhật vào: 10/11/2026   
-Tác giả: Xuân Bảo 
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Kiến trúc mô hình (Model Architecture) |
+| Created date | 2026-11-10 (theo hồ sơ kế thừa) |
+| Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
+| Ghi nhận Git đầu tiên | 2026-11-10T17:54:38+07:00 ; hbao2123-debug ; 749c935 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 
 ## 1. Tổng quan
 
@@ -210,4 +219,4 @@ Module cũng cung cấp các chức năng thống kê tham số, quản lý ch�
 
 Kết quả chạy thực tế xác nhận cả ba cấu hình mô hình đều tạo ra số lượng tham số đúng kỳ vọng và báo cáo mô hình được tạo thành công.
 
-Cần thực hiện đầy đủ unit tests trước khi kết luận module đã được kiểm chứng hoàn toàn.
+Kết quả 14/14 ở trên do thành viên báo cáo trên nhánh xbao, chưa được chạy lại trong môi trường hiện tại. Việc ghép model vào package dùng chung và kiểm thử tích hợp vẫn chưa hoàn tất.

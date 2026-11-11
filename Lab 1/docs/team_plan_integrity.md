@@ -7,8 +7,8 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-10 — đồng bộ module data, giao diện và nguồn bằng chứng |
-| Updated by | Codex (AI hỗ trợ, chờ nhóm review) |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
 
@@ -29,7 +29,7 @@ Theo hướng dẫn của cô: **không bắt buộc tự viết code**, nhưng 
 | | Split cố định, tái lập được | Chia 54.000/6.000 bằng seed 42, lưu chỉ số mẫu | `data/reports/split_indices.json` |
 | | Không rò rỉ dữ liệu | Train ∩ val = ∅; test không dùng để train hay chọn checkpoint | `data/reports/data_summary.json` (trường `overlap_train_val = 0`) |
 | **Kết quả** | Mọi con số đến từ run thật | Mỗi run có manifest gồm hash từng file, git commit, người chạy, thời điểm bắt đầu/kết thúc | `outputs/<run_id>/manifest.json` |
-| | Số liệu tự nhất quán | Tính lại accuracy từ `predictions.csv` và so với `metrics.json`; kiểm tra hash khớp manifest | `outputs/<run_id>/verify_report.json` |
+| | Số liệu tự nhất quán | Trước khi chốt manifest: tính lại accuracy từ `predictions.csv` và so với `metrics.json`, ghi báo cáo. Sau khi chốt: kiểm hash bằng công cụ lưu vết, không ghi thêm file | `outputs/<run_id>/verify_report.json` |
 | | So sánh công bằng | Mọi normal run chạy trên cùng một máy; ghi thiết bị trong `performance.json` | `outputs/compare_runs.csv` |
 | **Tài liệu** | Các file khớp nhau và khớp code | Mỗi số liệu trong docs có link tới file nguồn trong `outputs/` hoặc `data/reports/` | Các file `docs/*.md` |
 | | Truy vết được | Bảng yêu cầu → code → kiểm tra → bằng chứng | `docs/traceability.md` |
@@ -83,8 +83,8 @@ verify_reload(model, sample_batch, run_id) -> bool
 | 1. Description + Discussion | Đọc đề, chốt mục 4 và phân công | TV5 | Mục 4 được cả nhóm đồng ý, ghi vào changelog |
 | 2. Detail | Mỗi người hoàn thiện `requirements/` của mình | Từng TV | Đặc tả có input, xử lý, output, đường dẫn, cách kiểm tra |
 | 3. Implementation | Prompt nhỏ → AI sinh code → review → kiểm tra riêng module | Từng TV | Kiểm chứng bắt buộc ở mục 3 đạt; có khai báo AI |
-| 4. Smoke run | Ghép code, chạy `smoke_001` | TV3, TV5 | `verify.py --run-id smoke_001` báo PASS |
-| 5. Normal run | Chạy `run_001`–`run_004` trên **cùng một máy** | TV3 | Mỗi run có manifest và PASS |
+| 4. Smoke run | Ghép code, chạy `smoke_001` | TV3, TV5 | Kiểm số liệu và ghi `verify_report.json` PASS trước khi chốt manifest; sau đó kiểm hash chỉ đọc |
+| 5. Normal run | Chạy `run_001` và ít nhất hai trong `run_002`–`run_004` trên **cùng một máy**; khuyến nghị đủ bốn run | TV3 | Mỗi run có manifest và PASS |
 | 6. Check | Tổng hợp, cập nhật docs, đối chiếu đặc tả | TV4, TV5 | Checklist mục 7 đạt |
 
 ## 6. Quy tắc làm việc

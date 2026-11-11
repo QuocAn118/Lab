@@ -1,6 +1,16 @@
 # Thử Nghiệm & Trực Quan Hóa (Demo Specification) — Lab 1
 
-Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Thử Nghiệm & Trực Quan Hóa (Demo Specification) — Lab 1 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái: đặc tả demo, chưa có script và checkpoint đã huấn luyện để chạy demo.
 

@@ -1,5 +1,17 @@
 # Danh mục nguồn kỹ thuật — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Danh mục nguồn kỹ thuật — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Thứ tự ưu tiên
 
 Yêu cầu dự án → đặc tả nội bộ → quyết định triển khai được ghi nhận → tài liệu API chính thức. Phạm vi đối chiếu gồm notebook và các tài liệu Markdown hiện có. KPI là tiêu chí mục tiêu, không phải số liệu thực nghiệm.
