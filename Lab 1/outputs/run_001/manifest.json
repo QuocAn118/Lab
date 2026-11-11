@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "run_id": "run_001",
+  "kind": "normal",
+  "purpose": "Baseline MLP 512-512 SGD lr 0.001",
+  "status": "completed",
+  "created_by": "HoangDang",
+  "started_at": "2026-11-11T09:41:02+07:00",
+  "finished_at": "2026-11-11T09:41:28+07:00",
+  "duration_seconds": 25.689,
+  "command": [
+    "train.py",
+    "--run-id",
+    "run_001",
+    "--purpose",
+    "Baseline MLP 512-512 SGD lr 0.001"
+  ],
+  "git": {
+    "commit": "529127ec927431725ae8c381a359c59e26aa29b7",
+    "branch": "hoangdang",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "allow_dirty": false,
+  "specs": [
+    {
+      "path": "docs/requirements/3_4_train.md",
+      "sha256": "73ce750b4ec67577a6c3d99805057d7933a6e99a33a0c1f76d46ea003c3c2403"
+    },
+    {
+      "path": "docs/lab_1_description.md",
+      "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+    }
+  ],
+  "code": [
+    {
+      "path": "data/data_pipeline.py",
+      "sha256": "59c5301fce636d98485694a3aa651eecf65aa345b86a8a86a0c599126b7be1e2",
+      "specs": [
+        "docs/requirements/3_2_transforms_dataloader.md",
+        "docs/lab_1_description.md",
+        "docs/team_plan_integrity.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "data/prepare_data.py",
+      "sha256": "535ad24d1f5e6374329a8608b1cf671911f9024e2bd629bd27b2d8bf0fb0d011",
+      "specs": [
+        "docs/requirements/3_1_prepare_data.md",
+        "docs/lab_1_description.md",
+        "docs/team_plan_integrity.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/compare_runs.py",
+      "sha256": "35ec164e0e7e682aff0fb7e1f4cfd73f9d58de9095df21686c19eb3ffde363aa",
+      "specs": [
+        "docs/lab_1_description.md",
+        "docs/evaluation.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/demo.py",
+      "sha256": "bce62a7cff174cf621cc042453ce03029479db23912d0afb271aa07a37066884",
+      "specs": [
+        "docs/demo.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/evaluate.py",
+      "sha256": "8af00c9d9962eced7a9782f5f58d2c11004091e975365ac0fb5e0ec78341e96d",
+      "specs": [
+        "docs/requirements/3_5_evaluate.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/model.py",
+      "sha256": "7d65496a5aa4dff21bdf8e5da612da5ef84081d4142ad61f383343399d3ae9d6",
+      "specs": [
+        "docs/requirements/3_3_build_model.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/model_io.py",
+      "sha256": "fbce6e5344561163891d8e857349bc55b75e05b4f6bcdec790692a46b39de723",
+      "specs": [
+        "docs/requirements/3_6_save_load.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/run_tracking.py",
+      "sha256": "891a923402c4a854aee8e25b0913112ebabac2ce3c85785b543422cee271ce0c",
+      "specs": [
+        "docs/team_plan_integrity.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/train.py",
+      "sha256": "bbe735abcbbd254d6a7452dc03add25170b9aea4dc24fc9040dfebb71b26e079",
+      "specs": [
+        "docs/requirements/3_4_train.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/verify.py",
+      "sha256": "59012d80e89de00614159b3af2f23ca4445d8e11bd32e67d214a7692367d65b2",
+      "specs": [
+        "docs/verification.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "DESKTOP-0TP8KCP",
+    "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "torch": "2.9.1+cu128",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "torchvision": "0.24.1+cu128"
+  },
+  "config_sha256": "6c21000a0682da9a2a1dbe176ea7d7cedb9892b51d2656e4a73f44d502fb4057",
+  "notes": [
+    {
+      "at": "2026-11-11T09:41:27+07:00",
+      "text": "early stopping tại epoch 6: 2 epoch liên tiếp val_acc tăng dưới 0.01"
+    },
+    {
+      "at": "2026-11-11T09:41:28+07:00",
+      "text": "best test accuracy 0.825300 on 10000 samples"
+    },
+    {
+      "at": "2026-11-11T09:41:28+07:00",
+      "text": "best val_acc 0.8315 tại epoch 6"
+    }
+  ],
+  "error": null,
+  "files": [
+    {
+      "path": "outputs/run_001/config.json",
+      "bytes": 950,
+      "sha256": "6c21000a0682da9a2a1dbe176ea7d7cedb9892b51d2656e4a73f44d502fb4057",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/history.csv",
+      "bytes": 516,
+      "sha256": "294236822e94b201352992c3e664d97b2b8a2bea7326a2144a54ea5c554e285f",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/loss_curve.png",
+      "bytes": 60431,
+      "sha256": "c349edc369a03243cd65daad4aa5651e221eb974568ac401233215833050b710",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/metrics.json",
+      "bytes": 230,
+      "sha256": "135afb78cd4211750d7c9bc2a80550a6f354605c4d582216d93fdc3ced048ab8",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/performance.json",
+      "bytes": 1229,
+      "sha256": "a69860e2183123010db243ebd9ebf013e513ac95cb8fef32e8961bd1a4a2255d",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/prediction_samples.png",
+      "bytes": 94904,
+      "sha256": "89b164dd052a14539dbb30329ed313a078e31e27d50e1027d6c2a7ea418ad33a",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/predictions.csv",
+      "bytes": 251148,
+      "sha256": "c9008724ad188db04f9197f4b05f4cf2b99df3bc7e6acbeec55b4d17ddebb606",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/reload_check.json",
+      "bytes": 227,
+      "sha256": "9499134c3378121e45179406e91dc4cbcb4f34eb6f2ba405d714622b709349f9",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/run_001/verify_report.json",
+      "bytes": 168,
+      "sha256": "b494eeaf9f041a7dc8ef881ed7fa68ddd2824a67ee2c3dbc2baa2cbfbee38cc4",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/best.pth",
+      "bytes": 2681685,
+      "sha256": "1c3efb8677166e14f3f75c9187bba90c6ab6d840055869d7b3164a13201231e5",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/best_val_acc.pth",
+      "bytes": 2681685,
+      "sha256": "1c3efb8677166e14f3f75c9187bba90c6ab6d840055869d7b3164a13201231e5",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/best_val_loss.pth",
+      "bytes": 2681685,
+      "sha256": "1c3efb8677166e14f3f75c9187bba90c6ab6d840055869d7b3164a13201231e5",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/best_val_pause.pth",
+      "bytes": 2681685,
+      "sha256": "1c3efb8677166e14f3f75c9187bba90c6ab6d840055869d7b3164a13201231e5",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/checkpoint_index.json",
+      "bytes": 1012,
+      "sha256": "7df5ea983a62222645b6830b308d7c551c0b70cdf2d5dc755be6105621df90ad",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/run_001/final_epoch.pth",
+      "bytes": 2681685,
+      "sha256": "1c3efb8677166e14f3f75c9187bba90c6ab6d840055869d7b3164a13201231e5",
+      "ignored_by_git": true
+    }
+  ]
+}
