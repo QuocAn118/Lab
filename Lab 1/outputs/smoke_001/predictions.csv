@@ -1,0 +1,257 @@
+sample_index,true_label,predicted_label,true_name,predicted_name
+0,9,7,Ankle boot,Sneaker
+1,2,6,Pullover,Shirt
+2,1,3,Trouser,Dress
+3,1,2,Trouser,Pullover
+4,6,7,Shirt,Sneaker
+5,1,7,Trouser,Sneaker
+6,4,7,Coat,Sneaker
+7,6,7,Shirt,Sneaker
+8,5,7,Sandal,Sneaker
+9,7,7,Sneaker,Sneaker
+10,4,6,Coat,Shirt
+11,5,7,Sandal,Sneaker
+12,7,7,Sneaker,Sneaker
+13,3,6,Dress,Shirt
+14,4,6,Coat,Shirt
+15,1,7,Trouser,Sneaker
+16,2,6,Pullover,Shirt
+17,4,6,Coat,Shirt
+18,8,9,Bag,Ankle boot
+19,0,6,T-shirt/top,Shirt
+20,2,6,Pullover,Shirt
+21,5,7,Sandal,Sneaker
+22,7,9,Sneaker,Ankle boot
+23,9,7,Ankle boot,Sneaker
+24,1,7,Trouser,Sneaker
+25,4,6,Coat,Shirt
+26,6,6,Shirt,Shirt
+27,0,7,T-shirt/top,Sneaker
+28,9,9,Ankle boot,Ankle boot
+29,3,2,Dress,Pullover
+30,8,6,Bag,Shirt
+31,8,7,Bag,Sneaker
+32,3,7,Dress,Sneaker
+33,3,6,Dress,Shirt
+34,8,7,Bag,Sneaker
+35,0,7,T-shirt/top,Sneaker
+36,7,9,Sneaker,Ankle boot
+37,5,7,Sandal,Sneaker
+38,7,7,Sneaker,Sneaker
+39,9,9,Ankle boot,Ankle boot
+40,6,6,Shirt,Shirt
+41,1,2,Trouser,Pullover
+42,3,7,Dress,Sneaker
+43,7,7,Sneaker,Sneaker
+44,6,6,Shirt,Shirt
+45,7,7,Sneaker,Sneaker
+46,2,6,Pullover,Shirt
+47,1,6,Trouser,Shirt
+48,2,6,Pullover,Shirt
+49,2,6,Pullover,Shirt
+50,4,7,Coat,Sneaker
+51,4,6,Coat,Shirt
+52,5,7,Sandal,Sneaker
+53,8,6,Bag,Shirt
+54,2,2,Pullover,Pullover
+55,2,6,Pullover,Shirt
+56,8,9,Bag,Ankle boot
+57,4,6,Coat,Shirt
+58,8,7,Bag,Sneaker
+59,0,7,T-shirt/top,Sneaker
+60,7,7,Sneaker,Sneaker
+61,7,9,Sneaker,Ankle boot
+62,8,6,Bag,Shirt
+63,5,6,Sandal,Shirt
+64,1,3,Trouser,Dress
+65,1,2,Trouser,Pullover
+66,2,7,Pullover,Sneaker
+67,3,6,Dress,Shirt
+68,9,7,Ankle boot,Sneaker
+69,8,9,Bag,Ankle boot
+70,7,9,Sneaker,Ankle boot
+71,0,7,T-shirt/top,Sneaker
+72,2,6,Pullover,Shirt
+73,6,6,Shirt,Shirt
+74,2,6,Pullover,Shirt
+75,3,7,Dress,Sneaker
+76,1,6,Trouser,Shirt
+77,2,6,Pullover,Shirt
+78,8,9,Bag,Ankle boot
+79,4,6,Coat,Shirt
+80,1,7,Trouser,Sneaker
+81,8,6,Bag,Shirt
+82,5,3,Sandal,Dress
+83,9,7,Ankle boot,Sneaker
+84,5,7,Sandal,Sneaker
+85,0,6,T-shirt/top,Shirt
+86,3,7,Dress,Sneaker
+87,2,6,Pullover,Shirt
+88,0,6,T-shirt/top,Shirt
+89,6,6,Shirt,Shirt
+90,5,7,Sandal,Sneaker
+91,3,7,Dress,Sneaker
+92,6,6,Shirt,Shirt
+93,7,7,Sneaker,Sneaker
+94,1,2,Trouser,Pullover
+95,8,7,Bag,Sneaker
+96,0,7,T-shirt/top,Sneaker
+97,1,2,Trouser,Pullover
+98,4,6,Coat,Shirt
+99,2,6,Pullover,Shirt
+100,3,0,Dress,T-shirt/top
+101,6,2,Shirt,Pullover
+102,7,7,Sneaker,Sneaker
+103,2,6,Pullover,Shirt
+104,7,7,Sneaker,Sneaker
+105,8,7,Bag,Sneaker
+106,5,7,Sandal,Sneaker
+107,9,9,Ankle boot,Ankle boot
+108,9,2,Ankle boot,Pullover
+109,4,6,Coat,Shirt
+110,2,7,Pullover,Sneaker
+111,5,7,Sandal,Sneaker
+112,7,7,Sneaker,Sneaker
+113,0,2,T-shirt/top,Pullover
+114,5,6,Sandal,Shirt
+115,2,6,Pullover,Shirt
+116,8,9,Bag,Ankle boot
+117,6,7,Shirt,Sneaker
+118,7,9,Sneaker,Ankle boot
+119,8,6,Bag,Shirt
+120,0,9,T-shirt/top,Ankle boot
+121,0,6,T-shirt/top,Shirt
+122,9,7,Ankle boot,Sneaker
+123,9,9,Ankle boot,Ankle boot
+124,3,6,Dress,Shirt
+125,0,9,T-shirt/top,Ankle boot
+126,8,7,Bag,Sneaker
+127,4,6,Coat,Shirt
+128,1,3,Trouser,Dress
+129,5,7,Sandal,Sneaker
+130,4,6,Coat,Shirt
+131,1,7,Trouser,Sneaker
+132,9,7,Ankle boot,Sneaker
+133,1,2,Trouser,Pullover
+134,8,6,Bag,Shirt
+135,6,7,Shirt,Sneaker
+136,2,7,Pullover,Sneaker
+137,1,2,Trouser,Pullover
+138,2,2,Pullover,Pullover
+139,5,7,Sandal,Sneaker
+140,1,2,Trouser,Pullover
+141,0,7,T-shirt/top,Sneaker
+142,0,6,T-shirt/top,Shirt
+143,0,6,T-shirt/top,Shirt
+144,1,7,Trouser,Sneaker
+145,6,6,Shirt,Shirt
+146,1,7,Trouser,Sneaker
+147,6,7,Shirt,Sneaker
+148,2,6,Pullover,Shirt
+149,2,6,Pullover,Shirt
+150,4,7,Coat,Sneaker
+151,4,6,Coat,Shirt
+152,1,2,Trouser,Pullover
+153,4,2,Coat,Pullover
+154,5,7,Sandal,Sneaker
+155,0,7,T-shirt/top,Sneaker
+156,4,2,Coat,Pullover
+157,7,7,Sneaker,Sneaker
+158,9,9,Ankle boot,Ankle boot
+159,3,6,Dress,Shirt
+160,7,9,Sneaker,Ankle boot
+161,2,6,Pullover,Shirt
+162,3,7,Dress,Sneaker
+163,9,7,Ankle boot,Sneaker
+164,0,7,T-shirt/top,Sneaker
+165,9,9,Ankle boot,Ankle boot
+166,4,6,Coat,Shirt
+167,7,9,Sneaker,Ankle boot
+168,4,6,Coat,Shirt
+169,2,6,Pullover,Shirt
+170,0,6,T-shirt/top,Shirt
+171,5,7,Sandal,Sneaker
+172,2,6,Pullover,Shirt
+173,1,7,Trouser,Sneaker
+174,2,6,Pullover,Shirt
+175,1,7,Trouser,Sneaker
+176,3,6,Dress,Shirt
+177,0,9,T-shirt/top,Ankle boot
+178,9,9,Ankle boot,Ankle boot
+179,1,2,Trouser,Pullover
+180,0,6,T-shirt/top,Shirt
+181,9,9,Ankle boot,Ankle boot
+182,3,6,Dress,Shirt
+183,6,6,Shirt,Shirt
+184,7,7,Sneaker,Sneaker
+185,9,9,Ankle boot,Ankle boot
+186,9,9,Ankle boot,Ankle boot
+187,4,6,Coat,Shirt
+188,4,6,Coat,Shirt
+189,7,7,Sneaker,Sneaker
+190,1,2,Trouser,Pullover
+191,2,6,Pullover,Shirt
+192,1,2,Trouser,Pullover
+193,6,6,Shirt,Shirt
+194,3,6,Dress,Shirt
+195,2,6,Pullover,Shirt
+196,8,7,Bag,Sneaker
+197,3,2,Dress,Pullover
+198,6,7,Shirt,Sneaker
+199,1,2,Trouser,Pullover
+200,1,2,Trouser,Pullover
+201,0,6,T-shirt/top,Shirt
+202,2,6,Pullover,Shirt
+203,9,7,Ankle boot,Sneaker
+204,2,6,Pullover,Shirt
+205,4,6,Coat,Shirt
+206,0,6,T-shirt/top,Shirt
+207,7,9,Sneaker,Ankle boot
+208,9,9,Ankle boot,Ankle boot
+209,8,3,Bag,Dress
+210,4,6,Coat,Shirt
+211,1,7,Trouser,Sneaker
+212,8,6,Bag,Shirt
+213,4,6,Coat,Shirt
+214,1,2,Trouser,Pullover
+215,3,7,Dress,Sneaker
+216,1,7,Trouser,Sneaker
+217,6,7,Shirt,Sneaker
+218,7,7,Sneaker,Sneaker
+219,2,6,Pullover,Shirt
+220,8,7,Bag,Sneaker
+221,5,7,Sandal,Sneaker
+222,2,7,Pullover,Sneaker
+223,0,2,T-shirt/top,Pullover
+224,7,9,Sneaker,Ankle boot
+225,7,7,Sneaker,Sneaker
+226,6,6,Shirt,Shirt
+227,2,6,Pullover,Shirt
+228,7,7,Sneaker,Sneaker
+229,0,6,T-shirt/top,Shirt
+230,7,7,Sneaker,Sneaker
+231,8,9,Bag,Ankle boot
+232,9,9,Ankle boot,Ankle boot
+233,2,6,Pullover,Shirt
+234,9,9,Ankle boot,Ankle boot
+235,0,6,T-shirt/top,Shirt
+236,5,7,Sandal,Sneaker
+237,1,7,Trouser,Sneaker
+238,4,7,Coat,Sneaker
+239,4,6,Coat,Shirt
+240,5,8,Sandal,Bag
+241,6,6,Shirt,Shirt
+242,9,2,Ankle boot,Pullover
+243,2,6,Pullover,Shirt
+244,6,6,Shirt,Shirt
+245,8,9,Bag,Ankle boot
+246,6,6,Shirt,Shirt
+247,4,6,Coat,Shirt
+248,2,7,Pullover,Sneaker
+249,2,6,Pullover,Shirt
+250,9,9,Ankle boot,Ankle boot
+251,7,7,Sneaker,Sneaker
+252,6,6,Shirt,Shirt
+253,5,7,Sandal,Sneaker
+254,5,7,Sandal,Sneaker
+255,2,6,Pullover,Shirt

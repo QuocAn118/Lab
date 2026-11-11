@@ -1,0 +1,57 @@
+{
+  "run_id": "smoke_001",
+  "created_by": "HoangDang",
+  "started_at": "2026-11-11T09:40:29+07:00",
+  "schema_version": 1,
+  "dataset": "FashionMNIST",
+  "classes": [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot"
+  ],
+  "model": {
+    "name": "FashionMLP",
+    "input_shape": [
+      1,
+      28,
+      28
+    ],
+    "hidden_dims": [
+      512,
+      512
+    ],
+    "activation": "ReLU",
+    "num_classes": 10
+  },
+  "data": {
+    "transforms": [
+      "ToTensor"
+    ],
+    "batch_size": 64,
+    "num_workers": 0,
+    "train_shuffle": true,
+    "test_shuffle": false,
+    "drop_last": false,
+    "limits": {
+      "train": 512,
+      "val": 256,
+      "test": 256
+    }
+  },
+  "training": {
+    "epochs": 1,
+    "seed": 42,
+    "loss": "CrossEntropyLoss",
+    "optimizer": "SGD",
+    "learning_rate": 0.001,
+    "momentum": 0.9,
+    "device": "cuda"
+  }
+}
