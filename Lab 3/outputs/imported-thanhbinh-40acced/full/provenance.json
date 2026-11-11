@@ -1,0 +1,670 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T12:32:11.595243+00:00"
+  },
+  "command": "lab3.py train --mode full --output Lab 3/outputs/full",
+  "source_root": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3",
+  "source_sha256": {
+    "docs/implementation.md": "ccd958fbc7a0d04a1da5fda2ffa6fb9a161669518a97f08288dc39ec7531d1ad",
+    "docs/AI_Usage.md": "3ee63634866f5e48cead435ef0fc06762c8f556200a57d9916fc536a6bdeb56c",
+    "docs/data.md": "6abc9b3a7a0a578b2ce4a58cc349e9f6de132d8faa58f08458fcaa0489bb5598",
+    "docs/model.md": "91e4f6e8718d4ad3920fd0de1b78280545791778e1b1c164d5301c3c6f4f2fa0",
+    "docs/training.md": "9242334c35666ff33e9b27441d00072d2d81c597dab1ca89c1b5e801e646f678",
+    "docs/evaluation.md": "9945295c709444aa6797ec4171d34edd0620f760e3ecfecca5451b212295ba9d",
+    "docs/demo.md": "91045d69e33c4df793def000042dac36538dd673321c4c29e3ed4a24bab61a85"
+  },
+  "source_snapshots": {
+    "docs/implementation.md": "# Thiết kế triển khai và hợp đồng chạy — Lab 3\n\n## 1. Yêu cầu và quyết định đã chốt\n\n| Mã | Hành vi phải có | Căn cứ |\n| --- | --- | --- |\n| R-01 | Module A: phân tích cảm xúc, trả token/nhãn/xác suất; từ chối chuỗi rỗng | `lab_3_description.md` §1; notebook cũ Exercise 1 |\n| R-02 | Module B: IMDB, seed 42, chia train/validation riêng; test không chọn model | `data.md` §1–2 |\n| R-03 | DistilBERT hai nhãn NEGATIVE/POSITIVE; pad động, dài tối đa 256 | `model.md` §1; `data.md` §2 |\n| R-04 | AdamW, LR 2e-5, batch 16, 3 epochs, decay .01, clip 1.0; FP16 khi CUDA | `training.md` §1 và quyết định triển khai |\n| R-05 | Smoke riêng 2 bước optimizer, loss/gradient hữu hạn; không dùng kết quả smoke làm full | `training.md` §2 |\n| R-06 | Lưu final_epoch, best_val_loss, best_val_acc, best_val_pause, best; early stop patience 2, ngưỡng .01 điểm accuracy tuyệt đối | `lab_3_description.md` §4; `training.md` §3 |\n| R-07 | Test accuracy, macro/binary F1, precision, recall, confusion matrix; thời gian, GPU/RAM, loss curve | `evaluation.md`; `lab_3_description.md` §3 |\n| R-08 | Nạp lại best từ đĩa để demo và benchmark; không dựa model còn nằm trong RAM | `demo.md` |\n| R-09 | Mọi file có nguồn MD, bằng chứng không bịa, lưu cấu hình/hash/revision | `AI_Usage.md` §2 |\n\n## 2. Chế độ chạy\n\n- `smoke`: 32 train, 16 validation, 16 test; batch 16, `max_steps=2`. Kiểm tra đường đi thật pretrained → gradient → save/load. Không kiểm KPI chất lượng.\n- `quick`: 1,000 train, 200 validation, 200 test; tối đa 3 epochs. Dành kiểm tra nhanh, không được mô tả là full benchmark.\n- `full`: toàn bộ 25,000 mẫu train được chia phân tầng 80/20 → 20,000 train, 5,000 validation; test đủ 25,000 mẫu. Tối đa 3 epochs và có thể dừng sớm theo R-06. Đây là lựa chọn cụ thể hóa đặc tả cũ, không phải yêu cầu giảng viên mới.\n- Tất cả split đều phân tầng theo nhãn và seed 42; không đọc split `unsupervised`. Dùng index train/test để ghi fingerprint và SHA-256 index. Không khẳng định loại được mọi trùng lặp ngữ nghĩa của dataset gốc.\n- `--output` phải là thư mục mới hoặc rỗng; không ghi đè run có sẵn. Mặc định `Lab 3/outputs/<mode>-<thời gian>`.\n\n## 3. Checkpoint và early stopping\n\nCallback đánh giá theo epoch; nếu accuracy tốt hơn trước bất kỳ mức nào, cập nhật `best_val_acc`; loss nhỏ hơn cập nhật `best_val_loss`. Counter dừng tăng khi accuracy không tăng **hơn 0.01** so với accuracy tốt nhất ở lần đánh giá trước; reset nếu tăng hơn ngưỡng. Dừng sau 2 lần liên tiếp. Đây là ngưỡng tuyệt đối (1 điểm phần trăm), không phải tỷ lệ tăng tương đối.\n\n`best_val_pause` lưu model tại lần đánh giá cuối, kèm cờ `early_stopped`; tồn tại cả khi chạy đủ epoch, không nói dừng sớm nếu không xảy ra. `final_epoch` lưu trọng số cuối trước khi nạp model tốt nhất. `best` là bản sao `best_val_acc`; nếu hòa, giữ checkpoint sớm hơn. Các checkpoint chỉ chứa model/tokenizer để suy luận, không cam kết resume optimizer.\n\n## 4. Phân chia mã nguồn\n\n- `lab3.py`: CLI `infer`, `train`, `demo`, `audit`; cấu hình, dữ liệu, metrics, callback, đo và báo cáo.\n- `test.py`: unittest offline, model DistilBERT rất nhỏ khởi tạo ngẫu nhiên **chỉ dùng test**, kiểm gradient, checkpoint và nạp lại. Không thay thế smoke pretrained.\n- `Lab_3 (1).ipynb`: hướng dẫn từng bước, gọi cùng module để tránh hai bản thuật toán; mỗi ô code có nguồn. Chạy từ repo gốc hoặc `Lab 3/`.\n- `requirements.txt`: phiên bản môi trường chạy; `requirements-lock.txt` ghi freeze môi trường đã kiểm chứng.\n- `outputs/`: run artifacts, không đưa trọng số nhiều GB vào Git; nguồn/hash qua `artifacts.md` và `provenance.json`.\n\n## 5. Đo lường và báo cáo\n\nĐo latency batch 1, 3 lần warm-up + 20 lần, đồng bộ CUDA trước/sau; nêu mean/p50/p95, độ dài token và thiết bị. GPU peak allocation tính trong huấn luyện/eval; RSS host là giá trị cao nhất quan sát ở callback, không cam kết peak tuyệt đối giữa hai lần lấy mẫu. Thời gian epoch có cả validation/save; thời gian train tổng đo wall-clock.\n\nKPI accuracy >= .85 và macro F1 >= .85; GPU <=4 GiB, host <=6 GiB và latency <=25ms. Mốc <=180s/epoch chỉ áp dụng Colab T4: trên GPU khác ghi N/A cho so sánh này. Chất lượng full được đánh giá độc lập; không sửa KPI để khớp số đo.\n\n## Nguồn và phạm vi\n\n- [lab_3_description.md](lab_3_description.md), [data.md](data.md), [model.md](model.md), [training.md](training.md), [evaluation.md](evaluation.md), [demo.md](demo.md): đặc tả đã có.\n- [AI_Usage.md](AI_Usage.md): quy tắc bắt buộc.\n- [sources.md S-01–S-07](sources.md): API chính thức. Các lựa chọn cụ thể bổ sung được ghi tại §1–5, không gán cho giảng viên.\n",
+    "docs/AI_Usage.md": "# Quy tắc dùng AI và truy nguồn — Lab 3\n\n## 1. Nguồn gốc quy tắc\n\nYêu cầu người học ngày 2026-11-06: hoàn thiện Lab 3; mọi file AI tạo phải có nguồn từ file Markdown, làm theo nguyên tắc rõ ràng. Đây là bản ghi yêu cầu trong hội thoại, **không phải bản đề gốc do giảng viên ban hành**. Các đặc tả có sẵn trong `docs/` là đầu vào của lần triển khai này; chưa xác minh tác giả lịch sử của chúng.\n\n## 2. Quy tắc bắt buộc\n\n1. Chốt yêu cầu trong Markdown trước khi sinh code. Không lấy code AI làm chứng cứ rằng yêu cầu đã đạt.\n2. File code, requirements và ignore có dòng `Sources:` trỏ đến `.md` tồn tại. Notebook có nguồn ở ô đầu, từng ô code và metadata.\n3. Tài liệu Markdown có mục **Nguồn và phạm vi**. Các tài liệu đặc tả gốc ghi rõ nguồn là đặc tả đã có, bổ sung quyết định triển khai và tài liệu chính thức tại `sources.md`; không gán các lựa chọn bổ sung cho giảng viên.\n4. `traceability.md` nối mã yêu cầu → mục đặc tả → file/hàm → phép kiểm tra. Không dùng một dòng nguồn chung để che các chức năng ngoài đặc tả.\n5. File thực nghiệm (JSON, CSV, PNG, log, trọng số và cấu hình thư viện) được truy bằng `artifacts.md` cùng `provenance.json`: đường dẫn, SHA-256, nguồn `.md`, lệnh, cấu hình, phiên bản và thời gian chạy. Không chèn comment làm hỏng định dạng của model.\n6. Chỉ ghi số đo thu được từ lần chạy tương ứng; tách smoke/quick/full. Không dùng số mẫu, output notebook cũ hay metric train làm kết quả test.\n7. Các thư viện cài trong `.venv` và cache tải từ bên thứ ba không phải file AI sáng tác; không sửa nội dung của chúng. Chúng bị loại khỏi gói nộp, phiên bản được ghi lại để tái lập.\n8. Không cam kết đạt Accuracy/F1 hoặc tốc độ trước khi đo. Báo cả tiêu chí không đạt và giới hạn phần cứng.\n\n## 3. Đóng góp đã biết\n\n| Công cụ/người | Công việc | Phạm vi xác nhận |\n| --- | --- | --- |\n| Người học | Yêu cầu hoàn thiện bài và truy nguồn qua Markdown | Đã xác nhận từ hội thoại |\n| OpenAI Codex | Đọc đặc tả, đối chiếu tài liệu chính thức, bổ sung code, notebook, kiểm thử, truy nguồn và báo cáo | Lần triển khai ngày 2026-11-06 |\n| Tác giả notebook/tài liệu cũ | Code và output có trước lần triển khai | Chưa xác nhận tác giả và môi trường chạy |\n\nNgười học cần đọc hiểu code, tự kiểm tra kết quả và khai báo hỗ trợ AI theo quy định môn học. Không ghi rằng sinh viên tự viết toàn bộ code.\n\n## Nguồn và phạm vi\n\n- Nguồn gốc của chính tài liệu này: yêu cầu trực tiếp của người học được ghi tại mục 1; đây là điểm gốc của quy tắc, không giả tạo một chuỗi trích dẫn vòng.\n- Phạm vi bài: [lab_3_description.md](lab_3_description.md).\n- Tài liệu kỹ thuật ngoài repo: [sources.md](sources.md).\n",
+    "docs/data.md": "# Dữ Liệu Thực Nghiệm (Data Specification) — Lab 3\n\n## 1. Nguồn Gốc & Thông Tin Dataset\n- **Tên dataset**: `stanfordnlp/imdb` (hoặc Hugging Face dataset `imdb`).\n- **Nhiệm vụ**: Phân loại cảm xúc nhị phân (**Binary Sentiment Analysis**: $0$ = Tiêu cực / Negative, $1$ = Tích cực / Positive).\n- **Quy mô tập dữ liệu**:\n  - Tập huấn luyện (Train): 25,000 đánh giá phim.\n  - Tập kiểm thử (Test): 25,000 đánh giá phim.\n  - Khảo sát nhanh / Smoke Test: Lấy mẫu rút gọn (ví dụ 2,000 train / 500 val).\n\n## 2. Tiền Xử Lý Dữ Liệu (Preprocessing Pipeline)\n- **Bộ mã hóa (Tokenizer)**: `AutoTokenizer.from_pretrained(\"distilbert-base-uncased\")`.\n- **Độ dài chuỗi tối đa (`max_length`)**: 256 tokens (hoặc 512 tokens).\n- **Chiến lược Padding / Truncation**:\n  - `padding=\"max_length\"` hoặc dùng `DataCollatorWithPadding` để pad động theo lô.\n  - `truncation=True` cắt bỏ phần text vượt quá giới hạn.\n- **Data Split**:\n  - `train_dataset`: Dữ liệu dùng để tính gradient và cập nhật trọng số.\n  - `val_dataset`: Dữ liệu dùng để đánh giá `best_val_loss`, `best_val_acc` và kiểm tra `best_val_pause (0-2%)`.\n  - `test_dataset`: Dữ liệu đánh giá cuối cùng độc lập.\n\n## 3. Cấu hình đã chốt\n\nSeed 42; chia phân tầng train gốc thành 20,000 train và 5,000 validation; giữ 25,000 test độc lập. `full` dùng toàn bộ ba tập. `quick` lấy 1,000/200/200, `smoke` lấy 32/16/16; hai chế độ này chỉ kiểm thử rút gọn. Không dùng test chọn epoch, không dùng unsupervised. `max_length=256`, padding động; GPU pad đến bội 8 khi train.\n\nMỗi run ghi class counts, dataset revision, fingerprint và SHA-256 index từng split; xem [implementation.md](implementation.md).\n\n## Nguồn và phạm vi\n\n- Mục 1–2: đặc tả có sẵn; mục 3 là quyết định triển khai cụ thể hóa lựa chọn cũ.\n- [sources.md S-03](sources.md): dataset card IMDB chính thức.\n- [AI_Usage.md](AI_Usage.md), [lab_3_description.md](lab_3_description.md): quy tắc và phạm vi.\n\n",
+    "docs/model.md": "# Kiến Trúc Mô Hình (Model Specification) — Lab 3\n\n## 1. Mô Hình Lựa Chọn\n- **Backbone**: `distilbert-base-uncased` (Phiên bản rút gọn tinh gọn nhẹ hơn 40% của BERT, giữ lại 97% hiệu năng và tốc độ nhanh hơn 60%).\n- **Lớp phân loại (Classification Head)**:\n  - Tầng đầu ra: `AutoModelForSequenceClassification.from_pretrained(..., num_labels=2)`.\n  - Hàm kích hoạt đầu ra: Softmax (cho xác suất 2 lớp).\n\n## 2. Thông Số Mô Hình (Model Parameters)\n- Tổng số tham số (Total Parameters): $\\approx 66\\text{M}$ tham số.\n- Số tham số có thể huấn luyện (Trainable Parameters): Toàn bộ hoặc tầng Classifier.\n- Kiểu dữ liệu trọng số: FP32 hoặc Mixed Precision FP16 (tiết kiệm VRAM).\n\n## 3. Kiến Trúc Khảo Sát Bổ Sung (Nghiên Cứu Mở Rộng)\n- So sánh hiệu năng và tốc độ giữa Transformer (`DistilBERT`) với các mô hình CNN truyền thống khi xử lý dữ liệu phân loại.\n\n## 4. Hợp đồng triển khai\n\n- Module A giữ model Exercise 1 của notebook cũ: `tabularisai/multilingual-sentiment-analysis`, năm nhãn; trả token, label, score. Không đánh giá model này bằng nhãn IMDB nhị phân.\n- Module B: `distilbert/distilbert-base-uncased` (ID đầy đủ của backbone cũ), fine-tune toàn bộ tham số, head 2 lớp, `0=NEGATIVE`, `1=POSITIVE`. Softmax dùng khi suy luận; train nhận logits tính cross entropy.\n- Đếm số tham số thực trong `metrics.json`. Tỷ lệ 40%/97%/60% ở mục 1 là thông tin tác giả model, không phải benchmark trên máy này.\n- CNN ở mục 3 là mở rộng, không thuộc phần bắt buộc hiện tại.\n\n## Nguồn và phạm vi\n\n- Mục 1–3: đặc tả có sẵn; mục 4 chốt phạm vi từ [lab_3_description.md](lab_3_description.md) và notebook Exercise 1.\n- [sources.md S-04–S-05](sources.md): model cards; [AI_Usage.md](AI_Usage.md): khai báo AI.\n\n",
+    "docs/training.md": "# Cấu Hình Huấn Luyện (Training Specification) — Lab 3\n\n## 1. Siêu Tham Số Huấn Luyện (Hyperparameters)\n- **Framework**: Hugging Face `Trainer` kết hợp PyTorch `torch`.\n- **Optimizer**: `AdamW` (Decoupled Weight Decay).\n- **Learning Rate ($\\eta$)**: $2 \\times 10^{-5}$ (chuẩn mực cho fine-tuning Transformer).\n- **Batch Size**: 16 (hoặc 32 tùy theo dung lượng VRAM).\n- **Số lượng Epochs**: $3 \\sim 5$ epochs.\n- **Weight Decay**: $0.01$.\n- **Hàm mất mát (Loss Function)**: Cross-Entropy Loss.\n\n## 2. Quy Trình Chạy Kiểm Thử (Smoke Test $\\rightarrow$ Normal Run)\n1. **Smoke Test**:\n   - Chạy thử mồi với 1 batch nhỏ ($16$ mẫu) trong 1 epoch.\n   - Xác nhận: Dữ liệu nạp đúng, forward pass không lỗi dimension, backward pass tính toán gradient mượt mà, không gặp lỗi CUDA out of memory.\n2. **Normal Run**:\n   - Huấn luyện trên toàn bộ tập dữ liệu đã chia.\n\n## 3. Cấu Hình Lưu Checkpoints & Early Stopping\n- `evaluation_strategy = \"epoch\"`.\n- `save_strategy = \"epoch\"`.\n- `load_best_model_at_end = True`.\n- `metric_for_best_model = \"accuracy\"` (hoặc `\"eval_loss\"`).\n- **Early Stopping Callback (Ngắt tạm dừng khi cải thiện $0 - 2\\%$)**:\n  - `patience = 2` epochs.\n  - `threshold = 0.01` ($1\\%$). Nếu trong 2 epochs liên tiếp mà `val_accuracy` tăng trưởng không quá $1\\%$, tiến hành dừng huấn luyện để lưu `best_val_acc`.\n\n## 4. Cấu hình triển khai cuối cùng\n\nBatch 16, tối đa 3 epochs, LR 2e-5, AdamW, decay .01, gradient clip 1.0, seed 42; CUDA dùng FP16, CPU dùng FP32. Smoke chạy 2 optimizer steps trên 32 mẫu; khởi tạo model mới cho full, không dùng trọng số smoke.\n\n**Điều chỉnh kỹ thuật so với mục 3:** callback tự lưu 5 checkpoint suy luận, `save_strategy=\"no\"` cho Trainer để tránh lưu lặp optimizer nhiều GB. Sau train, lưu `final_epoch` trước rồi nạp `best_val_acc` từ đĩa thành `best`; đạt hành vi chọn model tốt nhất nhưng không bật `load_best_model_at_end` của Trainer. Không hỗ trợ resume optimizer. Callback có kiểm thử riêng.\n\nEarly stopping dùng ngưỡng accuracy tuyệt đối > .01 (1 điểm phần trăm), patience 2; cập nhật best kể cả cải thiện nhỏ. `best_val_pause` là lần validation cuối, có cờ cho biết thực sự dừng sớm hay không. Chi tiết [implementation.md](implementation.md).\n\n## Nguồn và phạm vi\n\n- Mục 1–3: đặc tả có sẵn; mục 4 là quyết định triển khai và ghi rõ khác biệt.\n- [sources.md S-01–S-02](sources.md): Trainer/callback API.\n- [AI_Usage.md](AI_Usage.md), [implementation.md](implementation.md): khai nguồn và hợp đồng kiểm thử.\n\n",
+    "docs/evaluation.md": "# Đánh giá và tiêu chí nghiệm thu — Lab 3\r\n\r\n## 1. Hợp đồng đo lường\r\n\r\nĐánh giá `best_val_acc` trên validation và test sau khi nạp từ đĩa. Chỉ validation dùng chọn checkpoint/early stopping. Lưu test accuracy, precision, recall, binary F1 (POSITIVE), macro F1 (trung bình hai lớp), confusion matrix và dự đoán từng mẫu.\r\n\r\n| Chỉ tiêu | Ngưỡng nội bộ | Điều kiện |\r\n| --- | ---: | --- |\r\n| Validation / test accuracy | >=85% | Full split |\r\n| Test macro F1 | >=.85 | Full split |\r\n| Epoch wall time | <=180 giây | Chỉ so trực tiếp Colab T4 |\r\n| Inference mean latency | <=25 ms | Batch 1, tokenize/transfer/forward; 3 warm-up, 20 lần |\r\n| Peak GPU allocated | <=4 GiB | PyTorch allocation, khác tổng VRAM hệ điều hành |\r\n| Host observed RSS | <=6 GiB | Cao nhất tại callback; có thể bỏ lỡ đỉnh giữa hai mẫu |\r\n\r\nĐơn vị bộ nhớ chốt GiB (1024³ bytes). Latency trên một review test có token count; không khái quát mọi độ dài. Epoch wall gồm train/eval/save; không gồm nạp lại và test sau train.\r\n\r\n## 2. File bằng chứng mỗi run\r\n\r\n- `run_config.json`: mode, seed, splits/counts/fingerprints/index hashes, revision và môi trường.\r\n- `trainer_history.json`, `epoch_history.json`: loss/metric, quyết định callback.\r\n- `metrics.json`: số đo và KPI true/false hoặc N/A. `test_predictions.csv` có dòng nguồn đầu (đọc bằng `comment='#'`).\r\n- `loss_curve.png`, `confusion_matrix.png`, `report.md`: hình và báo cáo cùng run.\r\n- `checkpoint_policy.json`: nguồn best, có thực sự early stop không.\r\n- `provenance.json`, `artifacts.md`: nguồn và hash artifact.\r\n\r\nXem [verification.md](verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.\r\n\r\n## Nguồn và phạm vi\r\n\r\n- Tiêu chí kế thừa [lab_3_description.md](lab_3_description.md) và evaluation có sẵn; chưa có rubric giảng viên độc lập.\r\n- [implementation.md](implementation.md): phương pháp đo; [sources.md](sources.md): metric definitions.\r\n- [AI_Usage.md](AI_Usage.md): chỉ báo kết quả có bằng chứng.\r\n",
+    "docs/demo.md": "# Demo — Lab 3\r\n\r\n## 1. Module A: pretrained đa ngôn ngữ\r\n\r\nTừ repo gốc, dùng Python trong môi trường đã cài requirements:\r\n\r\n```powershell\r\n& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' infer --text 'Bộ phim này rất hay!' --text 'The movie was boring.' --output 'Lab 3/outputs/module-a'\r\n```\r\n\r\nTrả token, nhãn và score model năm lớp. Mỗi lần lưu cần output mới. Score không đảm bảo chính xác mọi câu tiếng Việt.\r\n\r\n## 2. Module B: nạp checkpoint fine-tune\r\n\r\n```powershell\r\n& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best'\r\n& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' demo --checkpoint 'Lab 3/outputs/full/checkpoints/best' --text 'I loved this movie.'\r\n```\r\n\r\nModel B huấn luyện IMDB **tiếng Anh**, hai lớp. Câu trung tính vẫn phải chọn một lớp; không dùng nhãn NEUTRAL làm đáp án cho bài nhị phân. Ba câu demo nằm trong `lab3.py::DEMO_TEXTS`; kết quả thật lưu trong `metrics.json` của run.\r\n\r\n## 3. Nguyên tắc báo cáo\r\n\r\nĐã bỏ bảng 99.2%/98.7% minh họa cũ vì không có bằng chứng đo. Không điền kết quả trước khi chạy. `demo` nạp model/tokenizer từ đĩa, báo lỗi khi thiếu checkpoint hoặc câu rỗng.\r\n\r\n## Nguồn và phạm vi\r\n\r\n- [lab_3_description.md](lab_3_description.md): hai module.\r\n- [model.md](model.md), [implementation.md](implementation.md): ngôn ngữ, nhãn và R-01/R-08.\r\n- [sources.md](sources.md): model cards; [AI_Usage.md](AI_Usage.md): không bịa số đo.\r\n"
+  },
+  "code_sha256": "5fbdcd722116179a37e3da58c6f924ce85ae6504e8c6448230238fd16ab942eb",
+  "artifacts": [
+    {
+      "path": "checkpoint_policy.json",
+      "sha256": "b6ed99e65ad9d3852fd2a0a74519e520e48d0ba482bdd594ec4197881ea38246",
+      "bytes": 739,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/model.safetensors",
+      "sha256": "a1590ad342b7af656e667478aa68339b7fe3ea149c185cfd2dd1ac4df64df8c9",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "confusion_matrix.png",
+      "sha256": "6ceb2d3332853ad088f43cab8cf035d7370b890cd85d4f45407e4c2c99c52436",
+      "bytes": 27898,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "epoch_history.json",
+      "sha256": "839dd70dea2e97e287f05261fc8e09b9bec9e41b648a5b91a54a9db908aa7eb4",
+      "bytes": 1929,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "lab3_source.py",
+      "sha256": "5fbdcd722116179a37e3da58c6f924ce85ae6504e8c6448230238fd16ab942eb",
+      "bytes": 30976,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "loss_curve.png",
+      "sha256": "e1a8e43d295e926088ad873600f1808763671278c5e616473c1dfddbc639c36e",
+      "bytes": 64925,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "metadata_corrections.md",
+      "sha256": "a84b643f2c8567e3c82838f8610404657aef538e37ba81c274a91a6b66a2590b",
+      "bytes": 1540,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "metadata_originals/checkpoint_policy.json",
+      "sha256": "172a99c8e359ea4969374878dbc3305d9034b604f645b07fd4e00ea558ff32fc",
+      "bytes": 591,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "metadata_originals/epoch_history.json",
+      "sha256": "b1c8fc1985c69222ed743d37816cd32d9e101e9b623a95297daf6800754a1cda",
+      "bytes": 1693,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "metadata_originals/metrics.json",
+      "sha256": "1b0cdbc8d027016e2f96bc66445b40bd67bb75004b7efa2e3a65fa32e6e712b1",
+      "bytes": 8509,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "metrics.json",
+      "sha256": "5f50bfbccc395adb524217ac4a295e72430152c421da68700a2dfdea30e69c38",
+      "bytes": 8783,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "report.md",
+      "sha256": "87c6dd47451b7c1bbe069d2b713c20427a5b41bae68fd183c89a6ddb482de904",
+      "bytes": 1693,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "run.log",
+      "sha256": "d5601cbee41b648e6ab9483a647542fb0e48347ed9414d7e34bb197c53d72312",
+      "bytes": 12309,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "7f38dadf56b3ec40d9a9adbe13a50f947532666a55f20d35f099ed9563630d5f",
+      "bytes": 2031,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "test_predictions.csv",
+      "sha256": "4ea4e891680d48f2e9e18b84e42eb1ae5a5969e8868ba52f77a09db4ca20534b",
+      "bytes": 263999,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "trainer_history.json",
+      "sha256": "6d5ebce37a6e7e57d696fe5749f70692daa4aaab25323445a84d709fad0c8343",
+      "bytes": 14332,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    }
+  ],
+  "manifest_note": "artifacts.md indexes this manifest; manifests exclude themselves to avoid recursive hashes",
+  "postprocessing_code_sha256": "8b17732ae20750e6c247f817bdb056b921c2ff768fdee04d68448a0d9f420b4d",
+  "metadata_correction": "metadata_corrections.md; original training code and metrics preserved"
+}

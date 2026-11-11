@@ -1,0 +1,533 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T12:20:55.016903+00:00"
+  },
+  "command": "lab3.py train --mode smoke --output Lab 3/outputs/smoke",
+  "source_root": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3",
+  "source_sha256": {
+    "docs/implementation.md": "ccd958fbc7a0d04a1da5fda2ffa6fb9a161669518a97f08288dc39ec7531d1ad",
+    "docs/AI_Usage.md": "3ee63634866f5e48cead435ef0fc06762c8f556200a57d9916fc536a6bdeb56c",
+    "docs/data.md": "6abc9b3a7a0a578b2ce4a58cc349e9f6de132d8faa58f08458fcaa0489bb5598",
+    "docs/model.md": "91e4f6e8718d4ad3920fd0de1b78280545791778e1b1c164d5301c3c6f4f2fa0",
+    "docs/training.md": "9242334c35666ff33e9b27441d00072d2d81c597dab1ca89c1b5e801e646f678",
+    "docs/evaluation.md": "9945295c709444aa6797ec4171d34edd0620f760e3ecfecca5451b212295ba9d",
+    "docs/demo.md": "91045d69e33c4df793def000042dac36538dd673321c4c29e3ed4a24bab61a85"
+  },
+  "code_sha256": "45163004979c8d98cfc9b6a86cfe153edddd240871d354ef346ff82cfb864d05",
+  "artifacts": [
+    {
+      "path": "checkpoint_policy.json",
+      "sha256": "a7abff08763b05f6968e4e1d5273a9608355e3b0a80e50ec2d94c3abcaf2a965",
+      "bytes": 585,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/config.json",
+      "sha256": "f4e8ad1933e0f742fe4ff883ba414fc0b2fda983b71f6b68d65a6650538adb61",
+      "bytes": 715,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+      "bytes": 132,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "21c3bea73b6711617c657664adcd4d0b02ce20d2db4b2ebdd722a6da8da28bcd",
+      "bytes": 1283,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "epoch_history.json",
+      "sha256": "ffbcb438d54f6e4cf901c9c83727e87badc18b247a3d7ee4240dafad65ec9896",
+      "bytes": 738,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "failure.json",
+      "sha256": "7d7ea9441264de41d9c3981065647d93a226ddc1e389d7a3410a2d851f69eaf2",
+      "bytes": 532,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "run.log",
+      "sha256": "e19592c5c99c699a3ab68f269e9af703dc326a87a78ff9cf48a45b73edda42d5",
+      "bytes": 2147,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "b5abdd9028ef9c0909298ca5e462f0c78b63d614aee38aa67eada9d82e7474eb",
+      "bytes": 2004,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    },
+    {
+      "path": "trainer_history.json",
+      "sha256": "71f71dce9f39d5c849b79f6f07a59df88e6fbb3b40d5edffc0e1c6d6d0d254a2",
+      "bytes": 1229,
+      "sources_md": [
+        "docs/implementation.md",
+        "docs/AI_Usage.md",
+        "docs/data.md",
+        "docs/model.md",
+        "docs/training.md",
+        "docs/evaluation.md",
+        "docs/demo.md"
+      ]
+    }
+  ],
+  "manifest_note": "artifacts.md indexes this manifest; manifests exclude themselves to avoid recursive hashes"
+}

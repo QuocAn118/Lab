@@ -56,5 +56,7 @@ Căn cứ yêu cầu truy nguồn được ghi nhận tại `11_AI_Usage.md` §1
 
 ## Nguồn và phạm vi
 
+- Snapshot local ThanhBinh được nhập ngày 2026-11-11 tại [outputs/imported-thanhbinh-40acced/](../outputs/imported-thanhbinh-40acced/README.md). `IMPORT.json` giữ ánh xạ 176 file và nguồn commit; 20 trọng số dùng LFS. Đây là bản nhập lịch sử, không phải lần huấn luyện mới. Người tích hợp: HoangDang, hỗ trợ OpenAI Codex.
+
 - [08_implementation.md](08_implementation.md): R-01–R-09 chốt trước code.
 - [11_AI_Usage.md](11_AI_Usage.md): quy tắc; [10_sources.md](10_sources.md): nguồn ngoài repo.

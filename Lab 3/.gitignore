@@ -8,3 +8,5 @@ outputs/**/pytorch_model*.bin
 outputs/**/*.pt
 outputs/**/*.pth
 .pytest_cache/
+# Imported snapshot weights are tracked by Git LFS.
+!outputs/imported-thanhbinh-40acced/**/*.safetensors

@@ -1,5 +1,15 @@
 # Nhật ký đồng bộ nhánh — 2026-11-11
 
+## Cập nhật tiếp theo: xử lý nhánh local ThanhBinh
+
+Snapshot `40acced` được nhập lúc **2026-11-11T08:43:09+07:00**, bởi **HoangDang**, hỗ trợ **OpenAI Codex**, vào `Lab 3/outputs/imported-thanhbinh-40acced/`. Tác giả/committer gốc là HoangDang, lúc **2026-11-07T07:33:28+07:00**; không suy tác giả từ tên nhánh.
+
+Commit riêng chứa 20 tệp trọng số raw, tổng khoảng 5,4 GB (5 nội dung khác nhau). Chỉ commit riêng được chuyển sang LFS trên nhánh trung gian: **40acced → ecb71b1**. Tác giả và thời gian gốc được giữ nguyên; commit raw được giữ ở `backup/ThanhBinh-raw-40acced`. Không rewrite lịch sử remote hoặc force-push.
+
+156 file không phải trọng số giữ nguyên blob Git; 20 pointer LFS trỏ tới byte nhị phân gốc. [IMPORT.json](Lab%203/outputs/imported-thanhbinh-40acced/IMPORT.json) ghi đường dẫn cũ/mới, hash và thời gian nhập. Nội dung đang dùng trong Lab 3 được giữ nguyên. Sau merge, nhánh local ThanhBinh được cập nhật tới kết quả tích hợp; phần ghi “chưa tích hợp local” bên dưới là snapshot của lần đồng bộ trước đó.
+
+Các mục dưới ghi nhận lần đồng bộ remote đầu tiên, không được diễn giải là trạng thái mới nhất của nhánh local.
+
 ## Thông tin lần đồng bộ
 
 - Nhánh nhận: **hoangdang**; remote: origin (https://github.com/QuocAn118/Lab.git).
