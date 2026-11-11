@@ -1,0 +1,1467 @@
+{
+  "schema_version": 1,
+  "source_commit": "40accede964160fdafc0bff30741ae6e7b979058",
+  "lfs_commit": "ecb71b108d46cb0d96e028075dcde8b53ffa8bd5",
+  "imported_at": "2026-11-11T08:43:09+07:00",
+  "integrated_by": "HoangDang",
+  "assisted_by": "OpenAI Codex",
+  "original_author": "HoangDang",
+  "original_author_date": "2026-11-07T07:33:28+07:00",
+  "original_committer": "HoangDang",
+  "original_commit_date": "2026-11-07T07:33:28+07:00",
+  "sources": [
+    "docs/08_implementation.md",
+    "docs/11_AI_Usage.md"
+  ],
+  "note": "Historical snapshot, not a new training run. Original manifests retain original paths/hashes. Pointer hashes identify original binary bytes.",
+  "files": [
+    {
+      "source_path": "Lab 3/outputs/full/artifacts.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/artifacts.md",
+      "source_git_blob": "67eb42c48452fec87a52b51c6f2c777b64673d96",
+      "imported_git_blob": "67eb42c48452fec87a52b51c6f2c777b64673d96",
+      "stored_bytes": 615,
+      "stored_sha256": "e2a56f0b962bbbd0462b8d03f5148221a9e35516f343c23ef006951de1419242"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoint_policy.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoint_policy.json",
+      "source_git_blob": "30679931f45358a0364ca3a949baad96ca90cf48",
+      "imported_git_blob": "30679931f45358a0364ca3a949baad96ca90cf48",
+      "stored_bytes": 713,
+      "stored_sha256": "93632f28ccfb37f10803948378041e4f5aa0c0c5a0018bad12d4953953eafbf3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/model.safetensors",
+      "source_git_blob": "2fc19b3b302ecd5e2744415b32cd5e9abe2aaac3",
+      "imported_git_blob": "df5068d2b91533bff8823dda3f79d9e3b2c82622",
+      "stored_bytes": 134,
+      "stored_sha256": "5e18f966e3132079e7404960a98da1a6183fdfc87f84333afe52c689432c8305",
+      "lfs_sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/model.safetensors",
+      "source_git_blob": "2fc19b3b302ecd5e2744415b32cd5e9abe2aaac3",
+      "imported_git_blob": "df5068d2b91533bff8823dda3f79d9e3b2c82622",
+      "stored_bytes": 134,
+      "stored_sha256": "5e18f966e3132079e7404960a98da1a6183fdfc87f84333afe52c689432c8305",
+      "lfs_sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_acc/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/model.safetensors",
+      "source_git_blob": "a779a3ab0d8fc30e10eef2e0d67cb64f74a8c997",
+      "imported_git_blob": "a051156117611628c3db77aa7fa841d3fe4e179f",
+      "stored_bytes": 134,
+      "stored_sha256": "0eb6d349419f3ebe0a55f46f8ae72164d00c8bc7a6a9b0b2b36edf3e84e24576",
+      "lfs_sha256": "a1590ad342b7af656e667478aa68339b7fe3ea149c185cfd2dd1ac4df64df8c9",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_loss/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/model.safetensors",
+      "source_git_blob": "2fc19b3b302ecd5e2744415b32cd5e9abe2aaac3",
+      "imported_git_blob": "df5068d2b91533bff8823dda3f79d9e3b2c82622",
+      "stored_bytes": 134,
+      "stored_sha256": "5e18f966e3132079e7404960a98da1a6183fdfc87f84333afe52c689432c8305",
+      "lfs_sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/best_val_pause/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/model.safetensors",
+      "source_git_blob": "2fc19b3b302ecd5e2744415b32cd5e9abe2aaac3",
+      "imported_git_blob": "df5068d2b91533bff8823dda3f79d9e3b2c82622",
+      "stored_bytes": 134,
+      "stored_sha256": "5e18f966e3132079e7404960a98da1a6183fdfc87f84333afe52c689432c8305",
+      "lfs_sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/checkpoints/final_epoch/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/confusion_matrix.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/confusion_matrix.png",
+      "source_git_blob": "0df530b259260fad9dfa4b376770d7d733cd02a3",
+      "imported_git_blob": "0df530b259260fad9dfa4b376770d7d733cd02a3",
+      "stored_bytes": 27898,
+      "stored_sha256": "6ceb2d3332853ad088f43cab8cf035d7370b890cd85d4f45407e4c2c99c52436"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/epoch_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/epoch_history.json",
+      "source_git_blob": "4c17fbeb2a09372f5a71c256d0e9bf4e0314c311",
+      "imported_git_blob": "4c17fbeb2a09372f5a71c256d0e9bf4e0314c311",
+      "stored_bytes": 1864,
+      "stored_sha256": "ebbe4fb18e2668d58dd14217fc1d74e36b68f426d7ea1334b68298f5408626fa"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/lab3_source.py",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/lab3_source.py",
+      "source_git_blob": "7ffb7f77cfb003b729ce3874595c4a2966041973",
+      "imported_git_blob": "7ffb7f77cfb003b729ce3874595c4a2966041973",
+      "stored_bytes": 30976,
+      "stored_sha256": "5fbdcd722116179a37e3da58c6f924ce85ae6504e8c6448230238fd16ab942eb"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/loss_curve.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/loss_curve.png",
+      "source_git_blob": "2154e31be99f732aded10e687a0f91b3f61ecd9f",
+      "imported_git_blob": "2154e31be99f732aded10e687a0f91b3f61ecd9f",
+      "stored_bytes": 64925,
+      "stored_sha256": "e1a8e43d295e926088ad873600f1808763671278c5e616473c1dfddbc639c36e"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/metadata_corrections.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_corrections.md",
+      "source_git_blob": "a82f912381ffc4accd15b1d57196329281ea9be6",
+      "imported_git_blob": "a82f912381ffc4accd15b1d57196329281ea9be6",
+      "stored_bytes": 1525,
+      "stored_sha256": "5123b24d7a7cda9ff01a2207f07d6fe42654afe4e0a5d7daaae2c8b43fcbfac5"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/metadata_originals/checkpoint_policy.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/checkpoint_policy.json",
+      "source_git_blob": "3c6cec18b52bb992a35a31386515ce24681c38c0",
+      "imported_git_blob": "3c6cec18b52bb992a35a31386515ce24681c38c0",
+      "stored_bytes": 567,
+      "stored_sha256": "5c5ec33b006b02de30b63c721a9725063bd16e8be7648fec256b724586876691"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/metadata_originals/epoch_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/epoch_history.json",
+      "source_git_blob": "f3eba378c2e9b576b9367b797738cb43ffe19e18",
+      "imported_git_blob": "f3eba378c2e9b576b9367b797738cb43ffe19e18",
+      "stored_bytes": 1632,
+      "stored_sha256": "779f45c1bc468e1cf701484d48a4aa2368c59630058ab92da1ea47bc8c8fa80a"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/metadata_originals/metrics.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/metrics.json",
+      "source_git_blob": "6b22fdc56e43dcdf64a1aa51d51ff35f3e58abb7",
+      "imported_git_blob": "6b22fdc56e43dcdf64a1aa51d51ff35f3e58abb7",
+      "stored_bytes": 8201,
+      "stored_sha256": "269f96c606ffd17d6b72a55f78168b24191375a5f6f1ba75f743e7a7892f8fe2"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/metrics.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metrics.json",
+      "source_git_blob": "2654103d0de78cb051e3a5ededfe9b29bfaaf7b8",
+      "imported_git_blob": "2654103d0de78cb051e3a5ededfe9b29bfaaf7b8",
+      "stored_bytes": 8470,
+      "stored_sha256": "03b119062c29911f5bd43ec0815fe333ca648f425af7257910a170bd8ce6a883"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/provenance.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/provenance.json",
+      "source_git_blob": "1813a6160449a7a3142387504fc16b5b8e808e03",
+      "imported_git_blob": "1813a6160449a7a3142387504fc16b5b8e808e03",
+      "stored_bytes": 39142,
+      "stored_sha256": "27d116b58d4674d9a2d864d5e4932dd174250f0d37136a0aa43173747ab95f16"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/report.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/report.md",
+      "source_git_blob": "9bd9b6ed68414fc9ae625f02e25fffa278e1552d",
+      "imported_git_blob": "9bd9b6ed68414fc9ae625f02e25fffa278e1552d",
+      "stored_bytes": 1645,
+      "stored_sha256": "341c22f83faecb87b68680f112a582d5226d5c9c6d92e4c5edf437c6a7a6b6a0"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/run.log",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/run.log",
+      "source_git_blob": "8edc9ca5169494cd520c110e8904a4682a98bbe1",
+      "imported_git_blob": "8edc9ca5169494cd520c110e8904a4682a98bbe1",
+      "stored_bytes": 12222,
+      "stored_sha256": "3c45af73cf7f8ce6e7a469f9adb47566238168c2e32b5496a0e5c10e7c03e50c"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/run_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/run_config.json",
+      "source_git_blob": "9ce4d8f7034763ffe6b952b48c9b609caddd323e",
+      "imported_git_blob": "9ce4d8f7034763ffe6b952b48c9b609caddd323e",
+      "stored_bytes": 1955,
+      "stored_sha256": "2d54d6fe8ca40431c6ee8b7f51bdaad2c45fa6348f174d9ee158a6f16d38dff1"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/test_predictions.csv",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/test_predictions.csv",
+      "source_git_blob": "5ffee360f18533990f400d85c5fa78780713f62f",
+      "imported_git_blob": "5ffee360f18533990f400d85c5fa78780713f62f",
+      "stored_bytes": 238998,
+      "stored_sha256": "9ac69cac0b7d63938fa889d1d79014fe9a172ac840ca9d661b1ac2e9c445449f"
+    },
+    {
+      "source_path": "Lab 3/outputs/full/trainer_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/full/trainer_history.json",
+      "source_git_blob": "601f767424c2ff58a77b4c088af2a87691b42ae0",
+      "imported_git_blob": "601f767424c2ff58a77b4c088af2a87691b42ae0",
+      "stored_bytes": 13736,
+      "stored_sha256": "6094e83885aeaa6c104dbed8ab3d0076822ebe7c68e5b9c99e919ca2df6749a2"
+    },
+    {
+      "source_path": "Lab 3/outputs/module-a/artifacts.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/artifacts.md",
+      "source_git_blob": "62a1532f44b05ab25d02fcc7c941d1f9e2aeb3d9",
+      "imported_git_blob": "62a1532f44b05ab25d02fcc7c941d1f9e2aeb3d9",
+      "stored_bytes": 669,
+      "stored_sha256": "2c46c809c6444a948e0c038a778bc49e9b2e80b7903a51d53ef146f49f0c1253"
+    },
+    {
+      "source_path": "Lab 3/outputs/module-a/inference.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/inference.json",
+      "source_git_blob": "6fc9585e866104feaae1b45f6bbd45dafecdd200",
+      "imported_git_blob": "6fc9585e866104feaae1b45f6bbd45dafecdd200",
+      "stored_bytes": 903,
+      "stored_sha256": "d5519788aef7ff46f79e7af34700581c6eee09ca69d7c9b7cb37b697080428b4"
+    },
+    {
+      "source_path": "Lab 3/outputs/module-a/lab3_source.py",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/lab3_source.py",
+      "source_git_blob": "87c0f619712c2f499508a5813fc8194a1499863b",
+      "imported_git_blob": "87c0f619712c2f499508a5813fc8194a1499863b",
+      "stored_bytes": 30975,
+      "stored_sha256": "3f4b4a8c616687bdeaed61cfe0833def41c489f4db8431c36cbf4f90009546a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/module-a/provenance.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/provenance.json",
+      "source_git_blob": "df707931d6b885f56a174ff600c3b3874e52b0b7",
+      "imported_git_blob": "df707931d6b885f56a174ff600c3b3874e52b0b7",
+      "stored_bytes": 22301,
+      "stored_sha256": "214b99b1ee5957802992c464dbd2cd8eb81995043cb0b6efc02ab1980bbaaaaf"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/artifacts.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/artifacts.md",
+      "source_git_blob": "be6cbac43cf8cd62e16cfc92aee1f5cf3c416572",
+      "imported_git_blob": "be6cbac43cf8cd62e16cfc92aee1f5cf3c416572",
+      "stored_bytes": 593,
+      "stored_sha256": "1a60f44ab0e1b2d4ecb6d1eb4b43b43fb233ee699e72c400d3bf5dd171df601f"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoint_policy.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoint_policy.json",
+      "source_git_blob": "c21cce2373a5203267b699f44e28e2d4b1061e22",
+      "imported_git_blob": "c21cce2373a5203267b699f44e28e2d4b1061e22",
+      "stored_bytes": 600,
+      "stored_sha256": "b553cb28590dc85e59df1462b4721773273b6018faf578bcb44892215935025a"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/model.safetensors",
+      "source_git_blob": "16d41e40bdd4f84af61f6e3ad3fb69de55525a44",
+      "imported_git_blob": "3b62eeb12cb74b61ec814f9ea2e48b307fbd0c77",
+      "stored_bytes": 134,
+      "stored_sha256": "c45f296495b5160c1e5e6def6b55e25da421f416ecb3c043681af7917a867998",
+      "lfs_sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/model.safetensors",
+      "source_git_blob": "16d41e40bdd4f84af61f6e3ad3fb69de55525a44",
+      "imported_git_blob": "3b62eeb12cb74b61ec814f9ea2e48b307fbd0c77",
+      "stored_bytes": 134,
+      "stored_sha256": "c45f296495b5160c1e5e6def6b55e25da421f416ecb3c043681af7917a867998",
+      "lfs_sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_acc/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/model.safetensors",
+      "source_git_blob": "16d41e40bdd4f84af61f6e3ad3fb69de55525a44",
+      "imported_git_blob": "3b62eeb12cb74b61ec814f9ea2e48b307fbd0c77",
+      "stored_bytes": 134,
+      "stored_sha256": "c45f296495b5160c1e5e6def6b55e25da421f416ecb3c043681af7917a867998",
+      "lfs_sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_loss/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/model.safetensors",
+      "source_git_blob": "16d41e40bdd4f84af61f6e3ad3fb69de55525a44",
+      "imported_git_blob": "3b62eeb12cb74b61ec814f9ea2e48b307fbd0c77",
+      "stored_bytes": 134,
+      "stored_sha256": "c45f296495b5160c1e5e6def6b55e25da421f416ecb3c043681af7917a867998",
+      "lfs_sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/best_val_pause/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/model.safetensors",
+      "source_git_blob": "16d41e40bdd4f84af61f6e3ad3fb69de55525a44",
+      "imported_git_blob": "3b62eeb12cb74b61ec814f9ea2e48b307fbd0c77",
+      "stored_bytes": 134,
+      "stored_sha256": "c45f296495b5160c1e5e6def6b55e25da421f416ecb3c043681af7917a867998",
+      "lfs_sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/checkpoints/final_epoch/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/confusion_matrix.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/confusion_matrix.png",
+      "source_git_blob": "29b594432b2cca9cd95d841549b9649f8803c15d",
+      "imported_git_blob": "29b594432b2cca9cd95d841549b9649f8803c15d",
+      "stored_bytes": 21237,
+      "stored_sha256": "d27816ac5087f90af17098b5e92770d8c0a19dd2a468e556aa7da87366b18cf4"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/epoch_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/epoch_history.json",
+      "source_git_blob": "50dabef17762f6a5c9c7fdf6d408b486ca080310",
+      "imported_git_blob": "50dabef17762f6a5c9c7fdf6d408b486ca080310",
+      "stored_bytes": 751,
+      "stored_sha256": "ad1ddad9132325b6688a86c0044589795257a436e462fe2d972f1bedf991aa08"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/lab3_source.py",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/lab3_source.py",
+      "source_git_blob": "dbf686d5f3a1b20793e0486b3b5272f8d7b8afa1",
+      "imported_git_blob": "dbf686d5f3a1b20793e0486b3b5272f8d7b8afa1",
+      "stored_bytes": 31447,
+      "stored_sha256": "8b17732ae20750e6c247f817bdb056b921c2ff768fdee04d68448a0d9f420b4d"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/loss_curve.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/loss_curve.png",
+      "source_git_blob": "b363db146db46f7dcfadb38090a02e6fbeafafa8",
+      "imported_git_blob": "b363db146db46f7dcfadb38090a02e6fbeafafa8",
+      "stored_bytes": 51278,
+      "stored_sha256": "30014154ca4a3b7d551e70d0f546f9e0b3167f386afe0ec014f3b7eba2278071"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/metrics.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/metrics.json",
+      "source_git_blob": "a539a8af2a99ab4316689c69165b19225c92ea9f",
+      "imported_git_blob": "a539a8af2a99ab4316689c69165b19225c92ea9f",
+      "stored_bytes": 5294,
+      "stored_sha256": "2e0312639875baded5433b85952c568db387ef8631dd77ec762a41964ea3115a"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/notebook_source.ipynb",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/notebook_source.ipynb",
+      "source_git_blob": "2c3309cc787832051d00d1e97d199843bfaa9e64",
+      "imported_git_blob": "2c3309cc787832051d00d1e97d199843bfaa9e64",
+      "stored_bytes": 50249,
+      "stored_sha256": "37379cef0aa7ed061fe2e1d9760950b61871c876292b397432419869b8d96d28"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/provenance.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/provenance.json",
+      "source_git_blob": "05caed7a7317e7318043ddbd6d170ff57e0382a0",
+      "imported_git_blob": "05caed7a7317e7318043ddbd6d170ff57e0382a0",
+      "stored_bytes": 38706,
+      "stored_sha256": "592ad6ebf0c886c3c7b341866e52d4d8a591f7ae89262cba964122fbbdeb7f90"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/report.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/report.md",
+      "source_git_blob": "0f0d9909735bbbe4a89fb2f94ce4cba6f0c1ec44",
+      "imported_git_blob": "0f0d9909735bbbe4a89fb2f94ce4cba6f0c1ec44",
+      "stored_bytes": 1588,
+      "stored_sha256": "b5822e3be80f625f3ed684ee400fb8aac1ac8c6220c66efc41531e25233cb720"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/run.log",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/run.log",
+      "source_git_blob": "596ab87b6ffd903e775682e9ec83794373ffd503",
+      "imported_git_blob": "596ab87b6ffd903e775682e9ec83794373ffd503",
+      "stored_bytes": 3129,
+      "stored_sha256": "7e901f5677d555d5bf3e15746c3a41b56a2940e07f6d9bfa5e9b56f35c3eb860"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/run_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/run_config.json",
+      "source_git_blob": "d569182434fd5c6d2d650ea9bc420c5aaebeb663",
+      "imported_git_blob": "d569182434fd5c6d2d650ea9bc420c5aaebeb663",
+      "stored_bytes": 1928,
+      "stored_sha256": "b521962459c37264984ac22371365cda3579a541cd44af6206b70bc83faf58b2"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/test_predictions.csv",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/test_predictions.csv",
+      "source_git_blob": "d7fe4e770caecf017fcea340b1db757173be1c73",
+      "imported_git_blob": "d7fe4e770caecf017fcea340b1db757173be1c73",
+      "stored_bytes": 210,
+      "stored_sha256": "9c11ad57336ffbca12562b83115749b19f66454fba3531a429243f6072d79bde"
+    },
+    {
+      "source_path": "Lab 3/outputs/notebook-smoke/trainer_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/trainer_history.json",
+      "source_git_blob": "c5dc5fc56d22346e2ef1fee8abcf04dfdffb4adf",
+      "imported_git_blob": "c5dc5fc56d22346e2ef1fee8abcf04dfdffb4adf",
+      "stored_bytes": 1178,
+      "stored_sha256": "6820c0e5af0fbdf2188be77400371ca052b597d99a58231d5fa4eed9b090ba98"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/artifacts.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/artifacts.md",
+      "source_git_blob": "bf50284eba2de9f97b9256927877c305aabe6281",
+      "imported_git_blob": "bf50284eba2de9f97b9256927877c305aabe6281",
+      "stored_bytes": 617,
+      "stored_sha256": "dc413e262a891f25bd18da23bafcc9f13972689b926c106348f8897f62e4bdab"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoint_policy.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoint_policy.json",
+      "source_git_blob": "75b001916977dbb73d8b70661113fa979ab85cf4",
+      "imported_git_blob": "75b001916977dbb73d8b70661113fa979ab85cf4",
+      "stored_bytes": 561,
+      "stored_sha256": "aed5098013cefd662d35dd4e74089fea0c615b3c4d52449c2c0f68e73af98265"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/model.safetensors",
+      "source_git_blob": "d055ca252c034d4c4e15b0729b52d0ae77a54196",
+      "imported_git_blob": "404e5310ef807c5c6ff2a23e321f82fd126c3f25",
+      "stored_bytes": 134,
+      "stored_sha256": "a73677e40a46e2f5359f671e5184f49dd65137b3fceb58a412ddf3ad129a2bc3",
+      "lfs_sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/model.safetensors",
+      "source_git_blob": "d055ca252c034d4c4e15b0729b52d0ae77a54196",
+      "imported_git_blob": "404e5310ef807c5c6ff2a23e321f82fd126c3f25",
+      "stored_bytes": 134,
+      "stored_sha256": "a73677e40a46e2f5359f671e5184f49dd65137b3fceb58a412ddf3ad129a2bc3",
+      "lfs_sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_acc/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/model.safetensors",
+      "source_git_blob": "d055ca252c034d4c4e15b0729b52d0ae77a54196",
+      "imported_git_blob": "404e5310ef807c5c6ff2a23e321f82fd126c3f25",
+      "stored_bytes": 134,
+      "stored_sha256": "a73677e40a46e2f5359f671e5184f49dd65137b3fceb58a412ddf3ad129a2bc3",
+      "lfs_sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_loss/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/model.safetensors",
+      "source_git_blob": "d055ca252c034d4c4e15b0729b52d0ae77a54196",
+      "imported_git_blob": "404e5310ef807c5c6ff2a23e321f82fd126c3f25",
+      "stored_bytes": 134,
+      "stored_sha256": "a73677e40a46e2f5359f671e5184f49dd65137b3fceb58a412ddf3ad129a2bc3",
+      "lfs_sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/best_val_pause/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/model.safetensors",
+      "source_git_blob": "d055ca252c034d4c4e15b0729b52d0ae77a54196",
+      "imported_git_blob": "404e5310ef807c5c6ff2a23e321f82fd126c3f25",
+      "stored_bytes": 134,
+      "stored_sha256": "a73677e40a46e2f5359f671e5184f49dd65137b3fceb58a412ddf3ad129a2bc3",
+      "lfs_sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/checkpoints/final_epoch/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/epoch_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/epoch_history.json",
+      "source_git_blob": "e2d688afe6e7ae99c0b509a2addff641cf733f15",
+      "imported_git_blob": "e2d688afe6e7ae99c0b509a2addff641cf733f15",
+      "stored_bytes": 707,
+      "stored_sha256": "579f0fa5ace1c62a55ff0c39bbe7420506bda215eb7d8d7d78b696afeaa9beaf"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/failure.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/failure.json",
+      "source_git_blob": "a963ce714fd06f873fd26b772bf8a72a1305c6c4",
+      "imported_git_blob": "a963ce714fd06f873fd26b772bf8a72a1305c6c4",
+      "stored_bytes": 516,
+      "stored_sha256": "090fdb179ccb75590be01b6e7d492b15cd18789913240156e38f7f8a77e04ce2"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/provenance.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/provenance.json",
+      "source_git_blob": "c53a375aa969ee07cbaf9dfeb1d01a0d53c639af",
+      "imported_git_blob": "c53a375aa969ee07cbaf9dfeb1d01a0d53c639af",
+      "stored_bytes": 15529,
+      "stored_sha256": "e21cf889ecbc06ab8bd0c8c2a5b0ebb371893c67121b5e862504d80e4f433307"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/run.log",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/run.log",
+      "source_git_blob": "b8874276bf47d5779dba2fa9dd4f5fcd4ec7a7c9",
+      "imported_git_blob": "b8874276bf47d5779dba2fa9dd4f5fcd4ec7a7c9",
+      "stored_bytes": 2140,
+      "stored_sha256": "0ce49a7b224df4595d49e6524fe88e991479973823ba3c331982e28b68b43a70"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/run_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/run_config.json",
+      "source_git_blob": "900be25ffd2a0c60266ad303e51c650c2160932e",
+      "imported_git_blob": "900be25ffd2a0c60266ad303e51c650c2160932e",
+      "stored_bytes": 1928,
+      "stored_sha256": "6abee5752ff659df935885953522c95075ad21418ca37f95c1806e0cc11d9dcc"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke-failed-001/trainer_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/trainer_history.json",
+      "source_git_blob": "519c35253c4a8a13bd89b43b90149f268717df8f",
+      "imported_git_blob": "519c35253c4a8a13bd89b43b90149f268717df8f",
+      "stored_bytes": 1177,
+      "stored_sha256": "4be6d4be9dc5fd9404844a3242fbea58da5a4042e7bf6dba7fb760c73a5ef141"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/artifacts.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/artifacts.md",
+      "source_git_blob": "bf50284eba2de9f97b9256927877c305aabe6281",
+      "imported_git_blob": "bf50284eba2de9f97b9256927877c305aabe6281",
+      "stored_bytes": 617,
+      "stored_sha256": "dc413e262a891f25bd18da23bafcc9f13972689b926c106348f8897f62e4bdab"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoint_policy.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoint_policy.json",
+      "source_git_blob": "dadca8198fd5570b8461d44e6cd0df7ee76e3bba",
+      "imported_git_blob": "dadca8198fd5570b8461d44e6cd0df7ee76e3bba",
+      "stored_bytes": 561,
+      "stored_sha256": "70bafe83cf40a985b083fc1b7fef0a7ec4334ec62c5e5fe814a0237cc8338c6d"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/model.safetensors",
+      "source_git_blob": "2a31612e02c1370688a8748411fb88a4520f3954",
+      "imported_git_blob": "6053eecbd58ffde620a787c293bf63250cc016e1",
+      "stored_bytes": 134,
+      "stored_sha256": "44466c1c874f1a516368580d4594c6c1d04fd714313f449fa6796ac8ce8ec4db",
+      "lfs_sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/model.safetensors",
+      "source_git_blob": "2a31612e02c1370688a8748411fb88a4520f3954",
+      "imported_git_blob": "6053eecbd58ffde620a787c293bf63250cc016e1",
+      "stored_bytes": 134,
+      "stored_sha256": "44466c1c874f1a516368580d4594c6c1d04fd714313f449fa6796ac8ce8ec4db",
+      "lfs_sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_acc/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/model.safetensors",
+      "source_git_blob": "2a31612e02c1370688a8748411fb88a4520f3954",
+      "imported_git_blob": "6053eecbd58ffde620a787c293bf63250cc016e1",
+      "stored_bytes": 134,
+      "stored_sha256": "44466c1c874f1a516368580d4594c6c1d04fd714313f449fa6796ac8ce8ec4db",
+      "lfs_sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_loss/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/model.safetensors",
+      "source_git_blob": "2a31612e02c1370688a8748411fb88a4520f3954",
+      "imported_git_blob": "6053eecbd58ffde620a787c293bf63250cc016e1",
+      "stored_bytes": 134,
+      "stored_sha256": "44466c1c874f1a516368580d4594c6c1d04fd714313f449fa6796ac8ce8ec4db",
+      "lfs_sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/best_val_pause/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/config.json",
+      "source_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "imported_git_blob": "6a2fc45c7d0fc67c3e9e05e6ba1d445625de92a3",
+      "stored_bytes": 683,
+      "stored_sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/model.safetensors",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/model.safetensors",
+      "source_git_blob": "2a31612e02c1370688a8748411fb88a4520f3954",
+      "imported_git_blob": "6053eecbd58ffde620a787c293bf63250cc016e1",
+      "stored_bytes": 134,
+      "stored_sha256": "44466c1c874f1a516368580d4594c6c1d04fd714313f449fa6796ac8ce8ec4db",
+      "lfs_sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "original_bytes": 267832560
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "source_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "imported_git_blob": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+      "stored_bytes": 125,
+      "stored_sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/tokenizer.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/tokenizer.json",
+      "source_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "imported_git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "stored_bytes": 711494,
+      "stored_sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "source_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "imported_git_blob": "ca078cbed9874571e1790b3704a58c00f0dc7556",
+      "stored_bytes": 1227,
+      "stored_sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/checkpoints/final_epoch/vocab.txt",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/vocab.txt",
+      "source_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "imported_git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "stored_bytes": 231508,
+      "stored_sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/confusion_matrix.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/confusion_matrix.png",
+      "source_git_blob": "2376711e491611698e22127e41b442764a307524",
+      "imported_git_blob": "2376711e491611698e22127e41b442764a307524",
+      "stored_bytes": 21140,
+      "stored_sha256": "f9d0c34cb47c95082ecb490a89d1716bd46ce453b76ecc5af5d7535e9362caee"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/epoch_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/epoch_history.json",
+      "source_git_blob": "e2b60a2ac89765da0797b820ae958c9700a53127",
+      "imported_git_blob": "e2b60a2ac89765da0797b820ae958c9700a53127",
+      "stored_bytes": 708,
+      "stored_sha256": "b482c9da852fdb9b13d00c2c0d221e6834e6ed65e65af1c5ea7f2b15ef07ef6d"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/lab3_source.py",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/lab3_source.py",
+      "source_git_blob": "87c0f619712c2f499508a5813fc8194a1499863b",
+      "imported_git_blob": "87c0f619712c2f499508a5813fc8194a1499863b",
+      "stored_bytes": 30975,
+      "stored_sha256": "3f4b4a8c616687bdeaed61cfe0833def41c489f4db8431c36cbf4f90009546a3"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/loss_curve.png",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/loss_curve.png",
+      "source_git_blob": "2d14203cc41eed396dc1976596d74cb372357ab8",
+      "imported_git_blob": "2d14203cc41eed396dc1976596d74cb372357ab8",
+      "stored_bytes": 50947,
+      "stored_sha256": "c4822a61020d161b1fc7d5e22fba039b33f8cdd71f0c079fd03af259f33c3c2b"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/metrics.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/metrics.json",
+      "source_git_blob": "0a60e8ce9f95a8277da2c00453fb080c1cc1d44d",
+      "imported_git_blob": "0a60e8ce9f95a8277da2c00453fb080c1cc1d44d",
+      "stored_bytes": 5207,
+      "stored_sha256": "f84a0152c5a28d55634a2653142aa3b3e76abf82be7d96ec3149d2b02330c94d"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/provenance.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/provenance.json",
+      "source_git_blob": "a9725bee7bf94f81c84e34a541feb13634d277fe",
+      "imported_git_blob": "a9725bee7bf94f81c84e34a541feb13634d277fe",
+      "stored_bytes": 37578,
+      "stored_sha256": "38d0440d53a00497b7a2f986c542ced917d87f74ba8b1743ef8637573794dde5"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/report.md",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/report.md",
+      "source_git_blob": "1ccdf560aaa9a931eb73535bf85678e873d722e3",
+      "imported_git_blob": "1ccdf560aaa9a931eb73535bf85678e873d722e3",
+      "stored_bytes": 1588,
+      "stored_sha256": "f25c5dcbe442d10269203173ae6b86efbb3410a96839ef0e247a4e0a4a100850"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/run.log",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/run.log",
+      "source_git_blob": "17367b24615234869c4c6133420f4ae71ac25f2c",
+      "imported_git_blob": "17367b24615234869c4c6133420f4ae71ac25f2c",
+      "stored_bytes": 3084,
+      "stored_sha256": "683665f5df066ac60fc196132997aa77cb54c2c3fb5eccc9cde7b5f886f519e0"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/run_config.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/run_config.json",
+      "source_git_blob": "3b797eddb2a0b78bdbdaf9accc5ed08e45c36b0f",
+      "imported_git_blob": "3b797eddb2a0b78bdbdaf9accc5ed08e45c36b0f",
+      "stored_bytes": 1928,
+      "stored_sha256": "53b2a07e709e1911d6ddbfe4199d3ff1ad99089aa92cc7300821672d58a2bdc2"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/test_predictions.csv",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/test_predictions.csv",
+      "source_git_blob": "d7fe4e770caecf017fcea340b1db757173be1c73",
+      "imported_git_blob": "d7fe4e770caecf017fcea340b1db757173be1c73",
+      "stored_bytes": 210,
+      "stored_sha256": "9c11ad57336ffbca12562b83115749b19f66454fba3531a429243f6072d79bde"
+    },
+    {
+      "source_path": "Lab 3/outputs/smoke/trainer_history.json",
+      "imported_path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/trainer_history.json",
+      "source_git_blob": "ec8bacffb185e720a4b7ff8dfecd4b07b2358db9",
+      "imported_git_blob": "ec8bacffb185e720a4b7ff8dfecd4b07b2358db9",
+      "stored_bytes": 1175,
+      "stored_sha256": "4ef94edc3808a09d9f3ce4a1714daa8c3bdca164a48f990374b3080ad589386d"
+    }
+  ]
+}

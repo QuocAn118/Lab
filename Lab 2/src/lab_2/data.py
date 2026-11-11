@@ -21,17 +21,17 @@ CLASS_NAMES = ["airplane",    # Nhãn 0
                "truck",       # Nhãn 9
                ]
 
-def split_indicies(total, train_size, val_size, seed):
+def split_indices(total, train_size, val_size, seed):
     if train_size + val_size > total: 
         raise ValueError("The number of requested images exceeds the number of available images")
 
     generator = torch.Generator().manual_seed(seed)
-    indicies = torch.randperm(total, generator= generator).tolist()
+    indices = torch.randperm(total, generator= generator).tolist()
 
-    train_indicies = indicies[:train_size]
-    val_indicies = indicies[train_size:train_size + val_size]
+    train_indices = indices[:train_size]
+    val_indices = indices[train_size:train_size + val_size]
 
-    return train_indicies, val_indicies
+    return train_indices, val_indices
 
 def build_transform(config, train):
     data_config = config["data"]
@@ -39,13 +39,13 @@ def build_transform(config, train):
     steps = [] # Create a list of processing steps
 
     if train:
-        steps.append(transforms.RandomHorizontalFlip)
+        steps.append(transforms.RandomHorizontalFlip())
         steps.append(transforms.RandomCrop(32, padding= data_config["crop_padding"]))
-        steps.extend([transforms.Resize((data_config["image_size"], 
-                                         data_config["image_size"])),
-                    transforms.ToTensor(),
-                    transforms.Normalize(mean= data_config["mean"],
-                                         std= data_config["std"]),])
+    steps.extend([transforms.Resize((data_config["image_size"], 
+                                     data_config["image_size"])),
+                transforms.ToTensor(),
+                transforms.Normalize(mean= data_config["mean"],
+                                     std= data_config["std"]),])
 
     return transforms.Compose(steps)
 
@@ -59,7 +59,7 @@ def load_splits(config):
                                      transform= build_transform(config, train= True),)
 
     val_dataset = datasets.CIFAR10(root= root, 
-                                   train= False,
+                                   train= True,
                                    download= True,
                                    transform= build_transform(config, train= False),)
 
@@ -68,21 +68,21 @@ def load_splits(config):
                                     download= True,
                                     transform= build_transform(config, train= False),)
 
-    train_indicies, val_indicies = split_indicies(total= 50000,
+    train_indices, val_indices = split_indices(total= 50000,
                                                   train_size= data_config["train_size"],
                                                   val_size= data_config["val_size"],
                                                   seed= config["seed"],)
     
-    test_indicies, _ = split_indicies(total= 10000,
+    test_indices, _ = split_indices(total= 10000,
                                       train_size= data_config["test_size"],
                                       val_size= 0,
                                       seed= config["seed"],)
 
-    train = Subset(train_dataset, train_indicies)
-    test = Subset(test_dataset, test_indicies)
-    val = Subset(val_dataset, val_indicies)
+    train = Subset(train_dataset, train_indices)
+    test = Subset(test_dataset, test_indices)
+    val = Subset(val_dataset, val_indices)
 
-    return train, test, val
+    return train, val, test
 
 def make_loader(dataset, batch_size, config, shuffle=False):
     generator = None
@@ -90,7 +90,7 @@ def make_loader(dataset, batch_size, config, shuffle=False):
     if shuffle: 
         generator = torch.Generator().manual_seed(config["seed"])
 
-    return DataLoader(datasets, 
+    return DataLoader(dataset, 
                       batch_size= batch_size,
                       shuffle= shuffle, 
                       num_workers= config["data"]["num_workers"],

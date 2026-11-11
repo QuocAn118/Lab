@@ -1,4 +1,16 @@
-# Thiết kế triển khai và hợp đồng chạy — Lab 3
+# Thiết kế triển khai và  chạy — Lab 3
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Thiết kế triển khai và  chạy — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Yêu cầu và quyết định đã chốt
 
@@ -32,7 +44,8 @@ Callback đánh giá theo epoch; nếu accuracy tốt hơn trước bất kỳ m
 
 - `lab3.py`: CLI `infer`, `train`, `demo`, `audit`; cấu hình, dữ liệu, metrics, callback, đo và báo cáo.
 - `test.py`: unittest offline, model DistilBERT rất nhỏ khởi tạo ngẫu nhiên **chỉ dùng test**, kiểm gradient, checkpoint và nạp lại. Không thay thế smoke pretrained.
-- `Lab_3 (1).ipynb`: bản thực hành rút gọn theo yêu cầu hiện tại, chỉ dùng API thư viện trực tiếp, không import `lab3.py`, không định nghĩa class hoặc kiểm tra AST/hash trong luồng chính. Đọc hợp đồng riêng của notebook tại §6.
+- `Lab_3 (1).ipynb`: giữ các bước dữ liệu, model, Trainer, đánh giá và demo; dùng tiện ích nhẹ từ `notebook_helpers.py` thay cho phần ghi thời gian/lưu model dài trong ô code.
+- `notebook_helpers.py`: ghi thời gian, train/lưu model và vẽ loss từ log; không đổi dữ liệu, kiến trúc, tham số hoặc metric.
 - `requirements.txt`: phiên bản môi trường chạy; `requirements-lock.txt` ghi freeze môi trường đã kiểm chứng.
 - `outputs/`: run artifacts, không đưa trọng số nhiều GB vào Git; nguồn/hash qua `artifacts.md` và `provenance.json`.
 
@@ -54,7 +67,7 @@ Exercise 1 có một ô code riêng, tự import thư viện để chạy độc
 6. Định nghĩa metrics, tạo Trainer và huấn luyện; nếu đã có checkpoint thì nạp để đánh giá theo công tắc TRAIN.
 7. Đánh giá test, confusion matrix, loss curve và demo từ checkpoint.
 
-Đây là cấu trúc trình bày theo notebook kế thừa, chưa xác minh độc lập nguồn gốc tác giả. Giữ tham số và phạm vi dữ liệu đã chốt; không mặc định khôi phục cấu hình lấy mẫu nhỏ của bản cũ. Chỉ giữ một hàm tokenize và một hàm compute_metrics; dùng `EarlyStoppingCallback` có sẵn, không có lớp callback tự viết.
+Đây là cấu trúc trình bày theo notebook kế thừa, chưa xác minh độc lập nguồn gốc tác giả. Giữ tham số và phạm vi dữ liệu đã chốt; không mặc định khôi phục cấu hình lấy mẫu nhỏ của bản cũ. Giữ hàm tokenize và compute_metrics trong notebook; dùng `EarlyStoppingCallback` có sẵn. Phần ghi thời gian, lưu model và đọc/vẽ lịch sử loss nằm trong `notebook_helpers.py` để nội dung chính ngắn hơn. Callback vẫn ghi đủ thời gian theo [04_training.md §6](04_training.md).
 
 Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn vẫn được ghi bằng comment `Sources:` ở từng ô và metadata; đầu ra thực nghiệm được giữ nguyên.
 
@@ -70,6 +83,30 @@ Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn
 Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển thị theo thứ tự đọc: 01 tổng quan, 02 dữ liệu, 03 mô hình, 04 huấn luyện, 05 đánh giá, 06 kết quả kiểm chứng, 07 demo, 08 triển khai, 09 tiến độ, 10 nguồn tham khảo, 11 khai báo AI, 12 truy vết. File `huong_dan_trinh_bay.md` không đánh số. Đây là thứ tự học và trình bày, không phải mức ưu tiên thay thế quy tắc dự án.
 
 Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
+
+## 8. Hồ sơ model
+
+`03_model.md` được trình bày theo bốn phần: (1) tên, ngày tạo, người tạo, ngày/người cập nhật mới nhất; (2) mục đích; (3) initial model gồm nguồn trọng số, kiến trúc, input/output và file mã nguồn; (4) trained model gồm thay đổi sau train, mô tả hoàn tất và đường dẫn lưu.
+
+Tên người tạo và người cập nhật model fine-tuned là **HoangDang**, theo xác nhận ngày 2026-11-07. Ngày ghi nhận bản fine-tuned lấy từ báo cáo 2026-11-06. Ngày cập nhật hồ sơ không được mô tả như ngày train lại hoặc sửa trọng số. Kiến trúc đối chiếu `config.json`; số tham số đếm từ trọng số đang lưu. Phân biệt model pretrained dùng cho Exercise 1 với model fine-tuned của Exercise 2.
+
+## 9. Thư mục report và log theo lượt chạy
+
+`Lab 3/report/` là nơi đọc báo cáo. Mỗi lượt train, đánh giá hoặc nhập lại dữ liệu cũ có thư mục riêng, không ghi đè lượt trước. Trọng số tiếp tục nằm ở `outputs/`; report chỉ lưu log, dữ liệu đo và tham chiếu tới checkpoint.
+
+- `run.json`: loại thao tác, trạng thái, thời điểm bắt đầu/kết thúc, phạm vi log và nguồn dữ liệu.
+- `config.json`, `environment.json`: cấu hình thực, kích thước/fingerprint dataset và phiên bản môi trường.
+- `stdout.log`, `stderr.log`: nội dung phát ra trong đúng thao tác được ghi; `python.log` ghi logger của Python/thư viện.
+- `events.jsonl`, `trainer_history.json`: sự kiện có timestamp và lịch sử metric thực.
+- `training_time.json`, `checkpoints.json`: thời gian và danh mục checkpoint; chỉ có dữ liệu train khi thực sự train.
+- `metrics.json`, `predictions.csv`, ảnh confusion matrix/loss, `demo.json`: kết quả đánh giá/dự đoán thực khi thao tác có bước tương ứng.
+- `summary.md`, `SOURCES.md`, `source_snapshot/`, `manifest.json`: bản đọc nhanh, nguồn, bản sao code/đặc tả và SHA-256 từng file.
+
+`reporting.py` quản lý ghi file/console và manifest. `notebook_helpers.py` sử dụng nó để notebook ngắn; CLI cũng xuất log vào report. Log train/đánh giá được ghi trực tiếp, flush theo tiến trình; lỗi hoặc ngắt vẫn kết thúc bản ghi với trạng thái rõ ràng. Log không bao gồm bước tải dữ liệu/model diễn ra trước khi vào thao tác được ghi.
+
+Đối với run cũ: sao chép nguyên byte các log còn có, ghi đường dẫn nguồn và hash để đối chiếu. Run full cũ chỉ có một phần file; số khôi phục từ báo cáo phải ghi `recovered_from_documentation`. Không tạo stdout/stderr, timestamp hoặc lịch sử loss giả cho phần đã mất. Manifest mới xác minh các file thực có trong report; manifest gốc được giữ riêng với tên `original_provenance.json`.
+
+Khi đưa lên Git, giữ trọng số/optimizer ở máy và bỏ qua chúng qua `.gitignore`; code, cấu hình, report và log vẫn được đưa lên repository. `.gitattributes` tắt chuyển đổi xuống dòng cho `report/**` và `outputs/**` để giữ nguyên byte bằng chứng và hash sau clone/checkout. Không thay nội dung report đã chốt chỉ để phù hợp cấu hình xuống dòng của Git.
 
 ## Nguồn và phạm vi
 

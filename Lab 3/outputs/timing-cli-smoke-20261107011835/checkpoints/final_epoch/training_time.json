@@ -1,0 +1,24 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/11_AI_Usage.md",
+      "docs/02_data.md",
+      "docs/03_model.md",
+      "docs/04_training.md",
+      "docs/05_evaluation.md",
+      "docs/07_demo.md"
+    ],
+    "generated_at_utc": "2026-11-07T01:19:15.571463+00:00"
+  },
+  "scope": "checkpoint",
+  "checkpoint": "final_epoch",
+  "epoch": 1.0,
+  "step": 2,
+  "started_at": "2026-11-07T01:19:13.934694+00:00",
+  "saved_at": "2026-11-07T01:19:15.499230+00:00",
+  "elapsed_train_seconds": 1.5651820000057342,
+  "epoch_seconds": 1.4441510000033304,
+  "total_train_seconds": 1.3854348000022583,
+  "training_ended_at": "2026-11-07T01:19:15.320638+00:00"
+}

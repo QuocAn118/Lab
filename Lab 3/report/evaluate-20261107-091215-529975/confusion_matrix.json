@@ -1,0 +1,24 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "labels": [
+    "NEGATIVE",
+    "POSITIVE"
+  ],
+  "matrix": [
+    [
+      11431,
+      1069
+    ],
+    [
+      1178,
+      11322
+    ]
+  ]
+}

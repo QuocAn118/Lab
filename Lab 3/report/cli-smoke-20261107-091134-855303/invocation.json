@@ -1,0 +1,20 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "command": "lab3.py train --mode smoke --output Lab 3/outputs/report-smoke-20261107-091130",
+  "config": {
+    "mode": "smoke",
+    "seed": 42,
+    "max_length": 256,
+    "batch_size": 16,
+    "learning_rate": 2e-05,
+    "epochs": 3,
+    "weight_decay": 0.01
+  }
+}

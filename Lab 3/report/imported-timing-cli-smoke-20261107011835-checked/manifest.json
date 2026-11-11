@@ -1,0 +1,289 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "availability.json",
+      "sha256": "197bda1ff78f38d8b2c285de7713852ea605f3ca6efe196d302c88f78216c23e",
+      "bytes": 494,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_policy.json",
+      "sha256": "3cbaf9c1c320e1f449da5ac7bfa8b70464f3d32ae374d5cf328b8b9899d4cea9",
+      "bytes": 646,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoint_policy.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best.json",
+      "sha256": "8545699f51adb6e194d5040af7820647172fb598e70a98330d05378c20826265",
+      "bytes": 702,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoints\\best\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best_val_acc.json",
+      "sha256": "37d601527af0c59d71b64ced048877ebd4daeca72a8afd6a733f343198b5b62f",
+      "bytes": 710,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoints\\best_val_acc\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best_val_loss.json",
+      "sha256": "c9e274660235f0c86834b46d027329e372e03e638fc0ae7e8a1e0fcb20ee0398",
+      "bytes": 714,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoints\\best_val_loss\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best_val_pause.json",
+      "sha256": "1cef15385e99f3f751a952d00b8672677c09ec989956f766052819e815aa1c61",
+      "bytes": 715,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoints\\best_val_pause\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/final_epoch.json",
+      "sha256": "9f2b2bee2ca0d2527af70fb0ce6446d3e96d7ff56deea22a7b000cc4fad9c357",
+      "bytes": 710,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\checkpoints\\final_epoch\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoints.json",
+      "sha256": "88b14b18846605bf2091e88130a8b921fa7c5d6efadcf4fbfe705d420f0a5749",
+      "bytes": 1495,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "config.json",
+      "sha256": "af1c4975b1d89cd6b7e8308f334df8142518a048bd3a13dbda9c2551ed8393ce",
+      "bytes": 2025,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\run_config.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "confusion_matrix.png",
+      "sha256": "616623d6a37568a069d62a80ffc27748f1bd5faaf0985290022db96882bb8e0c",
+      "bytes": 21258,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\confusion_matrix.png",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "epoch_history.json",
+      "sha256": "b79cbc846becccb52ae51159446b913caf9d91930a65bdb7080fdf264ba5c23d",
+      "bytes": 803,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\epoch_history.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "executed_cli.py",
+      "sha256": "dd42ae495fd22d880e67da56e69fc1174fe6933f196b712f483b4d7dbfad00c4",
+      "bytes": 34669,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\lab3_source.py",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "loss_curve.png",
+      "sha256": "bcde4ec53c959095465d16df2f11dc4dc19de49081e8bf0f4e9ccc0c86b65eea",
+      "bytes": 50265,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\loss_curve.png",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "metrics.json",
+      "sha256": "e78b884490bece15240006b10ff2a6c05e2efdce0089c7f43547d5f2dd648d73",
+      "bytes": 5515,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\metrics.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "original_provenance.json",
+      "sha256": "7ac799764c64d43792fcaae200454ee596713717947292d73252d89e4c3fd5bf",
+      "bytes": 48412,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\provenance.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "original_report.md",
+      "sha256": "4cd7ab07ec2b63ca7c5a0dcdb5333174ea36989ea642c6dda17496572964cc7e",
+      "bytes": 1643,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\report.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "original_run.log",
+      "sha256": "b58d4f0861725fb91f14f6ba0fd9828539138ab0b1b277a71ef39792eddfd6cf",
+      "bytes": 3155,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\run.log",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "predictions.csv",
+      "sha256": "834529cbbd91beee17e2f072a5d780b0f77c415110c70011c5cd5ef479a37e40",
+      "bytes": 236,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\test_predictions.csv",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "run.json",
+      "sha256": "f9ba09cf39d67016d0f3a589d41bdb0f9627d6a1c1ef8d1ec988b22704681840",
+      "bytes": 800,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "434d4d9c0bb308add7970afa4d75b1d89cd448c46312d5c855942c78fe63bc9e",
+      "bytes": 356,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "summary.md",
+      "sha256": "4907cd5980baed2ab653ea4577b76264936a48dbd63cb988a736051f065c649e",
+      "bytes": 1051,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "trainer_history.json",
+      "sha256": "cf1f3af9a1c53c74ceae0720f88e06a54466b73c09360f13d553c7302a85f205",
+      "bytes": 1251,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\trainer_history.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "training_time.json",
+      "sha256": "5e29fcf6874d3db715d75132e04241f1857abcd4cf005308fc88042c23ff20f3",
+      "bytes": 1082,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\timing-cli-smoke-20261107011835-checked\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    }
+  ],
+  "note": "Manifest excludes itself."
+}

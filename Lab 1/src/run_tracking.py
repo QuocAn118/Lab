@@ -131,13 +131,13 @@ def spec_hashes(specs: Iterable[str]) -> list[dict]:
 
 
 def code_snapshot() -> list[dict]:
-    """Hash mọi file code trong src/ kèm đặc tả nguồn ghi trong sổ đăng ký."""
+    """Hash mọi file code trong src/ và data/ kèm đặc tả nguồn trong sổ đăng ký."""
     sources: dict[str, list[str]] = {}
     if REGISTRY.is_file():
         for entry in json.loads(REGISTRY.read_text(encoding="utf-8")).get("entries", []):
             sources[entry["path"]] = [s["path"] for s in entry.get("sources", []) if "path" in s]
     snapshot = []
-    for path in sorted((LAB_ROOT / "src").glob("*.py")):
+    for path in sorted([*(LAB_ROOT / "src").glob("*.py"), *(LAB_ROOT / "data").glob("*.py")]):
         key = rel(path)
         snapshot.append({"path": key, "sha256": sha256_file(path),
                          "specs": sources.get(key, []), "registered": key in sources})

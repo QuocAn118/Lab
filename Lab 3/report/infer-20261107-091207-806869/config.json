@@ -1,0 +1,13 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "model": "tabularisai/multilingual-sentiment-analysis",
+  "max_length": 512,
+  "text": "Bộ phim này rất hay!"
+}

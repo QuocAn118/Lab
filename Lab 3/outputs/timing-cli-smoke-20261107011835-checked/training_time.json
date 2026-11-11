@@ -1,0 +1,38 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/11_AI_Usage.md",
+      "docs/02_data.md",
+      "docs/03_model.md",
+      "docs/04_training.md",
+      "docs/05_evaluation.md",
+      "docs/07_demo.md"
+    ],
+    "generated_at_utc": "2026-11-07T01:23:47.538907+00:00"
+  },
+  "scope": "run",
+  "status": "completed",
+  "started_at": "2026-11-07T01:23:46.457734+00:00",
+  "ended_at": "2026-11-07T01:23:47.538907+00:00",
+  "total_train_seconds": 1.081749299999501,
+  "epochs": [
+    {
+      "epoch": 1.0,
+      "step": 2,
+      "val_loss": 0.697113037109375,
+      "val_accuracy": 0.5,
+      "val_f1_macro": 0.3333333333333333,
+      "val_f1_binary": 0.0,
+      "val_precision": 0.0,
+      "val_recall": 0.0,
+      "epoch_wall_seconds": 0.964357500000915,
+      "best_val_acc": true,
+      "best_val_loss": true,
+      "stale_evaluations": 0,
+      "early_stopping_triggered": false,
+      "early_stopped": false
+    }
+  ],
+  "note": "Elapsed wall time for trainer.train(), before final model export/test."
+}

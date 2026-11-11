@@ -1,0 +1,48 @@
+{
+  "accuracy": {
+    "test_accuracy": 0.8253,
+    "test_loss": 0.49700016746521,
+    "best_val_accuracy": 0.8315,
+    "best_val_accuracy_epoch": 6,
+    "best_val_loss": 0.4873703155517578,
+    "best_val_loss_epoch": 6,
+    "per_class_accuracy": {
+      "T-shirt/top": 0.77,
+      "Trouser": 0.947,
+      "Pullover": 0.791,
+      "Dress": 0.868,
+      "Coat": 0.727,
+      "Sandal": 0.888,
+      "Shirt": 0.476,
+      "Sneaker": 0.93,
+      "Bag": 0.937,
+      "Ankle boot": 0.919
+    }
+  },
+  "timing": {
+    "training_started_at": "2026-11-11T09:41:02+07:00",
+    "training_finished_at": "2026-11-11T09:41:27+07:00",
+    "train_seconds": 22.08205949998228,
+    "epoch_seconds": [
+      3.839,
+      3.67,
+      3.713,
+      3.647,
+      3.583,
+      3.631
+    ],
+    "test_seconds": 0.6118728999863379,
+    "inference_ms_per_image": 0.061187289998633786
+  },
+  "resources": {
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "torchvision": "0.24.1+cu128",
+    "num_parameters": 669706,
+    "checkpoint_bytes": 2681685,
+    "checkpoint_mb": 2.681685,
+    "peak_gpu_memory_mb": 27.313152
+  }
+}

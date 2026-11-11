@@ -1,0 +1,126 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "checkpoint": "Lab 3\\outputs\\full\\checkpoints\\best",
+  "model_class": "DistilBertForSequenceClassification",
+  "model_config": {
+    "vocab_size": 30522,
+    "max_position_embeddings": 512,
+    "sinusoidal_pos_embds": false,
+    "n_layers": 6,
+    "n_heads": 12,
+    "dim": 768,
+    "hidden_dim": 3072,
+    "dropout": 0.1,
+    "attention_dropout": 0.1,
+    "activation": "gelu",
+    "initializer_range": 0.02,
+    "qa_dropout": 0.1,
+    "seq_classif_dropout": 0.2,
+    "return_dict": true,
+    "output_hidden_states": false,
+    "torchscript": false,
+    "dtype": "float32",
+    "pruned_heads": {},
+    "tie_word_embeddings": true,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "is_decoder": false,
+    "cross_attention_hidden_size": null,
+    "add_cross_attention": false,
+    "tie_encoder_decoder": false,
+    "architectures": [
+      "DistilBertForSequenceClassification"
+    ],
+    "finetuning_task": null,
+    "id2label": {
+      "0": "NEGATIVE",
+      "1": "POSITIVE"
+    },
+    "label2id": {
+      "NEGATIVE": 0,
+      "POSITIVE": 1
+    },
+    "task_specific_params": null,
+    "problem_type": "single_label_classification",
+    "tokenizer_class": null,
+    "prefix": null,
+    "bos_token_id": null,
+    "pad_token_id": 0,
+    "eos_token_id": null,
+    "sep_token_id": null,
+    "decoder_start_token_id": null,
+    "max_length": 20,
+    "min_length": 0,
+    "do_sample": false,
+    "early_stopping": false,
+    "num_beams": 1,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 1.0,
+    "typical_p": 1.0,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "encoder_no_repeat_ngram_size": 0,
+    "bad_words_ids": null,
+    "num_return_sequences": 1,
+    "output_scores": false,
+    "return_dict_in_generate": false,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": false,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "num_beam_groups": 1,
+    "diversity_penalty": 0.0,
+    "_name_or_path": "Lab 3\\outputs\\full\\checkpoints\\best",
+    "transformers_version": "4.57.1",
+    "model_type": "distilbert",
+    "tie_weights_": true,
+    "tf_legacy_loss": false,
+    "use_bfloat16": false,
+    "output_attentions": false
+  },
+  "training_args": {
+    "learning_rate": 2e-05,
+    "per_device_train_batch_size": 16,
+    "per_device_eval_batch_size": 16,
+    "num_train_epochs": 3,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "optim": "adamw_torch",
+    "seed": 42,
+    "data_seed": null,
+    "fp16": true,
+    "bf16": false,
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "save_total_limit": 2,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "accuracy",
+    "greater_is_better": true
+  },
+  "device": "cuda:0",
+  "datasets": {
+    "train": {
+      "size": 20000,
+      "fingerprint": "13cecb15c57be64d"
+    },
+    "validation": {
+      "size": 5000,
+      "fingerprint": "4f5432960f70d448"
+    }
+  },
+  "test_dataset": {
+    "size": 25000,
+    "fingerprint": "4789de0c647f0834"
+  }
+}

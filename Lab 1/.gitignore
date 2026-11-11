@@ -1,0 +1,15 @@
+# Spec: docs/team_plan_integrity.md §9.4
+# Môi trường và cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Dataset và checkpoint là sản phẩm trong repo, được quản lý bằng Git LFS.
+
+# File tạm khi ghi manifest
+*.tmp
+
+# Historical local ZIP; the working directories in this repo are authoritative.
+deliverables/

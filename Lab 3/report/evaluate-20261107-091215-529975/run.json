@@ -1,0 +1,17 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "kind": "evaluate",
+  "evidence": "live",
+  "report_created_at": "2026-11-07T09:12:15.530977+07:00",
+  "status": "completed",
+  "log_scope": "test prediction, figures and checkpoint demo; model/data preparation precedes capture",
+  "started_at": "2026-11-07T09:12:15.531977+07:00",
+  "ended_at": "2026-11-07T09:12:47.442467+07:00"
+}

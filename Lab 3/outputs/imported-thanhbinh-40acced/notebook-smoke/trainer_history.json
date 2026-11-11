@@ -1,0 +1,52 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T13:03:35.671747+00:00"
+  },
+  "history": [
+    {
+      "loss": 0.7107,
+      "grad_norm": 1.5282232761383057,
+      "learning_rate": 2e-05,
+      "epoch": 0.5,
+      "step": 1
+    },
+    {
+      "loss": 0.703,
+      "grad_norm": 1.5734007358551025,
+      "learning_rate": 1e-05,
+      "epoch": 1.0,
+      "step": 2
+    },
+    {
+      "eval_loss": 0.697174072265625,
+      "eval_accuracy": 0.5,
+      "eval_precision": 0.0,
+      "eval_recall": 0.0,
+      "eval_f1_binary": 0.0,
+      "eval_f1_macro": 0.3333333333333333,
+      "eval_runtime": 0.0206,
+      "eval_samples_per_second": 778.209,
+      "eval_steps_per_second": 48.638,
+      "epoch": 1.0,
+      "step": 2
+    },
+    {
+      "train_runtime": 1.0706,
+      "train_samples_per_second": 29.889,
+      "train_steps_per_second": 1.868,
+      "total_flos": 2119478378496.0,
+      "train_loss": 0.70684814453125,
+      "epoch": 1.0,
+      "step": 2
+    }
+  ]
+}

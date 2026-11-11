@@ -1,5 +1,17 @@
 # Tiến độ và bàn giao — Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Tiến độ và bàn giao — Lab 3 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Kết quả ngày 2026-11-06
 
 | Task | Công việc | Trạng thái | Bằng chứng |
@@ -14,7 +26,7 @@
 | TASK-08 | Demo và notebook | DONE | Demo best; 8 ô code (Exercise 1 + 7 bước Exercise 2) đã chạy; 10 tests PASS |
 | TASK-09 | Audit nguồn và artifact | DONE | Audit sau sắp xếp: 20 file/8 ô có nguồn; 45 artifact full khớp hash |
 
-Đã hoàn tất phạm vi đặc tả trên máy hiện tại. Đối chiếu tốc độ trên Colab T4: N/A do khác thiết bị đo. Không tự commit/push. Trọng số được giữ trên đĩa trong outputs và bị Git ignore; không nhầm Git không có trọng số với chưa train.
+Theo báo cáo ngày 2026-11-06, phạm vi đặc tả đã hoàn tất trên máy được ghi trong báo cáo; đây không phải kiểm chứng lại môi trường ngày 2026-11-11. Đối chiếu tốc độ trên Colab T4: N/A do khác thiết bị đo. Trọng số của các bản nhập hiện được quản lý bằng Git LFS và snapshot có manifest nguồn riêng; nội dung trong bảng là kết quả lịch sử, không phải số đo mới sau merge.
 
 ## 2. Nhật ký
 

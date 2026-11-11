@@ -1,0 +1,26 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "original_output": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full",
+  "not_present_in_original_output": [
+    "run_config.json",
+    "metrics.json",
+    "epoch_history.json",
+    "trainer_history.json",
+    "test_predictions.csv",
+    "confusion_matrix.png",
+    "loss_curve.png",
+    "report.md",
+    "lab3_source.py",
+    "run.log",
+    "failure.json",
+    "provenance.json"
+  ],
+  "note": "Only files present at collection time are copied; missing logs are not reconstructed."
+}

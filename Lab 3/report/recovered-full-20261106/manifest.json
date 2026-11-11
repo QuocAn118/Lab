@@ -1,0 +1,157 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "availability.json",
+      "sha256": "089d248d349e15c16adb856f2d685c324550b886b3b3cd1d50ba9a0f1f107d29",
+      "bytes": 686,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_policy.json",
+      "sha256": "b6ed99e65ad9d3852fd2a0a74519e520e48d0ba482bdd594ec4197881ea38246",
+      "bytes": 739,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\checkpoint_policy.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best.json",
+      "sha256": "743de360f871b9b09f3a068486d8571a04f68d88ab96993a0ba8df6950bd052d",
+      "bytes": 955,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\checkpoints\\best\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best_val_acc.json",
+      "sha256": "eca8072a5ae7a28caa6dcb62d14912231712554d48229b6e9458fd44627d3b3c",
+      "bytes": 963,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\checkpoints\\best_val_acc\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoint_times/best_val_loss.json",
+      "sha256": "a9ec2a4d8616120f9ad396a8c8aa8bb7f3e5a84be0f918d2b9d0e1fd8055646a",
+      "bytes": 964,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\checkpoints\\best_val_loss\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "checkpoints.json",
+      "sha256": "2922f2c203ec9c70a7e82d9a780b7164267dc73605a7fdbfe143f7fe178f62a3",
+      "bytes": 1103,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "recovery_sources/06_verification.md",
+      "sha256": "e68e2569f1a584657bae0e760376c292690aa2abbb7cb312e7b70831462b5b9e",
+      "bytes": 14049,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\docs\\06_verification.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "run.json",
+      "sha256": "6b6e8581f1ee1959a010715bc2215f9c91a9165e3f0b6f5e2cf7c43c44e35cc2",
+      "bytes": 709,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "434d4d9c0bb308add7970afa4d75b1d89cd448c46312d5c855942c78fe63bc9e",
+      "bytes": 356,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "summary.md",
+      "sha256": "5c02cf2f7c9098be83e6405554b0efb484ea7bba3b16acf126f2249cd9cbc87e",
+      "bytes": 828,
+      "origin": "generated",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "timing_sources.md",
+      "sha256": "662838665d59aca4a46b34415e6797f90eefc4e5465fd116fe1f85c52b3b9569",
+      "bytes": 1037,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\timing_sources.md",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    },
+    {
+      "path": "training_time.json",
+      "sha256": "1929f1d4e67cfa03cff552e5d1de976a977ac2be0141065cabc826a181999cea",
+      "bytes": 830,
+      "origin": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\full\\training_time.json",
+      "sources_md": [
+        "docs/08_implementation.md",
+        "docs/05_evaluation.md",
+        "docs/04_training.md",
+        "docs/11_AI_Usage.md"
+      ]
+    }
+  ],
+  "note": "Manifest excludes itself."
+}

@@ -1,0 +1,16 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T12:20:54.189502+00:00"
+  },
+  "exception": "ValueError",
+  "message": "You have set `args.eval_strategy` to IntervalStrategy.EPOCH but you didn't pass an `eval_dataset` to `Trainer`. Either set `args.eval_strategy` to `no` or pass an `eval_dataset`. "
+}
