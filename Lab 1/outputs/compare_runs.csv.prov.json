@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "artifact": "outputs/compare_runs.csv",
+  "sha256": "d70e3ae719d9595dc35299439bc0971fb9a83ac8a601d034afbd1bd7b62ca72d",
+  "bytes": 856,
+  "produced_by": "src/compare_runs.py",
+  "created_by": "HoangDang",
+  "created_at": "2026-11-11T09:47:01+07:00",
+  "git": {
+    "commit": "6009843e6c31901feb2563cd681ed35aee23cfa4",
+    "branch": "hoangdang",
+    "dirty": true,
+    "dirty_files": [
+      "?? \"Lab 1/outputs/compare_loss.png\"",
+      "?? \"Lab 1/outputs/compare_runs.csv\""
+    ]
+  },
+  "specs": [
+    {
+      "path": "docs/lab_1_description.md",
+      "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "ec4f33802349ba2f485831d8d56fcb9bc65b9190d4b01e4adff042ccbd347822"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "outputs/run_001/config.json",
+      "sha256": "6c21000a0682da9a2a1dbe176ea7d7cedb9892b51d2656e4a73f44d502fb4057"
+    },
+    {
+      "path": "outputs/run_001/metrics.json",
+      "sha256": "135afb78cd4211750d7c9bc2a80550a6f354605c4d582216d93fdc3ced048ab8"
+    },
+    {
+      "path": "outputs/run_001/performance.json",
+      "sha256": "a69860e2183123010db243ebd9ebf013e513ac95cb8fef32e8961bd1a4a2255d"
+    },
+    {
+      "path": "outputs/run_001/manifest.json",
+      "sha256": "931081d20eee574d291d6c9e107aaa75f0163dc49ff0f9b3367f0a4c1db1949f"
+    },
+    {
+      "path": "outputs/run_001/history.csv",
+      "sha256": "294236822e94b201352992c3e664d97b2b8a2bea7326a2144a54ea5c554e285f"
+    },
+    {
+      "path": "outputs/run_002/config.json",
+      "sha256": "4c0a2a2ee6b7303a01b8fb3f16b5f4e00a9749477af9938eac634a4fee41f5a7"
+    },
+    {
+      "path": "outputs/run_002/metrics.json",
+      "sha256": "9a40a369605e663fccbdcf0b3eee7d40d53beeed8866e9b93235e8af5d4457b6"
+    },
+    {
+      "path": "outputs/run_002/performance.json",
+      "sha256": "ab6f866712ac0b8609344ccb7b93dd00cd11d7232aeb4a72f6a33d2d135d5381"
+    },
+    {
+      "path": "outputs/run_002/manifest.json",
+      "sha256": "5470cdb7bcabc38eedf68a3d1c35b313e81566ba92eeda9d8e17a10d73461622"
+    },
+    {
+      "path": "outputs/run_002/history.csv",
+      "sha256": "4441430c934a0b10af2f12971bbf9976c160aff1c3649071973171dd95fe5432"
+    },
+    {
+      "path": "outputs/run_003/config.json",
+      "sha256": "19a435fe27f01ad9eb3e8bb8c6764665c1e9e3fed80717346aa945719f2d50a3"
+    },
+    {
+      "path": "outputs/run_003/metrics.json",
+      "sha256": "bc25fb74e14c29e0ea72ed4579979ffc50b6438623ef1083152b95e25e545e3a"
+    },
+    {
+      "path": "outputs/run_003/performance.json",
+      "sha256": "4a64dcd55dddc6615bd7d886a8554af6eb400d6a3bc01dcac14ca3aba0a5dfec"
+    },
+    {
+      "path": "outputs/run_003/manifest.json",
+      "sha256": "74fbe75a9c2c311332bcf0793d2d8ee83fc9552a18469ffbf81664d6f5bc415c"
+    },
+    {
+      "path": "outputs/run_003/history.csv",
+      "sha256": "1dfbc93e689083014f27c9997f1717dacd62b5fc5afa18044fec1fc777382d2d"
+    },
+    {
+      "path": "outputs/run_004/config.json",
+      "sha256": "39cd6975c4ceb6c3c55c2f086dbe53a6aebfefa4cce5f4fbd1a5290e39b27768"
+    },
+    {
+      "path": "outputs/run_004/metrics.json",
+      "sha256": "c98da48a640d5315342148043e7ff05d19b85c149f26f87dca96c88716d3fecf"
+    },
+    {
+      "path": "outputs/run_004/performance.json",
+      "sha256": "e5c9d75f275410e19052748ad13d3350ccb1c90cc38ba36643e5ad6649156c90"
+    },
+    {
+      "path": "outputs/run_004/manifest.json",
+      "sha256": "0377a619fb6b3976bbe153fad53e5a7126330fcdce52b03f5dc2434b6eacc3bb"
+    },
+    {
+      "path": "outputs/run_004/history.csv",
+      "sha256": "434adcfbb55d6b1bd2efcf29ccee75485c930f0b75336d098ce44dc96b90ed5f"
+    }
+  ],
+  "note": "",
+  "history": []
+}

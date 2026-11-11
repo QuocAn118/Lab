@@ -1,0 +1,10 @@
+{
+  "run_id": "run_001",
+  "checkpoint": "checkpoints/run_001/best.pth",
+  "split": "test",
+  "device": "cuda",
+  "num_samples": 10000,
+  "num_correct": 8253,
+  "test_loss": 0.49700016746521,
+  "test_accuracy": 0.8253
+}

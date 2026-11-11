@@ -1,0 +1,10 @@
+torch
+transformers>=4.46,<6
+datasets
+evaluate
+accelerate
+scikit-learn
+pyyaml
+matplotlib
+psutil
+pytest

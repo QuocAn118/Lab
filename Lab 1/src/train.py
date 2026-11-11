@@ -37,6 +37,10 @@ MIN_DELTA = 0.01
 def build_config(run_id, hidden_dims=(512, 512), optimizer="SGD", learning_rate=0.001,
                  epochs=None, device="cpu"):
     """Cấu hình ghi vào config.json. Run tự thêm run_id, created_by, started_at."""
+    if epochs is not None and (type(epochs) is not int or not 1 <= epochs <= 10):
+        raise ValueError("epochs phải là số nguyên từ 1 đến 10")
+    if not math.isfinite(learning_rate) or learning_rate < 0:
+        raise ValueError("learning_rate phải hữu hạn và không âm")
     smoke = run_id.startswith("smoke_")
     return {
         "schema_version": 1,
@@ -47,7 +51,7 @@ def build_config(run_id, hidden_dims=(512, 512), optimizer="SGD", learning_rate=
         "data": {"transforms": ["ToTensor"], "batch_size": 64, "num_workers": 0,
                  "train_shuffle": True, "test_shuffle": False, "drop_last": False,
                  "limits": SMOKE_LIMITS if smoke else None},  # Smoke run: số ảnh mục 5.1.
-        "training": {"epochs": epochs or (1 if smoke else 10), "seed": 42, "loss": "CrossEntropyLoss",
+        "training": {"epochs": epochs if epochs is not None else (1 if smoke else 10), "seed": 42, "loss": "CrossEntropyLoss",
                      "optimizer": optimizer, "learning_rate": learning_rate,
                      "momentum": 0.9 if optimizer == "SGD" else None, "device": device},
     }
@@ -103,6 +107,8 @@ def train(config, run, loaders):
     cuda = device.startswith("cuda")
 
     torch.manual_seed(cfg["seed"])
+    if cuda:
+        torch.cuda.reset_peak_memory_stats()
     model = build_model(config["model"]).to(device)
     loss_fn = nn.CrossEntropyLoss()
     if cfg["optimizer"] == "SGD":
@@ -124,9 +130,10 @@ def train(config, run, loaders):
         torch.save(model.state_dict(), run.ckpt_dir / name)
         record(name, *info, **extra)
 
-    best_loss = best_acc = None
+    best_loss = best_acc = best_state = None
     best_loss_epoch = best_acc_epoch = None
     stale, early_stopped = 0, False
+    started_at = now_iso()
     with (run.out_dir / "history.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(HISTORY_COLUMNS)
@@ -154,12 +161,16 @@ def train(config, run, loaders):
             if best_acc is None or val_acc > best_acc:  # Hòa thì giữ checkpoint sớm hơn.
                 best_acc, best_acc_epoch = val_acc, epoch
                 save("best_val_acc.pth", epoch, val_loss, val_acc)
+                best_state = {name: value.detach().cpu().clone()
+                              for name, value in model.state_dict().items()}
             if stale >= PATIENCE:
                 early_stopped = True
                 run.note(f"early stopping tại epoch {epoch}: {stale} epoch liên tiếp val_acc tăng dưới "
                          f"{MIN_DELTA}")
                 break
 
+    finished_at = now_iso()
+    peak_gpu_bytes = torch.cuda.max_memory_allocated() if cuda else None
     last = (epoch, val_loss, val_acc)
     save("best_val_pause.pth", *last, early_stopped=early_stopped)
     shutil.copyfile(run.ckpt_dir / "best_val_acc.pth", run.ckpt_dir / "best.pth")
@@ -169,11 +180,17 @@ def train(config, run, loaders):
 
     summary = {"epochs_run": epoch, "early_stopped": early_stopped,
                "best_val_accuracy": best_acc, "best_val_accuracy_epoch": best_acc_epoch,
-               "best_val_loss": best_loss, "best_val_loss_epoch": best_loss_epoch}
+               "best_val_loss": best_loss, "best_val_loss_epoch": best_loss_epoch,
+               "train_seconds": train_seconds, "started_at": started_at,
+               "finished_at": finished_at, "peak_gpu_bytes": peak_gpu_bytes}
 
     sample = torch.stack([val_loader.dataset[i][0] for i in range(RELOAD_SAMPLES)])
     if not verify_reload(model, sample, run.run_id):
         raise RuntimeError("Tải lại final_epoch.pth không khớp, xem reload_check.json")
+    best_model = build_model(config["model"])
+    best_model.load_state_dict(best_state)
+    if not verify_reload(best_model, sample, run.run_id, checkpoint="best"):
+        raise RuntimeError("Tải lại best.pth không khớp, xem reload_check.json")
     return summary
 
 
@@ -186,13 +203,26 @@ def main(argv=None):
     parser.add_argument("--lr", type=float, default=0.001)
     parser.add_argument("--epochs", type=int, help="Mặc định 10, smoke run 1")
     args = parser.parse_args(argv)
+    if args.run_id.startswith("smoke_") and args.epochs not in (None, 1):
+        parser.error("Smoke CLI chỉ chạy 1 epoch")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     config = build_config(args.run_id, args.hidden_dims, args.optimizer, args.lr, args.epochs, device)
-    from data_pipeline import create_dataloaders  # TV1; import ở đây để test không cần file này.
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from data.data_pipeline import create_dataloaders  # TV1; import ở đây để test không cần file này.
+    from evaluate import evaluate_run
+    from verify import verify_run
 
     with Run(args.run_id, purpose=args.purpose, config=config, specs=SPECS) as run:
-        summary = train(config, run, create_dataloaders(config))
+        loaders = create_dataloaders(config)
+        summary = train(config, run, loaders)
+        evaluate_run(config, run, loaders[2], summary)
+        report = verify_run(run.run_id, finalized=False)
+        write_json(run.out_dir / "verify_report.json", report)
+        if not report["passed"]:
+            raise RuntimeError(f"Run không đạt kiểm chứng: {report['errors']}")
         run.note(f"best val_acc {summary['best_val_accuracy']:.4f} tại epoch {summary['best_val_accuracy_epoch']}")
 
 

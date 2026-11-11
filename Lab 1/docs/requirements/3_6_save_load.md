@@ -1,63 +1,34 @@
 # 3.6. Lưu và tải lại mô hình
 
-## 1. Mục đích
+## 0. Thông tin tài liệu
 
-Lưu trọng số cuối của từng thí nghiệm, khôi phục đúng mô hình và kiểm tra dự đoán trước/sau khi lưu tải.
+| Trường | Nội dung |
+| --- | --- |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Last updated | 2026-11-11T09:54:14+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 
-## 2. File thực hiện
+## Giao diện và đầu vào
 
-- File code dự kiến: `src/model_io.py`, chứa các hàm dùng chung:
-  - `save_model(model, run_id)`: lưu state_dict tại đường dẫn của lần chạy.
-  - `load_model(run_id, device)`: đọc cấu hình, khởi tạo mạng, nạp trọng số và trả về mô hình ở chế độ đánh giá.
-  - `verify_reload(model, sample_batch, run_id)`: so sánh mô hình trong bộ nhớ với mô hình tải lại và ghi báo cáo.
-- `src/train.py` gọi lưu và kiểm tra sau epoch cuối; `src/evaluate.py` gọi tải lại trước đánh giá.
-- `src/model.py` cung cấp `build_model(model_config)` để khởi tạo đúng kiến trúc.
+- `save_model(model, run_id)` lưu `final_epoch.pth` theo cấu hình đã ghi trong `outputs/<run_id>/config.json`. Mã run được kiểm tra; mở file bằng `xb` để không ghi đè.
+- `load_model(run_id, device, checkpoint="final_epoch")` hỗ trợ `final_epoch` hoặc `best`; từ chối lựa chọn khác. Cách gọi cũ giữ nguyên hành vi tải checkpoint cuối.
+- `verify_reload(model, sample_batch, run_id, checkpoint="final_epoch")` yêu cầu tensor 16 ảnh validation đầu tiên `[16,1,28,28]`.
 
-## 3. Đầu vào
+## Lưu, tải và kiểm chứng
 
-- Mô hình đã huấn luyện và `run_id` của bước 3.4.
-- `outputs/<run_id>/config.json`, đã được bước 3.4 ghi; đây là bản cấu hình duy nhất cho lần chạy, không tạo bản sao trong thư mục checkpoint.
-- Một batch cố định gồm 16 mẫu đầu tiên của tập train, đã áp dụng transforms như cấu hình, dùng để kiểm tra lưu/tải.
-- Khi đánh giá, nhận `run_id` và thiết bị cần tải mô hình lên.
+1. Checkpoint chỉ chứa state_dict; config là nguồn kiến trúc, transforms và tên lớp. Không hỗ trợ resume optimizer.
+2. Nạp với `weights_only=True`, `map_location=device`, `load_state_dict(..., strict=True)`, sau đó `eval()`.
+3. So sánh trên CPU, tắt gradient, yêu cầu logits `[16,10]` hữu hạn; nhãn giống nhau và sai khác logits lớn nhất không quá `1e-6`.
+4. Train kiểm final trước; tiếp theo khởi tạo model từ bản sao best-state độc lập giữ trong bộ nhớ và kiểm `best`. `reload_check.json` cuối ghi checkpoint best. Không so hai lần tải cùng một file để thay cho phép kiểm serialization.
+5. Báo cáo có run_id, checkpoint, device, checked_samples, labels_match, max_abs_logit_difference, tolerance, passed. Không đạt thì Run thất bại và vẫn giữ artifact để truy vết.
 
-## 4. Các bước xử lý
+Năm checkpoint và metadata nằm ở `checkpoints/<run_id>/`. `best` sao chép byte từ best_val_acc; final và pause cùng trọng số tại lần validation cuối là có chủ đích. Test/demo luôn chọn best.
 
-1. Sau epoch cuối, kiểm tra thư mục lần chạy và cấu hình tương ứng tồn tại; không ghi đè checkpoint đã có.
-2. Lưu `model.state_dict()` bằng `torch.save` vào tệp trọng số của lần chạy.
-3. Đọc `config.json`, sử dụng `build_model` để tạo lại cùng kiến trúc.
-4. Đọc checkpoint bằng `torch.load` với `weights_only=True` và `map_location` theo thiết bị đích; nạp bằng `load_state_dict` với kiểm tra khớp đầy đủ các khóa.
-5. Chuyển mô hình tải lại sang chế độ đánh giá. Bên gọi thực hiện dự đoán khi tắt tính gradient.
-6. Để kiểm tra lưu/tải, so sánh trên CPU: chuyển mô hình gốc sang chế độ đánh giá trên CPU sau khi huấn luyện xong; tải mô hình mới lên CPU; đưa cùng batch 16 ảnh qua cả hai mạng khi tắt tính gradient.
-7. So sánh logits và nhãn dự đoán, ghi báo cáo rồi trả trạng thái kiểm tra về `train.py`.
+## Kiểm tra
 
-## 5. Đầu ra, định dạng và cách lưu
+`tests/test_pipeline.py` kiểm best khác final, mặc định final còn tương thích, từ chối đường dẫn sai và không ghi đè checkpoint. `tests/test_train.py` kiểm train/early stopping/checkpoint/reload. Phép kiểm trên GPU được bổ sung bởi smoke/normal run thật; xem [verification.md](../verification.md).
 
-| Đầu ra | Đường dẫn hoặc nơi sử dụng | Định dạng |
-| --- | --- | --- |
-| Trọng số epoch cuối | `checkpoints/<run_id>/final_epoch.pth` | Tệp nhị phân do `torch.save` tạo, nội dung là state_dict. |
-| Mô hình đã tải | Bộ nhớ của tiến trình gọi `load_model` | Đối tượng mạng đã nạp trọng số và được đặt ở chế độ đánh giá. |
-| Kết quả đối chiếu | `outputs/<run_id>/reload_check.json` | JSON UTF-8, ghi sau khi thực hiện so sánh. |
+## Nguồn và phạm vi
 
-Phần mở rộng `.pth` là quy ước đặt tên. Tệp này chứa các tham số và buffer trong state_dict; không chứa mã định nghĩa kiến trúc, cấu hình tiền xử lý hay trạng thái optimizer. Cần giữ cùng `src/model.py` và `config.json` để tải lại; quy trình cơ sở phục vụ suy luận, chưa hỗ trợ tiếp tục huấn luyện từ checkpoint.
-
-`reload_check.json` gồm `run_id`, `checkpoint`, `device` (chuỗi `cpu`), `checked_samples` (16), `labels_match` (boolean), `max_abs_logit_difference` (số thực), `tolerance` (0.000001) và `passed` (boolean).
-
-Giữ checkpoint và cấu hình để phân tích nếu kiểm tra thất bại; ghi `passed=false` khi đã tính được kết quả so sánh nhưng không đạt. Nếu việc tải hoặc đối chiếu phát sinh lỗi, báo lỗi và không báo lần chạy hoàn thành thành công. Mỗi lần huấn luyện mới phải dùng mã khác để không ghi đè checkpoint cũ.
-
-## 6. Cách gọi và kiểm tra
-
-Module này được gọi trong bước huấn luyện và đánh giá, không cần thêm lệnh CLI riêng:
-
-1. `train.py` gọi `save_model`, sau đó gọi `verify_reload` sau epoch cuối.
-2. `verify_reload` gọi `load_model` để kiểm tra chính checkpoint vừa lưu.
-3. `evaluate.py` gọi `load_model` trước khi đánh giá tập test.
-
-Điều kiện hoàn thành:
-
-- Tệp `.pth` tồn tại và nạp được vào mô hình mới với kiến trúc từ cấu hình.
-- Dự đoán của 16 mẫu giống nhau trước/sau khi tải (`labels_match=true`).
-- Chênh lệch tuyệt đối lớn nhất giữa logits của hai mô hình không vượt quá 0.000001.
-- `reload_check.json` có `passed=true` khi đồng thời đạt cả điều kiện logits và nhãn.
-- Có thể tải checkpoint đã huấn luyện trên GPU về CPU qua `map_location`.
-
-Tham khảo API: [Saving and Loading Models — PyTorch](https://docs.pytorch.org/tutorials/beginner/saving_loading_models).
+- [Đặc tả gốc](../lab_1_description.md), [toàn vẹn](../team_plan_integrity.md). Giữ tác giả code kế thừa trong Git; thay đổi API/kiểm chứng do HoangDang tích hợp với hỗ trợ OpenAI Codex.

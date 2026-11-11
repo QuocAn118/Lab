@@ -2,4 +2,11 @@
 .venv/
 __pycache__/
 .ipynb_checkpoints/
-outputs/
+# Keep generated model weights and optimizer state local (docs/08_implementation.md §4, §9).
+outputs/**/*.safetensors
+outputs/**/pytorch_model*.bin
+outputs/**/*.pt
+outputs/**/*.pth
+.pytest_cache/
+# Imported snapshot weights are tracked by Git LFS.
+!outputs/imported-thanhbinh-40acced/**/*.safetensors

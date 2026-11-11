@@ -1,11 +1,23 @@
 # MLP Architecture for Image Classification — Lab 1
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | MLP Architecture for Image Classification — Lab 1 |
+| Created date | Chưa xác nhận |
+| Created by | Nguyen Thi Van Anh (theo hồ sơ kế thừa) |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T10:16:25+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Model Name
 - Model name: FashionMNIST MLP
-- Model class: NeuralNetwork
+- Model class: FashionMLP
 - Author: Nguyen Thi Van Anh
-- Created on: --/11/2026
-- Updated on: --/11/2026
-- Updated by:
+- Created on: chưa xác nhận
+- Implementation status: Full pipeline completed; four trained runs are available. Selected by validation: run_004.
 - Framework: PyTorch
 - Reference: PyTorch – Learn the Basics – Build the Neural Network
 
@@ -43,7 +55,7 @@ The model uses an MLP architecture consisting of:
 - A ReLU activation function after each hidden layer
 - One output Linear layer with 10 neurons
 
-The model is defined in the NeuralNetwork class, which inherits from `torch.nn.Module`
+The model is defined in the FashionMLP class, which inherits from `torch.nn.Module`, and constructed through `build_model(model_config)`.
 The `__init__` method declares the layers
 The `forward` method defines the order in which data passes through the layers
 
@@ -71,7 +83,7 @@ The output layer returns logits. Softmax is not included in the forward method w
 ## 3.2 Model input
 The input is a batch of FashionMNIST images that have been converted into tensors
 
-- Data type:
+- Data type: `torch.float32`
 - Shape: (B, 1, 28, 28)
 - B: number of images in the batch
 - 1: one grayscale channel
@@ -137,8 +149,9 @@ Before training, the model can already perform a forward pass and return logits,
 
 ## 3.7. Source file
 
-- Source file:
-- Model class: NeuralNetwork
+- Source file: [src/model.py](../src/model.py)
+- Model class: `FashionMLP`; factory: `build_model(model_config)`
+- The current implementation supports exactly two positive integer hidden dimensions and 10 output classes.
 
 **_Reference:_**
 https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html
@@ -151,27 +164,23 @@ Before handing over the model for training:
 4. Count the total number of parameters and the number of trainable parameters
 5. Record the actual results in `model_summary.txt`
 
-**_Verification status:_** Not yet performed
+**_Verification status:_** A saved [model_summary.txt](../outputs/model_summary.txt) records input `(2, 1, 28, 28)`, output `(2, 10)` and 669706 trainable parameters. This is an architecture check, not training evidence. The summary was regenerated from committed code on 2026-11-11; its matching sidecar preserves the previous generation history. This remains an architecture check, separate from training evidence.
+
+`check_model()` now records the summary sidecar and preserves its history. A regression test checks the generated file hash.
 
 # 4. Trained Model
 
-Status: Not yet completed
-## 4.1. Training completion description
-- Training completion date: [To be updated]
-- Training run / configuration: [To be updated]
-- Number of completed epochs: [To be updated]
-- Architecture changes, if any: [To be updated]
-- Selected checkpoint: [To be updated]
-- Checkpoint selection criterion: [To be updated]
+Selected run: **run_004**, chosen by highest validation accuracy across the four runs. No test value was used for selection.
 
-## 4.2 Saving path and loading method
-- Saving path:
+- Training: 2026-11-11T09:45:49+07:00 to 2026-11-11T09:46:06+07:00, HoangDang on RTX 5060 Laptop.
+- Architecture remains 784 → 512 → 512 → 10; Adam learning rate 0.001; 4 epochs, early stopping true under patience 2/min_delta 0.01.
+- Best validation accuracy: 0.8810; test accuracy: 0.8770, test loss: 0.346382, 10,000 test images.
+- Weights: `checkpoints/run_004/best.pth`; [config](../outputs/run_004/config.json), [checkpoint index](../checkpoints/run_004/checkpoint_index.json).
+- [Reload check](../outputs/run_004/reload_check.json): passed, 16 validation samples, labels equal, max logit difference 0 on CPU.
+- [Performance](../outputs/run_004/performance.json), [metrics](../outputs/run_004/metrics.json), [manifest](../outputs/run_004/manifest.json).
 
-## 4.3 Reload verification
-**Purpose:**
-Confirm that saving and reloading correctly restores the model
+The original implementation author remains Nguyen Thi Van Anh according to the inherited profile. Completion/integration is by HoangDang with OpenAI Codex. The original creation date is still unconfirmed; commit dates are not substituted for that date. All 25 checkpoint files, including the selected best model, are versioned in this repository through Git LFS. Run `git lfs pull origin hoangdang` after clone/pull; no ZIP or Drive link is required.
 
-**_Result:_** Not yet performed
+## Nguồn và phạm vi
 
-This check verifies the correctness of saving and loading<br>
-Classification accuracy is evaluated separately on the data
+- [Đặc tả](lab_1_description.md), [3.3](requirements/3_3_build_model.md), [3.6](requirements/3_6_save_load.md), source model and measured artifacts above.

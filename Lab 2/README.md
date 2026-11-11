@@ -1,11 +1,23 @@
 # Practice 2 — Hands-on Practice with Pre-trained Neural Network Architectures
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Practice 2 — Hands-on Practice with Pre-trained Neural Network Architectures |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR-10 và làm 3 Exercise:
 - **Exercise 1**: So sánh ResNet18 với DenseNet121.
 - **Exercise 2**: Điều chỉnh learning rate và batch size.
 - **Exercise 3**: Theo dõi quá trình huấn luyện bằng TensorBoard.
 
-> **Trạng thái**: Chưa có code. 5 thành viên tự tạo `src/lab_2/` và `notebooks/Lab_2_colab.ipynb` theo đặc tả trong `docs/`. Bài chưa chạy được cho đến khi các phần được viết xong.
+> **Trạng thái**: Đã có model độc lập `model.py`, kiểm thử `test.py`, báo cáo tham số và `src/lab_2/evaluation.py`. Package dùng chung còn thiếu `common.py`, `data.py`, `model.py`, `training.py`, `demo.py`; notebook Colab đích cũng chưa có. Vì vậy chưa chạy được toàn pipeline. Kết quả kiểm thử do thành viên báo cáo được phân biệt với kiểm chứng trên máy hiện tại.
 
 ## Phân Công
 
@@ -41,7 +53,9 @@ python -m pytest tests/test_data.py -q   # đổi thành file test của bạn
 
 Ban đầu test báo `ModuleNotFoundError` vì chưa có file. Tạo file của bạn theo đặc tả, viết từng hàm và chạy test cho đến khi đạt. Máy cá nhân chỉ cần chạy test; việc huấn luyện đầy đủ chạy trên Colab.
 
-## Cấu Trúc Thư Mục
+## Cấu Trúc Đích Và File Đã Có
+
+Cây dưới là cấu trúc đích; ngoài `evaluation.py`, các module trong `src/lab_2/` và `Lab_2_colab.ipynb` chưa có. Bản model hiện có nằm ở `model.py` tại gốc Lab 2, dùng `test.py` cùng thư mục. Xem [tài liệu triển khai](docs/model_implementation.md); chưa coi bản độc lập đã ghép với package.
 
 ```text
 Lab 2/
@@ -116,5 +130,5 @@ tensorboard --logdir reports/runs
 ## Giới Hạn
 
 - Bài dùng một nửa dữ liệu CIFAR-10 và tối đa 6 epoch để giảm thời gian dùng GPU.
-- Fine-tuning `layer4` chỉ được kiểm tra bằng smoke test, không có lần chạy đầy đủ.
+- Fine-tuning `layer4` có trong model độc lập; kế hoạch nghiệm thu package dùng smoke test. Chưa có bằng chứng chạy đầy đủ theo đặc tả chung.
 - Nếu Colab ngắt phiên giữa lúc huấn luyện thì phải chạy lại lần đang chạy dở.

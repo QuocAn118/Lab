@@ -1,11 +1,18 @@
+"""Lưu và nạp mô hình FashionMLP.
+
+Spec: docs/requirements/3_6_save_load.md
+"""
 import json
 from pathlib import Path
 import torch
 from model import build_model
+from run_tracking import RUN_ID_RE
 
 project_root = Path(__file__).resolve().parent.parent
 
 def save_model(model, run_id):
+    if not RUN_ID_RE.fullmatch(run_id):
+        raise ValueError("run_id phải theo mẫu run_001 hoặc smoke_001")
     run_dir = project_root / "outputs" / run_id
     config_path = run_dir / "config.json"
 
@@ -25,9 +32,13 @@ def save_model(model, run_id):
 
     return checkpoint_path
 
-def load_model(run_id, device):
+def load_model(run_id, device, checkpoint="final_epoch"):
+    if not RUN_ID_RE.fullmatch(run_id):
+        raise ValueError("run_id phải theo mẫu run_001 hoặc smoke_001")
+    if checkpoint not in ("final_epoch", "best"):
+        raise ValueError("checkpoint phải là final_epoch hoặc best")
     config_path = project_root / "outputs" / run_id / "config.json"
-    checkpoint_path = (project_root / "checkpoints" / run_id / "final_epoch.pth")
+    checkpoint_path = project_root / "checkpoints" / run_id / f"{checkpoint}.pth"
 
     if not config_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy cấu hình: {config_path}")
@@ -50,7 +61,7 @@ def load_model(run_id, device):
 
     return model
 
-def verify_reload(model, sample_batch, run_id):
+def verify_reload(model, sample_batch, run_id, checkpoint="final_epoch"):
     if not isinstance(sample_batch, torch.Tensor):
         raise TypeError("sample_batch phải là tensor ảnh")
     if tuple(sample_batch.shape) != (16, 1, 28, 28):
@@ -58,7 +69,7 @@ def verify_reload(model, sample_batch, run_id):
 
     model = model.to("cpu")
     model.eval()
-    loaded_model = load_model(run_id, device="cpu")
+    loaded_model = load_model(run_id, device="cpu", checkpoint=checkpoint)
     images = sample_batch.detach().to("cpu")
 
     with torch.no_grad():
@@ -80,7 +91,7 @@ def verify_reload(model, sample_batch, run_id):
 
     report = {
         "run_id": run_id,
-        "checkpoint": f"checkpoints/{run_id}/final_epoch.pth",
+        "checkpoint": f"checkpoints/{run_id}/{checkpoint}.pth",
         "device": "cpu",
         "checked_samples": images.shape[0],
         "labels_match": labels_match,

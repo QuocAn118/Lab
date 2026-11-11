@@ -1,0 +1,5 @@
+{'test_loss': 0.3465386629104614, 'test_model_preparation_time': 0.001, 'test_accuracy': 0.91012, 'test_precision': 0.913727705592769, 'test_recall': 0.90576, 'test_f1_binary': 0.9097264071351091, 'test_f1_macro': 0.9101182913846719, 'test_runtime': 31.6065, 'test_samples_per_second': 790.978, 'test_steps_per_second': 49.452}
+Không có log loss của lượt train cũ để vẽ lại biểu đồ.
+I loved this movie. The acting was great! -> {'label': 'POSITIVE', 'score': 0.9967653751373291}
+The movie was boring and disappointing. -> {'label': 'NEGATIVE', 'score': 0.9973766803741455}
+Report: C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 3\report\evaluate-20261107-091215-529975

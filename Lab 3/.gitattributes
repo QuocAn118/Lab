@@ -1,0 +1,6 @@
+# Sources: docs/08_implementation.md §9; docs/11_AI_Usage.md §2.
+# Preserve raw evidence, including CRLF, progress characters and intentional spaces.
+report/** -text -whitespace
+outputs/** -text -whitespace
+checkpoints/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
+outputs/imported-thanhbinh-40acced/**/*.safetensors filter=lfs diff=lfs merge=lfs -text

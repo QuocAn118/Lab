@@ -1,5 +1,17 @@
 # Tiến Độ Thực Hiện (Project Status) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Tiến Độ Thực Hiện (Project Status) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 ## 1. Thành Viên
 
 Điền họ tên trước khi nộp.
@@ -16,7 +28,7 @@
 
 ## 2. Cách Làm Việc Nhóm
 
-Thư mục `src/lab_2/` chưa có code. Mỗi người tự tạo file của mình theo mục "Đặc Tả Mã Nguồn" trong file đặc tả tương ứng. Mỗi hàm đã được ghi chữ ký, quy tắc và tên test. Không sửa file của người khác, không sửa test để cho đạt.
+Thư mục `src/lab_2/` hiện có `evaluation.py`. Model của Xuân Bảo (Git: `hbao2123-debug`) nằm ở `Lab 2/model.py`, kiểm thử ở `test.py`; chưa chuyển sang giao diện package. Các module phụ thuộc còn thiếu. Mỗi người tự tạo file của mình theo mục "Đặc Tả Mã Nguồn" trong file đặc tả tương ứng. Mỗi hàm đã được ghi chữ ký, quy tắc và tên test. Không sửa file của người khác, không sửa test để cho đạt.
 
 | Thành viên | File cần tạo | Đặc tả từng hàm | Số test phải đạt |
 | :---: | :--- | :--- | :---: |
@@ -52,15 +64,14 @@ flowchart LR
 
 Một người có thể viết code trước khi đợt trước xong, nhưng test của họ chỉ chạy được khi các file cần import đã có. Trước đó test báo `ModuleNotFoundError`, đây là điều bình thường.
 
-**Cách đẩy code**, làm việc trên nhánh `main`:
+**Cách đẩy code:** làm trên nhánh cá nhân, sau đó tạo pull request vào `main`. Với người tích hợp hiện tại:
 
-```bash
-git pull origin main
-# Viết code, chạy test của mình cho đến khi đạt
-git add "Lab 2/src/lab_2/<file của bạn>"
-git commit -m "Lab 2: them <file của bạn>"
-git pull --rebase origin main
-git push origin main
+```powershell
+git switch hoangdang
+git pull --ff-only origin hoangdang
+# Viết code, chạy kiểm tra đúng phạm vi và stage các file liên quan.
+git commit -m "Lab 2: cập nhật phần việc đã kiểm chứng"
+git push origin hoangdang
 ```
 
 **Quy tắc ghép:**
@@ -86,14 +97,14 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-02** | Viết đặc tả từng hàm, test và phân công | Toàn bài | **DONE** | Team | Mục "Đặc Tả Mã Nguồn" trong `docs/`, `tests/`, mục 1, 2 của file này |
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **TODO** | TV5 | `requirements.txt`, `tests/test_common.py` đạt |
 | **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **TODO** | TV1 | `tests/test_data.py` đạt, AC-03 |
-| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **TODO** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
+| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **CÓ BẢN ĐỘC LẬP, CHƯA GHÉP** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
 | **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **TODO** | TV3 | `tests/test_training.py` đạt |
 | **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **TODO** | TV3 | AC-04 |
 | **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **TODO** | TV3 | AC-08 |
 | **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **TODO** | TV3 | AC-05 |
 | **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **TODO** | TV3 | AC-06 |
 | **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **TODO** | TV3 | AC-07 |
-| **TASK-12** | Viết code đánh giá và biểu đồ | Bước 7 | **TODO** | TV4 | `tests/test_evaluation.py` đạt |
+| **TASK-12** | Viết code đánh giá và biểu đồ | Bước 7 | **CÓ CODE, CHỜ PHỤ THUỘC** | TV4 | `tests/test_evaluation.py` đạt |
 | **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **TODO** | TV4 | AC-09, `evaluation.md` |
 | **TASK-14** | Demo suy luận | Quy trình `docs/` | **TODO** | TV5 | `tests/test_demo.py` đạt, AC-10 |
 | **TASK-15** | Ghép code, hoàn thiện notebook | Toàn bài | **TODO** | TV5 | `tests/test_integration.py` đạt |
@@ -102,6 +113,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-11` — HoangDang, hỗ trợ OpenAI Codex: nhận model/test từ xbao và evaluation từ QuocAn; cập nhật trạng thái, đường dẫn và workflow nhánh cá nhân → PR main. Chưa chạy lại kiểm thử trên máy hiện tại; chưa đủ module package để chạy tích hợp.
 - `2026-10-31`: Chạy notebook cũ trên Colab với SGD, 2 epoch, ảnh $32 \times 32$. Kết quả xem tại `evaluation.md` mục 7.
 - `2026-11-04`: Tạo bộ khung tài liệu đặc tả.
 - `2026-11-07`:
@@ -115,4 +127,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 
 | Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
 | :--- | :--- | :--- | :--- |
-| Claude Code (Claude Opus 5.5) | Rà soát tài liệu, viết đặc tả và test | Đối chiếu đề bài với đặc tả và notebook; cập nhật `docs/`; viết test; viết một bản code đầy đủ để kiểm tra test và đặc tả, lưu riêng ở nhánh `lab2-ban-day-du` trên máy người điều phối, không có trong nhánh `main` và `QuocAn` | Làm notebook ban đầu; cung cấp đề bài; chọn model, số lần chạy, số epoch, số ảnh, cách chia việc; duyệt các điểm sửa. Phần code của từng thành viên: chưa thực hiện. Nếu dùng hoặc tham khảo nhánh trên, phải ghi rõ tại đây |
+| Claude Code (Claude Opus 5.5) | Rà soát tài liệu, viết đặc tả và test | Đối chiếu đề bài với đặc tả và notebook; cập nhật `docs/`; viết test; viết một bản code đầy đủ để kiểm tra test và đặc tả, lưu riêng ở nhánh `lab2-ban-day-du` trên máy người điều phối, không có trong nhánh `main` và `QuocAn` | Làm notebook ban đầu; cung cấp đề bài; chọn model, số lần chạy, số epoch, số ảnh, cách chia việc; duyệt các điểm sửa. Phần code của từng thành viên: chưa thực hiện. Nếu dùng hoặc tham khảo nhánh trên, phải ghi rõ tại đây. TV4: `evaluation.py` lấy từ nhánh trên, đã đối chiếu từng hàm với `evaluation.md` mục 8, chạy `tests/test_evaluation.py` (6 passed, dùng tạm các file khác của nhánh trên) và xem lại 3 biểu đồ |
+
+
+Phần khai báo AI ở bảng trên là thông tin kế thừa do thành viên ghi. Lần chuẩn hóa ngày 2026-11-11 dùng OpenAI Codex để rà tài liệu, không sinh thêm code model/training hoặc số đo mới.

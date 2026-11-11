@@ -1,0 +1,25 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/implementation.md",
+      "docs/AI_Usage.md",
+      "docs/data.md",
+      "docs/model.md",
+      "docs/training.md",
+      "docs/evaluation.md",
+      "docs/demo.md"
+    ],
+    "generated_at_utc": "2026-11-06T13:03:35.671747+00:00"
+  },
+  "policy": {
+    "patience": 2,
+    "threshold": 0.01,
+    "best_accuracy": 0.5,
+    "best_loss": 0.697174072265625,
+    "stale": 0
+  },
+  "early_stopped": false,
+  "best_source": "best_val_acc",
+  "early_stopping_triggered": false,
+  "best_val_pause_means": "last validation model; see early_stopped flag"
+}

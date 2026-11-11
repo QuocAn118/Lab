@@ -1,5 +1,17 @@
 # Báo Cáo Đánh Giá (Performance Evaluation) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Báo Cáo Đánh Giá (Performance Evaluation) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T08:52:28+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 > **Trạng thái**: Chưa có số liệu chính thức. Mọi ô "Chờ Colab" sẽ được điền từ `reports/metrics.json` sau lần chạy thật trên Colab.
 
 Mã nguồn: `src/lab_2/evaluation.py`.

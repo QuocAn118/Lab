@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "run_id": "smoke_001",
+  "kind": "smoke",
+  "purpose": "Full pipeline smoke verification",
+  "status": "completed",
+  "created_by": "HoangDang",
+  "started_at": "2026-11-11T09:40:29+07:00",
+  "finished_at": "2026-11-11T09:40:30+07:00",
+  "duration_seconds": 0.909,
+  "command": [
+    "train.py",
+    "--run-id",
+    "smoke_001",
+    "--purpose",
+    "Full pipeline smoke verification"
+  ],
+  "git": {
+    "commit": "b78bebe099046778e151f3537eeb50c745961cf8",
+    "branch": "hoangdang",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "allow_dirty": false,
+  "specs": [
+    {
+      "path": "docs/requirements/3_4_train.md",
+      "sha256": "73ce750b4ec67577a6c3d99805057d7933a6e99a33a0c1f76d46ea003c3c2403"
+    },
+    {
+      "path": "docs/lab_1_description.md",
+      "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+    }
+  ],
+  "code": [
+    {
+      "path": "data/data_pipeline.py",
+      "sha256": "59c5301fce636d98485694a3aa651eecf65aa345b86a8a86a0c599126b7be1e2",
+      "specs": [
+        "docs/requirements/3_2_transforms_dataloader.md",
+        "docs/lab_1_description.md",
+        "docs/team_plan_integrity.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "data/prepare_data.py",
+      "sha256": "535ad24d1f5e6374329a8608b1cf671911f9024e2bd629bd27b2d8bf0fb0d011",
+      "specs": [
+        "docs/requirements/3_1_prepare_data.md",
+        "docs/lab_1_description.md",
+        "docs/team_plan_integrity.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/compare_runs.py",
+      "sha256": "35ec164e0e7e682aff0fb7e1f4cfd73f9d58de9095df21686c19eb3ffde363aa",
+      "specs": [
+        "docs/lab_1_description.md",
+        "docs/evaluation.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/demo.py",
+      "sha256": "bce62a7cff174cf621cc042453ce03029479db23912d0afb271aa07a37066884",
+      "specs": [
+        "docs/demo.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/evaluate.py",
+      "sha256": "8af00c9d9962eced7a9782f5f58d2c11004091e975365ac0fb5e0ec78341e96d",
+      "specs": [
+        "docs/requirements/3_5_evaluate.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/model.py",
+      "sha256": "7d65496a5aa4dff21bdf8e5da612da5ef84081d4142ad61f383343399d3ae9d6",
+      "specs": [
+        "docs/requirements/3_3_build_model.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/model_io.py",
+      "sha256": "fbce6e5344561163891d8e857349bc55b75e05b4f6bcdec790692a46b39de723",
+      "specs": [
+        "docs/requirements/3_6_save_load.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/run_tracking.py",
+      "sha256": "891a923402c4a854aee8e25b0913112ebabac2ce3c85785b543422cee271ce0c",
+      "specs": [
+        "docs/team_plan_integrity.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/train.py",
+      "sha256": "bbe735abcbbd254d6a7452dc03add25170b9aea4dc24fc9040dfebb71b26e079",
+      "specs": [
+        "docs/requirements/3_4_train.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    },
+    {
+      "path": "src/verify.py",
+      "sha256": "59012d80e89de00614159b3af2f23ca4445d8e11bd32e67d214a7692367d65b2",
+      "specs": [
+        "docs/verification.md",
+        "docs/lab_1_description.md"
+      ],
+      "registered": true
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "DESKTOP-0TP8KCP",
+    "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "torch": "2.9.1+cu128",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "torchvision": "0.24.1+cu128"
+  },
+  "config_sha256": "51d022cd79259e9858365338c4214a343d83528e3f9a934fb5c888c52d4ab5d9",
+  "notes": [
+    {
+      "at": "2026-11-11T09:40:30+07:00",
+      "text": "best test accuracy 0.187500 on 256 samples"
+    },
+    {
+      "at": "2026-11-11T09:40:30+07:00",
+      "text": "best val_acc 0.1836 tại epoch 1"
+    }
+  ],
+  "error": null,
+  "files": [
+    {
+      "path": "outputs/smoke_001/config.json",
+      "bytes": 1014,
+      "sha256": "51d022cd79259e9858365338c4214a343d83528e3f9a934fb5c888c52d4ab5d9",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/history.csv",
+      "bytes": 139,
+      "sha256": "61e43f48c64717bf881a9c28d504646cc027513dba660d9fedad394b466c6cd5",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/loss_curve.png",
+      "bytes": 42571,
+      "sha256": "926451478a2746db13ed65c016b803f574941eb8fe541c39f57327bc0d985ea9",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/metrics.json",
+      "bytes": 232,
+      "sha256": "f48666774715064cfb3d5f838e7ec311a0ebdaca0b935e424a92d1b2b2597a27",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/performance.json",
+      "bytes": 1210,
+      "sha256": "b45c95479c3320e1f594e50849c07d99604db57133db47b032901f31b4b645ed",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/prediction_samples.png",
+      "bytes": 94180,
+      "sha256": "aca36bbc63c0258ab173df4c8aee8781b1304735798f3bfb9930abda26525026",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/predictions.csv",
+      "bytes": 6214,
+      "sha256": "dc46a1b672c07d2babac50414c941fb2fbda35c677713de1b6fb9c41ab6a2a60",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/reload_check.json",
+      "bytes": 231,
+      "sha256": "e43fc95ab686eedcac0b89f67f18107f9d46ad351e487792c73bc80fb15f33c9",
+      "ignored_by_git": false
+    },
+    {
+      "path": "outputs/smoke_001/verify_report.json",
+      "bytes": 168,
+      "sha256": "26d49b2eb63c7f582b5e4a5d75df59d4a8af4890d43a12c2fc76250e40989bcb",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/best.pth",
+      "bytes": 2681685,
+      "sha256": "0558fde9a2bc6b0f5b21e31499a2f50cea2348d3ef997ffaf18308d8955291ab",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/best_val_acc.pth",
+      "bytes": 2681685,
+      "sha256": "0558fde9a2bc6b0f5b21e31499a2f50cea2348d3ef997ffaf18308d8955291ab",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/best_val_loss.pth",
+      "bytes": 2681685,
+      "sha256": "0558fde9a2bc6b0f5b21e31499a2f50cea2348d3ef997ffaf18308d8955291ab",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/best_val_pause.pth",
+      "bytes": 2681685,
+      "sha256": "0558fde9a2bc6b0f5b21e31499a2f50cea2348d3ef997ffaf18308d8955291ab",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/checkpoint_index.json",
+      "bytes": 1028,
+      "sha256": "ce957a8e40e72145d6f829ab6eafb2092de5accbae4407a0b5852b8ec5d1ec79",
+      "ignored_by_git": false
+    },
+    {
+      "path": "checkpoints/smoke_001/final_epoch.pth",
+      "bytes": 2681685,
+      "sha256": "0558fde9a2bc6b0f5b21e31499a2f50cea2348d3ef997ffaf18308d8955291ab",
+      "ignored_by_git": true
+    }
+  ]
+}

@@ -141,7 +141,7 @@ flowchart LR
     SmoothL1["Smooth L1 / MSE\n(Phạt độc lập x, y, w, h)\nBỏ qua mối liên hệ hình học!"] --> IoULoss["IoU Loss\n-ln(IoU) hoặc 1 - IoU\nNhưng bằng 0 nếu 2 box không giao nhau!"]
     IoULoss --> GIoU["GIoU (Generalized)\nThêm phạt diện tích hộp bao nhỏ nhất C"]
     GIoU --> DIoU["DIoU (Distance)\nPhạt khoảng cách giữa 2 tâm box: d^2 / c^2\nHội tụ nhanh hơn nhiều!"]
-    DIoU --> CIoU["CIoU (Complete)\nKết hợp đồng thời: Độ chồng lấn + Khoảng cách tâm + Tỷ lệ khung hình (Aspect Ratio)"]
+    DIoU --> CIoU["CIoU (Complete)\nKết  thời: Độ chồng lấn + Khoảng cách tâm + Tỷ lệ khung hình (Aspect Ratio)"]
 ```
 
 #### Công thức CIoU (Complete IoU - Chuẩn mực trong YOLO):

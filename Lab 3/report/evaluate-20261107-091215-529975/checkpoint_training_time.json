@@ -1,0 +1,40 @@
+{
+  "sources_md": [
+    "docs/04_training.md",
+    "docs/06_verification.md",
+    "docs/08_implementation.md"
+  ],
+  "scope": "checkpoint",
+  "status": "recovered_from_documentation",
+  "source_md": "docs/06_verification.md sections 1-2",
+  "recorded_on": "2026-11-07",
+  "started_at": null,
+  "ended_at": null,
+  "total_train_seconds": 334.46,
+  "precision_note": "Durations copied from the report rounded to 2 decimal places; original JSON logs are absent.",
+  "epochs": [
+    {
+      "epoch": 1,
+      "val_loss": 0.238463,
+      "val_accuracy": 0.9104,
+      "epoch_seconds": 113.11
+    },
+    {
+      "epoch": 2,
+      "val_loss": 0.257449,
+      "val_accuracy": 0.9132,
+      "epoch_seconds": 111.24
+    },
+    {
+      "epoch": 3,
+      "val_loss": 0.339619,
+      "val_accuracy": 0.9134,
+      "epoch_seconds": 109.95
+    }
+  ],
+  "checkpoint": "best",
+  "epoch": 3,
+  "epoch_seconds": 109.95,
+  "saved_at": null,
+  "elapsed_train_seconds": null
+}
