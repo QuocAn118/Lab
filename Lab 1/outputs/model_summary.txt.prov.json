@@ -3,60 +3,84 @@
   "artifact": "outputs/model_summary.txt",
   "sha256": "f5e9828d23cfd5d45fc4f775505357331ed01745b4c03021cb65499aba09706c",
   "bytes": 590,
-  "produced_by": "C:/Users/Legion/Desktop/TÀI LIỆU HỌC/Lab/-c",
+  "produced_by": "src/model.py",
   "created_by": "HoangDang",
-  "created_at": "2026-11-10T21:30:34+07:00",
+  "created_at": "2026-11-11T09:40:26+07:00",
   "git": {
-    "commit": "79994bade9faea362cf02c256391ddd29d16ae52",
+    "commit": "e36cc00876b9d42119b92da79a0bfcd344363385",
     "branch": "hoangdang",
-    "dirty": true,
-    "dirty_files": [
-      "M  \"Lab 1/.gitignore\"",
-      "MM \"Lab 1/README.md\"",
-      "A  \"Lab 1/data/README.md\"",
-      "A  \"Lab 1/data/data_pipeline.py\"",
-      "A  \"Lab 1/data/prepare_data.py\"",
-      "A  \"Lab 1/data/reports/batch_check.json\"",
-      "A  \"Lab 1/data/reports/batch_check.json.prov.json\"",
-      "A  \"Lab 1/data/reports/data_samples.png\"",
-      "A  \"Lab 1/data/reports/data_samples.png.prov.json\"",
-      "A  \"Lab 1/data/reports/data_summary.json\"",
-      "A  \"Lab 1/data/reports/data_summary.json.prov.json\"",
-      "A  \"Lab 1/data/reports/split_indices.json\"",
-      "A  \"Lab 1/data/reports/split_indices.json.prov.json\"",
-      "A  \"Lab 1/data/tests/test_data.py\"",
-      "AM \"Lab 1/docs/AI_Usage.md\"",
-      "MM \"Lab 1/docs/data.md\"",
-      " M \"Lab 1/docs/demo.md\"",
-      " M \"Lab 1/docs/evaluation.md\"",
-      " M \"Lab 1/docs/lab_1_description.md\"",
-      "MM \"Lab 1/docs/model.md\"",
-      "MM \"Lab 1/docs/plan_progress_status.md\"",
-      "M  \"Lab 1/docs/provenance.json\"",
-      "M  \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
-      "M  \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
-      " M \"Lab 1/docs/requirements/3_3_build_model.md\"",
-      " M \"Lab 1/docs/requirements/3_4_train.md\"",
-      " M \"Lab 1/docs/requirements/3_5_evaluate.md\"",
-      " M \"Lab 1/docs/requirements/3_6_save_load.md\"",
-      " M \"Lab 1/docs/team_plan_integrity.md\"",
-      " M \"Lab 1/docs/training.md\"",
-      "A  \"Lab 1/outputs/model_summary.txt\"",
-      "A  \"Lab 1/src/model.py\"",
-      "A  \"Lab 1/src/model_io.py\"",
-      "M  \"Lab 1/src/run_tracking.py\"",
-      "A  \"Lab 1/src/train.py\"",
-      "A  \"Lab 1/tests/test_train.py\"",
-      "M  \"Lab 1/tools/check_provenance.py\""
-    ]
+    "dirty": false,
+    "dirty_files": []
   },
   "specs": [
     {
       "path": "docs/requirements/3_3_build_model.md",
-      "sha256": "658beee1e07293b62b5ca0271b449d6e7800d448c9566d09b0486936ae2db18b"
+      "sha256": "c9c6251119e5d3262ce3189e10a0915d2e44229af0e4f988436211f18f938a7c"
     }
   ],
   "inputs": [],
-  "note": "Tao boi Van Anh khi kiem tra model",
-  "history": []
+  "note": "Architecture check; not training evidence",
+  "history": [
+    {
+      "schema_version": 1,
+      "artifact": "outputs/model_summary.txt",
+      "sha256": "f5e9828d23cfd5d45fc4f775505357331ed01745b4c03021cb65499aba09706c",
+      "bytes": 590,
+      "produced_by": "C:/Users/Legion/Desktop/TÀI LIỆU HỌC/Lab/-c",
+      "created_by": "HoangDang",
+      "created_at": "2026-11-10T21:30:34+07:00",
+      "git": {
+        "commit": "79994bade9faea362cf02c256391ddd29d16ae52",
+        "branch": "hoangdang",
+        "dirty": true,
+        "dirty_files": [
+          "M  \"Lab 1/.gitignore\"",
+          "MM \"Lab 1/README.md\"",
+          "A  \"Lab 1/data/README.md\"",
+          "A  \"Lab 1/data/data_pipeline.py\"",
+          "A  \"Lab 1/data/prepare_data.py\"",
+          "A  \"Lab 1/data/reports/batch_check.json\"",
+          "A  \"Lab 1/data/reports/batch_check.json.prov.json\"",
+          "A  \"Lab 1/data/reports/data_samples.png\"",
+          "A  \"Lab 1/data/reports/data_samples.png.prov.json\"",
+          "A  \"Lab 1/data/reports/data_summary.json\"",
+          "A  \"Lab 1/data/reports/data_summary.json.prov.json\"",
+          "A  \"Lab 1/data/reports/split_indices.json\"",
+          "A  \"Lab 1/data/reports/split_indices.json.prov.json\"",
+          "A  \"Lab 1/data/tests/test_data.py\"",
+          "AM \"Lab 1/docs/AI_Usage.md\"",
+          "MM \"Lab 1/docs/data.md\"",
+          " M \"Lab 1/docs/demo.md\"",
+          " M \"Lab 1/docs/evaluation.md\"",
+          " M \"Lab 1/docs/lab_1_description.md\"",
+          "MM \"Lab 1/docs/model.md\"",
+          "MM \"Lab 1/docs/plan_progress_status.md\"",
+          "M  \"Lab 1/docs/provenance.json\"",
+          "M  \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
+          "M  \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
+          " M \"Lab 1/docs/requirements/3_3_build_model.md\"",
+          " M \"Lab 1/docs/requirements/3_4_train.md\"",
+          " M \"Lab 1/docs/requirements/3_5_evaluate.md\"",
+          " M \"Lab 1/docs/requirements/3_6_save_load.md\"",
+          " M \"Lab 1/docs/team_plan_integrity.md\"",
+          " M \"Lab 1/docs/training.md\"",
+          "A  \"Lab 1/outputs/model_summary.txt\"",
+          "A  \"Lab 1/src/model.py\"",
+          "A  \"Lab 1/src/model_io.py\"",
+          "M  \"Lab 1/src/run_tracking.py\"",
+          "A  \"Lab 1/src/train.py\"",
+          "A  \"Lab 1/tests/test_train.py\"",
+          "M  \"Lab 1/tools/check_provenance.py\""
+        ]
+      },
+      "specs": [
+        {
+          "path": "docs/requirements/3_3_build_model.md",
+          "sha256": "658beee1e07293b62b5ca0271b449d6e7800d448c9566d09b0486936ae2db18b"
+        }
+      ],
+      "inputs": [],
+      "note": "Tao boi Van Anh khi kiem tra model"
+    }
+  ]
 }
