@@ -522,6 +522,18 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-11T12:05:12+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Restructure data module report using verification evidence and user-provided outline; preserve original authorship and distinguish data tests from pipeline tests"
+        },
+        {
+          "at": "2026-11-11T12:07:23+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Match verification.md section structure; retain data-only scope and evidence"
         }
       ]
     },
