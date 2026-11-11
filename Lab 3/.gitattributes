@@ -2,3 +2,4 @@
 # Preserve raw evidence, including CRLF, progress characters and intentional spaces.
 report/** -text -whitespace
 outputs/** -text -whitespace
+checkpoints/**/*.safetensors filter=lfs diff=lfs merge=lfs -text

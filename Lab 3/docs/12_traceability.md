@@ -43,6 +43,17 @@ Theo `08_implementation.md` §6, notebook có một ô Exercise 1 độc lập v
 
 Căn cứ yêu cầu truy nguồn được ghi nhận tại `11_AI_Usage.md` §1. Liên kết hai chiều dùng điều hướng, không chứng minh nguồn gốc bằng tham chiếu vòng. Nguồn kỹ thuật cuối là tài liệu chính thức trong `10_sources.md`.
 
+## Bản nhập từ nhánh QuocAn — 2026-11-11
+
+| File nhập | Nguồn đặc tả được giữ từ nhánh QuocAn | Phạm vi |
+| --- | --- | --- |
+| `src/exercise_1/sentiment_analysis.py` | `lab_3_description.md` | Exercise 1 riêng |
+| `src/exercise_2/{common,data,model,training,evaluation,demo}.py` | `lab_3_description.md`, `data.md`, `model.md`, `training.md`, `evaluation.md`, `demo.md` | Pipeline Exercise 2 riêng; giữ nguyên code nguồn |
+| `configs/exercise_2.yaml`, `requirements_quocan.txt`, `tests/`, `notebooks/` | `lab_3_description.md`, `plan_progress_status.md` | Cấu hình, môi trường, kiểm thử và notebook của bản nhập |
+| `checkpoints/`, `reports/` | Commit gốc `7fea49d`, `186582e` và lịch sử trong nhật ký đồng bộ | Artifact kế thừa; không được diễn giải là kết quả chạy mới |
+
+Đối chiếu tác giả, thời điểm commit, hash nhánh và quyết định giữ bản hiện hành tại [BRANCH_SYNC_2026-11-11.md](../../BRANCH_SYNC_2026-11-11.md). Phần này do HoangDang tích hợp với hỗ trợ OpenAI Codex; chưa xác nhận các kiểm thử runtime của bản nhập đã đạt trên máy hiện tại.
+
 ## Nguồn và phạm vi
 
 - [08_implementation.md](08_implementation.md): R-01–R-09 chốt trước code.

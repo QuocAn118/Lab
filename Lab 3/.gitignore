@@ -7,3 +7,4 @@ outputs/**/*.safetensors
 outputs/**/pytorch_model*.bin
 outputs/**/*.pt
 outputs/**/*.pth
+.pytest_cache/
