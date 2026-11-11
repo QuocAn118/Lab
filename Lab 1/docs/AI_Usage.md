@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-10T16:24:05+07:00 ; Thanh Binh ; eb86ab8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -20,3 +20,7 @@
 | 2026-11-11 | OpenAI Codex, theo yêu cầu người dùng; người tích hợp HoangDang | Chuẩn hóa tài liệu sau đồng bộ nhánh | Đồng nhất metadata, đường dẫn, trạng thái, vòng đời Run và tiêu chí nghiệm thu | Rà tĩnh với code/config; kiểm liên kết, registry và hash artifact. Chưa chạy lại test/train vì thiếu thư viện. |
 
 Lịch sử registry cũng ghi nhận Claude Code hỗ trợ công cụ lưu vết và train; tác giả/công cụ tạo model và model I/O chưa được xác nhận đầy đủ. Nhóm cần bổ sung khai báo phần mình, không suy tác giả code từ người commit.
+
+## Implementation contribution (2026-11-11)
+
+HoangDang integrated code with OpenAI Codex: best checkpoint loading/reload verification, model summary sidecar, test evaluation/performance, sample demo, plots, comparison and read-only manifest verifier. Existing data/model/train contributions remain in Git history. 17 tests passed before real training; no pre-existing metric is presented as a new result.

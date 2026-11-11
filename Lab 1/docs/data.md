@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -17,7 +17,7 @@
 - **Định dạng dữ liệu**: Ảnh xám $28 \times 28$ pixels, 10 lớp trang phục.
 - **Phân chia tập dữ liệu**:
   - Train gốc: 60.000 mẫu; chia thành 54.000 train và 6.000 validation bằng seed 42.
-  - `Test`: 10,000 mẫu
+  - `Test`: 10.000 mẫu
 
 ## 2. Tiền Xử Lý (Transforms)
 - Chuyển ảnh thành Tensor: `transforms.ToTensor()`.

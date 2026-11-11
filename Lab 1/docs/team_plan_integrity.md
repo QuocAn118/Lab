@@ -7,7 +7,7 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
@@ -60,11 +60,11 @@ create_dataloaders(config) -> (train_loader, val_loader, test_loader)
 # TV2
 build_model(model_config) -> torch.nn.Module
 save_model(model, run_id) -> Path
-load_model(run_id, device) -> torch.nn.Module
-verify_reload(model, sample_batch, run_id) -> bool
+load_model(run_id, device, checkpoint="final_epoch") -> torch.nn.Module
+verify_reload(model, sample_batch, run_id, checkpoint="final_epoch") -> bool
 ```
 
-Đây là giao diện hiện có: `load_model` và `verify_reload` chỉ dùng `final_epoch.pth`; sample batch gồm 16 ảnh validation đầu tiên. Cần hoàn thiện tải/kiểm tra `best.pth` trước nghiệm thu test/demo theo đặc tả gốc. Các script verify, evaluation và đồ thị trong bảng phân công là sản phẩm dự kiến, chưa có trong repo.
+Giao diện hiện có hỗ trợ final/best; sample batch là 16 ảnh validation đầu tiên. Train tích hợp evaluation, demo, đồ thị và verify_report trước manifest. Sau khi chốt chỉ kiểm hash ở chế độ đọc.
 
 | Thành phần dùng chung | Quy định |
 | --- | --- |
@@ -133,7 +133,7 @@ TV5 chạy và đánh dấu; mỗi mục phải có bằng chứng đi kèm.
 - [ ] Mọi file `docs/` có bảng thông tin cập nhật; changelog đầy đủ.
 
 **Lưu vết**
-- [ ] `python "Lab 1/tools/check_provenance.py" --strict` báo PASS.
+- [ ] `python tools/check_provenance.py --strict` báo PASS.
 - [ ] Mọi run (kể cả smoke, lỗi) có manifest và đã được commit.
 - [ ] Mọi file trọng số của run báo cáo có trên Drive, hash khớp manifest.
 - [ ] Mỗi thành viên giải thích được module của mình.
@@ -191,11 +191,11 @@ Mọi file thuộc `README.md`, `.gitignore`, `docs/**/*.md`, `src/*.py`, `tools
 
 ```powershell
 # Đăng ký file mới
-python "Lab 1/tools/check_provenance.py" --add src/model.py --source "docs/requirements/3_3_build_model.md" --by TenBan --method ai-assisted --note "Sinh bằng <công cụ AI>, TV1 review"
+python tools/check_provenance.py --add src/model.py --source "docs/requirements/3_3_build_model.md" --by TenBan --method ai-assisted --note "Sinh bằng <công cụ AI>, TV1 review"
 # Ghi nhận đã rà lại sau khi đặc tả đổi
-python "Lab 1/tools/check_provenance.py" --ack src/model.py --by TenBan --note "Cập nhật theo §6 mới"
+python tools/check_provenance.py --ack src/model.py --by TenBan --note "Cập nhật theo §6 mới"
 # Kiểm tra toàn bộ
-python "Lab 1/tools/check_provenance.py"
+python tools/check_provenance.py
 ```
 
 ### 9.3. Lần chạy (train, smoke, đánh giá)
@@ -239,6 +239,8 @@ Quy tắc:
 - `.gitignore` của Lab 1 chỉ bỏ qua môi trường, cache, dataset gốc `data/FashionMNIST/`, file trọng số và file tạm `.tmp`. Code, kiểm thử, README trong `data/` và báo cáo JSON/CSV/PNG/TXT trong `data/reports/`, `outputs/` đều được commit làm bằng chứng.
 
 ### 9.5. Tự động kiểm tra khi commit
+
+Các lệnh Python trong tài liệu này chạy từ `Lab 1/`. Riêng `.githooks/` nằm ở gốc repo; chạy lệnh cấu hình Git dưới đây từ gốc repo.
 
 Hook `.githooks/pre-commit` chạy `check_provenance.py` mỗi khi commit có file trong `Lab 1/` và chặn commit nếu có lỗi. Mỗi thành viên bật một lần sau khi clone:
 

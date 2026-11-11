@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -20,10 +20,10 @@ Trạng thái căn cứ vào code và bằng chứng đang có trong repo. “C�
 | :---: | :--- | :---: | :---: | :--- |
 | **TASK-01** | Đồng bộ đặc tả và hướng dẫn | **ĐÃ RÀ, CHỜ NHÓM REVIEW** | TV5 | Mô tả gốc, README, tài liệu thành phần, 3.1–3.6, phân công; ghi rõ phần chưa triển khai |
 | **TASK-02** | Data Pipeline & ba DataLoader | **CÓ CODE VÀ BÁO CÁO** | TV1 | `data/prepare_data.py`, `data/data_pipeline.py`; `data/reports/` có summary, batch, split và ảnh mẫu kèm sidecar. Cần chuẩn bị dataset gốc trên máy trước khi chạy lại test |
-| **TASK-03** | MLP và model I/O | **CÓ CODE, CÒN THIẾU** | TV2 | `FashionMLP`, `build_model`; summary 669.706 tham số. `load_model`/`verify_reload` chỉ dùng `final_epoch`, chưa hỗ trợ/kiểm tra `best`; nguồn model/model I/O và sidecar đã đăng ký, chưa kiểm chứng runtime lại |
+| **TASK-03** | MLP và model I/O | **ĐÃ TRIỂN KHAI, CHỜ RUN THẬT** | TV2 | `FashionMLP`, `build_model`; summary 669.706 tham số. `load_model`/`verify_reload` hỗ trợ final/best; nguồn model/model I/O và sidecar đã đăng ký, chưa kiểm chứng runtime lại |
 | **TASK-04** | Smoke run toàn pipeline | **TODO** | TV3, TV5 | 512/256/256 mẫu, 1 epoch; đủ đầu ra và kiểm tra tải lại `best`; chưa có manifest nghiệm thu |
 | **TASK-05** | Train + checkpoint và normal run | **CÓ CODE TRAIN; CHƯA CÓ NORMAL RUN** | TV3 | `src/train.py`, `tests/test_train.py`; train/val, early stopping, 5 checkpoint. Chưa có lịch sử hoặc manifest normal run để báo cáo |
-| **TASK-06** | Evaluation, performance, đồ thị, demo và nghiệm thu | **TODO** | TV4, TV5 | Chưa có `src/evaluate.py`, `src/verify.py`, script đồ thị/demo, `metrics.json`, `performance.json`, `compare_runs.csv`; `verification.md`, `traceability.md` cũng chưa có |
+| **TASK-06** | Evaluation, performance, đồ thị, demo và nghiệm thu | **TODO** | TV4, TV5 | Đã có code evaluation/verify/demo/compare và hai tài liệu nghiệm thu/truy vết; artifact run thật đang được tạo |
 
 ## 1.1. Trạng thái sau đồng bộ và chuẩn hóa ngày 2026-11-11
 
@@ -31,7 +31,7 @@ Trạng thái căn cứ vào code và bằng chứng đang có trong repo. “C�
 - `src/model.py`, `src/model_io.py` đã đăng ký nguồn; `outputs/model_summary.txt.prov.json` tồn tại. Ba lỗi nguồn gốc từng ghi ngày 2026-11-10 không còn là trạng thái hiện tại.
 - Đã rà tĩnh tài liệu, đường dẫn, config, data/model/train/model I/O và công cụ lưu vết. Registry được ghi nhận lại bằng CLI sau khi rà; xác nhận này không phải kết quả test/train.
 - Provenance strict được chạy sau chuẩn hóa; kết quả cuối được ghi trong nhật ký đồng bộ. Không chỉnh sửa báo cáo thực nghiệm hoặc sidecar để tạo bằng chứng mới.
-- Python hiện tại thiếu torch/torchvision; chưa chạy lại pytest, smoke hay normal run. Phần tải/kiểm tra `best`, evaluation, demo và nghiệm thu vẫn chưa hoàn tất.
+- Môi trường `.venv` của Lab 1 đã có torch/torchvision CUDA; GPU RTX 5060 Laptop hoạt động. 17 test đạt sau khi dùng thư mục tạm riêng trong repo; chuẩn bị chạy smoke/normal thật. Phần triển khai best/evaluation/demo/verifier đã có.
 
 ## 1.2. Kiểm chứng lịch sử ngày 2026-11-10
 

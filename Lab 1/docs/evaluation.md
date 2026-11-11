@@ -8,11 +8,11 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-Trạng thái: **chưa có kết quả huấn luyện/đánh giá để báo cáo**. `src/evaluate.py` chưa có; các bảng dưới là mẫu chờ số liệu thật. Chi tiết đầu ra theo [3.5](requirements/3_5_evaluate.md) và [đặc tả gốc §8](lab_1_description.md).
+Trạng thái: **chưa có kết quả huấn luyện/đánh giá để báo cáo**. `src/evaluate.py` đã có; các bảng dưới chờ số liệu run thật. Chi tiết đầu ra theo [3.5](requirements/3_5_evaluate.md) và [đặc tả gốc §8](lab_1_description.md).
 
 ## 1. Training & Validation Progress Log
 
@@ -52,4 +52,4 @@ Sau khi chạy, bổ sung `outputs/compare_runs.csv`, `compare_loss.png`, đồ 
 - `best`: `checkpoints/<run_id>/best.pth`, bản sao `best_val_acc`, dùng đánh giá và demo.
 - Metadata: `checkpoints/<run_id>/checkpoint_index.json`.
 
-Hiện `load_model(run_id, device)` chỉ tải `final_epoch.pth`. Cần hoàn thiện nạp `best` trước khi đánh giá theo đặc tả; không dùng checkpoint cuối thay cho checkpoint được chọn mà không ghi nhận.
+Evaluation dùng `load_model(run_id, device, checkpoint="best")`; cách gọi cũ không có đối số checkpoint vẫn tải final_epoch để tương thích.

@@ -1,0 +1,5 @@
+# Spec: docs/lab_1_description.md; docs/verification.md
+torch==2.9.1
+torchvision==0.24.1
+matplotlib==3.10.9
+pytest==9.1.0

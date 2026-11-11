@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -47,9 +47,9 @@ Các lệnh này mô tả cách chạy, chưa phải bằng chứng đã chạy 
 
 `checkpoints/<run_id>/` có 5 tệp `state_dict`: `final_epoch.pth`, `best_val_loss.pth`, `best_val_acc.pth`, `best_val_pause.pth`, `best.pth`, cùng `checkpoint_index.json`. Chính sách lưu theo [§6.1](lab_1_description.md); `best` là bản sao checkpoint có val accuracy cao nhất, hòa giữ epoch sớm hơn. `best_val_pause` ghi trạng thái tại lần validation cuối và cờ `early_stopped`.
 
-`outputs/<run_id>/` do train hiện tại tạo có `config.json`, `history.csv`, `reload_check.json` và `manifest.json`. Cột lịch sử: `epoch, train_loss, train_accuracy, val_loss, val_accuracy, epoch_seconds`. `epoch_seconds` và `elapsed_train_seconds` chỉ tính train, loại validation và kiểm tra tải lại.
+`outputs/<run_id>/` có config, history, reload_check, metrics, predictions, performance, loss_curve, prediction_samples, verify_report và manifest. Cột lịch sử: `epoch, train_loss, train_accuracy, val_loss, val_accuracy, epoch_seconds`. `epoch_seconds` và `elapsed_train_seconds` chỉ tính train, loại validation và kiểm tra tải lại.
 
 ## 4. Trạng thái triển khai
 
-Code train đã có. Chưa có manifest smoke/normal run đầy đủ trong repo để nghiệm thu. Train hiện kiểm tra tải lại `final_epoch.pth` trên 16 ảnh validation đầu tiên; còn thiếu kiểm tra `best.pth`, đánh giá test, performance và đồ thị. Vì vậy train kết thúc với manifest `completed` chưa đồng nghĩa toàn bài Lab đã hoàn thành. Xem [3.4](requirements/3_4_train.md), [3.6](requirements/3_6_save_load.md) và [tiến độ](plan_progress_status.md).
+Code train đã có. Chưa có manifest smoke/normal run đầy đủ trong repo để nghiệm thu. Train kiểm tra final/best trên 16 ảnh validation, đánh giá test, đo performance, tạo đồ thị/demo và verify_report trước khi chốt manifest. Nghiệm thu còn yêu cầu smoke và các normal run thật đạt kiểm hash. Xem [3.4](requirements/3_4_train.md), [3.6](requirements/3_6_save_load.md) và [tiến độ](plan_progress_status.md).
 

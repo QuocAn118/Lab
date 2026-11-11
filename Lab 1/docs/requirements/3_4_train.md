@@ -8,11 +8,11 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-Trạng thái: `src/train.py` đã có; chưa có bằng chứng smoke/normal run tích hợp đầy đủ. Code hiện kiểm tra tải lại `final_epoch.pth`, chưa kiểm tra `best` và chưa gọi evaluation, performance, vẽ đồ thị.
+Trạng thái: `src/train.py` đã có; chưa có bằng chứng smoke/normal run tích hợp đầy đủ. Code kiểm tra final/best, gọi evaluation/performance/đồ thị/demo và verifier trước khi chốt manifest.
 
 ## 1. Mục đích
 
@@ -44,9 +44,10 @@ Huấn luyện mô hình trên tập train, ghi lại cấu hình và diễn bi�
 6. Cuối mỗi epoch, chạy validation ở chế độ eval, tắt gradient; ghi train/val loss và accuracy rồi flush lịch sử. Chỉ cập nhật `best_val_loss` khi loss thấp hơn và `best_val_acc` khi accuracy cao hơn; hòa giữ checkpoint sớm hơn.
 7. Tăng bộ đếm nếu val accuracy cải thiện dưới 0.01 so với mức tốt nhất trước epoch; tăng ít nhất 0.01 thì reset. Dừng khi bộ đếm đạt 2 hoặc đủ số epoch tối đa.
 8. Lưu `best_val_pause` tại lần validation cuối cùng với cờ `early_stopped`; sao chép `best_val_acc` thành `best`; lưu `final_epoch`. Ghi metadata trong `checkpoint_index.json`.
-9. Gọi bước 3.6 để kiểm tra tải lại checkpoint cuối trên 16 ảnh validation đầu tiên. Mọi thao tác nằm trong `Run` để chốt manifest kể cả khi lỗi hoặc Ctrl+C.
+9. Kiểm tra tải lại final/best trên 16 ảnh validation; best được so với bản sao trọng số tốt nhất giữ trong bộ nhớ.
+10. Gọi `evaluate_run(config, run, test_loader, summary)`, tạo đầy đủ metrics, performance, dự đoán, đồ thị và demo; kiểm số liệu và ghi verify_report trước khi thoát Run. Mọi thao tác được chốt manifest kể cả khi lỗi hoặc Ctrl+C.
 
-Không dùng tập test để cập nhật tham số hoặc chọn checkpoint. Yêu cầu tích hợp còn thiếu: kiểm tra tải lại `best`, đánh giá test và tạo đủ đầu ra theo đặc tả gốc trước khi chốt manifest. Manifest train `completed` hiện chỉ phản ánh khối code train đã kết thúc thành công.
+Không dùng tập test để cập nhật tham số hoặc chọn checkpoint. Pipeline CLI hiện tích hợp các bước này; chỉ chốt `completed` khi báo cáo số liệu trước manifest đạt. Sau đó chạy verifier chỉ đọc để kiểm lại hash toàn bộ run.
 
 ## 5. Đầu ra, định dạng và cách lưu
 

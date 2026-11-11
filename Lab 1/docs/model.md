@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Nguyen Thi Van Anh (theo hồ sơ kế thừa) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -166,7 +166,7 @@ Before handing over the model for training:
 
 **_Verification status:_** A saved [model_summary.txt](../outputs/model_summary.txt) records input `(2, 1, 28, 28)`, output `(2, 10)` and 669706 trainable parameters. This is an architecture check, not training evidence. Its provenance sidecar is present and registered. The report is inherited architecture evidence; it was not regenerated during this documentation review.
 
-The current `check_model()` rewrites the summary without updating its provenance sidecar. Sidecar generation still needs to be integrated before a regenerated report can be accepted.
+`check_model()` now records the summary sidecar and preserves its history. A regression test checks the generated file hash.
 
 # 4. Trained Model
 
@@ -188,7 +188,7 @@ Confirm that saving and reloading correctly restores the model
 
 **_Result:_** Not yet performed
 
-Current `src/model_io.py` provides `save_model(model, run_id)`, `load_model(run_id, device)` and `verify_reload(model, sample_batch, run_id)`. It loads and verifies `final_epoch.pth` using 16 validation images supplied by `train.py`; loading and verifying `best.pth` is still required by the lab specification.
+`load_model(run_id, device, checkpoint="final_epoch")` and `verify_reload(..., checkpoint="final_epoch")` preserve the original default. Test/demo explicitly use `checkpoint="best"`. Train checks both snapshots; best reload is compared with the in-memory best state on 16 validation images.
 
 This check verifies the correctness of saving and loading<br>
 Classification accuracy is evaluated separately on the data

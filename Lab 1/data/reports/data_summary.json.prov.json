@@ -4,38 +4,33 @@
   "sha256": "34bb7a1d58b3a32ce7abfc589a5b6b446df14931a6606ef317866b47485907fb",
   "bytes": 841,
   "produced_by": "data/prepare_data.py",
-  "created_by": "Thanh Binh",
-  "created_at": "2026-11-10T16:17:47+07:00",
+  "created_by": "HoangDang",
+  "created_at": "2026-11-11T09:28:35+07:00",
   "git": {
-    "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
-    "branch": "ThanhBinh",
+    "commit": "a6afdf89b366e04f9bae4593cfbb12ce23031775",
+    "branch": "hoangdang",
     "dirty": true,
     "dirty_files": [
-      "M \"Lab 1/.gitignore\"",
-      " M \"Lab 1/docs/data.md\"",
-      " M \"Lab 1/docs/plan_progress_status.md\"",
-      " M \"Lab 1/docs/provenance.json\"",
-      " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
-      " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
-      " M \"Lab 1/src/run_tracking.py\"",
-      " M \"Lab 1/src/train.py\"",
-      " M \"Lab 1/tools/check_provenance.py\"",
-      "?? \"Lab 1/data/\"",
-      "?? \"Lab 1/docs/AI_Usage.md\""
+      "M \"Lab 1/data/reports/data_samples.png\"",
+      " M \"Lab 1/docs/lab_1_description.md\"",
+      " M \"Lab 1/docs/requirements/3_5_evaluate.md\"",
+      "?? \"Lab 1/docs/traceability.md\"",
+      "?? \"Lab 1/docs/verification.md\"",
+      "?? \"Lab 1/requirements.txt\""
     ]
   },
   "specs": [
     {
       "path": "docs/requirements/3_1_prepare_data.md",
-      "sha256": "f6c08789b02362cd94eb986ddd1baa98f4a02e6400e33ee50772bd4e49df5c1c"
+      "sha256": "8b7d8489d5008487265764cb78a9912e55775eec9643c558e5ed7c0c3f2e0ac1"
     },
     {
       "path": "docs/lab_1_description.md",
-      "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+      "sha256": "cad6326e85d955e6c46c051be367ff35cbc6ddabf30304c58d9170d6280aa89b"
     },
     {
       "path": "docs/team_plan_integrity.md",
-      "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+      "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
     }
   ],
   "inputs": [
@@ -153,6 +148,66 @@
         {
           "path": "docs/requirements/3_1_prepare_data.md",
           "sha256": "e87bc58a4767304ad198683af037e8ff85dc2e8faeeb9bbf1036557e4658edff"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "data/FashionMNIST/raw/train-images-idx3-ubyte",
+          "sha256": "0e8b2fc24fd6a949bb78b250e29bab67d1948af69829a879e3fb44e528afdcd8"
+        },
+        {
+          "path": "data/FashionMNIST/raw/train-labels-idx1-ubyte",
+          "sha256": "bad3541b69d912435c50bb6ba87bec294ff4f6a2e1246121d8633921760443d9"
+        },
+        {
+          "path": "data/FashionMNIST/raw/t10k-images-idx3-ubyte",
+          "sha256": "2269296d2def8d85a05d568d4d3a1e3fc48abd74b48067c35d8e4abb1aed889b"
+        },
+        {
+          "path": "data/FashionMNIST/raw/t10k-labels-idx1-ubyte",
+          "sha256": "0402a96d92fd2663957122ceb108a494c5af83dab82d92729df917d7dec38c34"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "schema_version": 1,
+      "artifact": "data/reports/data_summary.json",
+      "sha256": "34bb7a1d58b3a32ce7abfc589a5b6b446df14931a6606ef317866b47485907fb",
+      "bytes": 841,
+      "produced_by": "data/prepare_data.py",
+      "created_by": "Thanh Binh",
+      "created_at": "2026-11-10T16:17:47+07:00",
+      "git": {
+        "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
+        "branch": "ThanhBinh",
+        "dirty": true,
+        "dirty_files": [
+          "M \"Lab 1/.gitignore\"",
+          " M \"Lab 1/docs/data.md\"",
+          " M \"Lab 1/docs/plan_progress_status.md\"",
+          " M \"Lab 1/docs/provenance.json\"",
+          " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
+          " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
+          " M \"Lab 1/src/run_tracking.py\"",
+          " M \"Lab 1/src/train.py\"",
+          " M \"Lab 1/tools/check_provenance.py\"",
+          "?? \"Lab 1/data/\"",
+          "?? \"Lab 1/docs/AI_Usage.md\""
+        ]
+      },
+      "specs": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "f6c08789b02362cd94eb986ddd1baa98f4a02e6400e33ee50772bd4e49df5c1c"
         },
         {
           "path": "docs/lab_1_description.md",

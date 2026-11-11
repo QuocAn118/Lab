@@ -6,7 +6,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
           "section": "§9.4"
         }
       ],
@@ -37,6 +37,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -45,7 +53,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -76,6 +84,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -84,11 +100,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "8b7d8489d5008487265764cb78a9912e55775eec9643c558e5ed7c0c3f2e0ac1"
+          "sha256": "8836ff299db3f64bdf47f0761de3c0dc5bf57ae93cbff2b8ee0a4a36e2d50122"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "ad9ff13e67d8ae788ec20ee837bd9f1cead613385d793961784ff522bdbe3110"
+          "sha256": "be26ad7b5c0d6ab71958187cc5483a92ba138cfd3eeb4b0a434ccd20bbfd196c"
         }
       ],
       "method": "ai-assisted",
@@ -122,6 +138,15 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -130,15 +155,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "ad9ff13e67d8ae788ec20ee837bd9f1cead613385d793961784ff522bdbe3110"
+          "sha256": "be26ad7b5c0d6ab71958187cc5483a92ba138cfd3eeb4b0a434ccd20bbfd196c"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e"
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
         }
       ],
       "method": "ai-assisted",
@@ -180,6 +205,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -188,15 +223,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "8b7d8489d5008487265764cb78a9912e55775eec9643c558e5ed7c0c3f2e0ac1"
+          "sha256": "8836ff299db3f64bdf47f0761de3c0dc5bf57ae93cbff2b8ee0a4a36e2d50122"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e"
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
         }
       ],
       "method": "ai-assisted",
@@ -246,6 +281,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -254,7 +299,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
         }
       ],
       "method": "ai-assisted",
@@ -278,6 +323,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -286,7 +339,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -317,6 +370,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -325,7 +386,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -350,6 +411,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -358,7 +427,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -383,6 +452,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -411,7 +488,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -436,6 +513,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -444,7 +529,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -481,6 +566,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -489,7 +582,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
           "section": "§9.2"
         }
       ],
@@ -514,6 +607,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -522,7 +623,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -553,6 +654,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -561,7 +670,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -586,6 +695,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -594,7 +711,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -619,6 +736,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -627,7 +752,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -652,6 +777,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -660,7 +793,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -685,6 +818,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -693,7 +834,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§6"
         }
       ],
@@ -718,6 +859,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -726,7 +875,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4-§5"
         },
         {
@@ -754,15 +903,42 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
+    },
+    {
+      "path": "docs/traceability.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
     },
     {
       "path": "docs/training.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§4"
         }
       ],
@@ -787,15 +963,133 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
+    },
+    {
+      "path": "docs/verification.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "requirements.txt",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        },
+        {
+          "path": "docs/verification.md",
+          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "src/compare_runs.py",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        },
+        {
+          "path": "docs/evaluation.md",
+          "sha256": "ec4f33802349ba2f485831d8d56fcb9bc65b9190d4b01e4adff042ccbd347822"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "src/demo.py",
+      "sources": [
+        {
+          "path": "docs/demo.md",
+          "sha256": "6a96733a7ab9359522beb4d75a5049ec2f3d1533f8d08f62cccc34e405684912"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "src/evaluate.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_5_evaluate.md",
+          "sha256": "69691d43ac82228fc40801b68326f310964495f8264f0491f403e25af4b6abfd"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
     },
     {
       "path": "src/model.py",
       "sources": [
         {
           "path": "docs/requirements/3_3_build_model.md",
-          "sha256": "9e7cb83b5782612af240dad4d4aff37029c1ffcefa77bbf972fa6c3f2ead4904"
+          "sha256": "c9c6251119e5d3262ce3189e10a0915d2e44229af0e4f988436211f18f938a7c"
         }
       ],
       "method": "ai-assisted",
@@ -811,6 +1105,14 @@
             "docs/requirements/3_3_build_model.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -819,7 +1121,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "353e682ac5f111c6ce78dc055ce2a0ffdf9b699f1f93823dc17d610a2ebd2fb9"
+          "sha256": "d4b877a3b85934d91af2af4b170ff3e6ef63267262f159ede60cb89ffe5aa91d"
         }
       ],
       "method": "ai-assisted",
@@ -835,6 +1137,14 @@
             "docs/requirements/3_6_save_load.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -843,12 +1153,12 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "§10"
         }
       ],
@@ -881,6 +1191,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     },
@@ -889,11 +1208,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "dc79a1f60703e5a6c3a96e30198a74080e1819ed6574a8053dcd99974f479798"
+          "sha256": "73ce750b4ec67577a6c3d99805057d7933a6e99a33a0c1f76d46ea003c3c2403"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "d163d7ecdba0d1ef91553298f35f6a884fbdcff0fa46ec787ebbea1f2638721e",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
           "section": "6.1"
         }
       ],
@@ -920,15 +1239,58 @@
             "docs/lab_1_description.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
+    },
+    {
+      "path": "src/verify.py",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": []
     },
     {
       "path": "tools/check_provenance.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df",
+          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
           "section": "§9"
         }
       ],
@@ -959,6 +1321,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
         }
       ]
     }

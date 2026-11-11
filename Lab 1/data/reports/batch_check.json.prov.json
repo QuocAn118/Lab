@@ -4,38 +4,44 @@
   "sha256": "b4c950d2d1d6f7944c1a6fac6a64eecd54ec8b0facc6ab6fbf1566b514fecd4c",
   "bytes": 240,
   "produced_by": "data/data_pipeline.py",
-  "created_by": "Thanh Binh",
-  "created_at": "2026-11-10T16:17:52+07:00",
+  "created_by": "HoangDang",
+  "created_at": "2026-11-11T09:34:13+07:00",
   "git": {
-    "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
-    "branch": "ThanhBinh",
+    "commit": "a6afdf89b366e04f9bae4593cfbb12ce23031775",
+    "branch": "hoangdang",
     "dirty": true,
     "dirty_files": [
-      "M \"Lab 1/.gitignore\"",
-      " M \"Lab 1/docs/data.md\"",
-      " M \"Lab 1/docs/plan_progress_status.md\"",
-      " M \"Lab 1/docs/provenance.json\"",
-      " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
-      " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
-      " M \"Lab 1/src/run_tracking.py\"",
+      "M \"Lab 1/data/reports/data_samples.png\"",
+      " M \"Lab 1/data/reports/data_samples.png.prov.json\"",
+      " M \"Lab 1/data/reports/data_summary.json.prov.json\"",
+      " M \"Lab 1/data/reports/split_indices.json.prov.json\"",
+      " M \"Lab 1/docs/lab_1_description.md\"",
+      " M \"Lab 1/docs/requirements/3_5_evaluate.md\"",
+      " M \"Lab 1/src/model.py\"",
+      " M \"Lab 1/src/model_io.py\"",
       " M \"Lab 1/src/train.py\"",
-      " M \"Lab 1/tools/check_provenance.py\"",
-      "?? \"Lab 1/data/\"",
-      "?? \"Lab 1/docs/AI_Usage.md\""
+      "?? \"Lab 1/docs/traceability.md\"",
+      "?? \"Lab 1/docs/verification.md\"",
+      "?? \"Lab 1/requirements.txt\"",
+      "?? \"Lab 1/src/compare_runs.py\"",
+      "?? \"Lab 1/src/demo.py\"",
+      "?? \"Lab 1/src/evaluate.py\"",
+      "?? \"Lab 1/src/verify.py\"",
+      "?? \"Lab 1/tests/test_pipeline.py\""
     ]
   },
   "specs": [
     {
       "path": "docs/requirements/3_2_transforms_dataloader.md",
-      "sha256": "3f8ec72cfe328e742f6a920db7c7fe3bfbdb83f53c50b8cd6142a0e5f1fb8c9e"
+      "sha256": "ad9ff13e67d8ae788ec20ee837bd9f1cead613385d793961784ff522bdbe3110"
     },
     {
       "path": "docs/lab_1_description.md",
-      "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+      "sha256": "cad6326e85d955e6c46c051be367ff35cbc6ddabf30304c58d9170d6280aa89b"
     },
     {
       "path": "docs/team_plan_integrity.md",
-      "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+      "sha256": "25bda7ae8aceaff9af8d82948e707bb4c38cf12c9d0659456838fef14144a5df"
     }
   ],
   "inputs": [
@@ -92,6 +98,54 @@
       "inputs": [
         {
           "path": "outputs/split_indices.json",
+          "sha256": "6bbf4c6854525173e12ec9da357181eb448ef823b3dae09dd3e4463113a55e5a"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "schema_version": 1,
+      "artifact": "data/reports/batch_check.json",
+      "sha256": "b4c950d2d1d6f7944c1a6fac6a64eecd54ec8b0facc6ab6fbf1566b514fecd4c",
+      "bytes": 240,
+      "produced_by": "data/data_pipeline.py",
+      "created_by": "Thanh Binh",
+      "created_at": "2026-11-10T16:17:52+07:00",
+      "git": {
+        "commit": "b2e12c4095e0b5f0c39001aa8585a07839fd336e",
+        "branch": "ThanhBinh",
+        "dirty": true,
+        "dirty_files": [
+          "M \"Lab 1/.gitignore\"",
+          " M \"Lab 1/docs/data.md\"",
+          " M \"Lab 1/docs/plan_progress_status.md\"",
+          " M \"Lab 1/docs/provenance.json\"",
+          " M \"Lab 1/docs/requirements/3_1_prepare_data.md\"",
+          " M \"Lab 1/docs/requirements/3_2_transforms_dataloader.md\"",
+          " M \"Lab 1/src/run_tracking.py\"",
+          " M \"Lab 1/src/train.py\"",
+          " M \"Lab 1/tools/check_provenance.py\"",
+          "?? \"Lab 1/data/\"",
+          "?? \"Lab 1/docs/AI_Usage.md\""
+        ]
+      },
+      "specs": [
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "3f8ec72cfe328e742f6a920db7c7fe3bfbdb83f53c50b8cd6142a0e5f1fb8c9e"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "data/reports/split_indices.json",
           "sha256": "6bbf4c6854525173e12ec9da357181eb448ef823b3dae09dd3e4463113a55e5a"
         }
       ],

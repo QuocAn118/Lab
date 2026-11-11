@@ -7,10 +7,10 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
-| Trạng thái | Đã có code data, model, train và model I/O; chưa có bằng chứng smoke/normal run đầy đủ. Evaluation, demo và kiểm chứng checkpoint `best` còn thiếu |
+| Trạng thái | Đã triển khai toàn pipeline và 17 test đạt; chờ smoke/normal run thật để nghiệm thu |
 
 File này là tài liệu gốc của Lab 1. Các file khác trong `docs/` mô tả chi tiết từng phần và phải khớp với file này. Khi có mâu thuẫn, sửa theo file này hoặc cập nhật file này trước, rồi ghi lý do vào [plan_progress_status.md](plan_progress_status.md).
 
@@ -70,12 +70,14 @@ Xây dựng, huấn luyện và đánh giá một MLP nhận ảnh trang phục 
 | [plan_progress_status.md](plan_progress_status.md) | Công việc, trạng thái, nhật ký thay đổi | Đã cập nhật trạng thái và phần còn thiếu |
 | [requirements/](requirements/) | Đặc tả chi tiết từng yêu cầu 3.1–3.6 | Đã đồng bộ; ghi rõ khoảng cách với code |
 | [team_plan_integrity.md](team_plan_integrity.md) | Phân công 5 người, quy tắc toàn vẹn dữ liệu/kết quả/tài liệu, checklist nộp | Đã đồng bộ đường dẫn và giao diện |
-| [AI_Usage.md](AI_Usage.md) | Ghi nhận hỗ trợ AI đã biết | Chờ nhóm bổ sung các đóng góp chưa xác nhận |
+| [AI_Usage.md](AI_Usage.md) | Ghi nhận hỗ trợ AI đã biết | Giữ nguồn tác giả và hỗ trợ triển khai |
+| [verification.md](verification.md) | Lệnh kiểm tra và kết quả thực tế | Cập nhật sau từng giai đoạn |
+| [traceability.md](traceability.md) | Yêu cầu → code → kiểm tra → sản phẩm | Đã có bản đồ triển khai |
 
 Khoảng cách giữa đặc tả và triển khai hiện tại:
 
-- `src/model_io.py` hiện có `load_model(run_id, device)` chỉ nạp `final_epoch.pth`; `verify_reload(model, sample_batch, run_id)` kiểm tra checkpoint cuối bằng 16 ảnh validation đầu tiên. Chưa kiểm tra tải lại `best.pth` theo tiêu chí smoke run.
-- `src/evaluate.py`, script demo, vẽ đồ thị và `src/verify.py` chưa có. Chưa có `metrics.json`, `performance.json` hay manifest của smoke/normal run để nghiệm thu toàn pipeline.
+- Model I/O hỗ trợ final/best. Train so sánh checkpoint `best` tải từ đĩa với bản sao trọng số tốt nhất giữ trong bộ nhớ trên 16 ảnh validation đầu tiên.
+- Đã có evaluation, demo, đồ thị, compare và verifier. Bằng chứng chạy thật sẽ được ghi trong `verification.md`; unit tests không thay cho smoke/normal run.
 - Báo cáo data đã có trong `data/reports/`; dataset gốc trong `data/FashionMNIST/` không lưu trên Git, cần chuẩn bị lại trên máy chưa có dữ liệu.
 
 ## 5. Quy trình thực hiện
@@ -107,6 +109,16 @@ Mỗi phần việc đi qua các bước sau. Không chạy normal run khi smoke
 - Khởi tạo model mới; không dùng trọng số của smoke run.
 
 ## 6. Yêu cầu thực hiện (phần 3 của đề)
+
+### Giao diện tích hợp hoàn thiện
+
+`train.py` thực hiện toàn bộ pipeline trong cùng `with Run(...)`: huấn luyện → kiểm tra tải lại checkpoint cuối và `best` → `evaluate_run(config, run, test_loader, summary)` → `verify_run(run_id, finalized=False)` → ghi `verify_report.json` → chốt manifest. Sau khi chốt, `verify.py --run-id ...` chỉ đọc và kiểm hash, không sửa run.
+
+`load_model(run_id, device, checkpoint="final_epoch")` và `verify_reload(model, sample_batch, run_id, checkpoint="final_epoch")` giữ cách gọi cũ; đối số `checkpoint="best"` dùng cho test/demo. Train giữ bản sao trọng số tốt nhất trong bộ nhớ để so sánh độc lập với checkpoint `best` tải từ đĩa. `reload_check.json` cuối cùng ghi phép kiểm tra `best`.
+
+Demo độc lập `python src/demo.py --run-id run_001 --index 0` đọc ảnh test tại chỉ số đã chọn và in logits, nhãn dự đoán, nhãn thật; không thêm file vào run cũ. `compare_runs.py --run-ids ...` tổng hợp ít nhất ba normal run đã kiểm chứng, tạo CSV/đồ thị ở gốc `outputs/` kèm sidecar nguồn.
+
+Các giao diện này là hợp đồng triển khai cho lần hoàn thiện hiện tại; trạng thái nghiệm thu cuối ghi trong `verification.md`.
 
 Chi tiết từng yêu cầu nằm trong `docs/requirements/`. Bảng dưới là tóm tắt.
 
@@ -149,6 +161,7 @@ Validation được đánh giá sau mỗi epoch. Mỗi lần chạy lưu 5 check
 | `best_val_pause.pth` | Tại lần validation cuối, kèm cờ `early_stopped` | Thời điểm dừng. Nếu 2 epoch liên tiếp val accuracy cải thiện dưới 0.01 thì dừng sớm (`early_stopped=true`); nếu chạy đủ epoch thì `early_stopped=false` |
 | `best.pth` | Sau khi huấn luyện xong | Bản sao `best_val_acc.pth`; dùng cho đánh giá test và demo. Khi hòa, giữ checkpoint sớm hơn |
 
+- `best_val_pause` và `final_epoch` cùng trọng số là có chủ đích: cả hai ghi trạng thái tại lần validation cuối; khác vai trò và metadata dừng sớm.
 - Tất cả nằm trong `checkpoints/<run_id>/`.
 - `checkpoints/<run_id>/checkpoint_index.json` ghi cho từng checkpoint: `epoch`, `val_loss`, `val_accuracy`, `saved_at` (ISO 8601), `elapsed_train_seconds`.
 - Checkpoint chỉ chứa trọng số, không chứa trạng thái optimizer, nên không dùng để resume.
@@ -237,6 +250,8 @@ Lab 1/
 │   ├── evaluation.md
 │   ├── demo.md
 │   ├── plan_progress_status.md
+│   ├── verification.md
+│   ├── traceability.md
 │   └── requirements/
 │       ├── 3_1_prepare_data.md
 │       ├── 3_2_transforms_dataloader.md
@@ -248,8 +263,10 @@ Lab 1/
 │   ├── run_tracking.py            # Đã có: lưu vết run và file đầu ra
 │   ├── model.py
 │   ├── train.py
-│   ├── evaluate.py               # Dự kiến
-│   ├── verify.py                 # Dự kiến: kiểm số liệu trước khi chốt run
+│   ├── evaluate.py               # Test/performance và đồ thị
+│   ├── verify.py                 # Kiểm số liệu và manifest
+│   ├── demo.py                   # Ảnh mẫu và CLI suy luận chỉ đọc
+│   ├── compare_runs.py           # CSV/đồ thị so sánh
 │   └── model_io.py
 ├── tests/test_train.py            # Kiểm thử train bằng tensor giả
 ├── data/

@@ -8,11 +8,11 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T09:38:18+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-Trạng thái: đặc tả; `src/evaluate.py` chưa có. `load_model(run_id, device)` hiện chỉ nạp checkpoint cuối, cần hoàn thiện hỗ trợ `best` trước khi tích hợp đánh giá.
+Trạng thái: đã triển khai và có kiểm thử bằng logits biết trước, loader rỗng, logits không hữu hạn và pipeline giả lập. Chờ run thật để báo cáo kết quả.
 
 ## 1. Mục đích
 
@@ -20,9 +20,13 @@ Trạng thái: đặc tả; `src/evaluate.py` chưa có. `load_model(run_id, dev
 
 ## 2. File thực hiện
 
-- File code dự kiến: `src/evaluate.py`.
+Giao diện tích hợp: `evaluate_run(config, run, test_loader, summary)` trong `src/evaluate.py`. Hàm chỉ tạo đầu ra khi `Run` còn `running`, tự nạp `best`, đo test, lưu metrics/predictions/performance, đồ thị loss và gọi demo ảnh mẫu. `summary` từ train cung cấp thời gian train đo trực tiếp, mốc bắt đầu/kết thúc và GPU peak; không suy thời gian từ ngày sửa file.
+
+`performance.json` dùng ba nhóm `accuracy`, `timing`, `resources`. Thời gian test đo toàn bộ vòng duyệt loader, chuyển thiết bị và suy luận; ms/ảnh là trung bình của vòng đánh giá theo batch, không phải benchmark một ảnh độc lập. GPU memory và kích thước checkpoint dùng MB = 1.000.000 byte; CPU ghi GPU memory là `null`. Accuracy theo lớp không có mẫu được ghi `null`.
+
+- File code: `src/evaluate.py`.
 - Đọc cấu hình của lần chạy, gọi `create_dataloaders(config)` từ `data/data_pipeline.py`, lấy test loader.
-- Khởi tạo mạng từ cấu hình và nạp `best.pth`; giao diện tải checkpoint được chọn trong `src/model_io.py` còn phải hoàn thiện (xem 3.6).
+- Khởi tạo mạng từ cấu hình và nạp `best.pth`; dùng `load_model(run_id, device, checkpoint="best")` (xem 3.6).
 
 ## 3. Đầu vào
 
@@ -59,11 +63,11 @@ Trạng thái: đặc tả; `src/evaluate.py` chưa có. `load_model(run_id, dev
 
 Các cột của `predictions.csv`: `sample_index`, `true_label`, `predicted_label`, `true_name`, `predicted_name`. `sample_index` bắt đầu từ 0 trong tập test gốc; các trường label là số nguyên từ 0 đến 9; các trường name lấy từ danh sách `classes` đã lưu.
 
-Chỉ công bố kết quả sau khi duyệt thành công toàn bộ test loader; có thể ghi ra tệp tạm rồi thay thế đích. Đánh giá, vẽ đồ thị và kiểm chứng phải diễn ra trong vòng đời `Run` trước khi manifest được chốt. Không thêm hoặc ghi đè báo cáo vào run đã kết thúc; chạy thí nghiệm mới dùng `run_id` mới. `train.py` hiện chưa tích hợp các bước này.
+Chỉ công bố kết quả sau khi duyệt thành công toàn bộ test loader; có thể ghi ra tệp tạm rồi thay thế đích. Đánh giá, vẽ đồ thị và kiểm chứng phải diễn ra trong vòng đời `Run` trước khi manifest được chốt. Không thêm hoặc ghi đè báo cáo vào run đã kết thúc; chạy thí nghiệm mới dùng `run_id` mới. `train.py` đã tích hợp các bước này.
 
 ## 6. Cách chạy và kiểm tra
 
-Chưa có CLI evaluation riêng đã triển khai. Quy trình đích là train → tải/kiểm tra `best` → đánh giá test → demo/đồ thị → kiểm số liệu, ghi `verify_report.json` → thoát khối `Run` để chốt manifest. Chữ ký hàm tích hợp sẽ được chốt trước khi triển khai.
+Evaluation được gọi qua CLI train, không có bước ghi evaluation vào run đã chốt. Quy trình là train → tải/kiểm tra `best` → đánh giá test → demo/đồ thị → kiểm số liệu, ghi `verify_report.json` → thoát khối `Run` để chốt manifest. Chữ ký hàm tích hợp là `evaluate_run(config, run, test_loader, summary)`.
 
 Sau khi manifest đã chốt, chỉ kiểm hash ở chế độ đọc; không thêm báo cáo vào run cũ. Kiểm tra nguồn gốc và hash bằng `python tools/check_provenance.py --strict` từ `Lab 1`.
 
