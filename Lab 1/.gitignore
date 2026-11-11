@@ -17,3 +17,6 @@ checkpoints/**/*.bin
 
 # File tạm khi ghi manifest
 *.tmp
+
+# Local handoff ZIP contains dataset and weights; provenance is inside the package.
+deliverables/

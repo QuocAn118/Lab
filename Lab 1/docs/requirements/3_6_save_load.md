@@ -6,7 +6,7 @@
 | --- | --- |
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 
 ## Giao diện và đầu vào

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "artifact": "outputs/demo_example.json",
+  "sha256": "93e945c93be18d16d7180f8be9af745469265239dd118057d3a7476ba32d208e",
+  "bytes": 511,
+  "produced_by": "C:/Users/Legion/Desktop/TÀI LIỆU HỌC/Lab/-",
+  "created_by": "HoangDang",
+  "created_at": "2026-11-11T09:49:17+07:00",
+  "git": {
+    "commit": "6009843e6c31901feb2563cd681ed35aee23cfa4",
+    "branch": "hoangdang",
+    "dirty": true,
+    "dirty_files": [
+      "?? \"Lab 1/outputs/compare_loss.png\"",
+      "?? \"Lab 1/outputs/compare_loss.png.prov.json\"",
+      "?? \"Lab 1/outputs/compare_runs.csv\"",
+      "?? \"Lab 1/outputs/compare_runs.csv.prov.json\"",
+      "?? \"Lab 1/outputs/demo_example.json\""
+    ]
+  },
+  "specs": [
+    {
+      "path": "docs/demo.md",
+      "sha256": "6a96733a7ab9359522beb4d75a5049ec2f3d1533f8d08f62cccc34e405684912"
+    },
+    {
+      "path": "docs/lab_1_description.md",
+      "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "outputs/run_004/config.json",
+      "sha256": "39cd6975c4ceb6c3c55c2f086dbe53a6aebfefa4cce5f4fbd1a5290e39b27768"
+    },
+    {
+      "path": "checkpoints/run_004/best.pth",
+      "sha256": "a01fcc255e1f4b4898b4b68f9398febd1bc88766381c86c126ed41b3729697b3"
+    },
+    {
+      "path": "data/FashionMNIST/raw/t10k-images-idx3-ubyte",
+      "sha256": "2269296d2def8d85a05d568d4d3a1e3fc48abd74b48067c35d8e4abb1aed889b"
+    },
+    {
+      "path": "data/FashionMNIST/raw/t10k-labels-idx1-ubyte",
+      "sha256": "0402a96d92fd2663957122ceb108a494c5af83dab82d92729df917d7dec38c34"
+    }
+  ],
+  "note": "Actual read-only demo CLI output on test index 0; selected run chosen by validation, not test.",
+  "history": []
+}

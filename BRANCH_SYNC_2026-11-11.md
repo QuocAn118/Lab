@@ -6,8 +6,14 @@
 | --- | --- |
 | Created date | 2026-11-11 |
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T08:52:28+07:00 — đợt chuẩn hóa sau push |
+| Last updated | 2026-11-11T09:55:36+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+
+## Lab 1 completion (2026-11-11)
+
+HoangDang, assisted by OpenAI Codex, completed Lab 1 implementation and real verification. 17 tests passed; smoke_001 and four normal runs completed and passed finalized manifest/hash checks. Selected by validation: run_004, val 88.10%, test 87.70% on 10,000 images.
+
+Input/output/product locations: [Lab 1 README](Lab%201/README.md), [evaluation](Lab%201/docs/evaluation.md), [verification](Lab%201/docs/verification.md), [actual demo JSON](Lab%201/outputs/demo_example.json). The local ZIP includes raw input, weights and outputs; it is excluded from Git and has not been uploaded to Drive. Earlier completion-status paragraphs below are snapshots of their respective phases.
 
 ## Trạng thái hiện hành sau xử lý ThanhBinh và chuẩn hóa
 

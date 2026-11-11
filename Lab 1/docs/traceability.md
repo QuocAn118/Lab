@@ -6,7 +6,7 @@
 | --- | --- |
 | Created date | 2026-11-11 |
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 
 | Yêu cầu | Code | Phép kiểm | Bằng chứng đích |
@@ -19,8 +19,14 @@
 | Demo/đồ thị/so sánh | `src/demo.py`, `src/evaluate.py`, `src/compare_runs.py` | Pipeline smoke, ảnh cố định seed 42 | loss_curve, prediction_samples, compare_runs/compare_loss |
 | Toàn vẹn | `src/verify.py`, `src/run_tracking.py`, `tools/check_provenance.py` | Sửa CSV phải bị phát hiện; kiểm manifest/hash sau run | verify_report, manifest, sidecar |
 
-Đây là bản đồ triển khai; trạng thái đã chạy và kết quả thật được ghi tại [verification.md](verification.md).
+Các dòng trên đã được kiểm chứng qua 17 test, smoke và bốn normal run; kết quả thật được ghi tại [verification.md](verification.md).
 
 ## Nguồn và phạm vi
 
 - [Đặc tả gốc](lab_1_description.md), [toàn vẹn](team_plan_integrity.md), các file trong `requirements/`.
+
+## Artifact thực tế
+
+- [Smoke manifest](../outputs/smoke_001/manifest.json).
+- [Run 001](../outputs/run_001/manifest.json), [002](../outputs/run_002/manifest.json), [003](../outputs/run_003/manifest.json), [004](../outputs/run_004/manifest.json).
+- [So sánh](../outputs/compare_runs.csv), [ảnh input](../outputs/demo_input.png), [JSON output](../outputs/demo_example.json).

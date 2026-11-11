@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -51,5 +51,9 @@ Các lệnh này mô tả cách chạy, chưa phải bằng chứng đã chạy 
 
 ## 4. Trạng thái triển khai
 
-Code train đã có. Chưa có manifest smoke/normal run đầy đủ trong repo để nghiệm thu. Train kiểm tra final/best trên 16 ảnh validation, đánh giá test, đo performance, tạo đồ thị/demo và verify_report trước khi chốt manifest. Nghiệm thu còn yêu cầu smoke và các normal run thật đạt kiểm hash. Xem [3.4](requirements/3_4_train.md), [3.6](requirements/3_6_save_load.md) và [tiến độ](plan_progress_status.md).
+Smoke_001 và run_001–run_004 đã hoàn tất, đủ manifest/verify_report và kiểm hash PASS. Train kiểm tra final/best trên 16 ảnh validation, đánh giá test, đo performance, tạo đồ thị/demo và verify_report trước khi chốt manifest. Nghiệm thu còn yêu cầu smoke và các normal run thật đạt kiểm hash. Xem [3.4](requirements/3_4_train.md), [3.6](requirements/3_6_save_load.md) và [tiến độ](plan_progress_status.md).
 
+
+## 5. Thực thi đã hoàn tất
+
+Đã chạy đủ bốn lệnh normal ở mục 2, lần lượt 6/8/4/4 epoch, đều dừng sớm theo patience 2 và min_delta 0.01. Không chỉnh epoch/learning rate sau khi xem test. Xem [evaluation.md](evaluation.md) cho số đo và [verification.md](verification.md) cho lệnh/nguồn kiểm chứng. Mã run đã tồn tại không dùng lại; chọn mã mới cho lần tái lập.

@@ -7,7 +7,7 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
@@ -249,3 +249,7 @@ git config core.hooksPath .githooks
 ```
 
 Không dùng `git commit --no-verify` để bỏ qua hook. Nếu buộc phải bỏ qua, ghi lý do vào changelog.
+
+## 10. Bàn giao kỹ thuật ngày 2026-11-11
+
+17 test, smoke và bốn normal run PASS trên máy ghi trong manifest. Tác giả/người chạy/thời gian/commit được ghi trong Git và verification.md; bảng TV1–TV5 chưa có xác nhận tên nên không tự điền. `.gitattributes` giữ nguyên byte outputs/data reports/checkpoint index khi clone; `deliverables/` là ZIP cục bộ chứa dữ liệu/trọng số, được Git bỏ qua. Checklist upload Drive/xác nhận thành viên không được đánh dấu đã làm khi chưa có bằng chứng.

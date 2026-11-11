@@ -7,10 +7,10 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
-| Trạng thái | Đã triển khai toàn pipeline và 17 test đạt; chờ smoke/normal run thật để nghiệm thu |
+| Trạng thái | Hoàn thành kỹ thuật: 17 test, smoke thật và bốn normal run PASS; có sản phẩm đầu vào/đầu ra và gói bàn giao cục bộ |
 
 File này là tài liệu gốc của Lab 1. Các file khác trong `docs/` mô tả chi tiết từng phần và phải khớp với file này. Khi có mâu thuẫn, sửa theo file này hoặc cập nhật file này trước, rồi ghi lý do vào [plan_progress_status.md](plan_progress_status.md).
 
@@ -63,10 +63,10 @@ Xây dựng, huấn luyện và đánh giá một MLP nhận ảnh trang phục 
 | --- | --- | --- |
 | `lab_1_description.md` | File này: bài toán, phạm vi, quy ước, tiêu chí hoàn thành | Đã chuẩn hóa |
 | [data.md](data.md) | Dataset, phân vùng train/val/test, transforms, DataLoader | Đã đối chiếu code và báo cáo data |
-| [model.md](model.md) | Hồ sơ model theo mục 9 | Đã đối chiếu kiến trúc; chưa có model đã train để báo cáo |
-| [training.md](training.md) | Siêu tham số, smoke run, normal run, checkpoint | Đã đối chiếu code; chờ chạy tích hợp |
-| [evaluation.md](evaluation.md) | Chỉ số accuracy, thời gian, tài nguyên; cách đọc kết quả | Đặc tả; chưa có kết quả test |
-| [demo.md](demo.md) | Nạp checkpoint `best` để dự đoán ảnh mẫu | Đặc tả; chưa triển khai demo |
+| [model.md](model.md) | Hồ sơ model theo mục 9 | Đã có model trained và hồ sơ chọn theo validation |
+| [training.md](training.md) | Siêu tham số, smoke run, normal run, checkpoint | Smoke và bốn normal run đã chạy/kiểm chứng |
+| [evaluation.md](evaluation.md) | Chỉ số accuracy, thời gian, tài nguyên; cách đọc kết quả | Đã có kết quả test thật cho bốn run |
+| [demo.md](demo.md) | Nạp checkpoint `best` để dự đoán ảnh mẫu | Đã có CLI, ảnh mẫu và ví dụ input/output thật |
 | [plan_progress_status.md](plan_progress_status.md) | Công việc, trạng thái, nhật ký thay đổi | Đã cập nhật trạng thái và phần còn thiếu |
 | [requirements/](requirements/) | Đặc tả chi tiết từng yêu cầu 3.1–3.6 | Đã đồng bộ; ghi rõ khoảng cách với code |
 | [team_plan_integrity.md](team_plan_integrity.md) | Phân công 5 người, quy tắc toàn vẹn dữ liệu/kết quả/tài liệu, checklist nộp | Đã đồng bộ đường dẫn và giao diện |
@@ -74,10 +74,10 @@ Xây dựng, huấn luyện và đánh giá một MLP nhận ảnh trang phục 
 | [verification.md](verification.md) | Lệnh kiểm tra và kết quả thực tế | Cập nhật sau từng giai đoạn |
 | [traceability.md](traceability.md) | Yêu cầu → code → kiểm tra → sản phẩm | Đã có bản đồ triển khai |
 
-Khoảng cách giữa đặc tả và triển khai hiện tại:
+Trạng thái nghiệm thu hiện tại:
 
 - Model I/O hỗ trợ final/best. Train so sánh checkpoint `best` tải từ đĩa với bản sao trọng số tốt nhất giữ trong bộ nhớ trên 16 ảnh validation đầu tiên.
-- Đã có evaluation, demo, đồ thị, compare và verifier. Bằng chứng chạy thật sẽ được ghi trong `verification.md`; unit tests không thay cho smoke/normal run.
+- Đã có evaluation, demo, đồ thị, compare và verifier. Bằng chứng chạy thật có trong `verification.md`: smoke và cả bốn normal run PASS; mỗi normal run đánh giá đủ 10.000 ảnh.
 - Báo cáo data đã có trong `data/reports/`; dataset gốc trong `data/FashionMNIST/` không lưu trên Git, cần chuẩn bị lại trên máy chưa có dữ liệu.
 
 ## 5. Quy trình thực hiện
@@ -315,13 +315,13 @@ Lab 1/
 
 Lab 1 được xem là hoàn thành khi:
 
-- [ ] Smoke run đạt các điều kiện ở mục 5.1.
-- [ ] `run_001` và ít nhất hai run trong `run_002`–`run_004` có đủ file đầu ra ở mục 10.
-- [ ] Mỗi run báo cáo có `verify_report.json` PASS; sau khi chốt manifest, kiểm tra hash ở chế độ chỉ đọc.
-- [ ] `reload_check.json` của mỗi run có `passed=true`.
-- [ ] `performance.json` có đủ ba nhóm accuracy, thời gian, tài nguyên.
-- [ ] `model.md`, `evaluation.md`, `plan_progress_status.md` đã cập nhật theo kết quả thực tế.
-- [ ] Đã đối chiếu kết quả với file này; mọi thay đổi so với đặc tả được ghi lý do.
+- [x] Smoke run đạt các điều kiện ở mục 5.1.
+- [x] `run_001` và ít nhất hai run trong `run_002`–`run_004` có đủ file đầu ra ở mục 10.
+- [x] Mỗi run báo cáo có `verify_report.json` PASS; sau khi chốt manifest, kiểm tra hash ở chế độ chỉ đọc.
+- [x] `reload_check.json` của mỗi run có `passed=true`.
+- [x] `performance.json` có đủ ba nhóm accuracy, thời gian, tài nguyên.
+- [x] `model.md`, `evaluation.md`, `plan_progress_status.md` đã cập nhật theo kết quả thực tế.
+- [x] Đã đối chiếu kết quả với file này; mọi thay đổi so với đặc tả được ghi lý do.
 
 ## Nguồn và phạm vi
 
@@ -329,3 +329,7 @@ Lab 1 được xem là hoàn thành khi:
 - [PyTorch Quickstart](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) và [Saving and Loading Models](https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html).
 - [torchvision FashionMNIST](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.FashionMNIST.html).
 - Khung tài liệu, chính sách checkpoint và nhóm chỉ số performance theo hướng dẫn của cô và cách tổ chức đã dùng ở Lab 3.
+
+## 12. Sản phẩm thực tế ngày 2026-11-11
+
+Model được chọn bằng validation: **run_004**, val 88,10%, test 87,70%. Xem [báo cáo](evaluation.md), [kiểm chứng](verification.md), [demo input/output](demo.md). Thư mục `outputs/run_001`–`run_004` và `checkpoints/` đã có trên máy. ZIP cục bộ `deliverables/Lab1-complete-20261111.zip` chứa source/input/output/trọng số; không nằm trong Git. Không đánh đồng kiểm chứng kỹ thuật với việc đã upload Drive hoặc xác nhận danh sách thành viên.

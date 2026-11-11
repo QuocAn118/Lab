@@ -2333,5 +2333,61 @@
       "lab1_provenance_strict": "PASS: 0 errors, 0 warnings",
       "runtime_tests": "Not run: missing torch, torchvision, transformers, datasets."
     }
+  },
+  "lab1_completion": {
+    "recorded_at": "2026-11-11T09:55:36+07:00",
+    "by": "HoangDang",
+    "assisted_by": "OpenAI Codex",
+    "implementation_commit": "e36cc00",
+    "tests_passed": 17,
+    "smoke": "smoke_001",
+    "runs": [
+      {
+        "run_id": "run_001",
+        "test_accuracy": 0.8253,
+        "best_val_accuracy": 0.8315,
+        "samples": 10000,
+        "created_by": "HoangDang",
+        "started_at": "2026-11-11T09:41:02+07:00",
+        "code_commit": "529127ec927431725ae8c381a359c59e26aa29b7"
+      },
+      {
+        "run_id": "run_002",
+        "test_accuracy": 0.8271,
+        "best_val_accuracy": 0.8353333333333334,
+        "samples": 10000,
+        "created_by": "HoangDang",
+        "started_at": "2026-11-11T09:42:46+07:00",
+        "code_commit": "7716ca7494028fd9996e396c5b423bc4f82a54c2"
+      },
+      {
+        "run_id": "run_003",
+        "test_accuracy": 0.8667,
+        "best_val_accuracy": 0.8733333333333333,
+        "samples": 10000,
+        "created_by": "HoangDang",
+        "started_at": "2026-11-11T09:44:15+07:00",
+        "code_commit": "421caf61465097b7edaa23dd00f1996ffe48ec11"
+      },
+      {
+        "run_id": "run_004",
+        "test_accuracy": 0.877,
+        "best_val_accuracy": 0.881,
+        "samples": 10000,
+        "created_by": "HoangDang",
+        "started_at": "2026-11-11T09:45:49+07:00",
+        "code_commit": "41e13a175d021e6076440696144f25197ee4762f"
+      }
+    ],
+    "selected_by_validation": "run_004",
+    "input_example": "Lab 1/outputs/demo_input.png",
+    "output_example": "Lab 1/outputs/demo_example.json",
+    "local_delivery_zip": "Lab 1/deliverables/Lab1-complete-20261111.zip",
+    "artifact_bytes_preserved_by_gitattributes": true,
+    "limitations": [
+      "One seed/run per configuration",
+      "Drive upload not performed",
+      "Unconfirmed student names/model creation date not invented"
+    ]
   }
 }

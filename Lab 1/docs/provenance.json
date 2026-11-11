@@ -2,11 +2,26 @@
   "schema_version": 1,
   "entries": [
     {
+      "path": ".gitattributes",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:55:36+07:00",
+      "status": "active",
+      "note": "Preserve generated artifact bytes and manifest sizes across checkout platforms.",
+      "reviews": []
+    },
+    {
       "path": ".gitignore",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
           "section": "§9.4"
         }
       ],
@@ -45,6 +60,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -53,7 +76,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -92,6 +115,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -100,11 +131,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "8836ff299db3f64bdf47f0761de3c0dc5bf57ae93cbff2b8ee0a4a36e2d50122"
+          "sha256": "6ceb7e84082b525dd11fc49ee80cfdc3d9fd21bbc3a4e10eba4932bc12801596"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "be26ad7b5c0d6ab71958187cc5483a92ba138cfd3eeb4b0a434ccd20bbfd196c"
+          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
         }
       ],
       "method": "ai-assisted",
@@ -147,6 +178,15 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -155,15 +195,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "be26ad7b5c0d6ab71958187cc5483a92ba138cfd3eeb4b0a434ccd20bbfd196c"
+          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
         }
       ],
       "method": "ai-assisted",
@@ -215,6 +255,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -223,15 +273,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "8836ff299db3f64bdf47f0761de3c0dc5bf57ae93cbff2b8ee0a4a36e2d50122"
+          "sha256": "6ceb7e84082b525dd11fc49ee80cfdc3d9fd21bbc3a4e10eba4932bc12801596"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
         }
       ],
       "method": "ai-assisted",
@@ -291,6 +341,16 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -299,7 +359,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
         }
       ],
       "method": "ai-assisted",
@@ -331,6 +391,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -339,7 +407,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -378,6 +446,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -386,7 +462,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -419,6 +495,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -427,7 +511,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -460,6 +544,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -488,7 +580,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -521,6 +613,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -529,7 +629,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -574,6 +674,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -582,7 +690,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
           "section": "§9.2"
         }
       ],
@@ -615,6 +723,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -623,7 +739,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -662,6 +778,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -670,7 +794,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -703,6 +827,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -711,7 +843,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -744,6 +876,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -752,7 +892,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -785,6 +925,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -793,7 +941,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -826,6 +974,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -834,7 +990,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§6"
         }
       ],
@@ -867,6 +1023,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -875,7 +1039,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4-§5"
         },
         {
@@ -911,6 +1075,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -919,11 +1091,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
         }
       ],
       "method": "ai-assisted",
@@ -931,14 +1103,24 @@
       "recorded_at": "2026-11-11T09:39:55+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "docs/training.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§4"
         }
       ],
@@ -971,6 +1153,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -979,11 +1169,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d"
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2"
         }
       ],
       "method": "ai-assisted",
@@ -991,14 +1181,24 @@
       "recorded_at": "2026-11-11T09:39:55+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "requirements-lock.txt",
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
         }
       ],
       "method": "ai-assisted",
@@ -1006,18 +1206,27 @@
       "recorded_at": "2026-11-11T09:39:56+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "requirements.txt",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/verification.md",
-          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
         }
       ],
       "method": "ai-assisted",
@@ -1025,18 +1234,28 @@
       "recorded_at": "2026-11-11T09:39:56+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "src/compare_runs.py",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         },
         {
           "path": "docs/evaluation.md",
-          "sha256": "ec4f33802349ba2f485831d8d56fcb9bc65b9190d4b01e4adff042ccbd347822"
+          "sha256": "3f98ee47f7fa2b1bbfe59fa704711b893b43df4b83c3150676511ef1a0fc5ac9"
         }
       ],
       "method": "ai-assisted",
@@ -1044,18 +1263,28 @@
       "recorded_at": "2026-11-11T09:39:56+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/evaluation.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "src/demo.py",
       "sources": [
         {
           "path": "docs/demo.md",
-          "sha256": "6a96733a7ab9359522beb4d75a5049ec2f3d1533f8d08f62cccc34e405684912"
+          "sha256": "06f3660566323a66744470b199679f74218febc18060252adc680c8a4acb7bc7"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         }
       ],
       "method": "ai-assisted",
@@ -1063,18 +1292,28 @@
       "recorded_at": "2026-11-11T09:39:55+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/demo.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "src/evaluate.py",
       "sources": [
         {
           "path": "docs/requirements/3_5_evaluate.md",
-          "sha256": "69691d43ac82228fc40801b68326f310964495f8264f0491f403e25af4b6abfd"
+          "sha256": "afff0c5397ed371d83a6122885ada7514228e35e995782b5788c6bc048ced9aa"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         }
       ],
       "method": "ai-assisted",
@@ -1082,14 +1321,24 @@
       "recorded_at": "2026-11-11T09:39:55+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_5_evaluate.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "src/model.py",
       "sources": [
         {
           "path": "docs/requirements/3_3_build_model.md",
-          "sha256": "c9c6251119e5d3262ce3189e10a0915d2e44229af0e4f988436211f18f938a7c"
+          "sha256": "d8772a5a2b6c369d2ffd910722e48a87dc207a758de15e3c4717fc713b8b6a6c"
         }
       ],
       "method": "ai-assisted",
@@ -1113,6 +1362,14 @@
             "docs/requirements/3_3_build_model.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -1121,7 +1378,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "d4b877a3b85934d91af2af4b170ff3e6ef63267262f159ede60cb89ffe5aa91d"
+          "sha256": "5ef7656dbfcbd2adf433062fcd93deaa54b2ffeac619de2fb60130b16270bba4"
         }
       ],
       "method": "ai-assisted",
@@ -1145,6 +1402,14 @@
             "docs/requirements/3_6_save_load.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -1153,12 +1418,12 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "§10"
         }
       ],
@@ -1200,6 +1465,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -1208,11 +1482,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "73ce750b4ec67577a6c3d99805057d7933a6e99a33a0c1f76d46ea003c3c2403"
+          "sha256": "9b5b5b7a226e29f827485af8235b64b696ce3b21028f00f4b4bd9d3dea380c8f"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670",
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e",
           "section": "6.1"
         }
       ],
@@ -1248,6 +1522,15 @@
             "docs/lab_1_description.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     },
@@ -1256,11 +1539,11 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "e0f10b9ca9d8f7877088494ac2d7ef406bc13c37e0ca7597eab41babeaff7670"
+          "sha256": "30650fca6726f49bb075c80e7f546990d93342d501dab229238053455328131e"
         }
       ],
       "method": "ai-assisted",
@@ -1268,14 +1551,24 @@
       "recorded_at": "2026-11-11T09:39:56+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "tests/test_pipeline.py",
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "d8daa13c146c7300f6ca03ea4d2ad93b260ca71629a9fb7417966618222056e2"
+          "sha256": "956484ed68072d2a787006c7b3856d09869d69414e33c184d62c2fc21ed75b4e"
         }
       ],
       "method": "ai-assisted",
@@ -1283,14 +1576,23 @@
       "recorded_at": "2026-11-11T09:39:56+07:00",
       "status": "active",
       "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "tools/check_provenance.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "03708616a2d98f1e2ba2b847fac6b6aedffe45bbd9414cbfe15d035dd520588d",
+          "sha256": "8c163fd4425dfc34fb981b2bb2d3b58195b61baee3f8220d28b5181639106bc2",
           "section": "§9"
         }
       ],
@@ -1329,6 +1631,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
         }
       ]
     }

@@ -8,32 +8,72 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-Phân loại ảnh xám 28 × 28 thành 10 lớp trang phục bằng MLP 784 → 512 → 512 → 10. Cấu hình cơ sở: `ToTensor`, batch 64, SGD (lr 0.001, momentum 0.9), tối đa 10 epoch; split train/validation/test là 54.000/6.000/10.000, seed 42.
+## Sản phẩm đã hoàn thành
 
+Pipeline Python CLI phân loại FashionMNIST bằng MLP đã chạy end to end: data → train/checkpoint → reload best → test/performance → đồ thị/demo → verification/manifest. **17 test đạt; smoke_001 và cả bốn normal run PASS**, kiểm lại hash sau khi chốt.
 
-Đã triển khai pipeline đầy đủ: data → MLP → train/checkpoint → reload best → test/performance → đồ thị/demo → verification/manifest. 17 unit/integration test đã đạt trong môi trường Lab 1. Đang chạy kiểm chứng thật; kết luận cuối tại [verification.md](docs/verification.md).
+Model được chọn bằng validation: **run_004**, validation **88.10%**, test **87.70%** trên 10.000 ảnh. [Báo cáo so sánh](docs/evaluation.md), [kiểm chứng](docs/verification.md), [truy vết](docs/traceability.md).
 
-Phần **3.1–3.2** được gom trong **[data/](data/README.md)**: code chuẩn bị dữ liệu, DataLoader, dữ liệu gốc, báo cáo và kiểm thử. Xem README trong đó để chạy.
+## Input và output ở đâu
 
-Các lệnh sau chạy từ thư mục `Lab 1`; cần Python có `torch`, `torchvision`, `matplotlib` và `pytest` (cho kiểm thử). Dataset gốc không lưu trên Git, bước chuẩn bị cần mạng khi chưa có dữ liệu.
+| Thành phần | Vị trí | Nội dung |
+| --- | --- | --- |
+| Dataset input | `data/FashionMNIST/raw/` | IDX/gz gốc FashionMNIST, có trên máy này và trong ZIP cục bộ; Git bỏ qua |
+| Data reports | [data/reports/](data/README.md) | Summary, split seed 42, batch check và ảnh khảo sát; không phải kết quả huấn luyện |
+| Một ảnh input thật | [demo_input.png](outputs/demo_input.png) | Ảnh xám 28×28, test index 0 |
+| Output ảnh đó | [demo_example.json](outputs/demo_example.json) | Input shape, 10 logits, nhãn thật và dự đoán; `Ankle boot` |
+| Model đã train | `checkpoints/run_004/best.pth` | State_dict được chọn bằng validation; cần config cùng run để tải |
+| Toàn bộ kết quả | [outputs/run_004/](outputs/run_004/metrics.json) | Config, history, metrics, predictions CSV, performance, reload, đồ thị, ảnh mẫu, verify_report và manifest |
+| So sánh bốn run | [compare_runs.csv](outputs/compare_runs.csv), [compare_loss.png](outputs/compare_loss.png) | Accuracy/thời gian/tài nguyên và val loss |
+| Gói bàn giao cục bộ | `deliverables/Lab1-complete-20261111.zip` | Code, docs, tests, requirements, dataset raw, toàn bộ checkpoint và kết quả; không chứa .venv/cache |
+
+Input model là tensor float32 `[B,1,28,28]`, giá trị [0,1]; nhãn int64 0–9. Output là `[B,10]` logits; argmax chọn nhãn. Dataset chia 54.000/6.000/10.000, seed 42. Ảnh dự đoán có nhãn thật/dự đoán, tô đỏ khi sai; xem [16 ảnh mẫu](outputs/run_004/prediction_samples.png).
+
+## Chạy trên máy hiện tại
+
+Từ `Lab 1` (PowerShell):
 
 ```powershell
-python data/prepare_data.py
-python data/data_pipeline.py --check
-python -m pytest data/tests tests -q
+$env:PYTHONUTF8='1'
+& .venv/Scripts/python.exe src/demo.py --run-id run_004 --index 0
+& .venv/Scripts/python.exe src/verify.py --run-id run_004
+& .venv/Scripts/python.exe tools/check_provenance.py --strict
+& .venv/Scripts/python.exe -m pytest tests data/tests -q --basetemp .venv/pytest-temp
 ```
 
-Sau khi chuẩn bị dữ liệu, lệnh smoke run dự kiến là `python src/train.py --run-id smoke_001 --purpose "Kiểm tra pipeline"`. Chọn mã mới nếu đã tồn tại. Xem [training.md](docs/training.md) để biết đầu ra hiện có và điều kiện trước normal run. Kiểm tra nguồn gốc file từ đây bằng `python tools/check_provenance.py --strict`.
+CLI demo/verify chỉ đọc. Đường dẫn Python bên trên dùng môi trường Lab 1 đã chuẩn bị; Python toàn hệ thống có thể chưa có torch. Thư mục tạm pytest đặt trong .venv để tránh thư mục temp Windows bị từ chối quyền.
 
-## 📁 Cấu Trúc Tài Liệu Đặc Tả (`docs/`)
-1. **[`docs/lab_1_description.md`](./docs/lab_1_description.md)**: Đặc tả bài toán, mục tiêu hệ thống, chỉ số KPIs & chính sách quản lý Checkpoints.
-2. **[`docs/data.md`](./docs/data.md)**:  dữ liệu FashionMNIST, Transforms, DataLoaders.
-3. **[`docs/model.md`](./docs/model.md)**: Kiến trúc MLP kế thừa `torch.nn.Module`; hồ sơ model trước và sau huấn luyện.
-4. **[`docs/training.md`](./docs/training.md)**: Cấu hình giải thuật tối ưu SGD/Adam, Loss function, quy trình smoke test.
-5. **[`docs/evaluation.md`](./docs/evaluation.md)**: Báo cáo định lượng hệ thống (Accuracy, Loss, thời gian & tài nguyên).
-6. **[`docs/demo.md`](./docs/demo.md)**: Kịch bản và mã nguồn suy luận nhanh với ảnh mẫu.
-7. **[`docs/plan_progress_status.md`](./docs/plan_progress_status.md)**: Lộ trình triển khai, bảng phân rã nhiệm vụ (TODO / DONE).
+## Chuẩn bị trên máy mới và chạy lại
+
+Môi trường đã đo: Windows, Python 3.12.10 và GPU RTX 5060 Laptop. Cặp wheel CUDA 12.8 đã kiểm tra hoạt động trên máy này:
+
+```powershell
+$env:PYTHONUTF8='1'
+python -m venv .venv
+& .venv/Scripts/python.exe -m pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu128
+& .venv/Scripts/python.exe -m pip install -r requirements.txt
+& .venv/Scripts/python.exe data/prepare_data.py
+& .venv/Scripts/python.exe data/data_pipeline.py --check
+```
+
+Máy CPU/thiết bị khác cần chọn wheel phù hợp theo [PyTorch](https://pytorch.org/get-started/previous-versions/); `requirements-lock.txt` ghi môi trường đã đo, không cam kết cùng tốc độ trên máy khác.
+
+Trước run mới, commit các thay đổi Lab 1 để manifest truy về đúng code. Không ghi đè run cũ; các mã 001–004 đã có kết quả. Ví dụ tạo smoke mới rồi baseline mới:
+
+```powershell
+& .venv/Scripts/python.exe src/train.py --run-id smoke_002 --purpose "Smoke on this machine"
+& .venv/Scripts/python.exe src/verify.py --run-id smoke_002
+# Chỉ chạy normal sau khi smoke PASS và cây Lab 1 đã commit.
+& .venv/Scripts/python.exe src/train.py --run-id run_005 --purpose "Repeat baseline"
+```
+
+Xem [training.md](docs/training.md) và [đặc tả](docs/lab_1_description.md) cho bốn cấu hình, checkpoint và early stopping. Dataset/trọng số và ZIP không lưu trực tiếp trên Git theo chính sách Lab 1; gói ZIP cục bộ chứa đủ để bàn giao, chưa upload Drive. Không có liên kết Drive được xác nhận.
+
+## Nguồn và phạm vi
+
+- Các file trong `docs/requirements/`, source và artifact Lab 1. Không dùng kết quả Lab 3 làm bằng chứng cho Lab 1.
+- HoangDang hoàn thiện với hỗ trợ OpenAI Codex; tác giả code/tài liệu kế thừa giữ trong Git và registry. Tên thành viên TV1–TV5/ngày tạo model chưa được xác nhận chính thức không được tự điền.

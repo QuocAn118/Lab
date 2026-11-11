@@ -8,11 +8,11 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo đã có sidecar nguồn gốc `.prov.json`, nhưng chưa được tạo lại trong lần rà này. Chưa có bằng chứng huấn luyện.
+Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo đã có sidecar nguồn gốc `.prov.json`, đã được tạo lại từ code đã commit. Bằng chứng huấn luyện nằm trong bốn normal run; summary chỉ là kiểm tra kiến trúc.
 
 `check_model()` ghi summary rồi gọi `record_artifact`; sidecar mới giữ lịch sử các lần tạo trước. Đã có test đối chiếu hash sidecar với summary; không sửa tay hash báo cáo.
 

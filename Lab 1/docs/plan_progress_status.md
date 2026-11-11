@@ -8,30 +8,28 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T09:38:18+07:00 |
+| Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái căn cứ vào code và bằng chứng đang có trong repo. “Có code” không đồng nghĩa đã nghiệm thu pipeline. Các mốc chạy trước đây trong changelog được giữ làm lịch sử, không phải kết quả chạy lại ở lần rà này.
 
-## 1. Task Breakdown & Delivery Pipeline
+## 1. Tiến độ nghiệm thu kỹ thuật
 
-| Task ID | Work Item | Status | Owner | Deliverable & Evidence |
-| :---: | :--- | :---: | :---: | :--- |
-| **TASK-01** | Đồng bộ đặc tả và hướng dẫn | **ĐÃ RÀ, CHỜ NHÓM REVIEW** | TV5 | Mô tả gốc, README, tài liệu thành phần, 3.1–3.6, phân công; ghi rõ phần chưa triển khai |
-| **TASK-02** | Data Pipeline & ba DataLoader | **CÓ CODE VÀ BÁO CÁO** | TV1 | `data/prepare_data.py`, `data/data_pipeline.py`; `data/reports/` có summary, batch, split và ảnh mẫu kèm sidecar. Cần chuẩn bị dataset gốc trên máy trước khi chạy lại test |
-| **TASK-03** | MLP và model I/O | **ĐÃ TRIỂN KHAI, CHỜ RUN THẬT** | TV2 | `FashionMLP`, `build_model`; summary 669.706 tham số. `load_model`/`verify_reload` hỗ trợ final/best; nguồn model/model I/O và sidecar đã đăng ký, chưa kiểm chứng runtime lại |
-| **TASK-04** | Smoke run toàn pipeline | **TODO** | TV3, TV5 | 512/256/256 mẫu, 1 epoch; đủ đầu ra và kiểm tra tải lại `best`; chưa có manifest nghiệm thu |
-| **TASK-05** | Train + checkpoint và normal run | **CÓ CODE TRAIN; CHƯA CÓ NORMAL RUN** | TV3 | `src/train.py`, `tests/test_train.py`; train/val, early stopping, 5 checkpoint. Chưa có lịch sử hoặc manifest normal run để báo cáo |
-| **TASK-06** | Evaluation, performance, đồ thị, demo và nghiệm thu | **TODO** | TV4, TV5 | Đã có code evaluation/verify/demo/compare và hai tài liệu nghiệm thu/truy vết; artifact run thật đang được tạo |
+| Task | Trạng thái | Bằng chứng |
+| --- | --- | --- |
+| Data/loader | DONE | data/reports, data/tests đã chạy thật |
+| Model/sidecar/save-load final/best | DONE | model_summary, 17 tests, reload_check mỗi run |
+| Smoke end to end | DONE | outputs/smoke_001, verify PASS trước/sau manifest |
+| Bốn normal run | DONE | outputs/run_001–run_004, checkpoints/index, 40.000 dự đoán test tổng cộng |
+| Evaluation/performance/đồ thị/demo | DONE | compare_runs.csv, compare_loss.png, ảnh mẫu và demo_example.json |
+| Verification/truy vết/tài liệu | DONE | verification.md, traceability.md, registry và manifest/hash |
 
-## 1.1. Trạng thái sau đồng bộ và chuẩn hóa ngày 2026-11-11
+## 1.1. Kết quả hiện tại ngày 2026-11-11
 
-- Merge đã hoàn tất; thay đổi các nhánh remote và snapshot local ThanhBinh đã được xử lý. Người/thời gian tích hợp xem nhật ký đồng bộ tại gốc repo.
-- `src/model.py`, `src/model_io.py` đã đăng ký nguồn; `outputs/model_summary.txt.prov.json` tồn tại. Ba lỗi nguồn gốc từng ghi ngày 2026-11-10 không còn là trạng thái hiện tại.
-- Đã rà tĩnh tài liệu, đường dẫn, config, data/model/train/model I/O và công cụ lưu vết. Registry được ghi nhận lại bằng CLI sau khi rà; xác nhận này không phải kết quả test/train.
-- Provenance strict được chạy sau chuẩn hóa; kết quả cuối được ghi trong nhật ký đồng bộ. Không chỉnh sửa báo cáo thực nghiệm hoặc sidecar để tạo bằng chứng mới.
-- Môi trường `.venv` của Lab 1 đã có torch/torchvision CUDA; GPU RTX 5060 Laptop hoạt động. 17 test đạt sau khi dùng thư mục tạm riêng trong repo; chuẩn bị chạy smoke/normal thật. Phần triển khai best/evaluation/demo/verifier đã có.
+Model chọn bằng validation là **run_004**, val **88.10%**, test **87.70%**. Cả bốn normal run cùng GPU; nguồn số liệu tại [evaluation.md](evaluation.md). Người hoàn thiện/chạy: HoangDang, hỗ trợ OpenAI Codex; không thay tác giả các phần kế thừa trong Git.
+
+Đã chạy test bằng Python .venv Lab 1, không dùng kết quả cũ. Các lỗi merge/nguồn gốc bên dưới là lịch sử, không phải trạng thái hiện tại. Những việc ngoài nghiệm thu kỹ thuật còn lại: xác nhận tên TV1–TV5/ngày tạo model và upload Drive; không tự tạo thông tin đó.
 
 ## 1.2. Kiểm chứng lịch sử ngày 2026-11-10
 
@@ -47,6 +45,7 @@ Các gạch đầu dòng dưới ghi trạng thái ở lần rà cũ; trạng th
 ---
 
 ## 2. Engineering Changelog
+- `2026-11-11` — HoangDang, hỗ trợ OpenAI Codex: hoàn thiện pipeline, tạo môi trường/dữ liệu, 17 test PASS, smoke + 4 normal run PASS; tổng hợp số liệu thật và đóng gói source/input/output/trọng số cục bộ. Xem manifest từng run và verification.md; không ghi đè run đã chốt.
 - `2026-11-11` — HoangDang, hỗ trợ OpenAI Codex: chuẩn hóa bảng thông tin và trạng thái; thống nhất tối thiểu ba normal run, vòng đời evaluation/verification và danh sách đầu ra. Giữ lịch sử ngày 2026-11-10; rà registry qua CLI. Không sửa thuật toán hoặc chạy lại thực nghiệm.
 - `2026-11-10` — Codex: đồng bộ mô tả chính, README, data/model/training/evaluation/demo, yêu cầu 3.1–3.6 và phân công. Thống nhất `data/*.py`, `data/reports/`, ba loader, MLP `[512,512]`, smoke 512/256/256, tối đa 10 epoch, early stopping 2 epoch/0.01, 5 checkpoint và đường dẫn theo run. Gỡ marker conflict của Lab 1 để tài liệu và công cụ lưu vết đọc được; giữ lịch sử registry. Ghi rõ model I/O mới kiểm tra `final_epoch`, thiếu phần `best`/evaluation/demo, 3 lỗi provenance và giới hạn môi trường thiếu torch. Chờ nhóm review.
 - `2026-11-10` — Theo yêu cầu người dùng, gom module 3.1–3.2 vào `data/` (code, `reports/`, `tests/`, dataset gốc). Cập nhật import trong train, đường dẫn báo cáo, Git ignore và công cụ lưu vết; giữ lịch sử nguồn gốc khi chuyển file. Tài liệu chung tiếp tục ở `docs/`.
