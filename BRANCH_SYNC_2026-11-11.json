@@ -1,0 +1,2249 @@
+{
+  "started_at": "2026-11-11T08:14:59+07:00",
+  "timezone": "Asia/Bangkok (UTC+07:00)",
+  "branch": "hoangdang",
+  "before": "054a9f15857045a9966207d3d4e67fabe68ca2e8",
+  "backup": "backup/hoangdang-before-sync-20261111-081459",
+  "integration_identity": {
+    "name": "HoangDang",
+    "email": "dangnh3549@ut.edu.vn"
+  },
+  "branches": [
+    {
+      "ref": "origin/QuocAn",
+      "tip": "32ca8b134c425389f95e1fce76563d806548d78d",
+      "tip_metadata": "2026-11-10T21:18:59+07:00 | Quoc An | 2026-11-10T21:18:59+07:00 | Quoc An | Lab 2: Evaluation.py and test 6 passed",
+      "counts": "33\t17",
+      "commits": [
+        {
+          "commit": "d339891edc198ba17d3f0e939984486db74efd23",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-06T16:47:12+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-06T16:47:12+07:00",
+          "subject": "delete unnesscesary",
+          "files": [
+            "A\tAGENTS.md",
+            "D\tLab 1/test.py",
+            "D\tLab 2/test.py",
+            "A\tLab 3/Lab_3 (1).ipynb",
+            "D\tLab 3/test.py",
+            "D\tLab_3 (1).ipynb",
+            "D\tREADME.md"
+          ]
+        },
+        {
+          "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-06T20:53:12+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-06T20:53:12+07:00",
+          "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts",
+          "files": [
+            "M\tAGENTS.md",
+            "A\tLab 2/Lab 2.ipynb",
+            "A\tLab 3/.gitignore",
+            "D\tLab 3/Lab_3 (1).ipynb",
+            "M\tLab 3/README.md",
+            "A\tLab 3/configs/exercise_2.yaml",
+            "M\tLab 3/docs/data.md",
+            "M\tLab 3/docs/demo.md",
+            "M\tLab 3/docs/evaluation.md",
+            "M\tLab 3/docs/lab_3_description.md",
+            "M\tLab 3/docs/model.md",
+            "M\tLab 3/docs/plan_progress_status.md",
+            "M\tLab 3/docs/training.md",
+            "A\tLab 3/notebooks/Lab_3 (1).ipynb",
+            "A\tLab 3/notebooks/Lab_3_colab.ipynb",
+            "A\tLab 3/reports/figures/confusion_matrix.png",
+            "A\tLab 3/reports/figures/loss_curve.png",
+            "A\tLab 3/reports/metrics.json",
+            "A\tLab 3/requirements.txt",
+            "A\tLab 3/src/exercise_1/sentiment_analysis.py",
+            "A\tLab 3/src/exercise_2/common.py",
+            "A\tLab 3/src/exercise_2/data.py",
+            "A\tLab 3/src/exercise_2/demo.py",
+            "A\tLab 3/src/exercise_2/evaluation.py",
+            "A\tLab 3/src/exercise_2/model.py",
+            "A\tLab 3/src/exercise_2/training.py",
+            "A\tLab 3/tests/test_exercise_2.py",
+            "A\tLab 3/tests/test_smoke.py"
+          ]
+        },
+        {
+          "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-06T21:43:04+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-06T21:43:04+07:00",
+          "subject": "Them checkpoint Lab 3 bang Git LFS",
+          "files": [
+            "A\tLab 3/.gitattributes",
+            "M\tLab 3/.gitignore",
+            "M\tLab 3/README.md",
+            "A\tLab 3/checkpoints/best/config.json",
+            "A\tLab 3/checkpoints/best/model.safetensors",
+            "A\tLab 3/checkpoints/best/tokenizer.json",
+            "A\tLab 3/checkpoints/best/tokenizer_config.json",
+            "A\tLab 3/checkpoints/best_val_acc/config.json",
+            "A\tLab 3/checkpoints/best_val_acc/model.safetensors",
+            "A\tLab 3/checkpoints/best_val_acc/tokenizer.json",
+            "A\tLab 3/checkpoints/best_val_acc/tokenizer_config.json",
+            "A\tLab 3/checkpoints/best_val_loss/config.json",
+            "A\tLab 3/checkpoints/best_val_loss/model.safetensors",
+            "A\tLab 3/checkpoints/best_val_loss/tokenizer.json",
+            "A\tLab 3/checkpoints/best_val_loss/tokenizer_config.json",
+            "A\tLab 3/checkpoints/final_epoch/config.json",
+            "A\tLab 3/checkpoints/final_epoch/model.safetensors",
+            "A\tLab 3/checkpoints/final_epoch/tokenizer.json",
+            "A\tLab 3/checkpoints/final_epoch/tokenizer_config.json"
+          ]
+        },
+        {
+          "commit": "3a86e93b53a00abb1e0eba6c49ce51a284f0e5c2",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T10:30:02+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T10:30:02+07:00",
+          "subject": "Lab 2: hoan thien dac ta theo de bai, them cau hinh va test",
+          "files": [
+            "A\tLab 2/.gitignore",
+            "M\tLab 2/README.md",
+            "A\tLab 2/configs/lab_2.yaml",
+            "M\tLab 2/docs/data.md",
+            "M\tLab 2/docs/demo.md",
+            "M\tLab 2/docs/evaluation.md",
+            "M\tLab 2/docs/lab_2_description.md",
+            "M\tLab 2/docs/model.md",
+            "M\tLab 2/docs/plan_progress_status.md",
+            "M\tLab 2/docs/training.md",
+            "A\tLab 2/requirements.txt",
+            "A\tLab 2/tests/test_lab_2.py",
+            "A\tLab 2/tests/test_smoke.py"
+          ]
+        },
+        {
+          "commit": "00b8d042427f5ac5ac20e2abf8758ed0e9455b82",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T11:49:25+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T11:49:25+07:00",
+          "subject": "Lab 2: xoa code, dac ta chi tiet tung ham cho 5 thanh vien",
+          "files": [
+            "M\tAGENTS.md",
+            "D\tLab 2/Lab 2.ipynb",
+            "M\tLab 2/README.md",
+            "M\tLab 2/docs/data.md",
+            "M\tLab 2/docs/demo.md",
+            "M\tLab 2/docs/evaluation.md",
+            "M\tLab 2/docs/lab_2_description.md",
+            "M\tLab 2/docs/model.md",
+            "M\tLab 2/docs/plan_progress_status.md",
+            "M\tLab 2/docs/training.md",
+            "A\tLab 2/notebooks/Lab 2.ipynb",
+            "A\tLab 2/tests/conftest.py",
+            "A\tLab 2/tests/test_common.py",
+            "A\tLab 2/tests/test_data.py",
+            "A\tLab 2/tests/test_demo.py",
+            "A\tLab 2/tests/test_evaluation.py",
+            "A\tLab 2/tests/test_integration.py",
+            "D\tLab 2/tests/test_lab_2.py",
+            "A\tLab 2/tests/test_model.py",
+            "A\tLab 2/tests/test_training.py"
+          ]
+        },
+        {
+          "commit": "fa27469d910dd86bb4501f1ed7b35b13634486a4",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:34:50+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:34:50+07:00",
+          "subject": "try to retore demo data.md cause accidentally delete",
+          "files": [
+            "M\tLab 2/docs/data.md"
+          ]
+        },
+        {
+          "commit": "0f71b4fdd5ab2c0a503016e4dd940a18089660d9",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:36:28+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:36:28+07:00",
+          "subject": "Lab 2: khoi phuc cac muc da mat trong model.md",
+          "files": [
+            "M\tLab 2/docs/model.md"
+          ]
+        },
+        {
+          "commit": "9096223a0a0b2485f26bc0260044cd72e89d9301",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:36:33+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:36:33+07:00",
+          "subject": "Lab 2: khoi phuc cac muc da mat trong training.md",
+          "files": [
+            "M\tLab 2/docs/training.md"
+          ]
+        },
+        {
+          "commit": "f9f2fd8f0a3c5858312e2deb71c40602c5e7fc56",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:36:38+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:36:38+07:00",
+          "subject": "Lab 2: khoi phuc cac muc da mat trong evaluation.md",
+          "files": [
+            "M\tLab 2/docs/evaluation.md"
+          ]
+        },
+        {
+          "commit": "d0cd42f72601e4bfcb3cf3e959ea1082b3a29757",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:36:43+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:36:43+07:00",
+          "subject": "Lab 2: khoi phuc cac muc da mat trong demo.md",
+          "files": [
+            "M\tLab 2/docs/demo.md"
+          ]
+        },
+        {
+          "commit": "7876e0c92f64c3a5556a79f84a62c56600fc9d91",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-07T16:44:25+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-07T16:44:25+07:00",
+          "subject": "Lab 2: doi quy trinh day code sang origin/main",
+          "files": [
+            "M\tLab 2/README.md",
+            "M\tLab 2/docs/plan_progress_status.md"
+          ]
+        },
+        {
+          "commit": "33bf735b387acddfe5de4b64f2537a14b917b00f",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-09T08:35:35+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-09T08:35:35+07:00",
+          "subject": "Lab 1: lay thu muc Lab 1 tu nhanh hoangdang (phan cong nhom, dac ta requirements)",
+          "files": [
+            "A\tLab 1/.gitignore",
+            "M\tLab 1/README.md",
+            "M\tLab 1/docs/lab_1_description.md",
+            "A\tLab 1/docs/provenance.json",
+            "A\tLab 1/docs/requirements/3_1_prepare_data.md",
+            "A\tLab 1/docs/requirements/3_2_transforms_dataloader.md",
+            "A\tLab 1/docs/requirements/3_3_build_model.md",
+            "A\tLab 1/docs/requirements/3_4_train.md",
+            "A\tLab 1/docs/requirements/3_5_evaluate.md",
+            "A\tLab 1/docs/requirements/3_6_save_load.md",
+            "A\tLab 1/docs/team_plan_integrity.md",
+            "A\tLab 1/src/run_tracking.py",
+            "A\tLab 1/test.py",
+            "A\tLab 1/tools/check_provenance.py"
+          ]
+        },
+        {
+          "commit": "fc5aa3943b069fd4cf3560401f50d20cdba68d4d",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-09T08:52:00+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-09T08:52:00+07:00",
+          "subject": "Lab 1: lay model.md tu nhanh vananh",
+          "files": [
+            "M\tLab 1/docs/model.md"
+          ]
+        },
+        {
+          "commit": "48f73bf8fc763db52020a4d91671e118e7ec9909",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-10T09:03:50+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-10T09:03:50+07:00",
+          "subject": "Lab 1: lay model.py, model_io.py tu nhanh vananh",
+          "files": [
+            "A\tLab 1/outputs/model_summary.txt",
+            "A\tLab 1/src/model.py",
+            "A\tLab 1/src/model_io.py"
+          ]
+        },
+        {
+          "commit": "773a5a1b77894e90ad248ce00e60c2c14604b631",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-10T09:11:52+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-10T09:11:52+07:00",
+          "subject": "Lab 1: them src/train.py va tests/test_train.py (TV3 training)",
+          "files": [
+            "M\tLab 1/docs/provenance.json",
+            "A\tLab 1/src/train.py",
+            "A\tLab 1/tests/test_train.py"
+          ]
+        },
+        {
+          "commit": "e2b6402b08c9109ac7a5c947b55fee1aebb26add",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-10T09:42:35+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-10T09:42:35+07:00",
+          "subject": "Lab 1: train.py theo dung dac ta (bo train_summary.json va cac khoa config thua)",
+          "files": [
+            "M\tLab 1/src/train.py",
+            "M\tLab 1/tests/test_train.py"
+          ]
+        },
+        {
+          "commit": "32ca8b134c425389f95e1fce76563d806548d78d",
+          "author": "Quoc An",
+          "author_email": "lincolnan1182005@gmail.com",
+          "author_time": "2026-11-10T21:18:59+07:00",
+          "committer": "Quoc An",
+          "committer_email": "lincolnan1182005@gmail.com",
+          "committer_time": "2026-11-10T21:18:59+07:00",
+          "subject": "Lab 2: Evaluation.py and test 6 passed",
+          "files": [
+            "M\tLab 2/docs/plan_progress_status.md",
+            "A\tLab 2/src/lab_2/evaluation.py"
+          ]
+        }
+      ],
+      "patch_equivalence": [
+        "+ d339891edc198ba17d3f0e939984486db74efd23",
+        "+ 186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "+ 7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "+ 3a86e93b53a00abb1e0eba6c49ce51a284f0e5c2",
+        "+ 00b8d042427f5ac5ac20e2abf8758ed0e9455b82",
+        "- fa27469d910dd86bb4501f1ed7b35b13634486a4",
+        "- 0f71b4fdd5ab2c0a503016e4dd940a18089660d9",
+        "- 9096223a0a0b2485f26bc0260044cd72e89d9301",
+        "- f9f2fd8f0a3c5858312e2deb71c40602c5e7fc56",
+        "- d0cd42f72601e4bfcb3cf3e959ea1082b3a29757",
+        "- 7876e0c92f64c3a5556a79f84a62c56600fc9d91",
+        "+ 33bf735b387acddfe5de4b64f2537a14b917b00f",
+        "+ fc5aa3943b069fd4cf3560401f50d20cdba68d4d",
+        "+ 48f73bf8fc763db52020a4d91671e118e7ec9909",
+        "+ 773a5a1b77894e90ad248ce00e60c2c14604b631",
+        "- e2b6402b08c9109ac7a5c947b55fee1aebb26add",
+        "+ 32ca8b134c425389f95e1fce76563d806548d78d"
+      ],
+      "integrated": true
+    },
+    {
+      "ref": "origin/ThanhBinh",
+      "tip": "eb86ab81d8be5296cfa5aac7c13e8ae7f826c370",
+      "tip_metadata": "2026-11-10T16:24:05+07:00 | Thanh Binh | 2026-11-10T16:24:05+07:00 | Thanh Binh | feat(lab1-data): implement FashionMNIST preparation and dataloaders",
+      "counts": "11\t0",
+      "commits": [],
+      "patch_equivalence": [],
+      "integrated": true
+    },
+    {
+      "ref": "origin/hoangdang",
+      "tip": "054a9f15857045a9966207d3d4e67fabe68ca2e8",
+      "tip_metadata": "2026-11-11T08:13:58+07:00 | HoangDang | 2026-11-11T08:13:58+07:00 | HoangDang | fix: update author name in lab 1 description",
+      "counts": "0\t0",
+      "commits": [],
+      "patch_equivalence": [],
+      "integrated": true
+    },
+    {
+      "ref": "origin/main",
+      "tip": "502a84b665903f74dc75a9b8db6aaabfa4910cd8",
+      "tip_metadata": "2026-11-10T09:42:43+07:00 | Quoc An | 2026-11-10T09:42:43+07:00 | Quoc An | Lab 1: train.py theo dung dac ta (bo train_summary.json va cac khoa config thua)",
+      "counts": "16\t0",
+      "commits": [],
+      "patch_equivalence": [],
+      "integrated": true
+    },
+    {
+      "ref": "origin/vananh",
+      "tip": "b323b780a7e2547cfef2aa066f695c822d559561",
+      "tip_metadata": "2026-11-10T00:14:24+07:00 | Vân Anh | 2026-11-10T00:14:24+07:00 | Vân Anh | Add Lab 1 source code and output",
+      "counts": "18\t4",
+      "commits": [
+        {
+          "commit": "d55bff6fc4643574b5e957fdaaf56e84b08cd048",
+          "author": "Vân Anh",
+          "author_email": "ntv9706@gmail.com",
+          "author_time": "2026-11-08T23:32:29+07:00",
+          "committer": "Vân Anh",
+          "committer_email": "ntv9706@gmail.com",
+          "committer_time": "2026-11-08T23:32:29+07:00",
+          "subject": "Update model.md",
+          "files": [
+            "M\tLab 1/docs/model.md"
+          ]
+        },
+        {
+          "commit": "c77ae34775404a46afe78c1a1fb963cb177c38b7",
+          "author": "Vân Anh",
+          "author_email": "ntv9706@gmail.com",
+          "author_time": "2026-11-09T09:07:45+07:00",
+          "committer": "Vân Anh",
+          "committer_email": "ntv9706@gmail.com",
+          "committer_time": "2026-11-09T09:07:45+07:00",
+          "subject": "Update the file scope",
+          "files": [
+            "M\tLab 1/docs/model.md"
+          ]
+        },
+        {
+          "commit": "908d0f30b2026870b02288ba09a4aeb7140e3379",
+          "author": "Vân Anh",
+          "author_email": "ntv9706@gmail.com",
+          "author_time": "2026-11-10T00:09:26+07:00",
+          "committer": "Vân Anh",
+          "committer_email": "ntv9706@gmail.com",
+          "committer_time": "2026-11-10T00:09:26+07:00",
+          "subject": "Update progress on model.md file",
+          "files": [
+            "M\tLab 1/docs/model.md"
+          ]
+        },
+        {
+          "commit": "b323b780a7e2547cfef2aa066f695c822d559561",
+          "author": "Vân Anh",
+          "author_email": "ntv9706@gmail.com",
+          "author_time": "2026-11-10T00:14:24+07:00",
+          "committer": "Vân Anh",
+          "committer_email": "ntv9706@gmail.com",
+          "committer_time": "2026-11-10T00:14:24+07:00",
+          "subject": "Add Lab 1 source code and output",
+          "files": [
+            "A\tLab 1/outputs/model_summary.txt",
+            "A\tLab 1/src/model.py",
+            "A\tLab 1/src/model_io.py",
+            "A\tLab 1/src/run_tracking.py"
+          ]
+        }
+      ],
+      "patch_equivalence": [
+        "+ d55bff6fc4643574b5e957fdaaf56e84b08cd048",
+        "+ c77ae34775404a46afe78c1a1fb963cb177c38b7",
+        "+ 908d0f30b2026870b02288ba09a4aeb7140e3379",
+        "+ b323b780a7e2547cfef2aa066f695c822d559561"
+      ],
+      "integrated": true
+    },
+    {
+      "ref": "origin/xbao",
+      "tip": "b02aa81638472b544f90c34d614f24f7141d6f8f",
+      "tip_metadata": "2026-11-10T20:09:14+07:00 | hbao2123-debug | 2026-11-10T20:09:14+07:00 | hbao2123-debug | chore: ignore Python cache files",
+      "counts": "29\t5",
+      "commits": [
+        {
+          "commit": "cfef080753bc2e72150fc29aa1be88c395f24c74",
+          "author": "hbao2123-debug",
+          "author_email": "hbao2123@gmail.com",
+          "author_time": "2026-11-10T17:54:13+07:00",
+          "committer": "hbao2123-debug",
+          "committer_email": "hbao2123@gmail.com",
+          "committer_time": "2026-11-10T17:54:13+07:00",
+          "subject": "feat(lab2): implement ResNet18 model",
+          "files": [
+            "A\tLab 2/model.py"
+          ]
+        },
+        {
+          "commit": "60bc6c992313e9bc9845b52e92aaf917841ef90c",
+          "author": "hbao2123-debug",
+          "author_email": "hbao2123@gmail.com",
+          "author_time": "2026-11-10T17:54:27+07:00",
+          "committer": "hbao2123-debug",
+          "committer_email": "hbao2123@gmail.com",
+          "committer_time": "2026-11-10T17:54:27+07:00",
+          "subject": "docs(lab2): document model architecture",
+          "files": [
+            "M\tLab 2/docs/model.md"
+          ]
+        },
+        {
+          "commit": "749c9352d71e6c61125870df027f3f3675872b79",
+          "author": "hbao2123-debug",
+          "author_email": "hbao2123@gmail.com",
+          "author_time": "2026-11-10T17:54:38+07:00",
+          "committer": "hbao2123-debug",
+          "committer_email": "hbao2123@gmail.com",
+          "committer_time": "2026-11-10T17:54:38+07:00",
+          "subject": "docs(lab2): add Vietnamese model documentation",
+          "files": [
+            "A\tLab 2/docs/model_vi.md"
+          ]
+        },
+        {
+          "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+          "author": "hbao2123-debug",
+          "author_email": "hbao2123@gmail.com",
+          "author_time": "2026-11-10T20:06:11+07:00",
+          "committer": "hbao2123-debug",
+          "committer_email": "hbao2123@gmail.com",
+          "committer_time": "2026-11-10T20:06:11+07:00",
+          "subject": "test(lab-2): pass model implementation and unit tests",
+          "files": [
+            "M\tLab 2/docs/model.md",
+            "M\tLab 2/docs/model_vi.md",
+            "M\tLab 2/model.py",
+            "A\tLab 2/reports/metrics.json",
+            "M\tLab 2/test.py"
+          ]
+        },
+        {
+          "commit": "b02aa81638472b544f90c34d614f24f7141d6f8f",
+          "author": "hbao2123-debug",
+          "author_email": "hbao2123@gmail.com",
+          "author_time": "2026-11-10T20:09:14+07:00",
+          "committer": "hbao2123-debug",
+          "committer_email": "hbao2123@gmail.com",
+          "committer_time": "2026-11-10T20:09:14+07:00",
+          "subject": "chore: ignore Python cache files",
+          "files": [
+            "A\t.gitignore"
+          ]
+        }
+      ],
+      "patch_equivalence": [
+        "+ cfef080753bc2e72150fc29aa1be88c395f24c74",
+        "+ 60bc6c992313e9bc9845b52e92aaf917841ef90c",
+        "+ 749c9352d71e6c61125870df027f3f3675872b79",
+        "+ 9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+        "+ b02aa81638472b544f90c34d614f24f7141d6f8f"
+      ],
+      "integrated": true
+    }
+  ],
+  "integration_finished_at": "2026-11-11T08:23:49+07:00",
+  "integrated_head": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+  "integration_tool": "OpenAI Codex; configured Git identity: HoangDang",
+  "merge_commits": [
+    {
+      "commit": "e1616ada33cabdf3d20901950a34642967908d28",
+      "author": "HoangDang",
+      "author_email": "dangnh3549@ut.edu.vn",
+      "author_time": "2026-11-11T08:15:32+07:00",
+      "committer": "HoangDang",
+      "committer_email": "dangnh3549@ut.edu.vn",
+      "committer_time": "2026-11-11T08:15:32+07:00",
+      "subject": "merge: integrate origin/vananh and preserve reviewed Lab 1 changes"
+    },
+    {
+      "commit": "890b888519954126c4b9e632663ee53f600f60a4",
+      "author": "HoangDang",
+      "author_email": "dangnh3549@ut.edu.vn",
+      "author_time": "2026-11-11T08:16:32+07:00",
+      "committer": "HoangDang",
+      "committer_email": "dangnh3549@ut.edu.vn",
+      "committer_time": "2026-11-11T08:16:32+07:00",
+      "subject": "merge: integrate origin/xbao model, tests and reports for Lab 2"
+    },
+    {
+      "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+      "author": "HoangDang",
+      "author_email": "dangnh3549@ut.edu.vn",
+      "author_time": "2026-11-11T08:19:26+07:00",
+      "committer": "HoangDang",
+      "committer_email": "dangnh3549@ut.edu.vn",
+      "committer_time": "2026-11-11T08:19:26+07:00",
+      "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+    }
+  ],
+  "local_branches_not_integrated": [
+    {
+      "branch": "ThanhBinh",
+      "tip": "40accede964160fdafc0bff30741ae6e7b979058",
+      "commits_not_in_head": [
+        {
+          "commit": "40accede964160fdafc0bff30741ae6e7b979058",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T07:33:28+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T07:33:28+07:00",
+          "subject": "Add smoke test outputs and logs for Lab 3"
+        }
+      ],
+      "reason": "Local-only branch or backup; remote sync preserves unpublished snapshots/backups."
+    },
+    {
+      "branch": "backup/hoangdang-before-push-20261107-091915",
+      "tip": "e0c49fc754557cc94d6e01fb32a9088157a4b3ea",
+      "commits_not_in_head": [
+        {
+          "commit": "e0c49fc754557cc94d6e01fb32a9088157a4b3ea",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T09:19:04+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T09:19:04+07:00",
+          "subject": "feat(lab3): add per-run reports with verified logs"
+        },
+        {
+          "commit": "892f9ae2cb9ad8830b977b5ad67018901c9329e5",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T09:03:04+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T09:03:04+07:00",
+          "subject": "Refactor notebook structure and helper functions for training and reporting"
+        },
+        {
+          "commit": "5985b097ff536ab7e71e5b465159e4553c4eeb11",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T08:35:01+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T08:35:01+07:00",
+          "subject": "Add smoke test outputs and logs for Lab 3"
+        },
+        {
+          "commit": "76ccac68f9b8d573eb93980e2f053471d4afe3e6",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T08:23:21+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T08:23:21+07:00",
+          "subject": "Merge branch 'ThanhBinh' of https://github.com/QuocAn118/Lab into hoangdang"
+        },
+        {
+          "commit": "0ff6af7d52a33dcc60361fe902d8526c5c2e38fa",
+          "author": "HoangDang",
+          "author_email": "dangnh3549@ut.edu.vn",
+          "author_time": "2026-11-07T07:51:58+07:00",
+          "committer": "HoangDang",
+          "committer_email": "dangnh3549@ut.edu.vn",
+          "committer_time": "2026-11-07T07:51:58+07:00",
+          "subject": "feat : thêm file output"
+        }
+      ],
+      "reason": "Local-only branch or backup; remote sync preserves unpublished snapshots/backups."
+    },
+    {
+      "branch": "backup/hoangdang-before-sync-20261111-081459",
+      "tip": "054a9f15857045a9966207d3d4e67fabe68ca2e8",
+      "commits_not_in_head": [],
+      "reason": "Local-only branch or backup; remote sync preserves unpublished snapshots/backups."
+    },
+    {
+      "branch": "main",
+      "tip": "77cd208b53e72962044c714d31022e7a05c4aa12",
+      "commits_not_in_head": [],
+      "reason": "Local-only branch or backup; remote sync preserves unpublished snapshots/backups."
+    }
+  ],
+  "protected_paths_unchanged": [
+    "Lab 1",
+    "Lab_3 (1).ipynb",
+    "Lab 3/outputs",
+    "Lab 3/report"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "git_blob": "3bf1a7da3ce832f6dd1015035f6eb61f177b3f50",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": ".gitignore",
+          "last_source_commit": {
+            "commit": "b02aa81638472b544f90c34d614f24f7141d6f8f",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:09:14+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:09:14+07:00",
+            "subject": "chore: ignore Python cache files"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "b02aa81638472b544f90c34d614f24f7141d6f8f",
+        "author": "hbao2123-debug",
+        "author_email": "hbao2123@gmail.com",
+        "author_time": "2026-11-10T20:09:14+07:00",
+        "committer": "hbao2123-debug",
+        "committer_email": "hbao2123@gmail.com",
+        "committer_time": "2026-11-10T20:09:14+07:00",
+        "subject": "chore: ignore Python cache files"
+      }
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob": "94918193e0a84e258cc7579233457f2ca90b3caa",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 2/docs/model.md",
+      "git_blob": "6ddcd99ee75ce77afedc137d51b984e2b4425b09",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "890b888519954126c4b9e632663ee53f600f60a4",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:16:32+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:16:32+07:00",
+        "subject": "merge: integrate origin/xbao model, tests and reports for Lab 2"
+      }
+    },
+    {
+      "path": "Lab 2/docs/model_implementation.md",
+      "git_blob": "325e15d43eb8cfd73745d410fde3ec23ecb8e770",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": "Lab 2/docs/model.md",
+          "last_source_commit": {
+            "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:06:11+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:06:11+07:00",
+            "subject": "test(lab-2): pass model implementation and unit tests"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "890b888519954126c4b9e632663ee53f600f60a4",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:16:32+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:16:32+07:00",
+        "subject": "merge: integrate origin/xbao model, tests and reports for Lab 2"
+      }
+    },
+    {
+      "path": "Lab 2/docs/model_vi.md",
+      "git_blob": "2dd49c8b0ae9be4cf5a9c3de79ec716b40ff0724",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": "Lab 2/docs/model_vi.md",
+          "last_source_commit": {
+            "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:06:11+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:06:11+07:00",
+            "subject": "test(lab-2): pass model implementation and unit tests"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+        "author": "hbao2123-debug",
+        "author_email": "hbao2123@gmail.com",
+        "author_time": "2026-11-10T20:06:11+07:00",
+        "committer": "hbao2123-debug",
+        "committer_email": "hbao2123@gmail.com",
+        "committer_time": "2026-11-10T20:06:11+07:00",
+        "subject": "test(lab-2): pass model implementation and unit tests"
+      }
+    },
+    {
+      "path": "Lab 2/docs/plan_progress_status.md",
+      "git_blob": "19274dfef7098a42ed8542c661117369bf4bab9f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 2/docs/plan_progress_status.md",
+          "last_source_commit": {
+            "commit": "32ca8b134c425389f95e1fce76563d806548d78d",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-10T21:18:59+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-10T21:18:59+07:00",
+            "subject": "Lab 2: Evaluation.py and test 6 passed"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "32ca8b134c425389f95e1fce76563d806548d78d",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-10T21:18:59+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-10T21:18:59+07:00",
+        "subject": "Lab 2: Evaluation.py and test 6 passed"
+      }
+    },
+    {
+      "path": "Lab 2/model.py",
+      "git_blob": "47378c356b095e2fbadcce4389d6d6d0a0c0c9eb",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": "Lab 2/model.py",
+          "last_source_commit": {
+            "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:06:11+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:06:11+07:00",
+            "subject": "test(lab-2): pass model implementation and unit tests"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+        "author": "hbao2123-debug",
+        "author_email": "hbao2123@gmail.com",
+        "author_time": "2026-11-10T20:06:11+07:00",
+        "committer": "hbao2123-debug",
+        "committer_email": "hbao2123@gmail.com",
+        "committer_time": "2026-11-10T20:06:11+07:00",
+        "subject": "test(lab-2): pass model implementation and unit tests"
+      }
+    },
+    {
+      "path": "Lab 2/reports/metrics.json",
+      "git_blob": "088004431b75083c46c746a50a32f352c6432eb0",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": "Lab 2/reports/metrics.json",
+          "last_source_commit": {
+            "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:06:11+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:06:11+07:00",
+            "subject": "test(lab-2): pass model implementation and unit tests"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+        "author": "hbao2123-debug",
+        "author_email": "hbao2123@gmail.com",
+        "author_time": "2026-11-10T20:06:11+07:00",
+        "committer": "hbao2123-debug",
+        "committer_email": "hbao2123@gmail.com",
+        "committer_time": "2026-11-10T20:06:11+07:00",
+        "subject": "test(lab-2): pass model implementation and unit tests"
+      }
+    },
+    {
+      "path": "Lab 2/src/lab_2/evaluation.py",
+      "git_blob": "f4ca6de02813ea689ba773cec2d9a1c029266fa4",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 2/src/lab_2/evaluation.py",
+          "last_source_commit": {
+            "commit": "32ca8b134c425389f95e1fce76563d806548d78d",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-10T21:18:59+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-10T21:18:59+07:00",
+            "subject": "Lab 2: Evaluation.py and test 6 passed"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "32ca8b134c425389f95e1fce76563d806548d78d",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-10T21:18:59+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-10T21:18:59+07:00",
+        "subject": "Lab 2: Evaluation.py and test 6 passed"
+      }
+    },
+    {
+      "path": "Lab 2/test.py",
+      "git_blob": "d74c05f8c26489450b3a16042165dfa29c9882cc",
+      "source_matches": [
+        {
+          "branch": "origin/xbao",
+          "source_path": "Lab 2/test.py",
+          "last_source_commit": {
+            "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+            "author": "hbao2123-debug",
+            "author_email": "hbao2123@gmail.com",
+            "author_time": "2026-11-10T20:06:11+07:00",
+            "committer": "hbao2123-debug",
+            "committer_email": "hbao2123@gmail.com",
+            "committer_time": "2026-11-10T20:06:11+07:00",
+            "subject": "test(lab-2): pass model implementation and unit tests"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "9c9db62bdcd15eda6723e93f6b03a7e894913b4b",
+        "author": "hbao2123-debug",
+        "author_email": "hbao2123@gmail.com",
+        "author_time": "2026-11-10T20:06:11+07:00",
+        "committer": "hbao2123-debug",
+        "committer_email": "hbao2123@gmail.com",
+        "committer_time": "2026-11-10T20:06:11+07:00",
+        "subject": "test(lab-2): pass model implementation and unit tests"
+      }
+    },
+    {
+      "path": "Lab 3/.gitattributes",
+      "git_blob": "49f4cce833a2867eb1d5db26b2b598398d9015d0",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/.gitignore",
+      "git_blob": "6eb7b5aec3d58ccec6d7fb5023fcd24bcc54fa45",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/README.md",
+      "git_blob": "fb70602bcbdbd1a4dcc89a2de18f783a93efe59d",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best/config.json",
+      "git_blob": "9c63d1e2421fe74115aa80795e888598413c938f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best/config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best/model.safetensors",
+      "git_blob": "df48f9b8d7f42d7afc8411985de6797c4be28791",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best/model.safetensors",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best/tokenizer.json",
+      "git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best/tokenizer.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best/tokenizer_config.json",
+      "git_blob": "fb1d5b6a92c4b6a1cc83ebf75d012bfa57d7e994",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best/tokenizer_config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_acc/config.json",
+      "git_blob": "9c63d1e2421fe74115aa80795e888598413c938f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_acc/config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_acc/model.safetensors",
+      "git_blob": "df48f9b8d7f42d7afc8411985de6797c4be28791",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_acc/model.safetensors",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_acc/tokenizer.json",
+      "git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_acc/tokenizer.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_acc/tokenizer_config.json",
+      "git_blob": "fb1d5b6a92c4b6a1cc83ebf75d012bfa57d7e994",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_acc/tokenizer_config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_loss/config.json",
+      "git_blob": "9c63d1e2421fe74115aa80795e888598413c938f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_loss/config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_loss/model.safetensors",
+      "git_blob": "06f72b72948d48d63859bafed5b9761c49fa4ff8",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_loss/model.safetensors",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_loss/tokenizer.json",
+      "git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_loss/tokenizer.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/best_val_loss/tokenizer_config.json",
+      "git_blob": "fb1d5b6a92c4b6a1cc83ebf75d012bfa57d7e994",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/best_val_loss/tokenizer_config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/final_epoch/config.json",
+      "git_blob": "9c63d1e2421fe74115aa80795e888598413c938f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/final_epoch/config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/final_epoch/model.safetensors",
+      "git_blob": "df48f9b8d7f42d7afc8411985de6797c4be28791",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/final_epoch/model.safetensors",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/final_epoch/tokenizer.json",
+      "git_blob": "7e0493c68135095c7ff802eb9c150e3e5cb8d41f",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/final_epoch/tokenizer.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/checkpoints/final_epoch/tokenizer_config.json",
+      "git_blob": "fb1d5b6a92c4b6a1cc83ebf75d012bfa57d7e994",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/checkpoints/final_epoch/tokenizer_config.json",
+          "last_source_commit": {
+            "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T21:43:04+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T21:43:04+07:00",
+            "subject": "Them checkpoint Lab 3 bang Git LFS"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "7fea49d95dc429b498f21ca4576f257ac4f6fb84",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T21:43:04+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T21:43:04+07:00",
+        "subject": "Them checkpoint Lab 3 bang Git LFS"
+      }
+    },
+    {
+      "path": "Lab 3/configs/exercise_2.yaml",
+      "git_blob": "0a1fcc3961435ad4d43e10882022aa37bc0c9a83",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/configs/exercise_2.yaml",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/11_AI_Usage.md",
+      "git_blob": "ae2613bfc7e408640d9c2e67ab7589b57f433628",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/docs/12_traceability.md",
+      "git_blob": "7e1992eb4b3fa09744313b09ccd36dac2562f247",
+      "source_matches": [],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/docs/data.md",
+      "git_blob": "a94b61785eaba0aed307a8bb8561a49349967b09",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/data.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/demo.md",
+      "git_blob": "bef7f9e5eb20251a990b7a93b208e98200f02047",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/demo.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/evaluation.md",
+      "git_blob": "3a6454050372f431941f916901155505f1f2c8a1",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/evaluation.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/lab_3_description.md",
+      "git_blob": "ed1fdfb44e7519b2c88b4fda0947288cac14d13b",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/lab_3_description.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/model.md",
+      "git_blob": "1c23e3ad175d4e2007aa45d4dd8fd74ad67760e0",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/model.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/plan_progress_status.md",
+      "git_blob": "7d9c188aff148054e410ebf9ac2e107d9121c2fe",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/plan_progress_status.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/docs/training.md",
+      "git_blob": "15e664b5a551c9090e37105ebe5f7fe5d41ad66e",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/docs/training.md",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/notebooks/Lab_3 (1).ipynb",
+      "git_blob": "d7bd0dc6079bec571b2da7fe6b54fad6e1f837d7",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/notebooks/Lab_3 (1).ipynb",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/notebooks/Lab_3_colab.ipynb",
+      "git_blob": "8c30a6ec40fca5e911ed813f5e299e43c0db0fa1",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/notebooks/Lab_3_colab.ipynb",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/reports/figures/confusion_matrix.png",
+      "git_blob": "f811c65fb8c023d376c1d55721ba43b12579cc9d",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/reports/figures/confusion_matrix.png",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/reports/figures/loss_curve.png",
+      "git_blob": "eff0e2b748990fa6eea8734eff8941be16385f58",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/reports/figures/loss_curve.png",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/reports/metrics.json",
+      "git_blob": "6b737bccb711982e6226271344eaa3c52733a970",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/reports/metrics.json",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/requirements_quocan.txt",
+      "git_blob": "1689f8749edbaf08f71ac9204d93ec2c9647f7c4",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/requirements.txt",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
+        "author": "HoangDang",
+        "author_email": "dangnh3549@ut.edu.vn",
+        "author_time": "2026-11-11T08:19:26+07:00",
+        "committer": "HoangDang",
+        "committer_email": "dangnh3549@ut.edu.vn",
+        "committer_time": "2026-11-11T08:19:26+07:00",
+        "subject": "merge: integrate origin/QuocAn and preserve current Lab 1 and Lab 3 work"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_1/sentiment_analysis.py",
+      "git_blob": "a8ce20a1cf617c5dfbfeaa4e87b58072964caf09",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_1/sentiment_analysis.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/common.py",
+      "git_blob": "116a65595b540a53f19369c380ad1c6700a752c9",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/common.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/data.py",
+      "git_blob": "18d1f946bfd9848ea8bb11d9c80e81185b13adf3",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/data.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/demo.py",
+      "git_blob": "957c49f1761003d00ccb97468a38ceff67500afd",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/demo.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/evaluation.py",
+      "git_blob": "0d8a15efdd2426ad03ec7a5d34db7482853bc4fc",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/evaluation.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/model.py",
+      "git_blob": "fcefd3687f19385470a26413e6c537e25a279d30",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/model.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/src/exercise_2/training.py",
+      "git_blob": "b2ba9d90b9a5e4e58ab6fc8a72a610ad0a685cc2",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/src/exercise_2/training.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/tests/test_exercise_2.py",
+      "git_blob": "a3df6f59d248b8088093e2340726a4f35e3fd0df",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/tests/test_exercise_2.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    },
+    {
+      "path": "Lab 3/tests/test_smoke.py",
+      "git_blob": "709655fecb90c49756e3e74537bbb87a5b01d861",
+      "source_matches": [
+        {
+          "branch": "origin/QuocAn",
+          "source_path": "Lab 3/tests/test_smoke.py",
+          "last_source_commit": {
+            "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+            "author": "Quoc An",
+            "author_email": "lincolnan1182005@gmail.com",
+            "author_time": "2026-11-06T20:53:12+07:00",
+            "committer": "Quoc An",
+            "committer_email": "lincolnan1182005@gmail.com",
+            "committer_time": "2026-11-06T20:53:12+07:00",
+            "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+          }
+        }
+      ],
+      "last_integration_commit": {
+        "commit": "186582e696b0656a84c3606c5ca816f47c5d3da0",
+        "author": "Quoc An",
+        "author_email": "lincolnan1182005@gmail.com",
+        "author_time": "2026-11-06T20:53:12+07:00",
+        "committer": "Quoc An",
+        "committer_email": "lincolnan1182005@gmail.com",
+        "committer_time": "2026-11-06T20:53:12+07:00",
+        "subject": "Add Exercise 2: Implement sentiment analysis, data handling, training, and evaluation scripts"
+      }
+    }
+  ],
+  "checks": {
+    "all_remote_tips_are_ancestors": true,
+    "no_unresolved_conflicts": true,
+    "parsed": {
+      "python": 12,
+      "json": 14,
+      "notebook": 2
+    },
+    "lfs": [
+      {
+        "path": "Lab 3/checkpoints/best/model.safetensors",
+        "bytes": 267832560,
+        "sha256": "30f07583606f632d7b4391336089691c9a8ca619c2d361be3b96bcb53ab85002",
+        "downloaded": true,
+        "hash_matches": true
+      },
+      {
+        "path": "Lab 3/checkpoints/best_val_acc/model.safetensors",
+        "bytes": 267832560,
+        "sha256": "30f07583606f632d7b4391336089691c9a8ca619c2d361be3b96bcb53ab85002",
+        "downloaded": true,
+        "hash_matches": true
+      },
+      {
+        "path": "Lab 3/checkpoints/best_val_loss/model.safetensors",
+        "bytes": 267832560,
+        "sha256": "fcdc27a6aa81e68289f826a321e1473accd08f00e9954430729abaf89b5515f3",
+        "downloaded": true,
+        "hash_matches": true
+      },
+      {
+        "path": "Lab 3/checkpoints/final_epoch/model.safetensors",
+        "bytes": 267832560,
+        "sha256": "30f07583606f632d7b4391336089691c9a8ca619c2d361be3b96bcb53ab85002",
+        "downloaded": true,
+        "hash_matches": true
+      }
+    ],
+    "lfs_fsck": "Git LFS fsck OK",
+    "lab1_provenance_strict": {
+      "errors": 0,
+      "warnings": 18,
+      "status": "Pre-existing after source edits f560d1d and 054a9f1; no source acknowledgement during this sync."
+    },
+    "runtime_tests": "Not run: Python lacks torch, torchvision, transformers and datasets.",
+    "lab2_integration_limit": "evaluation.py requires lab_2.common/data/model/training, absent as package modules; xbao model is Lab 2/model.py."
+  },
+  "resolution_notes": [
+    "vananh: retain reviewed Lab 1 Spec headers, current model documentation and code_snapshot support for data/; functional model code already imported.",
+    "xbao: restore Lab 2/test.py; keep shared model.md contract and preserve incoming model.md as docs/model_implementation.md; retain model.py, model_vi.md and metrics.",
+    "QuocAn: retain every Lab 1 file from starting branch, including data restructure, reviewed docs and provenance.",
+    "QuocAn: import Lab 2 evaluation.py and contributor AI disclosure in plan_progress_status.md.",
+    "QuocAn: preserve root README/notebook, numbered Lab 3 docs, current pipeline/test, pinned requirements and existing report/outputs byte-for-byte; import additional legacy source/config/tests/notebooks/checkpoints/reports/docs alongside them.",
+    "QuocAn: combine LFS attributes with evidence-preservation attributes, add pytest cache ignore; import requirements as requirements_quocan.txt.",
+    "Retain incoming root AGENTS.md framework overview. Git LFS generated four hooks under configured .githooks; existing pre-commit preserved.",
+    "No push, reset, rebase, deletion of local/backup branches, runtime training or manual edits to experimental outputs."
+  ]
+}
