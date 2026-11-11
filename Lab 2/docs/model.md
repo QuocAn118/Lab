@@ -1,5 +1,7 @@
 # Kiến Trúc Mô Hình (Model Specification) — Lab 2
 
+> Tích hợp ngày 2026-11-11: bản triển khai của Xuân Bảo (Git: `hbao2123-debug`) nằm ở `Lab 2/model.py`, kiểm thử ở `Lab 2/test.py`; xem [model_implementation.md](model_implementation.md) và [model_vi.md](model_vi.md). Đường dẫn đích dùng chung `src/lab_2/model.py` bên dưới chưa có; chưa coi module đã ghép với evaluation. Người tích hợp: HoangDang, hỗ trợ OpenAI Codex; thời gian chính xác xem nhật ký đồng bộ tại gốc repo.
+
 Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2.yaml`.
 
 > **Phụ trách**: TV2. Đặc tả từng hàm cần viết nằm ở mục 7.
