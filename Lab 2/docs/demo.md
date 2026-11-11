@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -16,7 +16,9 @@ Mục đích: Kiểm chứng model đã huấn luyện bằng cách phân loại
 
 Mã nguồn: `src/lab_2/demo.py`.
 
-> **Phụ trách**: TV5. Đặc tả từng hàm cần viết nằm ở mục 4.
+> **Phụ trách**: TV5. Đặc tả từng hàm đã triển khai nằm ở mục 4.
+
+> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
 
 ## 1. Cách Chạy
 
@@ -49,12 +51,12 @@ Nếu chưa có `checkpoints/best.pth` hoặc không đọc được ảnh, lệ
 
 ## 4. Đặc Tả Mã Nguồn (TV5)
 
-**File cần tạo**: `src/lab_2/demo.py`. **Điều kiện trước**: Đã có đủ `common.py`, `data.py`, `model.py`, `evaluation.py`.
+**File đã triển khai**: `src/lab_2/demo.py`. **Điều kiện trước**: Đã có đủ `common.py`, `data.py`, `model.py`, `evaluation.py`.
 **Lấy từ người khác**: `build_transform`, `load_splits`, `raw_samples`, `CLASS_NAMES` (TV1); `load_checkpoint` (TV2); `SERIES`, `SURFACE`, `style_axis` (TV4).
 
 **Đầu file**: Gọi `matplotlib.use("Agg")` trước khi import `matplotlib.pyplot`. Hằng số: `DEFAULT_SAMPLES = 3`.
 
-Viết theo thứ tự dưới đây. Các test nằm trong `tests/test_demo.py` và `tests/test_integration.py`.
+Giao diện triển khai và test tương ứng như dưới đây. Các test nằm trong `tests/test_demo.py` và `tests/test_integration.py`.
 
 #### `load_inputs(config, paths)`
 - **Trả về**: List `(tên, ảnh PIL RGB, nhãn thật)`.

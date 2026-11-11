@@ -6,8 +6,15 @@
 | --- | --- |
 | Created date | 2026-11-11 |
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T10:16:25+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+
+
+## Lab 2 preparation for training handoff
+
+2026-11-11T11:10:28+07:00 — HoangDang, assisted by OpenAI Codex, prepared the Lab 2 package and Colab notebook using main `a7b7ef8` as the base. Model code is derived from Xuan Bao (`hbao2123-debug`); evaluation is derived from Quoc An. Model now lives in `src/lab_2/model.py`; the old root entry point remains compatible. New common/data/training/demo modules, synthetic integration checks and session safeguards were added.
+
+63 offline tests passed (49 package + 14 compatibility). Three real-data smoke tests and four normal training runs were deliberately not executed: user requested preparation for another trainer. The old metrics JSON and notebook contents are preserved. Names already present in the workspace assignment table were preserved, not inferred from branch names. The new notebook and handoff instructions require the actual operator/session name before running. See [handoff plan](Lab%202/docs/training_handoff.md), [verification](Lab%202/docs/verification.md), [preparation report](Lab%202/reports/preparation_check.json). This phase does not claim that new changes have been merged into main.
 
 ## Lab 1 product versioned in the codebase
 

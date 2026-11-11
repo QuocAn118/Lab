@@ -8,13 +8,15 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/data.py`. Tham số: mục `data` trong `configs/lab_2.yaml`.
 
-> **Phụ trách**: TV1. Đặc tả từng hàm cần viết nằm ở mục 5.
+> **Phụ trách**: TV1. Đặc tả từng hàm đã triển khai nằm ở mục 5.
+
+> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
 
 ## 1. Nguồn Gốc Dataset
 - **Tên dataset**: CIFAR-10, tải qua `torchvision.datasets.CIFAR10`.
@@ -64,13 +66,13 @@ Các bước dùng `torchvision.transforms` và chạy theo đúng thứ tự d�
 
 ## 5. Đặc Tả Mã Nguồn (TV1)
 
-**File cần tạo**: `src/lab_2/data.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`.
+**File đã triển khai**: `src/lab_2/data.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`.
 **Lấy từ `common.py`**: `argument_parser`, `load_config`, `project_path`, `update_report`.
 **Người khác dùng lại**: `load_splits`, `make_loader` (TV3, TV4), `build_transform`, `raw_samples`, `CLASS_NAMES` (TV4, TV5).
 
 Hằng số `CLASS_NAMES` là list 10 tên lớp đúng thứ tự trong mục 1.
 
-Viết theo thứ tự dưới đây. Mỗi hàm có các test tương ứng trong `tests/test_data.py`.
+Giao diện triển khai và test tương ứng như dưới đây. Mỗi hàm có các test tương ứng trong `tests/test_data.py`.
 
 #### `split_indices(total, train_size, val_size, seed)`
 - **Trả về**: `(train, val)`, hai list số nguyên không giao nhau, độ dài `train_size` và `val_size`.

@@ -41,6 +41,7 @@ def test_two_batches_train_without_shape_loss_gradient_or_memory_errors(name, un
         loss.backward()
         gradient = head_of(model)[1].weight.grad
         assert gradient is not None and gradient.abs().sum() > 0
+        assert torch.isfinite(gradient).all()
         optimizer.step()
         batches += 1
         if batches == NUM_BATCHES:

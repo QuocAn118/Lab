@@ -2407,5 +2407,21 @@
     ],
     "finalized_artifacts_unchanged": true,
     "zip_role": "Historical local backup only"
+  },
+  "lab2_preparation": {
+    "at": "2026-11-11T11:13:30+07:00",
+    "by": "HoangDang, assisted by OpenAI Codex",
+    "base": "origin/main at a7b7ef8",
+    "status": "code and documentation prepared; real training pending",
+    "offline_tests_passed": 63,
+    "real_smoke_tests_pending": 3,
+    "normal_runs_pending": 4,
+    "colab_execution": "not performed",
+    "historical_artifact_content_preserved": true,
+    "assignment_names": "preserved from workspace table, not inferred from branch names",
+    "model_source": "Xuan Bao (hbao2123-debug)",
+    "evaluation_source": "Quoc An",
+    "handoff": "Lab 2/docs/training_handoff.md",
+    "notebook": "Lab 2/notebooks/Lab_2_colab.ipynb"
   }
 }
