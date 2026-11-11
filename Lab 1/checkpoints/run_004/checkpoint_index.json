@@ -1,0 +1,38 @@
+{
+  "best_val_loss.pth": {
+    "epoch": 4,
+    "val_loss": 0.3233892537752787,
+    "val_accuracy": 0.881,
+    "saved_at": "2026-11-11T09:46:06+07:00",
+    "elapsed_train_seconds": 15.644
+  },
+  "best_val_acc.pth": {
+    "epoch": 4,
+    "val_loss": 0.3233892537752787,
+    "val_accuracy": 0.881,
+    "saved_at": "2026-11-11T09:46:06+07:00",
+    "elapsed_train_seconds": 15.644
+  },
+  "best_val_pause.pth": {
+    "epoch": 4,
+    "val_loss": 0.3233892537752787,
+    "val_accuracy": 0.881,
+    "saved_at": "2026-11-11T09:46:06+07:00",
+    "elapsed_train_seconds": 15.644,
+    "early_stopped": true
+  },
+  "best.pth": {
+    "epoch": 4,
+    "val_loss": 0.3233892537752787,
+    "val_accuracy": 0.881,
+    "saved_at": "2026-11-11T09:46:06+07:00",
+    "elapsed_train_seconds": 15.644
+  },
+  "final_epoch.pth": {
+    "epoch": 4,
+    "val_loss": 0.3233892537752787,
+    "val_accuracy": 0.881,
+    "saved_at": "2026-11-11T09:46:06+07:00",
+    "elapsed_train_seconds": 15.644
+  }
+}

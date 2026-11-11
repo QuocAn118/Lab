@@ -1,0 +1,8 @@
+{
+  "run_id": "run_004",
+  "verified_at": "2026-11-11T09:46:07+07:00",
+  "phase": "before_manifest",
+  "num_samples": 10000,
+  "passed": true,
+  "errors": []
+}
