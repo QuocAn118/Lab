@@ -8,7 +8,7 @@
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
 | Last updated | 2026-11-10 — đồng bộ đường dẫn, giao diện và trạng thái với repo |
-| Updated by | Codex (AI hỗ trợ, chờ nhóm review) |
+| Updated by | Nguyễn Hoàng Đăng |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
 | Trạng thái | Đã có code data, model, train và model I/O; chưa có bằng chứng smoke/normal run đầy đủ. Evaluation, demo và kiểm chứng checkpoint `best` còn thiếu |
 
