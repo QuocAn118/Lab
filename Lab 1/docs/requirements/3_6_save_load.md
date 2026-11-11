@@ -1,23 +1,27 @@
 # 3.6. Lưu và tải lại mô hình
 
+Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+
+Trạng thái: đã có `src/model_io.py`, lưu/tải và kiểm tra `final_epoch.pth`. Chính sách 5 checkpoint nằm ở train; tải và kiểm tra `best.pth` phục vụ test/demo còn thiếu. Các mục ghi “hiện tại” dưới đây mô tả code đang có, không thay thế yêu cầu chọn `best` ở đặc tả gốc §6.1.
+
 ## 1. Mục đích
 
-Lưu trọng số cuối của từng thí nghiệm, khôi phục đúng mô hình và kiểm tra dự đoán trước/sau khi lưu tải.
+Lưu trọng số của từng thí nghiệm, khôi phục đúng mô hình và kiểm tra dự đoán trước/sau khi lưu tải. Train giữ 5 checkpoint theo đặc tả gốc; test và demo dùng `best.pth`.
 
 ## 2. File thực hiện
 
-- File code dự kiến: `src/model_io.py`, chứa các hàm dùng chung:
+- File code: `src/model_io.py`, hiện chứa các hàm dùng chung:
   - `save_model(model, run_id)`: lưu state_dict tại đường dẫn của lần chạy.
-  - `load_model(run_id, device)`: đọc cấu hình, khởi tạo mạng, nạp trọng số và trả về mô hình ở chế độ đánh giá.
+  - `load_model(run_id, device)`: đọc cấu hình, khởi tạo mạng, nạp `final_epoch.pth` và trả về mô hình ở chế độ đánh giá.
   - `verify_reload(model, sample_batch, run_id)`: so sánh mô hình trong bộ nhớ với mô hình tải lại và ghi báo cáo.
-- `src/train.py` gọi lưu và kiểm tra sau epoch cuối; `src/evaluate.py` gọi tải lại trước đánh giá.
+- `src/train.py` gọi lưu và kiểm tra sau epoch cuối. `src/evaluate.py` chưa có; khi triển khai phải tải `best.pth` thay vì mặc định checkpoint cuối.
 - `src/model.py` cung cấp `build_model(model_config)` để khởi tạo đúng kiến trúc.
 
 ## 3. Đầu vào
 
 - Mô hình đã huấn luyện và `run_id` của bước 3.4.
 - `outputs/<run_id>/config.json`, đã được bước 3.4 ghi; đây là bản cấu hình duy nhất cho lần chạy, không tạo bản sao trong thư mục checkpoint.
-- Một batch cố định gồm 16 mẫu đầu tiên của tập train, đã áp dụng transforms như cấu hình, dùng để kiểm tra lưu/tải.
+- Một batch cố định gồm 16 mẫu đầu tiên của tập validation, đã áp dụng transforms như cấu hình, do `train.py` truyền vào để kiểm tra lưu/tải checkpoint cuối.
 - Khi đánh giá, nhận `run_id` và thiết bị cần tải mô hình lên.
 
 ## 4. Các bước xử lý
@@ -35,6 +39,7 @@ Lưu trọng số cuối của từng thí nghiệm, khôi phục đúng mô hì
 | Đầu ra | Đường dẫn hoặc nơi sử dụng | Định dạng |
 | --- | --- | --- |
 | Trọng số epoch cuối | `checkpoints/<run_id>/final_epoch.pth` | Tệp nhị phân do `torch.save` tạo, nội dung là state_dict. |
+| Checkpoint được chọn | `checkpoints/<run_id>/best.pth` | Do train sao chép từ `best_val_acc.pth`; cần hoàn thiện tải/kiểm tra checkpoint này. |
 | Mô hình đã tải | Bộ nhớ của tiến trình gọi `load_model` | Đối tượng mạng đã nạp trọng số và được đặt ở chế độ đánh giá. |
 | Kết quả đối chiếu | `outputs/<run_id>/reload_check.json` | JSON UTF-8, ghi sau khi thực hiện so sánh. |
 
@@ -50,7 +55,7 @@ Module này được gọi trong bước huấn luyện và đánh giá, không 
 
 1. `train.py` gọi `save_model`, sau đó gọi `verify_reload` sau epoch cuối.
 2. `verify_reload` gọi `load_model` để kiểm tra chính checkpoint vừa lưu.
-3. `evaluate.py` gọi `load_model` trước khi đánh giá tập test.
+3. Khi triển khai, evaluation và demo phải dùng `best.pth` cùng cấu hình run. API hiện tại chưa chọn được checkpoint này; chưa coi mục 3.6 hoàn thành đầy đủ.
 
 Điều kiện hoàn thành:
 
@@ -59,5 +64,6 @@ Module này được gọi trong bước huấn luyện và đánh giá, không 
 - Chênh lệch tuyệt đối lớn nhất giữa logits của hai mô hình không vượt quá 0.000001.
 - `reload_check.json` có `passed=true` khi đồng thời đạt cả điều kiện logits và nhãn.
 - Có thể tải checkpoint đã huấn luyện trên GPU về CPU qua `map_location`.
+- Có kiểm tra tải lại `best.pth` theo tiêu chí smoke run ở đặc tả gốc §5.1; báo cáo ghi rõ checkpoint thực sự được kiểm tra. Hiện `reload_check.json` chỉ ghi checkpoint cuối.
 
 Tham khảo API: [Saving and Loading Models — PyTorch](https://docs.pytorch.org/tutorials/beginner/saving_loading_models).

@@ -7,10 +7,10 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-07 — chuẩn hóa theo khung tài liệu Lab 3 và hướng dẫn của cô; thêm quy định lưu vết (§10) |
-| Updated by | HoangDang |
+| Last updated | 2026-11-10 — đồng bộ đường dẫn, giao diện và trạng thái với repo |
+| Updated by | Codex (AI hỗ trợ, chờ nhóm review) |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
-| Trạng thái | Đặc tả. Code và thực nghiệm **chưa** thực hiện |
+| Trạng thái | Đã có code data, model, train và model I/O; chưa có bằng chứng smoke/normal run đầy đủ. Evaluation, demo và kiểm chứng checkpoint `best` còn thiếu |
 
 File này là tài liệu gốc của Lab 1. Các file khác trong `docs/` mô tả chi tiết từng phần và phải khớp với file này. Khi có mâu thuẫn, sửa theo file này hoặc cập nhật file này trước, rồi ghi lý do vào [plan_progress_status.md](plan_progress_status.md).
 
@@ -62,19 +62,21 @@ Xây dựng, huấn luyện và đánh giá một MLP nhận ảnh trang phục 
 | File | Nội dung | Trạng thái |
 | --- | --- | --- |
 | `lab_1_description.md` | File này: bài toán, phạm vi, quy ước, tiêu chí hoàn thành | Đã chuẩn hóa |
-| [data.md](data.md) | Dataset, phân vùng train/val/test, transforms, DataLoader | Cần đồng bộ |
-| [model.md](model.md) | Hồ sơ model theo mục 9 | Cần đồng bộ |
-| [training.md](training.md) | Siêu tham số, smoke run, normal run, checkpoint | Cần đồng bộ |
-| [evaluation.md](evaluation.md) | Chỉ số accuracy, thời gian, tài nguyên; cách đọc kết quả | Cần đồng bộ |
-| [demo.md](demo.md) | Nạp checkpoint `best` để dự đoán ảnh mẫu | Cần đồng bộ |
-| [plan_progress_status.md](plan_progress_status.md) | Công việc, trạng thái, nhật ký thay đổi | Cần đồng bộ |
-| [requirements/](requirements/) | Đặc tả chi tiết từng yêu cầu 3.1–3.6 | Cần đồng bộ với mục 6 |
-| [team_plan_integrity.md](team_plan_integrity.md) | Phân công 5 người, quy tắc toàn vẹn dữ liệu/kết quả/tài liệu, checklist nộp | Đã tạo |
+| [data.md](data.md) | Dataset, phân vùng train/val/test, transforms, DataLoader | Đã đối chiếu code và báo cáo data |
+| [model.md](model.md) | Hồ sơ model theo mục 9 | Đã đối chiếu kiến trúc; chưa có model đã train để báo cáo |
+| [training.md](training.md) | Siêu tham số, smoke run, normal run, checkpoint | Đã đối chiếu code; chờ chạy tích hợp |
+| [evaluation.md](evaluation.md) | Chỉ số accuracy, thời gian, tài nguyên; cách đọc kết quả | Đặc tả; chưa có kết quả test |
+| [demo.md](demo.md) | Nạp checkpoint `best` để dự đoán ảnh mẫu | Đặc tả; chưa triển khai demo |
+| [plan_progress_status.md](plan_progress_status.md) | Công việc, trạng thái, nhật ký thay đổi | Đã cập nhật trạng thái và phần còn thiếu |
+| [requirements/](requirements/) | Đặc tả chi tiết từng yêu cầu 3.1–3.6 | Đã đồng bộ; ghi rõ khoảng cách với code |
+| [team_plan_integrity.md](team_plan_integrity.md) | Phân công 5 người, quy tắc toàn vẹn dữ liệu/kết quả/tài liệu, checklist nộp | Đã đồng bộ đường dẫn và giao diện |
+| [AI_Usage.md](AI_Usage.md) | Ghi nhận hỗ trợ AI đã biết | Chờ nhóm bổ sung các đóng góp chưa xác nhận |
 
-Lưu ý đồng bộ đã biết:
+Khoảng cách giữa đặc tả và triển khai hiện tại:
 
-- `model.md` đang ghi kiến trúc `[512, 256]`; cấu hình cơ sở của bài là `[512, 512]`.
-- `requirements/3_4_train.md` và `3_6_save_load.md` đang ghi "chỉ lưu epoch cuối, không dùng validation". Mục 6 của file này thay thế quy định đó.
+- `src/model_io.py` hiện có `load_model(run_id, device)` chỉ nạp `final_epoch.pth`; `verify_reload(model, sample_batch, run_id)` kiểm tra checkpoint cuối bằng 16 ảnh validation đầu tiên. Chưa kiểm tra tải lại `best.pth` theo tiêu chí smoke run.
+- `src/evaluate.py`, script demo, vẽ đồ thị và `src/verify.py` chưa có. Chưa có `metrics.json`, `performance.json` hay manifest của smoke/normal run để nghiệm thu toàn pipeline.
+- Báo cáo data đã có trong `data/reports/`; dataset gốc trong `data/FashionMNIST/` không lưu trên Git, cần chuẩn bị lại trên máy chưa có dữ liệu.
 
 ## 5. Quy trình thực hiện
 
@@ -110,12 +112,12 @@ Chi tiết từng yêu cầu nằm trong `docs/requirements/`. Bảng dưới l�
 
 | Yêu cầu | File đặc tả | File code dự kiến | Đầu ra chính | Kiểm tra |
 | --- | --- | --- | --- | --- |
-| 3.1. Tải và chuẩn bị dữ liệu | [3_1](requirements/3_1_prepare_data.md) | `src/prepare_data.py` | `data/FashionMNIST/raw/`, `outputs/data_summary.json`, `outputs/data_samples.png` | Đủ 60.000/10.000 mẫu, 10 lớp; 16 ảnh mẫu có nhãn |
-| 3.2. Transforms và DataLoader | [3_2](requirements/3_2_transforms_dataloader.md) | `src/data_pipeline.py` — `create_dataloaders(config)` | train/val/test loader trong bộ nhớ; `outputs/batch_check.json` | Ảnh `[B, 1, 28, 28]` float32, nhãn `[B]` int64; train xáo trộn, val/test giữ thứ tự |
+| 3.1. Tải và chuẩn bị dữ liệu | [3_1](requirements/3_1_prepare_data.md) | `data/prepare_data.py` | `data/FashionMNIST/raw/`, `data/reports/data_summary.json`, `data_samples.png`, `split_indices.json` | Đủ 60.000/10.000 mẫu, 10 lớp; split 54.000/6.000 không trùng; 16 ảnh mẫu có nhãn |
+| 3.2. Transforms và DataLoader | [3_2](requirements/3_2_transforms_dataloader.md) | `data/data_pipeline.py` — `create_dataloaders(config)` | train/val/test loader trong bộ nhớ; `data/reports/batch_check.json` | Ảnh `[B, 1, 28, 28]` float32, nhãn `[B]` int64; train xáo trộn, val/test giữ thứ tự |
 | 3.3. Xây dựng mạng | [3_3](requirements/3_3_build_model.md) | `src/model.py` — `FashionMLP`, `build_model(model_config)` | `outputs/model_summary.txt` | Input `[2, 1, 28, 28]` → output hữu hạn `[2, 10]`; không có Softmax trước CrossEntropyLoss |
 | 3.4. Huấn luyện | [3_4](requirements/3_4_train.md) | `src/train.py` | `config.json`, `history.csv`, các checkpoint ở mục 6.1 | Mỗi epoch có train và val; từ chối `run_id` đã tồn tại |
 | 3.5. Đánh giá | [3_5](requirements/3_5_evaluate.md) | `src/evaluate.py` | `metrics.json`, `predictions.csv`, `performance.json` | Đủ 10.000 dòng dự đoán; accuracy tính lại từ CSV khớp JSON |
-| 3.6. Lưu và tải lại | [3_6](requirements/3_6_save_load.md) | `src/model_io.py` — `save_model`, `load_model`, `verify_reload` | `reload_check.json` | Nhãn giống nhau; chênh lệch logits tối đa ≤ 1e-6; `passed=true` |
+| 3.6. Lưu và tải lại | [3_6](requirements/3_6_save_load.md) | `src/model_io.py` — `save_model(model, run_id)`, `load_model(run_id, device)`, `verify_reload(model, sample_batch, run_id)` | `reload_check.json` (hiện kiểm tra `final_epoch`) | Nhãn giống nhau; chênh lệch logits tối đa ≤ 1e-6; `passed=true`; còn phải hỗ trợ và kiểm tra `best` |
 
 ### Cấu hình cơ sở
 
@@ -132,6 +134,8 @@ Chi tiết từng yêu cầu nằm trong `docs/requirements/`. Bảng dưới l�
 | Thiết bị | CUDA nếu có, nếu không dùng CPU; ghi thiết bị thực tế vào `config.json` |
 
 Đây là lựa chọn triển khai của bài làm, không phải giá trị bắt buộc trong slide.
+
+Early stopping so với val accuracy tốt nhất trước epoch hiện tại: tăng ít nhất 0.01 thì reset bộ đếm, ngược lại tăng bộ đếm; dừng khi bộ đếm đạt 2. Việc lưu `best_val_acc` vẫn ghi nhận mọi cải thiện dương; khi hòa giữ checkpoint sớm hơn. `epoch_seconds` và `elapsed_train_seconds` chỉ tính train, không tính validation hoặc kiểm tra tải lại.
 
 ### 6.1. Chính sách checkpoint
 
@@ -210,6 +214,7 @@ Thời gian đánh giá không được tính vào thời gian train. Không l�
 ## 10. Quy ước tổ chức và lưu trữ
 
 - Mọi đường dẫn tính từ thư mục gốc `Lab 1`; code xác định đường dẫn từ vị trí file, không phụ thuộc thư mục đang chạy lệnh.
+- Cây dưới là cấu trúc đích; các file ghi “dự kiến” chưa có trong repo.
 - Tài liệu `.md`; mã nguồn `.py`; JSON và CSV dùng UTF-8.
 - `outputs/<run_id>/` và `checkpoints/<run_id>/` phải chưa tồn tại khi bắt đầu; nếu trùng thì dừng, chọn mã mới, không ghi đè.
 - Cùng một lần chạy dùng cùng `run_id` cho cấu hình, kết quả và checkpoint.
@@ -239,19 +244,25 @@ Lab 1/
 │       ├── 3_4_train.md
 │       ├── 3_5_evaluate.md
 │       └── 3_6_save_load.md
-├── src/                           # Code dự kiến
+├── src/
 │   ├── run_tracking.py            # Đã có: lưu vết run và file đầu ra
-│   ├── prepare_data.py
-│   ├── data_pipeline.py
 │   ├── model.py
 │   ├── train.py
-│   ├── evaluate.py
+│   ├── evaluate.py               # Dự kiến
 │   └── model_io.py
-├── data/FashionMNIST/raw/         # Dữ liệu tải về, không commit
+├── tests/test_train.py            # Kiểm thử train bằng tensor giả
+├── data/
+│   ├── README.md
+│   ├── prepare_data.py
+│   ├── data_pipeline.py
+│   ├── tests/test_data.py
+│   ├── FashionMNIST/raw/         # Dữ liệu tải về, không commit
+│   └── reports/                  # Mỗi báo cáo có <file>.prov.json
+│       ├── data_summary.json
+│       ├── split_indices.json
+│       ├── data_samples.png
+│       └── batch_check.json
 ├── outputs/                       # Mỗi file lẻ có <file>.prov.json đi kèm
-│   ├── data_summary.json
-│   ├── data_samples.png
-│   ├── batch_check.json
 │   ├── model_summary.txt
 │   ├── compare_runs.csv
 │   ├── compare_loss.png
@@ -278,7 +289,7 @@ Lab 1/
 
 | Sản phẩm | Nội dung | Hoàn thành khi |
 | --- | --- | --- |
-| 5.1. Code Python | `src/*.py` theo mục 6 | Smoke run và `run_001` chạy hết không lỗi từ thư mục `Lab 1` |
+| 5.1. Code Python | `data/*.py`, `src/*.py` theo mục 6 | Smoke run và `run_001` chạy hết không lỗi từ thư mục `Lab 1` |
 | 5.2. Báo cáo ngắn | `evaluation.md`: bảng so sánh mục 7.4 và nhận xét | Mọi số liệu lấy từ file trong `outputs/`, có dẫn đường dẫn |
 | 5.3. Đồ thị loss | `loss_curve.png` mỗi run và `compare_loss.png` | Có cả train và val loss |
 | 5.4. Ảnh dự đoán | `prediction_samples.png` | 16 ảnh, có nhãn thật và nhãn dự đoán |

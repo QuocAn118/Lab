@@ -1,11 +1,12 @@
 # MLP Architecture for Image Classification — Lab 1
 ## 1. Model Name
 - Model name: FashionMNIST MLP
-- Model class: NeuralNetwork
+- Model class: FashionMLP
 - Author: Nguyen Thi Van Anh
-- Created on: --/11/2026
-- Updated on: --/11/2026
-- Updated by:
+- Created on: chưa xác nhận
+- Updated on: 2026-11-10
+- Updated by: Codex (AI hỗ trợ, chờ nhóm review)
+- Implementation status: `src/model.py` exists; trained model and test metrics are not yet available.
 - Framework: PyTorch
 - Reference: PyTorch – Learn the Basics – Build the Neural Network
 
@@ -43,7 +44,7 @@ The model uses an MLP architecture consisting of:
 - A ReLU activation function after each hidden layer
 - One output Linear layer with 10 neurons
 
-The model is defined in the NeuralNetwork class, which inherits from `torch.nn.Module`
+The model is defined in the FashionMLP class, which inherits from `torch.nn.Module`, and constructed through `build_model(model_config)`.
 The `__init__` method declares the layers
 The `forward` method defines the order in which data passes through the layers
 
@@ -71,7 +72,7 @@ The output layer returns logits. Softmax is not included in the forward method w
 ## 3.2 Model input
 The input is a batch of FashionMNIST images that have been converted into tensors
 
-- Data type:
+- Data type: `torch.float32`
 - Shape: (B, 1, 28, 28)
 - B: number of images in the batch
 - 1: one grayscale channel
@@ -137,8 +138,9 @@ Before training, the model can already perform a forward pass and return logits,
 
 ## 3.7. Source file
 
-- Source file:
-- Model class: NeuralNetwork
+- Source file: [src/model.py](../src/model.py)
+- Model class: `FashionMLP`; factory: `build_model(model_config)`
+- The current implementation supports exactly two positive integer hidden dimensions and 10 output classes.
 
 **_Reference:_**
 https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html
@@ -151,7 +153,7 @@ Before handing over the model for training:
 4. Count the total number of parameters and the number of trainable parameters
 5. Record the actual results in `model_summary.txt`
 
-**_Verification status:_** Not yet performed
+**_Verification status:_** A saved [model_summary.txt](../outputs/model_summary.txt) records input `(2, 1, 28, 28)`, output `(2, 10)` and 669706 trainable parameters. This is an architecture check, not training evidence. Its provenance sidecar is still missing; do not treat it as a fully traced result.
 
 # 4. Trained Model
 
@@ -162,16 +164,18 @@ Status: Not yet completed
 - Number of completed epochs: [To be updated]
 - Architecture changes, if any: [To be updated]
 - Selected checkpoint: [To be updated]
-- Checkpoint selection criterion: [To be updated]
+- Checkpoint selection criterion: highest validation accuracy; keep the earlier epoch on ties. Test and demo must use `best.pth`, copied from `best_val_acc.pth`.
 
 ## 4.2 Saving path and loading method
-- Saving path:
+- Planned saving path: `checkpoints/<run_id>/best.pth`, with configuration in `outputs/<run_id>/config.json` and metadata in `checkpoints/<run_id>/checkpoint_index.json`. No completed training run is available for this report yet.
 
 ## 4.3 Reload verification
 **Purpose:**
 Confirm that saving and reloading correctly restores the model
 
 **_Result:_** Not yet performed
+
+Current `src/model_io.py` provides `save_model(model, run_id)`, `load_model(run_id, device)` and `verify_reload(model, sample_batch, run_id)`. It loads and verifies `final_epoch.pth` using 16 validation images supplied by `train.py`; loading and verifying `best.pth` is still required by the lab specification.
 
 This check verifies the correctness of saving and loading<br>
 Classification accuracy is evaluated separately on the data

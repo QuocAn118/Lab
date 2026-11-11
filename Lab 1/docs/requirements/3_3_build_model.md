@@ -1,14 +1,18 @@
 # 3.3. Xây dựng mạng neural
 
+Last updated: 2026-11-10 — Codex (AI hỗ trợ, chờ nhóm review).
+
+Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo này chưa có sidecar nguồn gốc. Chưa có bằng chứng huấn luyện.
+
 ## 1. Mục đích
 
 Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức lớp đầu vào, lớp ẩn, hàm kích hoạt và lớp đầu ra trong Chương 2.
 
 ## 2. File thực hiện
 
-- File code dự kiến: `src/model.py`.
+- File code: `src/model.py`.
 - Định nghĩa lớp `FashionMLP`, kế thừa `torch.nn.Module`, có phương thức `forward`.
-- Hàm dự kiến: `build_model(model_config)` trả về mô hình.
+- Hàm: `build_model(model_config)` trả về mô hình.
 - Được sử dụng bởi `src/train.py` và `src/model_io.py` khi khởi tạo hoặc tải lại mô hình.
 
 ## 3. Đầu vào
@@ -20,7 +24,7 @@ Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức
 
 ## 4. Các bước xử lý
 
-1. Kiểm tra cấu hình có số lớp đầu ra là 10 và các kích thước lớp ẩn là số nguyên dương.
+1. Kiểm tra cấu hình có số lớp đầu ra là 10, đúng hai lớp ẩn và kích thước lớp ẩn là số nguyên dương.
 2. Làm phẳng mỗi ảnh từ `[1, 28, 28]` thành vector 784 phần tử.
 3. Với cấu hình cơ sở, lần lượt áp dụng `Linear(784, 512)`, ReLU, `Linear(512, 512)`, ReLU và `Linear(512, 10)`.
 4. Trả về 10 điểm số thô (logits) cho mỗi ảnh. Không thêm Softmax trước `CrossEntropyLoss`.
@@ -39,7 +43,7 @@ Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức
 
 ## 6. Cách chạy và kiểm tra
 
-Lệnh dự kiến từ thư mục `Lab 1`:
+Chạy từ thư mục `Lab 1`:
 
 ```powershell
 python src/model.py --check
