@@ -17,6 +17,7 @@ from torch import nn
 from lab_2.common import (
     argument_parser,
     ci_half_width,
+    ensure_writable_output,
     load_config,
     peak_ram_gb,
     project_path,
@@ -175,6 +176,7 @@ def plot_confusion_matrix(matrix, path):
 def copy_best(config, run_name):
     """Ghi vào file tạm rồi mới thay thế, để lỗi giữa chừng không làm hỏng mốc cũ."""
     checkpoints = project_path(config["paths"]["checkpoints_dir"])
+    ensure_writable_output(checkpoints)
     destination = checkpoints / "best.pth"
     temporary = destination.with_name("best.pth.tmp")
     shutil.copyfile(checkpoints / run_name / "best_val_acc.pth", temporary)
@@ -199,6 +201,7 @@ def comparison_table(runs):
 
 def main():
     config = load_config(argument_parser(__doc__).parse_args().config)
+    ensure_writable_output(project_path(config["paths"]["reports_dir"]))
     report = read_report(config)
     if "evaluation" in report:
         raise SystemExit("Đã có đánh giá test. Giữ nguyên kết quả và dùng thư mục reports/checkpoints mới cho thí nghiệm khác.")

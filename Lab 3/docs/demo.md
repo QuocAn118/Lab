@@ -46,5 +46,7 @@ Câu thứ ba mang tính trung tính, trong khi model chỉ có 2 lớp, nên c�
 
 ## Nguồn và phạm vi
 
+Lượt rà ngày 2026-11-12 bổ sung kiểm tra bảo vệ kết quả demo theo `08_implementation.md` mục 10. Nếu `reports_dir/metrics.json` đã có mục demo, lệnh báo lỗi trước khi nạp model. Đặt reports_dir mới để lưu một lượt dự đoán khác.
+
 - Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
 - [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

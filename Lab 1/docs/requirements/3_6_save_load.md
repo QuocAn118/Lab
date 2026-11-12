@@ -14,6 +14,7 @@
 - `save_model(model, run_id)` lưu `final_epoch.pth` theo cấu hình đã ghi trong `outputs/<run_id>/config.json`. Mã run được kiểm tra; mở file bằng `xb` để không ghi đè.
 - `load_model(run_id, device, checkpoint="final_epoch")` hỗ trợ `final_epoch` hoặc `best`; từ chối lựa chọn khác. Cách gọi cũ giữ nguyên hành vi tải checkpoint cuối.
 - `verify_reload(model, sample_batch, run_id, checkpoint="final_epoch")` yêu cầu tensor 16 ảnh validation đầu tiên `[16,1,28,28]`.
+- Hàm chỉ ghi `reload_check.json` trong run đang chạy hoặc thư mục kiểm tra chưa có manifest. Run đã có manifest hoàn tất, thất bại hoặc bị ngắt được kiểm tra bằng CLI `verify.py` chỉ đọc. Gọi lại `verify_reload` trên run đã chốt phải báo lỗi trước khi nạp model hoặc ghi file.
 
 ## Lưu, tải và kiểm chứng
 

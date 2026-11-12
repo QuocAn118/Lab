@@ -1806,7 +1806,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "5ef7656dbfcbd2adf433062fcd93deaa54b2ffeac619de2fb60130b16270bba4"
+          "sha256": "d8576a21272120870adb4377dea08025a66f44c5a9a787062df482da23c6f5ac"
         }
       ],
       "method": "ai-assisted",
@@ -1838,6 +1838,14 @@
             "docs/requirements/3_6_save_load.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-12T21:11:52+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Full recheck with OpenAI Codex: refuse verify_reload writes to finalized runs; add completed/failed/interrupted regression cases. 20 Lab 1 tests pass. Source authors and historical artifacts remain recorded in the registry."
         }
       ]
     },

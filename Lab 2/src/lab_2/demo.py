@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import torch
 
-from lab_2.common import argument_parser, load_config, project_path, update_report
+from lab_2.common import argument_parser, ensure_writable_output, load_config, project_path, update_report
 from lab_2.data import CLASS_NAMES, build_transform, load_splits, raw_samples
 from lab_2.evaluation import SERIES, SURFACE, style_axis
 from lab_2.model import load_checkpoint
@@ -53,6 +53,7 @@ def main():
     parser.add_argument("--image", nargs="+", default=[])
     args = parser.parse_args()
     config = load_config(args.config)
+    ensure_writable_output(project_path(config["paths"]["reports_dir"]))
     checkpoint = project_path(config["paths"]["checkpoints_dir"]) / "best.pth"
     if not checkpoint.exists():
         raise SystemExit("Chưa có best.pth. Chạy python -m lab_2.evaluation trước.")

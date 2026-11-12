@@ -71,6 +71,8 @@ Kiểm tra bổ sung: 3 smoke test thu thập được (không thực thi); cấ
 
 ## Kết quả thực thi phiên tái lập
 
+Yêu cầu bảo vệ artifact của lượt rà toàn bộ ngày 2026-11-12 áp dụng cho các điểm ghi dữ liệu. Thư mục output có `FILES.json`, hoặc nằm trong phiên có `SESSION.json` mang trạng thái completed/failed/interrupted, được coi là đã chốt. Các lệnh data, model, training, evaluation và demo phải kiểm tra trước bước nạp dữ liệu/model và trước mọi thao tác ghi. Writer báo cáo và hàm sao chép best cũng kiểm tra trực tiếp. Khi muốn tạo báo cáo demo mới từ checkpoint cũ, chọn `reports_dir` mới trong config, sử dụng checkpoint cũ để đọc.
+
 Phiên `rerun-thanhbinh-20261112-175308` đã hoàn tất 2026-11-12T18:22:42+07:00, trạng thái `completed`: bốn run, 13 file trọng số mới, checkpoint epoch/metrics khớp và TensorBoard đủ tag/epoch. [SESSION.json](../reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json), [so sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md). Model/config/snapshot source, log lệnh train/evaluation/demo và kết quả đều giữ trong phiên; snapshot trước sửa T4 và kết quả test sau sửa được phân biệt bằng tên file.
 
 DenseNet121 validation 88,24%, test 87,68%, macro F1 0,8755; kiểm lại checkpoint nguồn cho cùng validation/test accuracy. Test của phiên mới chỉ đánh giá model đã chọn bằng validation. Phép kiểm tra checkpoint nguồn là đánh giá mới riêng, không viết thêm vào kết quả lịch sử của Bình. Hai KPI tốc độ T4 và Run all Colab đang chờ kiểm chứng. Biểu đồ so sánh đã được mở để kiểm tra bố cục.

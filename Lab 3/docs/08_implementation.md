@@ -120,6 +120,8 @@ Kiểm tra nguồn bỏ qua `.pytest_cache` do pytest tạo, theo phạm vi cach
 
 Bản `src/exercise_2` kế thừa từ Quốc An được bổ sung kiểm tra trước khi train để từ chối checkpoint hoặc báo cáo training đã có. Báo cáo JSON từ chối giá trị NaN/Infinity trước khi ghi. Đánh giá dùng tên GPU thực tế để đối chiếu hai KPI tốc độ tham chiếu T4, đồng thời lưu các thời gian thô. Các thay đổi tích hợp do HoangDang thực hiện với hỗ trợ OpenAI Codex, nguồn code nhập tiếp tục được ghi trong `12_traceability.md`.
 
+Demo của bản này kiểm tra báo cáo đã có mục demo trước khi nạp model. Để lưu một lượt demo mới, dùng đường dẫn reports mới trong config. Các checkpoint đã train có thể tiếp tục được nạp để đọc.
+
 Môi trường Windows được kiểm tra với pandas 2.3.3 và pyarrow 21.0.0 từ PyPI khi bản DLL cài trước bị Windows từ chối nạp. Ghi phiên bản sau kiểm chứng trong requirements và lock, cùng các dependency cần cho bản Exercise 2 nhập từ Quốc An.
 
 ## Nguồn và phạm vi

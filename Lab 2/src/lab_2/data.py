@@ -6,6 +6,7 @@ from lab_2.common import (
     load_config,
     project_path,
     update_report,
+    ensure_writable_output,
 )
 from PIL import Image
 
@@ -123,6 +124,7 @@ def describe(subset):
 def main():
     args = argument_parser(__doc__).parse_args()
     config = load_config(args.config)
+    ensure_writable_output(project_path(config["paths"]["reports_dir"]))
 
     train, val, test = load_splits(config)
 

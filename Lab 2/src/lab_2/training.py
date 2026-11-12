@@ -15,7 +15,7 @@ import torch
 from torch import nn
 from torch.utils.tensorboard import SummaryWriter
 
-from lab_2.common import argument_parser, load_config, peak_ram_gb, project_path, read_report, update_report
+from lab_2.common import argument_parser, ensure_writable_output, load_config, peak_ram_gb, project_path, read_report, update_report
 from lab_2.data import load_splits, make_loader
 from lab_2.model import build_model, save_checkpoint, set_train_mode, trainable_parameters
 
@@ -90,6 +90,8 @@ def train_run(config, run):
         raise ValueError("Tên run chỉ được gồm chữ, số, _ và -")
     checkpoint_parent = Path(project_path(config["paths"]["checkpoints_dir"])).resolve()
     log_parent = (Path(project_path(config["paths"]["reports_dir"])) / "runs").resolve()
+    ensure_writable_output(checkpoint_parent)
+    ensure_writable_output(log_parent.parent)
     checkpoint_dir = checkpoint_parent / run["name"]
     log_dir = log_parent / run["name"]
     for path, parent in ((checkpoint_dir, checkpoint_parent), (log_dir, log_parent)):

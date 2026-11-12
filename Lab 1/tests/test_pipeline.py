@@ -49,6 +49,22 @@ def test_evaluation_rejects_empty_and_nonfinite_logits():
         evaluate_model(torch.nn.Identity(), bad, "cpu")
 
 
+@pytest.mark.parametrize('status', ['completed', 'failed', 'interrupted'])
+def test_reload_check_cannot_modify_a_finalized_run(lab, status):
+    out = lab / 'outputs/run_010'
+    out.mkdir(parents=True)
+    config = train.build_config('run_010', hidden_dims=(8, 4))
+    (out / 'config.json').write_text(json.dumps(config))
+    model = build_model(config['model'])
+    model_io.save_model(model, 'run_010')
+    (out / 'manifest.json').write_text(json.dumps({'status': status}))
+    saved = out / 'reload_check.json'
+    saved.write_bytes(b'preserve original verification')
+    with pytest.raises(FileExistsError, match='chốt'):
+        model_io.verify_reload(model, torch.zeros(16, 1, 28, 28), 'run_010')
+    assert saved.read_bytes() == b'preserve original verification'
+
+
 def test_load_selects_best_independently_and_preserves_exclusive_save(lab):
     config = train.build_config("smoke_101", hidden_dims=(8, 4))
     out = lab / "outputs/smoke_101"

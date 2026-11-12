@@ -11,7 +11,7 @@ import torch
 from torch.utils.data import DataLoader, TensorDataset
 import yaml
 
-from lab_2 import demo, evaluation, model, training
+from lab_2 import data, demo, evaluation, model, training
 from lab_2.common import load_config, read_report, update_report
 
 
@@ -20,6 +20,48 @@ def isolated_config(tmp_path):
     config["paths"] = {"reports_dir": str(tmp_path / "reports"), "checkpoints_dir": str(tmp_path / "ckpt")}
     config["data"]["num_workers"] = 0
     return config
+
+
+@pytest.mark.parametrize('module', [data, model, training, evaluation, demo])
+def test_module_cli_preserves_finalized_session(tmp_path, monkeypatch, module):
+    config = isolated_config(tmp_path)
+    report_dir = tmp_path / 'session/reports'
+    report_dir.mkdir(parents=True)
+    config['paths']['reports_dir'] = str(report_dir)
+    config['paths']['checkpoints_dir'] = str(tmp_path / 'session/checkpoints')
+    (tmp_path / 'session/SESSION.json').write_text(json.dumps({'status': 'completed'}))
+    metrics = report_dir / 'metrics.json'
+    metrics.write_bytes(b'{"demo": "preserve evidence"}')
+    image = report_dir / 'figures/demo_probabilities.png'
+    image.parent.mkdir()
+    image.write_bytes(b'preserve original plot')
+    path = tmp_path / 'config.yaml'
+    path.write_text(yaml.safe_dump(config), encoding='utf-8')
+    args = ['module', '--config', str(path)]
+    if module is training:
+        args += ['--run', config['runs'][0]['name']]
+    monkeypatch.setattr(sys, 'argv', args)
+    loading = {data: 'load_splits', model: 'build_model', training: 'load_splits',
+               evaluation: 'completed_runs', demo: 'load_checkpoint'}
+    monkeypatch.setattr(module, loading[module],
+                        lambda *args, **kwargs: pytest.fail('loading before finalized-session check'))
+    with pytest.raises(FileExistsError, match='chốt'):
+        module.main()
+    assert metrics.read_bytes() == b'{"demo": "preserve evidence"}'
+    assert image.read_bytes() == b'preserve original plot'
+
+
+def test_copy_best_preserves_finalized_checkpoint_directory(tmp_path):
+    session = tmp_path / 'session'
+    checkpoints = session / 'checkpoints'
+    checkpoints.mkdir(parents=True)
+    (session / 'FILES.json').write_text('{}')
+    best = checkpoints / 'best.pth'
+    best.write_bytes(b'preserve selected model')
+    config = {'paths': {'checkpoints_dir': str(checkpoints)}}
+    with pytest.raises(FileExistsError, match='chốt'):
+        evaluation.copy_best(config, 'resnet18_baseline')
+    assert best.read_bytes() == b'preserve selected model'
 
 
 def test_existing_checkpoint_is_not_overwritten(tmp_path):

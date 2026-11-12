@@ -1,9 +1,9 @@
-# Sources: docs/demo.md; docs/lab_3_description.md
+# Sources: docs/demo.md; docs/lab_3_description.md; docs/08_implementation.md §10
 """Suy luận nhanh bằng mốc `best` với câu thực tế. Đặc tả: docs/demo.md."""
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-from exercise_2.common import config_from_args, project_path, update_report
+from exercise_2.common import config_from_args, project_path, read_report, update_report
 
 # Câu trung tính không có nhãn đúng vì model chỉ có 2 lớp, nên chỉ quan sát, không tính đúng/sai.
 SENTENCES = [
@@ -15,6 +15,9 @@ SENTENCES = [
 
 def main():
     config = config_from_args(__doc__)
+    report_path = project_path(config["paths"]["reports_dir"]) / "metrics.json"
+    if report_path.is_file() and "demo" in read_report(config):
+        raise FileExistsError("Đã có kết quả demo. Dùng reports_dir mới trong config.")
     best_dir = project_path(config["paths"]["checkpoints_dir"]) / "best"
     if not best_dir.exists():
         raise SystemExit(f"Không thấy {best_dir}. Hãy chạy exercise_2.training trước.")

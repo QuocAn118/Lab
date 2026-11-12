@@ -21,7 +21,7 @@
 | R-05 Smoke | `04_training.md` §4 | `max_steps=2`, loss/grad checks | 2 bước optimizer; gradient hữu hạn khác 0 |
 | R-06 Checkpoint/stop | `08_implementation.md` §3 | `StopPolicy`, `CheckpointCallback` | Ngưỡng/tie/NaN; checkpoint nạp được |
 | R-07 Metrics/resources | `05_evaluation.md` §1–2 | `compute_metrics`, `measure_latency`, `plot_results` | Known-label metrics; báo cáo cùng run |
-| R-08 Demo | `07_demo.md` §2–3 | `load_demo` | Save/reload safetensors; CLI demo |
+| R-08 Demo | `07_demo.md` §2–3; `08_implementation.md` §10 | `load_demo`, `src/exercise_2/demo.py` | Save/reload safetensors; CLI demo; chặn ghi đè mục demo đã có |
 | R-10 Thời gian train/checkpoint | `04_training.md` §6 | `notebook_helpers.py`: `TrainingTime`, `train_and_save`; CLI `CheckpointCallback`, `train_run` | Hai lượt train riêng, đủ 3 epoch, lỗi giữa lượt; 5 checkpoint CLI có thời gian |
 | R-09 Nguồn MD | `11_AI_Usage.md` §2 | `record_provenance`, `audit_sources` | CLI audit; artifact hash |
 | R-11 Report riêng/từng file | `08_implementation.md` §9; `05_evaluation.md` §3 | `reporting.py`: `RunReport`, `collect_output`, `verify_report`; tích hợp notebook/CLI | `test_reporting.py`: console nguyên nội dung, hash, nhập log cũ, ngắt, train/evaluate model nhỏ; chạy notebook thực |

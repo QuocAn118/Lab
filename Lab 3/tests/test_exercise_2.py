@@ -55,6 +55,18 @@ def test_evaluation_refuses_existing_result_before_loading_model(tmp_path, monke
     assert (tmp_path / 'reports/metrics.json').read_bytes() == before
 
 
+def test_demo_refuses_existing_result_before_loading_model(tmp_path, monkeypatch):
+    from exercise_2 import common, demo
+    config = {'paths': {'reports_dir': str(tmp_path)}}
+    common.update_report(config, 'demo', [{'prediction': 'POSITIVE'}])
+    before = (tmp_path / 'metrics.json').read_bytes()
+    monkeypatch.setattr(demo, 'config_from_args', lambda _: config)
+    monkeypatch.setattr(demo.AutoTokenizer, 'from_pretrained', lambda _: pytest.fail('model loaded'))
+    with pytest.raises(FileExistsError):
+        demo.main()
+    assert (tmp_path / 'metrics.json').read_bytes() == before
+
+
 @pytest.mark.parametrize('device, expected', [('Tesla T4', 12.5), ('NVIDIA T4', 12.5),
                                             ('NVIDIA GeForce RTX 5060 Laptop GPU', None), ('cpu', None)])
 def test_speed_kpi_uses_t4_measurements(device, expected):
