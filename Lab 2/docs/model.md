@@ -9,10 +9,13 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by — nguồn đặc tả giao diện | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `0f71b4f` |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 > Code gốc của Xuân Bảo (`hbao2123-debug`) đã được tích hợp vào `src/lab_2/model.py`. `Lab 2/model.py` hiện là entry point tương thích cho lệnh/test cũ. Hai báo cáo triển khai model giữ nguồn và kết quả lịch sử; báo cáo package dùng hợp đồng `total`/`trainable`.
+
+Ghi nhận nguồn ngày 2026-11-12: Nguyễn Quốc An thực hiện phần đặc tả giao diện và bộ test nền; phần triển khai model của Xuân Bảo được ghi riêng như trên. HoangDang/OpenAI Codex đối chiếu lịch sử và bổ sung thông tin này; không thay tên tác giả code model hoặc các báo cáo triển khai của Bảo.
 
 Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2.yaml`.
 

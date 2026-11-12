@@ -6,6 +6,8 @@
 
 **Người cập nhật nguồn:** Nguyễn Thị Vân Anh (nhánh `vananh`, commit `4d3fb94`)
 
+**Nguồn đặc tả/bộ test nền:** Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `fa27469`. Phần viết lại tài liệu và triển khai dữ liệu được nhập từ Vân Anh; tên người cập nhật nguồn phía trên giữ nguyên. Ghi nhận nền đặc tả do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12, không chuyển tác giả phần dữ liệu của Vân Anh sang Quốc An.
+
 ## 0. Thông tin tài liệu
 
 | Trường | Nội dung |

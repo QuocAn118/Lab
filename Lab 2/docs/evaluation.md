@@ -9,12 +9,16 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |
+| Người cập nhật nguồn code evaluation | Nguyễn Quốc An (Quoc An), `32ca8b1`, 2026-11-10T21:18:59+07:00 |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 > **Trạng thái**: Chưa có số liệu chính thức. Mọi ô "Chờ Colab" sẽ được điền từ `reports/metrics.json` sau lần chạy thật trên Colab.
 
 Mã nguồn: `src/lab_2/evaluation.py`.
+
+**Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có hỗ trợ Claude Code, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang/OpenAI Codex tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
 
 > **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Sau khi chạy Colab, TV4 điền số thật vào các mục dưới đây và viết nhận xét Exercise 1, 2.
 

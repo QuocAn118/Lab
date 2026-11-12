@@ -9,10 +9,13 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by — nguồn đặc tả/test nền | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `9096223` |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
+
+Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). Đây là ghi nhận đóng góp đặc tả/test, không chuyển phần triển khai package do HoangDang/OpenAI Codex chuẩn bị tại `4176139` hoặc vai trò TV3 của Nguyễn Thanh Bình sang Quốc An. Ghi nhận bổ sung do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12.
 
 > **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
 

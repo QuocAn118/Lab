@@ -23,6 +23,8 @@ Lịch sử registry cũng ghi nhận Claude Code hỗ trợ công cụ lưu v�
 
 ## Implementation contribution (2026-11-11)
 
+Ghi nhận nguồn bổ sung 2026-11-12: **Nguyễn Quốc An (Quoc An)** thực hiện phần training và test training Lab 1 tại `773a5a1` và `e2b6402`. `src/train.py` đã được registry ở `773a5a1` ghi `created_by: Quoc An`, `method: ai-assisted`, với Claude Code (Claude Opus 5.5). HoangDang/OpenAI Codex đối chiếu và bổ sung ghi nhận này; phần hoàn thiện pipeline và chạy thực nghiệm dưới đây là đóng góp riêng. Không quy model/data hoặc kết quả chạy của thành viên khác thành phần Quốc An thực hiện.
+
 HoangDang integrated code with OpenAI Codex: best checkpoint loading/reload verification, model summary sidecar, test evaluation/performance, sample demo, plots, comparison and read-only manifest verifier. Existing data/model/train contributions remain in Git history. 17 tests passed before real training; no pre-existing metric is presented as a new result.
 
 ## Completion evidence (2026-11-11)

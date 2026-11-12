@@ -24,6 +24,20 @@ Họ tên giữ theo bảng đang có trong workspace trong lúc chuẩn bị. V
 | **TV4** | Nguyễn Quốc An | Đánh giá, KPI, biểu đồ: `evaluation.py`, `evaluation.md` |
 | **TV5** | Nguyễn Hoàng Đăng | Tiện ích, demo, notebook, ghép và chạy Colab: `common.py`, `demo.py`, `Lab_2_colab.ipynb`, `demo.md`, file này |
 
+### 1.1. Đóng góp đã đối chiếu của Nguyễn Quốc An — 2026-11-12
+
+Tên nguồn được đối chiếu từ tác giả commit `Quoc An` và khai báo AI của thành viên, không suy từ tên nhánh. Vai trò trong bảng phân công không thay thế hồ sơ đóng góp dưới đây.
+
+| Phần Quốc An thực hiện | File/phạm vi | Commit nguồn |
+| --- | --- | --- |
+| Cập nhật đặc tả theo đề, thêm cấu hình và yêu cầu môi trường | `README.md`, `configs/lab_2.yaml`, `requirements.txt`, `.gitignore`, `docs/lab_2_description.md`, `docs/data.md`, `docs/model.md`, `docs/training.md`, `docs/evaluation.md`, `docs/demo.md`, `docs/plan_progress_status.md` | `3a86e93` |
+| Viết đặc tả từng hàm, giao diện và bộ test nền | Các tài liệu `docs/` trên; `tests/conftest.py`, `test_common.py`, `test_data.py`, `test_demo.py`, `test_evaluation.py`, `test_integration.py`, `test_model.py`, `test_training.py`; smoke test ban đầu ở `tests/test_smoke.py` | `00b8d04`; smoke có từ `3a86e93` |
+| Khôi phục các mục tài liệu bị mất | `data.md`, `model.md`, `training.md`, `evaluation.md`, `demo.md` | `fa27469`, `0f71b4f`, `9096223`, `f9f2fd8`, `d0cd42f` |
+| Tích hợp, đối chiếu và kiểm thử evaluation TV4 | `src/lab_2/evaluation.py`, khai báo AI trong file tiến độ này | `32ca8b1` |
+| Đưa notebook cũ vào repo và chuyển vị trí | `notebooks/Lab 2.ipynb` | `186582e`, `00b8d04`; ghi nhận thao tác nhập/chuyển file, không tự kết luận người viết mọi nội dung hoặc người chạy notebook |
+
+Phần đặc tả/test/evaluation của Quốc An có khai báo Claude Code ở mục 5, được giữ nguyên. Bản data/tài liệu hiện hành của Vân Anh, model của Xuân Bảo, cùng các sửa đổi/tích hợp sau đó được ghi riêng; bộ 74 test hiện tại có các bổ sung sau bộ test nền, không quy toàn bộ cho Quốc An. HoangDang, hỗ trợ OpenAI Codex, thực hiện đối chiếu và bổ sung hồ sơ ngày 2026-11-12; không đổi tác giả commit nguồn và không tạo kết quả thực nghiệm mới.
+
 ---
 
 ## 2. Cách Làm Việc Nhóm
@@ -113,6 +127,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-12` — HoangDang, hỗ trợ OpenAI Codex: rà cả Lab 1/Lab 2 của nhánh `QuocAn` (`32ca8b1`); xác nhận toàn bộ lịch sử nguồn đã có trong main `bae987d`. Bổ sung tên Nguyễn Quốc An cho training/test training Lab 1, đặc tả/cấu hình/test nền và evaluation Lab 2; ghi rõ các thao tác lấy file của thành viên khác là tích hợp. Giữ tên Vân Anh/Xuân Bảo ở phần của họ, giữ khai báo AI nguồn, code và artifact đã kiểm chứng. Xem mục 1.1 và nhật ký đồng bộ ở gốc repo.
 - `2026-11-12` — Nguồn phần dữ liệu/tài liệu: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`, merge `828e5ef`). HoangDang, hỗ trợ OpenAI Codex, hoàn thiện kiểm tra kiểu/kích thước, bổ sung test `load_splits`/`main`, đồng bộ tài liệu; 20 test data và toàn bộ 74 test offline đạt. CIFAR-10 thật đã kiểm tra checksum, chia tập, batch ba tập với worker=2 và CLI ghi báo cáo phiên riêng; giữ nguyên metrics lịch sử. Chưa smoke model thật/train/KPI/Colab. Bằng chứng: `reports/data_validation_2026-11-12.json`. Tên người cập nhật nguồn giữ là Vân Anh; người tích hợp/kiểm chứng ghi riêng.
 - `2026-11-11T11:06:40+07:00` — HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex: hoàn thiện package theo main a7b7ef8, wrapper model cũ, notebook Colab, hướng dẫn bàn giao; 63 test offline đạt. Chưa tải dữ liệu/model thật, chưa smoke thật/4 run, không tạo số accuracy. Báo cáo tham số cũ được giữ nguyên.
 
