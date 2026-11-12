@@ -97,8 +97,9 @@ def main():
               "`checkpoints/<run>/`. Early stopping dùng patience 3 và mức tăng phải hơn 0.01. "
               "Checkpoint accuracy ưu tiên accuracy cao, hòa thì loss thấp.", "",
               "Không chạy đánh giá test hoặc tạo `best.pth` trong phần TV3; TV4 tiếp nhận các run "
-              "và dùng validation để chọn mô hình trước khi đánh giá test. Trọng số lớn được giữ trên máy, "
-              "không commit thành blob Git thường. Code và checkpoint cần bàn giao cùng nhau.", "",
+              "và dùng validation để chọn mô hình trước khi đánh giá test. Đủ 12 checkpoint được version "
+              "bằng Git LFS. Nguồn code lịch sử khớp manifest và giới hạn schema cũ được ghi tại "
+              "[biên bản review](TV3_REVIEW_RESOLUTION.md); không gán kết quả cũ cho code tích hợp mới.", "",
               "## Cách kiểm tra lại", "", "```powershell",
               "$env:PYTHONPATH = 'src'",
               "& .venv/Scripts/python.exe tools/run_tv3.py --stage verify",

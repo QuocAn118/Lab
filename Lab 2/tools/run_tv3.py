@@ -33,11 +33,16 @@ def main():
                 "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
                 "commands": [], "sources": {}}
     for path in [*sorted((ROOT / "src/lab_2").glob("*.py")), ROOT / "model.py", ROOT / "configs/lab_2.yaml"]:
-        manifest["sources"][path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+        relative = path.relative_to(ROOT)
+        content = path.read_bytes()
+        manifest["sources"][relative.as_posix()] = hashlib.sha256(content).hexdigest()
+        snapshot = destination / "sources" / relative
+        snapshot.parent.mkdir(parents=True, exist_ok=True)
+        snapshot.write_bytes(content)
+    manifest["source_snapshot"] = "sources/"
     if args.stage == "verify":
         commands = [
-            ("logic", ["-m", "pytest", "tests/test_common.py", "tests/test_data.py", "tests/test_model.py",
-                       "tests/test_training.py", "tests/test_training_standalone.py", "tests/test_evaluation.py", "-q"]),
+            ("logic", ["-m", "pytest", "tests", "test.py", "--ignore=tests/test_smoke.py", "-q"]),
             ("smoke", ["-m", "pytest", "tests/test_smoke.py", "-q", "-s"])]
     else:
         from lab_2.common import load_config, read_report

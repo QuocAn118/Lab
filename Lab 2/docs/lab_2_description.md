@@ -8,16 +8,21 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-11T11:13:30+07:00 |
+| Updated by — nguồn đặc tả | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04` |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Bài Toán & Mục Tiêu
+
+Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguyễn Quốc An (Quoc An)**, theo `3a86e93`/`00b8d04`. Các phần triển khai của Vân Anh, Xuân Bảo, Quốc An và HoangDang được phân biệt trong [tiến độ và ghi nhận đóng góp](plan_progress_status.md). Ghi nhận nguồn bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu lịch sử; giữ khai báo AI của nguồn ở mục 5 của tiến độ.
 - **Lĩnh vực**: Thị giác máy tính, phân loại ảnh bằng học chuyển giao (transfer learning).
 - **Công nghệ**: PyTorch, `torchvision.models`, `torchvision.transforms`, `torch.utils.data.DataLoader`, TensorBoard.
 - **Mục tiêu theo đề bài**:
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
+
+> Đã chuẩn bị đủ package và notebook, 74 test offline đạt ngày 2026-11-12, gồm 20 test dữ liệu. Chưa train thật; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
 
 ### Đầu vào và đầu ra
 
@@ -49,9 +54,9 @@
 ## 3. Phạm Vi, Ràng Buộc & Giả Định
 
 - **Ngoài phạm vi**: VGG, dò siêu tham số tự động, triển khai thành dịch vụ, tiếp tục huấn luyện từ giữa một lần chạy.
-- **Ràng buộc môi trường**: Máy cá nhân không đủ khả năng huấn luyện. Giảng viên cho phép viết mã trong file `.py` và chạy qua `.ipynb` trên Google Colab để lấy số liệu.
+- **Ràng buộc môi trường**: Chuẩn bị và kiểm tra offline trên máy cá nhân; giao người train chạy file `.py` qua notebook Colab để lấy số liệu. Chưa xác nhận hiệu năng GPU ở giai đoạn chuẩn bị.
 - **Ràng buộc dữ liệu và thời gian**: Đề bài không quy định số mẫu hay số epoch. Nhóm dùng 22.500/2.500/5.000 ảnh, tối đa 6 epoch và 4 lần chạy để giảm thời gian dùng GPU.
-- **Giả định**: Colab có GPU T4 và Google Drive còn trống khoảng 1 GB (khoảng 530 MB checkpoint, phần còn lại cho dữ liệu và log).
+- **Giả định**: Colab có GPU T4 và Google Drive còn trống ít nhất 2 GB cho mỗi phiên (dự trù, chưa đo phiên thật); xem kế hoạch bàn giao.
 
 ---
 
@@ -143,13 +148,13 @@ Mỗi lần chạy có thư mục riêng `checkpoints/<tên lần chạy>/`.
 
 ## 8. Bảng Nghiệm Thu
 
-Cột "Kết quả" chỉ được ghi Đạt hoặc Không đạt sau khi đã có bằng chứng từ lần chạy thật.
+Cột "Kết quả" chỉ ghi Đạt/Không đạt theo bằng chứng phù hợp. AC-02 đã đạt test offline; các tiêu chí dữ liệu thật/GPU/Colab còn chờ người train. Xem [verification.md](verification.md).
 
 | Mã | Phụ trách | Tiêu chí | Cách kiểm tra | Bằng chứng | Kết quả |
 | :--- | :---: | :--- | :--- | :--- | :--- |
 | AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Đầu ra notebook, mục `model` trong `metrics.json` | Chờ chạy Colab |
-| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py` | Kết quả pytest | Chờ chạy Colab |
-| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Kết quả pytest, mục `data` trong `metrics.json` | Chờ chạy Colab |
+| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py` | Kết quả pytest offline, 12 test model | Đạt offline |
+| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | 20 test data; [kiểm chứng CIFAR-10 thật](../reports/data_validation_2026-11-12.json), báo cáo phiên riêng | Đạt trên Windows 2026-11-12; Colab cần kiểm tra lại |
 | AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Chờ chạy Colab |
 | AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
 | AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
@@ -170,7 +175,7 @@ Làm đầu tiên vì mọi file khác đều import file này. Không import fi
 Hằng số: `PROJECT_ROOT = Path(__file__).resolve().parents[2]`, `DEFAULT_CONFIG = PROJECT_ROOT / "configs" / "lab_2.yaml"`.
 
 #### `load_config(path=DEFAULT_CONFIG)`
-Đọc YAML bằng `yaml.safe_load`, mở file với `encoding="utf-8"`. Trả về `dict`. **Test**: `test_load_config_reads_the_lab_config`.
+Đọc YAML bằng `yaml.safe_load`, mở file với `encoding="utf-8"`. Trả về `dict`; tên run phải duy nhất, chỉ gồm chữ, số, `_`, `-`. **Test**: `test_load_config_reads_the_lab_config`.
 
 #### `argument_parser(description)`
 Trả về `argparse.ArgumentParser` đã có tham số `--config`, mặc định `DEFAULT_CONFIG`.
@@ -182,7 +187,7 @@ Trả về `PROJECT_ROOT / relative_or_absolute`. Toán tử `/` của `pathlib`
 Đọc `<reports_dir>/metrics.json`. Chưa có file thì trả về `{}`.
 
 #### `update_report(config, section, values)`
-Đọc báo cáo hiện có, gán `report[section] = values`, rồi ghi lại với `indent=2`, `ensure_ascii=False`, `encoding="utf-8"`. Tự tạo thư mục. **Test**: `test_report_keeps_sections_written_by_other_steps`.
+Đọc báo cáo hiện có, gán `report[section] = values`, rồi ghi lại với `indent=2`, `ensure_ascii=False`, `encoding="utf-8"`. Tự tạo thư mục, ghi file tạm rồi `os.replace`, từ chối NaN/Infinity và giữ báo cáo cũ khi lỗi. Không chạy nhiều tiến trình ghi cùng JSON. **Test**: `test_report_keeps_sections_written_by_other_steps`.
 
 #### `ci_half_width(accuracy, sample_count)`
 Trả về $1.96 \sqrt{p(1-p)/n}$. **Test**: `test_ci_half_width_for_five_thousand_samples`.
@@ -197,20 +202,20 @@ Trả về RAM cao nhất của tiến trình, đơn vị GB. Thử `import reso
 Notebook chỉ gọi code trong `src/`, không chứa logic. Tạo các cell theo đúng thứ tự, có tiêu đề markdown theo bước của đề bài:
 
 | Thứ tự | Đề bài | Nội dung cell |
-| :---: | :--- | :--- |
-| 1 | Bước 1 | Mount Drive; biến `PROJECT_DIR = "/content/drive/MyDrive/Lab 2"`; `assert` có thư mục `src`; `os.chdir`; `os.environ["PYTHONPATH"] = "src"` |
-| 2 | Bước 1 | `!pip install -q -r requirements.txt` |
-| 3 | Bước 1 | In tên GPU; không có GPU thì in cảnh báo |
-| 4 | Bước 5 | `!mkdir -p data`; nếu chưa có `data/cifar-10-python.tar.gz` thì `wget` từ `https://huggingface.co/datasets/MIT-OL-AI-D/cifar-10-python/resolve/main/cifar-10-python.tar.gz` |
-| 5 | Smoke test | `!python -m pytest tests -q -s` |
-| 6 | Bước 5 | `!python -m lab_2.data` |
-| 7 | Bước 2, 3, 4 | `!python -m lab_2.model` |
-| 8 đến 11 | Bước 6, Exercise 1, 2 | Mỗi cell một lệnh `!python -m lab_2.training --run <tên>`, theo thứ tự trong `training_specification.md` mục 2 |
-| 12 | Bước 7 | `!python -m lab_2.evaluation` |
-| 13 | Bước 7 | Hiện `val_accuracy_by_run.png`, `loss_curve_best.png`, `confusion_matrix.png` |
-| 14, 15 | Demo | `!python -m lab_2.demo`; hiện `demo_probabilities.png` |
-| 16 | Kết quả | Đọc `reports/metrics.json`; hiện bảng `evaluation.comparison`, `evaluation.kpi`; in lần chạy tốt nhất, kết quả test, accuracy từng lớp, GPU, phiên bản thư viện |
-| 17 | Exercise 3 | `%load_ext tensorboard`, `%tensorboard --logdir reports/runs` |
+| --- | --- | --- |
+| 1 | Bước 1 | Mount Drive; điền PROJECT_DIR, OPERATOR, SESSION_ID; đặt PYTHONPATH |
+| 2 | Bước 1 | Cài requirements bằng subprocess `check=True` |
+| 3 | Cấu hình phiên | In GPU, tạo config phiên giữ tham số gốc, đổi nơi lưu output; khai báo helper gọi module |
+| 4 | Kiểm tra offline | `pytest tests test.py --ignore=tests/test_smoke.py` |
+| 5 | Bước 5 | Tải archive qua mirror, `lab_2.data` kiểm tra MD5 và chia tập |
+| 6 | Bước 2–4 | `lab_2.model`: in kiến trúc/tham số và báo cáo package |
+| 7 | Smoke thật | `pytest tests/test_smoke.py -q -s` |
+| 8–11 | Bước 6, Exercise 1/2 | 4 run theo thứ tự trong training.md; mỗi run một tiến trình |
+| 12 | Bước 7 | `lab_2.evaluation` một lần |
+| 13 | Biểu đồ | Hiện 3 biểu đồ evaluation |
+| 14–15 | Demo | `lab_2.demo`, hiện demo_probabilities.png |
+| 16 | Báo cáo | Hiện bảng so sánh/KPI, số liệu test, môi trường và người chạy từ JSON thật |
+| 17 | Exercise 3 | TensorBoard với logdir của phiên; người train chụp tensorboard.png |
 
 Đặt metadata `"accelerator": "GPU"` để Colab gợi ý bật GPU.
 
@@ -267,6 +272,10 @@ Test không phủ hết các trường hợp này, người phụ trách cần t
 | :--- | :--- | :---: |
 | Chạy trên máy không có GPU | Vẫn chạy được, không gọi hàm `torch.cuda` nào gây lỗi; KPI tốc độ và VRAM ghi "Không đo được" | TV3, TV4 |
 | Dừng sớm trước `max_epochs` | Biểu đồ và bảng vẫn đúng với số epoch thực tế | TV3, TV4 |
-| Chạy lại một lần chạy | Kết quả của 3 lần còn lại trong `metrics.json` không đổi, log cũ của lần đó bị xóa | TV3 |
+| Run đã tồn tại | Báo lỗi, giữ nguyên log/checkpoint/JSON; dùng mã phiên mới để chạy lại | TV3 |
 | Ảnh demo là ảnh xám, PNG có kênh trong suốt, hoặc rất lớn | Vẫn suy luận được nhờ `convert("RGB")` và `Resize` | TV5 |
 | Đường dẫn Drive có dấu cách (`.../Lab 2`) | Đặt trong dấu ngoặc kép khi gọi lệnh shell | TV5 |
+
+### Bổ sung lưu vết training
+
+`training.runs.<tên>` có thêm `config`, `operator`, `started_at`, `finished_at`, `code_commit` theo training.md. Config phải giữ nguyên trong cả 4 run và khớp khi evaluate. Chặn đánh giá test lặp nếu JSON đã có `evaluation`.

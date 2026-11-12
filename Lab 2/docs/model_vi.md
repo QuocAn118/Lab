@@ -8,10 +8,12 @@
 | Created date | 2026-11-10 (theo hồ sơ kế thừa) |
 | Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
 | Ghi nhận Git đầu tiên | 2026-11-10T17:54:38+07:00 ; hbao2123-debug ; 749c935 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
+
+> Báo cáo triển khai lịch sử của Xuân Bảo. Ví dụ báo cáo/lệnh của bản độc lập bên dưới được giữ làm nguồn; giao diện hiện tại và lệnh dùng config phiên nằm ở [model.md](model.md), [training_handoff.md](training_handoff.md). Không dùng báo cáo tham số cũ làm kết quả training mới.
 
 ## 1. Tổng quan
 
@@ -24,7 +26,7 @@ Phần triển khai sử dụng PyTorch và Torchvision, hỗ trợ hai kiến t
 
 Cả hai kiến trúc đều sử dụng trọng số pretrained từ ImageNet thông qua Transfer Learning. Feature extractor mặc định được đóng băng, trong khi classification head ban đầu được thay thế bằng một head mới phù hợp với bài toán phân loại 10 lớp.
 
-**File triển khai:** `Lab 2/model.py`
+**File triển khai hiện tại:** `Lab 2/src/lab_2/model.py`; `Lab 2/model.py` là entry point tương thích.
 
 ## 2. Mục tiêu
 
@@ -219,4 +221,4 @@ Module cũng cung cấp các chức năng thống kê tham số, quản lý ch�
 
 Kết quả chạy thực tế xác nhận cả ba cấu hình mô hình đều tạo ra số lượng tham số đúng kỳ vọng và báo cáo mô hình được tạo thành công.
 
-Kết quả 14/14 ở trên do thành viên báo cáo trên nhánh xbao, chưa được chạy lại trong môi trường hiện tại. Việc ghép model vào package dùng chung và kiểm thử tích hợp vẫn chưa hoàn tất.
+Kết quả 7,48 giây phía trên là lần chạy lịch sử do thành viên báo cáo. Ngày 2026-11-11 đã chạy lại 14 test tương thích và 49 test package đạt, tổng 63 test. Code hiện nằm ở src/lab_2/model.py; file model.py ở gốc giữ lệnh tương thích. JSON tham số lịch sử giữ nguyên; báo cáo package mới dùng total/trainable. Chưa smoke CIFAR-10 thật, train đầy đủ hay chạy Colab; xem verification.md và training_handoff.md.

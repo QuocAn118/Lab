@@ -1,83 +1,43 @@
-"""TV3: huấn luyện, checkpoint và TensorBoard cho Lab 2.
-
-Spec: docs/training_specification.md mục 8
-Spec: docs/lab_2_description.md mục 7, 10
-Chạy từ Lab 2 với PYTHONPATH=src:
-    python -m lab_2.training --run resnet18_baseline
-"""
-from importlib import import_module, metadata
-from pathlib import Path
+"""Bước 6 và Exercise 1–3: train, checkpoint, early stopping, TensorBoard."""
+from datetime import datetime
+from importlib.metadata import version
 import math
-import shutil
+import os
+from pathlib import Path
+import random
+import re
+import statistics
+import subprocess
 import time
 
+import numpy as np
 import torch
 from torch import nn
+from torch.utils.tensorboard import SummaryWriter
+
+from lab_2.common import argument_parser, load_config, peak_ram_gb, project_path, read_report, update_report
+from lab_2.data import load_splits, make_loader
+from lab_2.model import build_model, save_checkpoint, set_train_mode, trainable_parameters
 
 LIBRARIES = ["torch", "torchvision", "tensorboard", "scikit-learn"]
 
 
-def _deferred(module, name):
-    """Giữ API nhóm; chỉ yêu cầu module thành viên khác khi thực sự gọi hàm."""
-    def call(*args, **kwargs):
-        try:
-            dependency = import_module(module)
-        except ModuleNotFoundError as exc:
-            if exc.name == module:
-                raise ModuleNotFoundError(
-                    f"Thiếu {module}: cần ghép code của thành viên phụ trách trước khi train.",
-                    name=module,
-                ) from exc
-            raise
-        return getattr(dependency, name)(*args, **kwargs)
-    return call
-
-
-# Những tên này cũng là điểm thay thế trong kiểm thử của nhóm.
-try:
-    from lab_2.common import argument_parser, load_config, peak_ram_gb, project_path, read_report, update_report
-except ModuleNotFoundError as exc:
-    if exc.name != "lab_2.common":
-        raise
-    argument_parser, load_config, peak_ram_gb, project_path, read_report, update_report = (
-        _deferred("lab_2.common", name) for name in
-        ("argument_parser", "load_config", "peak_ram_gb", "project_path", "read_report", "update_report"))
-try:
-    from lab_2.data import load_splits, make_loader
-except ModuleNotFoundError as exc:
-    if exc.name != "lab_2.data":
-        raise
-    load_splits, make_loader = (_deferred("lab_2.data", name) for name in ("load_splits", "make_loader"))
-try:
-    from lab_2.model import build_model, save_checkpoint, set_train_mode, trainable_parameters
-except ModuleNotFoundError as exc:
-    if exc.name != "lab_2.model":
-        raise
-    build_model, save_checkpoint, set_train_mode, trainable_parameters = (
-        _deferred("lab_2.model", name) for name in
-        ("build_model", "save_checkpoint", "set_train_mode", "trainable_parameters"))
-
-
 def is_better(candidate, current):
-    return (current is None or candidate["accuracy"] > current["accuracy"]
-            or (candidate["accuracy"] == current["accuracy"] and candidate["loss"] < current["loss"]))
+    return current is None or candidate["accuracy"] > current["accuracy"] or (
+        candidate["accuracy"] == current["accuracy"] and candidate["loss"] < current["loss"]
+    )
 
 
 def select_best_run(runs):
     if not runs:
-        raise ValueError("Chưa có lần chạy để chọn.")
-    best_name, best = None, None
-    for name, run in runs.items():
-        candidate = {"accuracy": run["best_val_accuracy"], "loss": run["best_val_accuracy_loss"]}
-        if is_better(candidate, best):
-            best_name, best = name, candidate
-    return best_name
+        raise ValueError("Chưa có kết quả validation")
+    return max(runs, key=lambda name: (runs[name]["best_val_accuracy"], -runs[name]["best_val_accuracy_loss"]))
 
 
 class EarlyStopping:
     def __init__(self, patience, threshold):
         if patience < 1 or threshold < 0:
-            raise ValueError("patience phải >= 1 và threshold phải >= 0")
+            raise ValueError("Patience phải dương và threshold không âm")
         self.patience, self.threshold = patience, threshold
         self.best, self.waited = None, 0
 
@@ -95,96 +55,89 @@ def find_run(config, name):
     for run in config["runs"]:
         if run["name"] == name:
             return run
-    raise SystemExit(f"Tên lần chạy không hợp lệ: {name}. Chọn: "
-                     + ", ".join(run["name"] for run in config["runs"]))
+    raise SystemExit(f"Run không hợp lệ. Chọn: {[run['name'] for run in config['runs']]}")
 
 
 def train_one_epoch(model, loader, criterion, optimizer, device, writer, log_every, step):
     if log_every < 1:
-        raise ValueError("log_every phải >= 1")
+        raise ValueError("log_every phải dương")
     set_train_mode(model)
-    total, batches = 0.0, 0
-    for images, labels in loader:
-        images, labels = images.to(device), labels.to(device)
+    losses = []
+    for images, targets in loader:
+        images, targets = images.to(device), targets.to(device)
         optimizer.zero_grad()
-        loss = criterion(model(images), labels)
+        loss = criterion(model(images), targets)
         if not torch.isfinite(loss):
             raise FloatingPointError("Train loss không hữu hạn")
         loss.backward()
         optimizer.step()
+        losses.append(loss.item())
         step += 1
-        batches += 1
-        total += loss.item()
         if step % log_every == 0:
             writer.add_scalar("Loss/train", loss.item(), step)
-    if not batches:
-        raise ValueError("Train loader không có batch")
-    return total / batches, step
-
-
-def _log_directory(config, run_name):
-    """Xác nhận đường dẫn trước khi xóa log cũ, kể cả trên Windows."""
-    if not run_name or run_name in (".", "..") or any(c in run_name for c in '/\\:'):
-        raise ValueError("Tên run phải là một tên thư mục đơn")
-    parent = (Path(project_path(config["paths"]["reports_dir"])) / "runs").resolve()
-    destination = parent / run_name
-    if destination.is_symlink() or destination.resolve().parent != parent:
-        raise ValueError("Thư mục log vượt ngoài reports/runs")
-    return destination
+    if not losses:
+        raise ValueError("Loader train rỗng")
+    return statistics.mean(losses), step
 
 
 def train_run(config, run):
-    # Import ở đây để tránh evaluation -> training -> evaluation.
     from lab_2.evaluation import evaluate_model
-    from torch.utils.tensorboard import SummaryWriter
 
     settings = config["training"]
-    if settings["max_epochs"] < 1:
-        raise ValueError("max_epochs phải >= 1")
-    log_dir = _log_directory(config, run["name"])
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    if device == "cuda":
+    if settings["max_epochs"] < 1 or settings["log_every_batches"] < 1:
+        raise ValueError("max_epochs và log_every_batches phải dương")
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", run["name"]):
+        raise ValueError("Tên run chỉ được gồm chữ, số, _ và -")
+    checkpoint_parent = Path(project_path(config["paths"]["checkpoints_dir"])).resolve()
+    log_parent = (Path(project_path(config["paths"]["reports_dir"])) / "runs").resolve()
+    checkpoint_dir = checkpoint_parent / run["name"]
+    log_dir = log_parent / run["name"]
+    for path, parent in ((checkpoint_dir, checkpoint_parent), (log_dir, log_parent)):
+        if path.is_symlink() or path.resolve().parent != parent:
+            raise ValueError("Đường dẫn run vượt thư mục dự kiến")
+    training = read_report(config).get("training", {"runs": {}})
+    if run["name"] in training["runs"] or any(p.exists() and any(p.iterdir()) for p in (checkpoint_dir, log_dir)):
+        raise FileExistsError("Run đã có kết quả/log. Giữ nguyên và dùng thư mục reports/checkpoints mới trong config.")
+    gpu = torch.cuda.is_available()
+    device = "cuda" if gpu else "cpu"
+    if gpu:
         torch.cuda.reset_peak_memory_stats()
     else:
-        print("Cảnh báo: không có GPU, chạy CPU; không đo được KPI GPU.")
+        print("Không có GPU: chạy CPU; KPI GPU sẽ ghi Không đo được.")
     torch.manual_seed(config["seed"])
-    train, val, _ = load_splits(config)  # Không duyệt test trong huấn luyện.
+    random.seed(config["seed"])
+    np.random.seed(config["seed"])
+    train, val, _ = load_splits(config)
     train_loader = make_loader(train, run["batch_size"], config, shuffle=True)
     val_loader = make_loader(val, settings["eval_batch_size"], config)
     model = build_model(run["model"], config["model"]["dropout"]).to(device)
-    optimizer = torch.optim.AdamW(trainable_parameters(model), lr=run["learning_rate"],
-                                  weight_decay=settings["weight_decay"])
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode="min", patience=settings["scheduler_patience"])
+    optimizer = torch.optim.AdamW(trainable_parameters(model), lr=run["learning_rate"], weight_decay=settings["weight_decay"])
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", patience=settings["scheduler_patience"])
     stopper = EarlyStopping(settings["early_stopping_patience"], settings["early_stopping_threshold"])
-    criterion = nn.CrossEntropyLoss()
-    checkpoint_dir = Path(project_path(config["paths"]["checkpoints_dir"])) / run["name"]
-    epochs, step, best_acc, best_loss, stop_epoch = [], 0, None, None, None
+    epochs, step, best, best_loss, stop_epoch = [], 0, None, math.inf, None
     best_epoch = best_loss_epoch = None
-    # Chỉ xóa thư mục run đã xác nhận, không ảnh hưởng các run khác.
-    if log_dir.exists():
-        shutil.rmtree(log_dir)
-    with SummaryWriter(log_dir=str(log_dir)) as writer:
+    started_at = datetime.now().astimezone().isoformat(timespec="seconds")
+    code = subprocess.run(["git", "rev-parse", "HEAD"], cwd=project_path("."), capture_output=True, text=True)
+    with SummaryWriter(str(log_dir)) as writer:
         for epoch in range(1, settings["max_epochs"] + 1):
-            if device == "cuda":
+            if gpu:
                 torch.cuda.synchronize()
             started = time.perf_counter()
-            train_loss, step = train_one_epoch(model, train_loader, criterion, optimizer,
-                                               device, writer, settings["log_every_batches"], step)
-            if device == "cuda":
+            train_loss, step = train_one_epoch(model, train_loader, nn.CrossEntropyLoss(), optimizer,
+                                              device, writer, settings["log_every_batches"], step)
+            if gpu:
                 torch.cuda.synchronize()
             train_seconds = time.perf_counter() - started
             result = evaluate_model(model, val_loader, device)
             if not math.isfinite(result["loss"]) or not math.isfinite(result["accuracy"]):
                 raise FloatingPointError("Validation metrics không hữu hạn")
-            learning_rate = optimizer.param_groups[0]["lr"]
+            lr = optimizer.param_groups[0]["lr"]
             marks = ["final_epoch"]
-            if best_loss is None or result["loss"] < best_loss:
+            if result["loss"] < best_loss:
                 best_loss, best_loss_epoch = result["loss"], epoch
                 marks.append("best_val_loss")
-            if is_better(result, best_acc):
-                best_acc = {"accuracy": result["accuracy"], "loss": result["loss"]}
-                best_epoch = epoch
+            if is_better(result, best):
+                best, best_epoch = {"accuracy": result["accuracy"], "loss": result["loss"]}, epoch
                 marks.append("best_val_acc")
             for mark in marks:
                 save_checkpoint(model, checkpoint_dir / f"{mark}.pth", name=run["model"],
@@ -192,29 +145,29 @@ def train_run(config, run):
                                 val_accuracy=result["accuracy"], val_loss=result["loss"])
             writer.add_scalar("Loss/val", result["loss"], epoch)
             writer.add_scalar("Accuracy/val", result["accuracy"], epoch)
-            writer.add_scalar("LearningRate", learning_rate, epoch)
+            writer.add_scalar("LearningRate", lr, epoch)
             scheduler.step(result["loss"])
             epochs.append({"epoch": epoch, "train_loss": train_loss, "val_loss": result["loss"],
-                           "val_accuracy": result["accuracy"], "learning_rate": learning_rate,
+                           "val_accuracy": result["accuracy"], "learning_rate": lr,
                            "train_seconds": train_seconds, "marks": marks})
-            print(f"{run['name']} epoch {epoch}: train_loss={train_loss:.4f}, "
-                  f"val_loss={result['loss']:.4f}, val_accuracy={result['accuracy']:.4f}, "
-                  f"train_seconds={train_seconds:.2f}")
+            print(f"{run['name']} epoch {epoch}: train={train_loss:.4f} val={result['loss']:.4f} acc={result['accuracy']:.4f}")
             if stopper.update(result["accuracy"]):
                 stop_epoch = epoch
                 break
-    summary = {key: run[key] for key in ("purpose", "model", "learning_rate", "batch_size")}
-    summary.update(device=torch.cuda.get_device_name(0) if device == "cuda" else "cpu",
-                   library_versions={name: metadata.version(name) for name in LIBRARIES},
-                   epochs=epochs, epochs_run=len(epochs), stop_epoch=stop_epoch,
-                   best_epoch=best_epoch, best_val_accuracy=best_acc["accuracy"],
-                   best_val_accuracy_loss=best_acc["loss"], best_val_loss_epoch=best_loss_epoch,
-                   best_val_loss=best_loss,
-                   mean_train_seconds_per_epoch=sum(e["train_seconds"] for e in epochs) / len(epochs),
-                   peak_vram_gb=torch.cuda.max_memory_allocated() / 1024**3 if device == "cuda" else None,
-                   peak_ram_gb=peak_ram_gb())
-    training = read_report(config).get("training", {"runs": {}})
-    training.setdefault("runs", {})[run["name"]] = summary
+    summary = {
+        **run, "device": torch.cuda.get_device_name(0) if gpu else "cpu",
+        "library_versions": {name: version(name) for name in LIBRARIES},
+        "epochs": epochs, "epochs_run": len(epochs), "stop_epoch": stop_epoch,
+        "best_epoch": best_epoch, "best_val_accuracy": best["accuracy"], "best_val_accuracy_loss": best["loss"],
+        "best_val_loss_epoch": best_loss_epoch, "best_val_loss": best_loss,
+        "mean_train_seconds_per_epoch": statistics.mean(e["train_seconds"] for e in epochs),
+        "peak_vram_gb": torch.cuda.max_memory_allocated() / 1024**3 if gpu else None,
+        "peak_ram_gb": peak_ram_gb(), "config": config,
+        "started_at": started_at, "finished_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "operator": os.environ.get("LAB2_OPERATOR", "Chưa khai báo"),
+        "code_commit": code.stdout.strip() if code.returncode == 0 else None,
+    }
+    training["runs"][run["name"]] = summary
     update_report(config, "training", training)
     return summary
 
@@ -224,9 +177,8 @@ def main():
     parser.add_argument("--run", required=True)
     args = parser.parse_args()
     config = load_config(args.config)
-    summary = train_run(config, find_run(config, args.run))
-    print(f"Best epoch: {summary['best_epoch']}; val accuracy: {summary['best_val_accuracy']:.4f}; "
-          f"giây/epoch: {summary['mean_train_seconds_per_epoch']:.2f}")
+    result = train_run(config, find_run(config, args.run))
+    print(f"Best epoch {result['best_epoch']}, val acc {result['best_val_accuracy']:.4f}, {result['mean_train_seconds_per_epoch']:.2f} giây/epoch")
 
 
 if __name__ == "__main__":

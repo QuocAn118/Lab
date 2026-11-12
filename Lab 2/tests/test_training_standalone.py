@@ -64,10 +64,8 @@ def test_training_writes_checkpoints_events_and_preserves_other_runs(harness):
     config, report, root = harness
     run = config["runs"][0]
     log = root / "reports/runs" / run["name"]
-    log.mkdir(parents=True)
-    (log / "old.log").write_text("old", encoding="utf-8")
     sibling = log.parent / "other"
-    sibling.mkdir()
+    sibling.mkdir(parents=True)
     (sibling / "keep.log").write_text("keep", encoding="utf-8")
     summary = training.train_run(config, run)
     assert (summary["epochs_run"], summary["stop_epoch"]) == (4, 4)
@@ -76,7 +74,7 @@ def test_training_writes_checkpoints_events_and_preserves_other_runs(harness):
     assert summary["device"] == "cpu" and summary["peak_vram_gb"] is None
     assert report["training"]["runs"]["other"] == {"keep": True}
     assert report["data"] == {"keep": True}
-    assert not (log / "old.log").exists() and (sibling / "keep.log").exists()
+    assert (sibling / "keep.log").exists()
     ckpt = root / "checkpoints" / run["name"]
     assert sorted(p.name for p in ckpt.iterdir()) == ["best_val_acc.pth", "best_val_loss.pth", "final_epoch.pth"]
     assert torch.load(ckpt / "final_epoch.pth", weights_only=True)["epoch"] == 4
@@ -109,13 +107,24 @@ def test_empty_loader_and_nonfinite_loss_are_rejected(monkeypatch):
     model = nn.Linear(2, 3)
     optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
     args = (nn.CrossEntropyLoss(), optimizer, "cpu", None, 10, 0)
-    with pytest.raises(ValueError, match="batch"):
+    with pytest.raises(ValueError):
         training.train_one_epoch(model, [], *args)
     with pytest.raises(FloatingPointError):
         training.train_one_epoch(model, [(torch.full((1, 2), float("nan")), torch.tensor([0]))], *args)
 
 
-def test_missing_dependency_explains_what_to_integrate():
-    call = training._deferred("lab_2.not_implemented", "missing")
-    with pytest.raises(ModuleNotFoundError, match="ghép code"):
-        call()
+def test_empty_run_selection_is_rejected():
+    with pytest.raises(ValueError):
+        training.select_best_run({})
+
+
+def test_existing_log_is_preserved(harness):
+    config, _, root = harness
+    run = config["runs"][0]
+    log = root / "reports/runs" / run["name"]
+    log.mkdir(parents=True)
+    original = log / "original.log"
+    original.write_bytes(b"preserve completed experiment")
+    with pytest.raises(FileExistsError):
+        training.train_run(config, run)
+    assert original.read_bytes() == b"preserve completed experiment"

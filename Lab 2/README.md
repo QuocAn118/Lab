@@ -19,6 +19,8 @@ Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR
 
 > **Trạng thái (2026-11-11)**: TV3 đã chạy 41 test, ba smoke test pretrained và đủ bốn run trên RTX 4060 Laptop. Validation accuracy cao nhất 88,24% (DenseNet121); đã có checkpoint, bảng so sánh và ảnh TensorBoard. Xem [báo cáo TV3](docs/training.md), [hướng dẫn](docs/TV3_TRAINING_GUIDE.md). Chưa chạy đánh giá test, demo hoặc nghiệm thu notebook Colab; không dùng số đo cục bộ thay benchmark T4.
 
+**Review 2026-11-12:** Đã ghép module Lab 2 với main `1224a67`, giữ data Vân Anh và các phần hoàn thiện của nhóm; có notebook/demo để chạy phiên mới. Đủ 12 checkpoint được version bằng Git LFS, source lịch sử khớp manifest được lưu riêng. Xem [biên bản xử lý](docs/TV3_REVIEW_RESOLUTION.md). Kết quả train cũ không được gán cho code mới.
+
 ## Phân Công
 
 | Thành viên | Tạo file | Đặc tả từng hàm | Kiểm tra |

@@ -2,6 +2,8 @@
 
 Đặc tả kỹ thuật: [training_specification.md](training_specification.md).
 
+Cập nhật review 2026-11-12: [checkpoint LFS, source khớp manifest và ghép main](TV3_REVIEW_RESOLUTION.md). Code hiện tại đã tích hợp main; source thực sự dùng cho bảng kết quả dưới đây được lưu riêng, không thay manifest cũ.
+
 Ngày xuất: 2026-11-11T12:56:59+07:00. OpenAI Codex hỗ trợ triển khai, chạy và tổng hợp theo yêu cầu người dùng.
 
 ## Kết quả bốn cấu hình
@@ -44,7 +46,7 @@ Cả bốn run có đủ `Loss/train`, `Loss/val`, `Accuracy/val`, `LearningRate
 
 Mỗi run có `final_epoch.pth`, `best_val_loss.pth`, `best_val_acc.pth` trong `checkpoints/<run>/`. Early stopping dùng patience 3 và mức tăng phải hơn 0.01. Checkpoint accuracy ưu tiên accuracy cao, hòa thì loss thấp.
 
-Không chạy đánh giá test hoặc tạo `best.pth` trong phần TV3; TV4 tiếp nhận các run và dùng validation để chọn mô hình trước khi đánh giá test. Trọng số lớn được giữ trên máy, không commit thành blob Git thường. Code và checkpoint cần bàn giao cùng nhau.
+Không chạy đánh giá test hoặc tạo `best.pth` trong phần TV3. Đủ 12 trọng số được bàn giao tại `checkpoints/<run>/` bằng **Git LFS**, giữ nguyên hash; xem [biên bản review](TV3_REVIEW_RESOLUTION.md). Run lịch sử chưa có schema config phiên mới của main; không tự điền thêm config/người chạy hoặc coi code mới là code đã train.
 
 ## Cách kiểm tra lại
 

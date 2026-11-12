@@ -1,0 +1,42 @@
+{
+  "main_commit": "1224a673f6bc8a4f4c17189c00cd34fb55bd624e",
+  "comparison": "Shared current modules retain main text; LF normalization is separate from byte-exact historical source audit",
+  "shared_modules": [
+    {
+      "path": "Lab 2/src/lab_2/common.py",
+      "main_sha256": "acf02952cb9ac5afd2993de97e4b9c33cdf4d3f1561ef7db19da2476c1da3c22",
+      "working_sha256": "5f0aa87dc82866918bbc5e93b61cb2a1d47d6070becc7e61ec54aff10c0c337e",
+      "same_text_after_LF_normalization": true
+    },
+    {
+      "path": "Lab 2/src/lab_2/data.py",
+      "main_sha256": "a5301d9388884b36ae928ab5c878809c88c67370900e9bc4ed68781c4e7a7677",
+      "working_sha256": "1830102abd084f39a0dcb78bef1d895f5c12aa809ebae4170317b9687ece4d78",
+      "same_text_after_LF_normalization": true
+    },
+    {
+      "path": "Lab 2/src/lab_2/model.py",
+      "main_sha256": "22ed54dffa857b60c0a432df078e0a6182fba4fd2694104436d5b7a2729fe829",
+      "working_sha256": "b0e1d35fac98694e6afb0ddafdac0c50e314765316b5e25f4e5e46f962d4b622",
+      "same_text_after_LF_normalization": true
+    },
+    {
+      "path": "Lab 2/src/lab_2/evaluation.py",
+      "main_sha256": "8808459a1b8a2b98403f0df0aa1dac7f1fe858476475ab2b7cdd9368e503a299",
+      "working_sha256": "054e1c80e19a2f77b970bca06fc24aec7d7f6114991773e990978cc5bd94ae64",
+      "same_text_after_LF_normalization": true
+    },
+    {
+      "path": "Lab 2/src/lab_2/demo.py",
+      "main_sha256": "a45bd5563ec710a0b7599a3d08ce460ffdf6b97ccb044597ab93ce2edca93351",
+      "working_sha256": "af7ac1abed1f50c063644f6cde3f9db1509b06a5fde90e807cbccd02a88b4c93",
+      "same_text_after_LF_normalization": true
+    }
+  ],
+  "training_changes_on_main": [
+    "validate direct run name and resolved output paths",
+    "positive log_every in train_one_epoch",
+    "reject nonfinite validation metrics"
+  ],
+  "verification": "reports/tv3/20261112-110855/manifest.json"
+}

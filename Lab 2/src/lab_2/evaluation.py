@@ -40,9 +40,13 @@ def evaluate_model(model, loader, device):
         for images, targets in loader:
             images, targets = images.to(device), targets.to(device)
             outputs = model(images)
+            if not torch.isfinite(outputs).all():
+                raise FloatingPointError("Logits đánh giá không hữu hạn")
             total_loss += nn.functional.cross_entropy(outputs, targets, reduction="sum").item()
             predictions += outputs.argmax(dim=1).tolist()
             labels += targets.tolist()
+    if not labels:
+        raise ValueError("Loader đánh giá rỗng")
     correct = sum(p == t for p, t in zip(predictions, labels))
     return {
         "loss": total_loss / len(labels),
@@ -71,6 +75,9 @@ def completed_runs(config, report):
 
 def measure_latency_ms(model, transform, samples, device):
     """Tiền xử lý và suy luận từng ảnh. Vài lần đầu chạy nháp vì thường chậm bất thường."""
+    if not samples:
+        raise ValueError("Cần ảnh để đo latency")
+    model.eval()
     def run_once(image):
         with torch.no_grad():
             model(transform(image).unsqueeze(0).to(device))
@@ -114,7 +121,8 @@ def plot_loss_curve(run_name, run, path):
     plot_line(axis, epochs, [e["train_loss"] for e in run["epochs"]], *SERIES[0], "Train loss")
     plot_line(axis, epochs, [e["val_loss"] for e in run["epochs"]], *SERIES[1], "Validation loss")
     axis.set_xticks(epochs)
-    axis.set_ylim(bottom=0)
+    max_loss = max(max(e["train_loss"], e["val_loss"]) for e in run["epochs"])
+    axis.set_ylim(0, max(0.01, max_loss * 1.1))
     axis.legend(frameon=False, labelcolor=INK)
     figure.tight_layout()
     figure.savefig(path, dpi=150)
@@ -187,7 +195,12 @@ def comparison_table(runs):
 
 def main():
     config = load_config(argument_parser(__doc__).parse_args().config)
-    runs = completed_runs(config, read_report(config))
+    report = read_report(config)
+    if "evaluation" in report:
+        raise SystemExit("Đã có đánh giá test. Giữ nguyên kết quả và dùng thư mục reports/checkpoints mới cho thí nghiệm khác.")
+    runs = completed_runs(config, report)
+    if any(run.get("config") != config for run in runs.values()):
+        raise SystemExit("Config hiện tại khác config đã train. Dùng lại đúng config của cả 4 run.")
     best_name = select_best_run(runs)
     best_run = runs[best_name]
 
