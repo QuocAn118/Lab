@@ -12,6 +12,12 @@
 
 ## Lab 2 preparation for training handoff
 
+### Nhận TV3 Thanh Bình và tách phiên chạy lại — 2026-11-12
+
+Nguồn bàn giao: Nguyễn Thanh Bình (Thanh Binh trong Git), commit `92930e6`; giữ riêng đóng góp data của Vân Anh, model Xuân Bảo và evaluation/đặc tả Quốc An. HoangDang, hỗ trợ OpenAI Codex, nhận một phiên lịch sử gồm bốn cấu hình: [IMPORT.json](Lab%202/reports/imported-thanhbinh-92930e6/IMPORT.json). Đã đối chiếu 12 checkpoint LFS, 21 snapshot source, ba manifest, metrics/CSV, TensorBoard và nạp bốn model; không ghi bản nhập thành kết quả train mới.
+
+Bản tích hợp giữ cơ chế chống ghi đè và bổ sung config/output riêng cho runner. 85 test offline và ba smoke thật đạt trên RTX 5060. Phiên mới `rerun-thanhbinh-20261112-175308` dùng config/output riêng, người chạy HoangDang/OpenAI Codex; trạng thái và kết quả được ghi riêng sau khi thực thi. Bản nguồn dùng RTX 4060, không thay thời gian/hardware/metadata cũ bằng thông tin của máy tích hợp. KPI tốc độ T4 chỉ được chấm trên đúng T4, số đo RTX vẫn được giữ.
+
 ### Bổ sung ghi nhận Quốc An cho Lab 1 và Lab 2 — 2026-11-12
 
 Người đối chiếu/ghi nhận: HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex. Mốc kiểm tra: main `bae987d`; nguồn `origin/QuocAn` tại `32ca8b1` đã là ancestor của main, không có commit nguồn mới cần nhập. Lần cập nhật này bổ sung tên/nguồn đóng góp bằng một PR riêng, không tạo merge rỗng hoặc viết lại tác giả commit cũ.

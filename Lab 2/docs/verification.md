@@ -13,6 +13,16 @@
 
 ## 1. Kết quả và giới hạn
 
+### TV3 nhập lịch sử và chuẩn bị chạy lại — 2026-11-12
+
+Nguồn bàn giao: Nguyễn Thanh Bình (`origin/ThanhBinh`, `92930e6`), có khai báo OpenAI Codex. HoangDang/OpenAI Codex tiếp nhận và kiểm chứng trên máy hiện tại. Đây là một phiên lịch sử gồm bốn cấu hình, không ghi thành bốn lần train mới. [IMPORT.json](../reports/imported-thanhbinh-92930e6/IMPORT.json) giữ nguồn, thời gian gốc, đường dẫn và hash. Người chạy cũ chưa được ghi tên trong manifest, không suy từ tác giả commit.
+
+Đã kiểm chứng **12 checkpoint đúng byte/hash, 21 snapshot source đúng hash, ba manifest không đổi**, và nạp best checkpoint của cả bốn model cho output hữu hạn `[1,10]`. Snapshot khôi phục dòng chú thích cũ đã giải quyết chênh hash training.py trước đó; không sửa manifest cũ. Metrics/CSV/số epoch được đối chiếu riêng.
+
+Bản tích hợp đạt **85 test offline**, gồm 71 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**, trong 29,94 giây. Code mới giữ chống ghi đè/path an toàn; runner nhận config/output riêng và snapshot nguồn khi bắt đầu. KPI tốc độ chỉ được chấm khi tên phần cứng đúng T4; số đo RTX vẫn lưu trong báo cáo.
+
+Phiên mới dùng `configs/sessions/rerun-thanhbinh-20261112-175308.yaml`, ghi kết quả riêng trong `reports/sessions/rerun-thanhbinh-20261112-175308/`. [Trạng thái phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json) phân biệt chuẩn bị, đang chạy và hoàn tất. Báo cáo, checkpoint và log gốc của Bình được giữ nguyên; kết quả mới không thay cho kết quả cũ hoặc benchmark T4.
+
 ### 1.1. Kiểm chứng bổ sung ngày 2026-11-12 — phần dữ liệu Vân Anh
 
 Sau merge `828e5ef`, đã chạy lại bộ test offline với kiểm tra dữ liệu bổ sung: **74 passed**, 0 lỗi, 0 skipped; 60 test package (20 test data) và 14 test tương thích. Thời gian 10,538 giây; 46 DeprecationWarning từ `torch.pin_memory`. Các test mới kiểm tra kiểu/số âm, tập rỗng, `load_splits` với dataset nhỏ và `main` giữ các mục báo cáo đã có.

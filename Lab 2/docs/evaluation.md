@@ -197,12 +197,14 @@ Mỗi lần chạy một đường `val_accuracy` theo epoch, dùng lần lượ
 | `Validation Accuracy` | `best_val_accuracy` của lần tốt nhất | `kpi.accuracy` | Có |
 | `Test Accuracy` | Kết quả test | `kpi.accuracy` | Có |
 | `Test Macro F1` | Kết quả test | `kpi.macro_f1` | Có |
-| `Thời gian train (giây/epoch)` | `mean_train_seconds_per_epoch`; `None` nếu `device` của lần đó là `"cpu"` | `kpi.seconds_per_epoch` | Không |
-| `Độ trễ suy luận (ms/ảnh)` | `latency["mean"]`; `None` nếu không có GPU | `kpi.latency_ms` | Không |
+| `Thời gian train (giây/epoch)` | `mean_train_seconds_per_epoch`; `None` nếu GPU train không phải T4 | `kpi.seconds_per_epoch` | Không |
+| `Độ trễ suy luận (ms/ảnh)` | `latency["mean"]`; `None` nếu GPU đánh giá không phải T4 | `kpi.latency_ms` | Không |
 | `VRAM cao nhất (GB)` | Lớn nhất của 4 lần chạy và bước này; `None` nếu không có số nào | `kpi.peak_vram_gb` | Không |
 | `RAM cao nhất (GB)` | Lớn nhất của 4 lần chạy và `peak_ram_gb()` | `kpi.peak_ram_gb` | Không |
 
 7. Vẽ vào `<reports_dir>/figures/`: `loss_curve_best.png`, `val_accuracy_by_run.png`, `confusion_matrix.png`. Tự tạo thư mục.
 8. Ghi `update_report(config, "evaluation", ...)` với các khóa trong `lab_2_description.md` mục 10, rồi in bảng KPI và `Test Accuracy ± sai số`.
+
+Kiểm chứng phần cứng ngày 2026-11-12: `evaluation.device_name` ghi tên thiết bị thật, `speed_kpi_reference` là `NVIDIA T4`. Trên RTX/CPU, hai KPI tốc độ mang trạng thái `Không đo được` theo chuẩn T4; số đo thô vẫn có ở `comparison.seconds_per_epoch` và `latency_ms`, không bị xóa hoặc đánh đồng phần cứng.
 
 **Tiêu chí đạt**: `python -m pytest tests/test_evaluation.py -q` cho `6 passed`.

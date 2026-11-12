@@ -36,13 +36,13 @@ Tên nguồn được đối chiếu từ tác giả commit `Quoc An` và khai b
 | Tích hợp, đối chiếu và kiểm thử evaluation TV4 | `src/lab_2/evaluation.py`, khai báo AI trong file tiến độ này | `32ca8b1` |
 | Đưa notebook cũ vào repo và chuyển vị trí | `notebooks/Lab 2.ipynb` | `186582e`, `00b8d04`; ghi nhận thao tác nhập/chuyển file, không tự kết luận người viết mọi nội dung hoặc người chạy notebook |
 
-Phần đặc tả/test/evaluation của Quốc An có khai báo Claude Code ở mục 5, được giữ nguyên. Bản data/tài liệu hiện hành của Vân Anh, model của Xuân Bảo, cùng các sửa đổi/tích hợp sau đó được ghi riêng; bộ 74 test hiện tại có các bổ sung sau bộ test nền, không quy toàn bộ cho Quốc An. HoangDang, hỗ trợ OpenAI Codex, thực hiện đối chiếu và bổ sung hồ sơ ngày 2026-11-12; không đổi tác giả commit nguồn và không tạo kết quả thực nghiệm mới.
+Phần đặc tả/test/evaluation của Quốc An có khai báo Claude Code ở mục 5, được giữ nguyên. Bản data/tài liệu hiện hành của Vân Anh, model của Xuân Bảo, cùng các sửa đổi/tích hợp sau đó được ghi riêng; bộ test hiện hành có các bổ sung sau bộ test nền, không quy toàn bộ cho Quốc An. HoangDang, hỗ trợ OpenAI Codex, thực hiện đối chiếu và bổ sung hồ sơ ngày 2026-11-12; không đổi tác giả commit nguồn và không tạo kết quả thực nghiệm mới.
 
 ---
 
 ## 2. Cách Làm Việc Nhóm
 
-Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang/Codex chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An; phần data của Vân Anh được nhận qua merge `828e5ef`. Ngày 2026-11-12 kiểm tra offline đạt 74 test, gồm 20 test data; chưa chạy smoke model thật hoặc 4 run. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có; người nhận train phiên mới chưa chỉ định. Người nhận train làm theo [training_handoff.md](training_handoff.md).
+Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang/Codex chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An; phần data của Vân Anh được nhận qua merge `828e5ef`. Sau ghép TV3, 85 test offline và 3 smoke thật đạt trên RTX 5060; đã nhận phiên lịch sử gồm bốn cấu hình/12 checkpoint của Thanh Bình và chuẩn bị chạy lại bằng phiên riêng. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có; người nhận train phiên mới chưa chỉ định. Người nhận train làm theo [training_handoff.md](training_handoff.md).
 
 | Thành viên | File phụ trách | Đặc tả từng hàm | Số test phải đạt |
 | :---: | :--- | :--- | :---: |
@@ -112,12 +112,12 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **ĐẠT OFFLINE** | TV5 | `requirements.txt`, 3 test common đạt |
 | **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT DỮ LIỆU THẬT TRÊN WINDOWS** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); AC-03 đạt trên máy này, cần kiểm tra lại khi chạy Colab |
 | **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐÃ GHÉP, ĐẠT OFFLINE** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
-| **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 6 test training đạt |
-| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **TODO** | TV3 | AC-04 |
-| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **TODO** | TV3 | AC-08 |
-| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **TODO** | TV3 | AC-05 |
-| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **TODO** | TV3 | AC-06 |
-| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **TODO** | TV3 | AC-07 |
+| **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 13 test training/điều phối; giữ chống ghi đè và kiểm tra đường dẫn |
+| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **ĐẠT TRÊN RTX 5060** | TV3 | 3 smoke pretrained/CIFAR-10 thật, 29,94 giây; AC-04 |
+| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **ĐÃ NHẬN NGUỒN, ĐANG TÁI LẬP** | TV3 | Phiên nhập `92930e6` có bốn cấu hình, 12 checkpoint; phiên mới tách riêng |
+| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **CÓ BẢN NGUỒN** | TV3 | [Báo cáo lịch sử](../reports/imported-thanhbinh-92930e6/training_report.md); đối chiếu mới sau tái lập |
+| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **CÓ BẢN NGUỒN** | TV3 | Bảng validation của bốn cấu hình được giữ nguyên trong phiên nhập |
+| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **CÓ BẢN NGUỒN** | TV3 | Event bốn run tại `reports/runs/`; phiên chạy lại có log riêng |
 | **TASK-12** | Viết code đánh giá và biểu đồ | Bước 7 | **ĐẠT OFFLINE** | TV4 | `tests/test_evaluation.py` đạt |
 | **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **TODO** | TV4 | AC-09, `evaluation.md` |
 | **TASK-14** | Demo suy luận | Quy trình `docs/` | **ĐẠT OFFLINE, CHỜ MODEL THẬT** | TV5 | 2 test demo và luồng giả đạt; AC-10 chờ model thật |
@@ -127,6 +127,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-12` — Nhận TV3 Nguyễn Thanh Bình tại `92930e6`: một phiên lịch sử, bốn cấu hình, 12 checkpoint LFS. HoangDang/OpenAI Codex đối chiếu 21 snapshot source, ba manifest, hash checkpoint và nạp bốn model; 85 test offline và ba smoke thật trên RTX 5060 đạt. Chuẩn bị phiên mới `rerun-thanhbinh-20261112-175308`, không ghi đè kết quả nguồn; tên người bàn giao và người chạy lại tách riêng. [Biên bản nhập](../reports/imported-thanhbinh-92930e6/IMPORT.json).
 - `2026-11-12` — HoangDang, hỗ trợ OpenAI Codex: rà cả Lab 1/Lab 2 của nhánh `QuocAn` (`32ca8b1`); xác nhận toàn bộ lịch sử nguồn đã có trong main `bae987d`. Bổ sung tên Nguyễn Quốc An cho training/test training Lab 1, đặc tả/cấu hình/test nền và evaluation Lab 2; ghi rõ các thao tác lấy file của thành viên khác là tích hợp. Giữ tên Vân Anh/Xuân Bảo ở phần của họ, giữ khai báo AI nguồn, code và artifact đã kiểm chứng. Xem mục 1.1 và nhật ký đồng bộ ở gốc repo.
 - `2026-11-12` — Nguồn phần dữ liệu/tài liệu: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`, merge `828e5ef`). HoangDang, hỗ trợ OpenAI Codex, hoàn thiện kiểm tra kiểu/kích thước, bổ sung test `load_splits`/`main`, đồng bộ tài liệu; 20 test data và toàn bộ 74 test offline đạt. CIFAR-10 thật đã kiểm tra checksum, chia tập, batch ba tập với worker=2 và CLI ghi báo cáo phiên riêng; giữ nguyên metrics lịch sử. Chưa smoke model thật/train/KPI/Colab. Bằng chứng: `reports/data_validation_2026-11-12.json`. Tên người cập nhật nguồn giữ là Vân Anh; người tích hợp/kiểm chứng ghi riêng.
 - `2026-11-11T11:06:40+07:00` — HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex: hoàn thiện package theo main a7b7ef8, wrapper model cũ, notebook Colab, hướng dẫn bàn giao; 63 test offline đạt. Chưa tải dữ liệu/model thật, chưa smoke thật/4 run, không tạo số accuracy. Báo cáo tham số cũ được giữ nguyên.

@@ -1,0 +1,468 @@
+{
+  "model": {
+    "resnet18": {
+      "model": "resnet18",
+      "dropout": 0.2,
+      "unfreeze": [],
+      "total_parameters": 11181642,
+      "trainable_parameters": 5130
+    },
+    "densenet121": {
+      "model": "densenet121",
+      "dropout": 0.2,
+      "unfreeze": [],
+      "total_parameters": 6964106,
+      "trainable_parameters": 10250
+    },
+    "resnet18_unfreeze_layer4": {
+      "model": "resnet18",
+      "dropout": 0.2,
+      "unfreeze": [
+        "layer4"
+      ],
+      "total_parameters": 11181642,
+      "trainable_parameters": 8398858
+    }
+  },
+  "data": {
+    "train": {
+      "samples": 22500,
+      "class_counts": {
+        "airplane": 2298,
+        "automobile": 2240,
+        "bird": 2192,
+        "cat": 2264,
+        "deer": 2296,
+        "dog": 2198,
+        "frog": 2290,
+        "horse": 2279,
+        "ship": 2241,
+        "truck": 2202
+      }
+    },
+    "val": {
+      "samples": 2500,
+      "class_counts": {
+        "airplane": 263,
+        "automobile": 242,
+        "bird": 266,
+        "cat": 248,
+        "deer": 246,
+        "dog": 246,
+        "frog": 224,
+        "horse": 227,
+        "ship": 246,
+        "truck": 292
+      }
+    },
+    "test": {
+      "samples": 5000,
+      "class_counts": {
+        "airplane": 512,
+        "automobile": 524,
+        "bird": 464,
+        "cat": 488,
+        "deer": 529,
+        "dog": 489,
+        "frog": 505,
+        "horse": 506,
+        "ship": 483,
+        "truck": 500
+      }
+    }
+  },
+  "training": {
+    "runs": {
+      "resnet18_baseline": {
+        "purpose": "Mô hình gốc",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.6.0+cu124",
+          "torchvision": "0.21.0+cu124",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.0"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.8437964146618139,
+            "val_loss": 0.5096827163696289,
+            "val_accuracy": 0.8176,
+            "learning_rate": 0.001,
+            "train_seconds": 27.094237300101668,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.5391025515273213,
+            "val_loss": 0.44804355163574217,
+            "val_accuracy": 0.8384,
+            "learning_rate": 0.001,
+            "train_seconds": 26.734221999999136,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.502877274189483,
+            "val_loss": 0.43212899932861326,
+            "val_accuracy": 0.8392,
+            "learning_rate": 0.001,
+            "train_seconds": 27.665512499865144,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.4831185759976506,
+            "val_loss": 0.42157955627441407,
+            "val_accuracy": 0.848,
+            "learning_rate": 0.001,
+            "train_seconds": 27.79700839985162,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.4712208375250074,
+            "val_loss": 0.4187434753417969,
+            "val_accuracy": 0.8456,
+            "learning_rate": 0.001,
+            "train_seconds": 27.095643100095913,
+            "marks": [
+              "final_epoch",
+              "best_val_loss"
+            ]
+          }
+        ],
+        "epochs_run": 5,
+        "stop_epoch": 5,
+        "best_epoch": 4,
+        "best_val_accuracy": 0.848,
+        "best_val_accuracy_loss": 0.42157955627441407,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.4187434753417969,
+        "mean_train_seconds_per_epoch": 27.277324659982696,
+        "peak_vram_gb": 0.8950414657592773,
+        "peak_ram_gb": 2.330028533935547
+      },
+      "densenet121": {
+        "purpose": "Exercise 1, đổi model",
+        "model": "densenet121",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.6.0+cu124",
+          "torchvision": "0.21.0+cu124",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.0"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.7050192743031816,
+            "val_loss": 0.44378330078125,
+            "val_accuracy": 0.8532,
+            "learning_rate": 0.001,
+            "train_seconds": 64.93387360009365,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.44193115665323357,
+            "val_loss": 0.37643142242431643,
+            "val_accuracy": 0.8696,
+            "learning_rate": 0.001,
+            "train_seconds": 64.5545807001181,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.4054946456612511,
+            "val_loss": 0.3640778175354004,
+            "val_accuracy": 0.8748,
+            "learning_rate": 0.001,
+            "train_seconds": 64.55113709997386,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.3886674937622791,
+            "val_loss": 0.3550569702148437,
+            "val_accuracy": 0.8776,
+            "learning_rate": 0.001,
+            "train_seconds": 64.7237172999885,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.3858869425021112,
+            "val_loss": 0.34545918960571287,
+            "val_accuracy": 0.8824,
+            "learning_rate": 0.001,
+            "train_seconds": 64.69891180004925,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.3805018353529952,
+            "val_loss": 0.345931640625,
+            "val_accuracy": 0.8792,
+            "learning_rate": 0.001,
+            "train_seconds": 64.53535140003078,
+            "marks": [
+              "final_epoch"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": null,
+        "best_epoch": 5,
+        "best_val_accuracy": 0.8824,
+        "best_val_accuracy_loss": 0.34545918960571287,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.34545918960571287,
+        "mean_train_seconds_per_epoch": 64.66626198337569,
+        "peak_vram_gb": 1.311389446258545,
+        "peak_ram_gb": 2.336292266845703
+      },
+      "resnet18_lr1e-2": {
+        "purpose": "Exercise 2, đổi learning rate",
+        "model": "resnet18",
+        "learning_rate": 0.01,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.6.0+cu124",
+          "torchvision": "0.21.0+cu124",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.0"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.6902418757196177,
+            "val_loss": 0.6236751937866211,
+            "val_accuracy": 0.8072,
+            "learning_rate": 0.01,
+            "train_seconds": 28.2250870000571,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.6772979260422289,
+            "val_loss": 0.6269602165222168,
+            "val_accuracy": 0.8088,
+            "learning_rate": 0.01,
+            "train_seconds": 27.299732699990273,
+            "marks": [
+              "final_epoch",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.6873750960115682,
+            "val_loss": 0.5920358947753906,
+            "val_accuracy": 0.834,
+            "learning_rate": 0.01,
+            "train_seconds": 28.10326120001264,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.7243620012040165,
+            "val_loss": 0.641551643371582,
+            "val_accuracy": 0.8308,
+            "learning_rate": 0.01,
+            "train_seconds": 30.02512350003235,
+            "marks": [
+              "final_epoch"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.6907889006913386,
+            "val_loss": 0.5670578689575195,
+            "val_accuracy": 0.8348,
+            "learning_rate": 0.01,
+            "train_seconds": 28.46830159984529,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.727481743490154,
+            "val_loss": 0.7961287391662598,
+            "val_accuracy": 0.7916,
+            "learning_rate": 0.01,
+            "train_seconds": 29.515185999916866,
+            "marks": [
+              "final_epoch"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": 6,
+        "best_epoch": 5,
+        "best_val_accuracy": 0.8348,
+        "best_val_accuracy_loss": 0.5670578689575195,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.5670578689575195,
+        "mean_train_seconds_per_epoch": 28.606115333309088,
+        "peak_vram_gb": 0.8950414657592773,
+        "peak_ram_gb": 2.3291702270507812
+      },
+      "resnet18_bs128": {
+        "purpose": "Exercise 2, đổi batch size",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.6.0+cu124",
+          "torchvision": "0.21.0+cu124",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.0"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.9937197085131299,
+            "val_loss": 0.5516077705383301,
+            "val_accuracy": 0.8176,
+            "learning_rate": 0.001,
+            "train_seconds": 28.79002199997194,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.5790090855549682,
+            "val_loss": 0.4802432594299316,
+            "val_accuracy": 0.8332,
+            "learning_rate": 0.001,
+            "train_seconds": 29.14438349986449,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.5245977396314795,
+            "val_loss": 0.4404871726989746,
+            "val_accuracy": 0.836,
+            "learning_rate": 0.001,
+            "train_seconds": 27.15541289979592,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.4983328829773448,
+            "val_loss": 0.44242821731567383,
+            "val_accuracy": 0.8376,
+            "learning_rate": 0.001,
+            "train_seconds": 27.024749299976975,
+            "marks": [
+              "final_epoch",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.4868714553727345,
+            "val_loss": 0.4188483055114746,
+            "val_accuracy": 0.8488,
+            "learning_rate": 0.001,
+            "train_seconds": 27.619932600064203,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.47432152266529476,
+            "val_loss": 0.40919094848632814,
+            "val_accuracy": 0.8508,
+            "learning_rate": 0.001,
+            "train_seconds": 27.071409800089896,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": null,
+        "best_epoch": 6,
+        "best_val_accuracy": 0.8508,
+        "best_val_accuracy_loss": 0.40919094848632814,
+        "best_val_loss_epoch": 6,
+        "best_val_loss": 0.40919094848632814,
+        "mean_train_seconds_per_epoch": 27.800985016627237,
+        "peak_vram_gb": 0.8955297470092773,
+        "peak_ram_gb": 2.168445587158203
+      }
+    }
+  }
+}

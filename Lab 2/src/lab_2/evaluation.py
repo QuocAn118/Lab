@@ -63,6 +63,10 @@ def kpi_status(value, target, higher_is_better):
     return "Đạt" if met else "Không đạt"
 
 
+def t4_kpi_value(value, device_name):
+    return value if "T4" in device_name.upper().split() else None
+
+
 def completed_runs(config, report):
     """Kết quả của mọi lần chạy trong cấu hình; dừng nếu còn thiếu lần nào."""
     runs = report.get("training", {}).get("runs", {})
@@ -206,6 +210,7 @@ def main():
 
     gpu = torch.cuda.is_available()
     device = "cuda" if gpu else "cpu"
+    device_name = torch.cuda.get_device_name(0) if gpu else "cpu"
     if gpu:
         torch.cuda.reset_peak_memory_stats()
     model, info = load_checkpoint(copy_best(config, best_name), device)
@@ -222,8 +227,7 @@ def main():
         model, build_transform(config, train=False), raw_samples(test, LATENCY_SAMPLES), device
     )
 
-    # Mục tiêu tốc độ đặt cho GPU T4, nên số đo trên CPU không được tính là đạt hay không đạt.
-    trained_on_gpu = best_run["device"] != "cpu"
+    # Giữ số đo thật trong comparison/latency; chỉ chấm mục tiêu tốc độ khi đúng GPU T4.
     vram_values = [run["peak_vram_gb"] for run in runs.values() if run["peak_vram_gb"] is not None]
     if gpu:
         vram_values.append(torch.cuda.max_memory_allocated() / 1024**3)
@@ -234,9 +238,9 @@ def main():
         ("Test Accuracy", result["accuracy"], kpi["accuracy"], True),
         ("Test Macro F1", macro_f1, kpi["macro_f1"], True),
         ("Thời gian train (giây/epoch)",
-         best_run["mean_train_seconds_per_epoch"] if trained_on_gpu else None,
+         t4_kpi_value(best_run["mean_train_seconds_per_epoch"], best_run["device"]),
          kpi["seconds_per_epoch"], False),
-        ("Độ trễ suy luận (ms/ảnh)", latency["mean"] if gpu else None, kpi["latency_ms"], False),
+        ("Độ trễ suy luận (ms/ảnh)", t4_kpi_value(latency["mean"], device_name), kpi["latency_ms"], False),
         ("VRAM cao nhất (GB)", max(vram_values, default=None), kpi["peak_vram_gb"], False),
         ("RAM cao nhất (GB)", ram, kpi["peak_ram_gb"], False),
     ]
@@ -255,6 +259,8 @@ def main():
     half_width = ci_half_width(result["accuracy"], len(labels))
     update_report(config, "evaluation", {
         "device": device,
+        "device_name": device_name,
+        "speed_kpi_reference": "NVIDIA T4",
         "best_run": best_name,
         "best_epoch": info["epoch"],
         "test_samples": len(labels),

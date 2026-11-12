@@ -14,6 +14,7 @@ from lab_2.evaluation import (
     plot_confusion_matrix,
     plot_loss_curve,
     plot_val_accuracy,
+    t4_kpi_value,
 )
 
 
@@ -49,6 +50,12 @@ def test_kpi_status_handles_both_directions_and_missing_value():
     assert kpi_status(0.7, 0.8, True) == "Không đạt"
     assert kpi_status(10, 25, False) == "Đạt"
     assert kpi_status(None, 25, False) == "Không đo được"
+
+
+@pytest.mark.parametrize("device,expected", [("Tesla T4", 12.0), ("NVIDIA T4", 12.0),
+                                             ("NVIDIA GeForce RTX 5060 Laptop GPU", None), ("cpu", None)])
+def test_speed_target_only_applies_to_the_reference_gpu(device, expected):
+    assert t4_kpi_value(12.0, device) == expected
 
 
 def test_evaluation_stops_and_names_the_missing_runs():

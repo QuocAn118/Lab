@@ -11,6 +11,7 @@
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/test nền | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `9096223` |
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người cập nhật nguồn TV3 | Nguyễn Thanh Bình (Thanh Binh), `7961f49` và `92930e6`; hỗ trợ OpenAI Codex theo hồ sơ nguồn |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
@@ -19,7 +20,9 @@ Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). 
 
 > **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
 
-> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
+> Đã nhận một phiên lịch sử của TV3 gồm bốn cấu hình: [biên bản nhập](../reports/imported-thanhbinh-92930e6/IMPORT.json), [báo cáo gốc giữ nguyên](../reports/imported-thanhbinh-92930e6/training_report.md). Đủ 12 checkpoint, 21 source snapshot và ba manifest đã được đối chiếu; bản gốc dùng RTX 4060, không phải T4. `reports/metrics.json` tham số lịch sử của Bảo được giữ nguyên; metrics training gốc nằm trong thư mục nhập. Người chạy cũ chưa có tên trong manifest nên không thay bằng tên người commit.
+
+Phiên chạy lại mới dùng config trong `configs/sessions/`, với reports/checkpoints riêng. Chạy bằng `python tools/run_tv3.py --stage train --config <config phiên> --output-dir <thư mục audit mới>`. Công cụ từ chối ghi đè run/log; snapshot code và config được lưu khi bắt đầu. Lần chạy lại là kết quả mới trên máy HoangDang, tách khỏi kết quả nguồn của Bình.
 
 ## 1. Siêu Tham Số Chung
 

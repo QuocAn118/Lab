@@ -1,3 +1,12 @@
 # Trọng số phiên train được đưa về repo bằng Git LFS sau review.
 **/*.pth filter=lfs diff=lfs merge=lfs -text
 **/*.pt filter=lfs diff=lfs merge=lfs -text
+# Historical source snapshots and finalized evidence retain their exact bytes.
+reports/tv3/source_snapshots/** -text
+reports/tv3/**/sources/** -text
+reports/tv3/**/manifest.json -text
+reports/runs/** -text
+reports/imported-thanhbinh-*/** -text
+reports/sessions/**/sources/** -text
+reports/sessions/**/manifest.json -text
+reports/tv3/** -text

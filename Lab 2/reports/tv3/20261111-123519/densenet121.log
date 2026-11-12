@@ -1,0 +1,7 @@
+densenet121 epoch 1: train_loss=0.7050, val_loss=0.4438, val_accuracy=0.8532, train_seconds=64.93
+densenet121 epoch 2: train_loss=0.4419, val_loss=0.3764, val_accuracy=0.8696, train_seconds=64.55
+densenet121 epoch 3: train_loss=0.4055, val_loss=0.3641, val_accuracy=0.8748, train_seconds=64.55
+densenet121 epoch 4: train_loss=0.3887, val_loss=0.3551, val_accuracy=0.8776, train_seconds=64.72
+densenet121 epoch 5: train_loss=0.3859, val_loss=0.3455, val_accuracy=0.8824, train_seconds=64.70
+densenet121 epoch 6: train_loss=0.3805, val_loss=0.3459, val_accuracy=0.8792, train_seconds=64.54
+Best epoch: 5; val accuracy: 0.8824; giây/epoch: 64.67

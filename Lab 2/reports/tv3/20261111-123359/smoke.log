@@ -1,0 +1,5 @@
+Smoke test resnet18 (): VRAM 0.48 GB
+.Smoke test densenet121 (): VRAM 0.68 GB
+.Smoke test resnet18 ('layer4',): VRAM 0.57 GB
+.
+3 passed in 39.28s
