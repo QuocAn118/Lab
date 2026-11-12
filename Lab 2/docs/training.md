@@ -8,13 +8,15 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
 
-> **Phụ trách**: TV3. Đặc tả từng hàm cần viết nằm ở mục 8.
+> **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
+
+> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
 
 ## 1. Siêu Tham Số Chung
 
@@ -66,7 +68,7 @@ Kết thúc lần chạy, nhật ký được ghi vào `training.runs.<tên lầ
 
 ## 5. TensorBoard (Exercise 3)
 
-- **Nơi lưu log**: `reports/runs/<tên lần chạy>/`. Chạy lại một lần thì log cũ của lần đó bị xóa để các đường không chồng lên nhau.
+- **Nơi lưu log**: `reports/runs/<tên lần chạy>/`. Không ghi đè log hoặc checkpoint của run đã tồn tại; dùng config/mã phiên mới để thử lại.
 - **Cách mở**: Cell cuối của notebook chạy `%tensorboard --logdir reports/runs`. Trên máy cá nhân dùng `tensorboard --logdir reports/runs`.
 - **Bằng chứng**: Biểu đồ TensorBoard không được lưu cùng notebook, nên cần chụp ảnh và lưu tại `reports/figures/tensorboard.png`.
 
@@ -88,7 +90,7 @@ Kết thúc lần chạy, nhật ký được ghi vào `training.runs.<tên lầ
 
 | Tình huống | Cách xử lý |
 | :--- | :--- |
-| Colab ngắt phiên | Chạy lại cell của lần bị ngắt, các lần đã xong không bị ảnh hưởng. |
+| Colab ngắt phiên | Kiểm tra JSON/log. Nếu run dở đã có output, giữ nguyên và tạo phiên mới; không resume giữa epoch. |
 | Không có GPU | In cảnh báo và chạy bằng CPU. KPI tốc độ và VRAM ghi "Không đo được". |
 | Một epoch đạt nhiều mốc tốt nhất | Mỗi mốc vẫn lưu trong file riêng, kể cả khi trọng số giống nhau. |
 | Lỗi khi đang lưu checkpoint | Ghi vào file tạm rồi mới thay thế, nên mốc cũ không bị hỏng. |
@@ -100,7 +102,7 @@ Kết thúc lần chạy, nhật ký được ghi vào `training.runs.<tên lầ
 
 ## 8. Đặc Tả Mã Nguồn (TV3)
 
-**File cần tạo**: `src/lab_2/training.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`; TV1, TV2 đã đẩy `data.py`, `model.py`.
+**File đã triển khai**: `src/lab_2/training.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`; TV1, TV2 đã đẩy `data.py`, `model.py`.
 **Đẩy sớm**: `is_better` và `select_best_run` nên được đẩy trước, vì `evaluation.py` của TV4 cần import `select_best_run`.
 
 **Import ở đầu file** (tên phải đúng vì test thay thế các tên này):
@@ -113,7 +115,7 @@ from lab_2.model import build_model, save_checkpoint, set_train_mode, trainable_
 
 Hằng số: `LIBRARIES = ["torch", "torchvision", "tensorboard", "scikit-learn"]`.
 
-Viết theo thứ tự dưới đây. Các test nằm trong `tests/test_training.py`, riêng `train_run` nằm trong `tests/test_integration.py`.
+Giao diện triển khai và test tương ứng như dưới đây. Các test nằm trong `tests/test_training.py`, riêng `train_run` nằm trong `tests/test_integration.py`.
 
 #### `is_better(candidate, current)`
 - **Đầu vào**: Hai dict có `accuracy`, `loss`. `current` có thể là `None`.
@@ -151,7 +153,7 @@ Viết theo thứ tự dưới đây. Các test nằm trong `tests/test_training
   - `train, val, _ = load_splits(config)`. Tạo loader train bằng `make_loader(train, run["batch_size"], config, shuffle=True)`, loader val với `config["training"]["eval_batch_size"]`.
   - Gọi đúng 2 đối số: `build_model(run["model"], config["model"]["dropout"])`, vì test thay hàm này bằng một hàm chỉ nhận 2 đối số.
   - Optimizer, scheduler theo mục 1. `EarlyStopping` lấy `early_stopping_patience`, `early_stopping_threshold` từ `config["training"]`.
-  - Xóa thư mục log cũ `<reports_dir>/runs/<tên lần chạy>` bằng `shutil.rmtree(..., ignore_errors=True)`, rồi mở `SummaryWriter` ở đó.
+  - Nếu run đã có summary, checkpoint hoặc log thì báo `FileExistsError`; không xóa kết quả cũ. Mở `SummaryWriter` cho thư mục log mới.
 - **Mỗi epoch, từ 1 đến `max_epochs`, đúng thứ tự**:
   1. Bấm giờ `train_one_epoch`, truyền `log_every_batches`. Thời gian đánh giá không tính vào `train_seconds`.
   2. `result = evaluate_model(model, val_loader, device)`. Đọc learning rate từ `optimizer.param_groups[0]["lr"]`.
@@ -167,3 +169,7 @@ Viết theo thứ tự dưới đây. Các test nằm trong `tests/test_training
 Tạo parser bằng `argument_parser(__doc__)`, thêm `--run` bắt buộc. Gọi `train_run(config, find_run(config, args.run))` rồi in epoch tốt nhất, val accuracy, số giây/epoch.
 
 **Tiêu chí đạt**: `python -m pytest tests/test_training.py -q` cho `6 passed`; `python -m pytest tests/test_smoke.py -q -s` cho `3 passed` (cần mạng để tải dữ liệu và trọng số).
+
+### Lưu vết phiên chạy
+
+Summary lưu thêm `config`, `operator` (biến môi trường `LAB2_OPERATOR`), `started_at`, `finished_at` (ISO 8601 có múi giờ) và `code_commit` (null nếu không có metadata Git). Khai báo người chạy trước khi train. Test tích hợp dùng output tạm, không tạo summary thực nghiệm trong repo.

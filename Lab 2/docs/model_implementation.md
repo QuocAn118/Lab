@@ -8,9 +8,11 @@
 | Created date | 2026-11-10 (theo hồ sơ kế thừa) |
 | Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
 | Ghi nhận Git đầu tiên | File mới trong lần chuẩn hóa này |
-| Last updated | 2026-11-11T08:52:28+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
+> Historical implementation report from Xuan Bao. The parameter/report examples below describe the original standalone version. Current package interface and session commands: [model.md](model.md), [training_handoff.md](training_handoff.md). Old verification results remain attributed to their original run.
 
 ## 1. Overview
 
@@ -23,7 +25,7 @@ The implementation uses PyTorch and Torchvision and supports two pretrained arch
 
 Both architectures use ImageNet pretrained weights through Transfer Learning. The feature extractor is frozen by default, while the original classification head is replaced with a new head suitable for 10-class classification.
 
-**Implementation file:** `Lab 2/model.py`
+**Implementation file:** `Lab 2/src/lab_2/model.py`; `Lab 2/model.py` is the compatibility entry point.
 
 ## 2. Objectives
 
@@ -218,4 +220,4 @@ It also provides parameter counting, BatchNorm-aware training mode management, a
 
 Actual execution confirms that all three tested model configurations produce the expected parameter counts and that the model report is generated successfully.
 
-The 14/14 result above is contributor-reported on branch xbao. It has not been rerun in the current environment. Shared-package integration and its tests remain incomplete.
+The 7.48-second result above is the contributor-reported historical run. Preparation verification on 2026-11-11 reran all 14 compatibility tests and 49 package tests successfully (63 total). Model implementation is now integrated into src/lab_2/model.py; the legacy JSON report remains unchanged. New package reports use total/trainable keys. Real CIFAR-10 smoke, full training and Colab execution remain pending; see verification.md and training_handoff.md.

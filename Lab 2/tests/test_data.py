@@ -1,13 +1,17 @@
 """TV1: kiểm thử src/lab_2/data.py. Chạy: python -m pytest tests/test_data.py -q"""
 from types import SimpleNamespace
+import json
+import sys
 
 import numpy as np
 import pytest
 import torch
+import yaml
 from PIL import Image
 from torch.utils.data import Subset, TensorDataset
 
 from lab_2.data import build_transform, describe, make_loader, raw_samples, split_indices
+from lab_2 import data
 
 
 def test_split_has_requested_sizes_and_no_shared_index():
@@ -69,3 +73,63 @@ def test_describe_counts_each_class():
     assert report["samples"] == 3
     assert (report["class_counts"]["automobile"], report["class_counts"]["bird"]) == (2, 1)
     assert report["class_counts"]["cat"] == 0
+
+
+@pytest.mark.parametrize("sizes", [(-1, 0, 0), (10, -1, 2), (10, 2, -1),
+                                  (10, 1.5, 2), (10, True, 2), ("10", 1, 2)])
+def test_split_rejects_invalid_sizes(sizes):
+    with pytest.raises(ValueError):
+        split_indices(*sizes, seed=42)
+
+
+@pytest.mark.parametrize("count", [-1, 1.5, True])
+def test_raw_samples_rejects_invalid_count(count):
+    with pytest.raises(ValueError):
+        raw_samples(fake_subset(), count)
+
+
+def test_empty_splits_and_sample_limits():
+    assert split_indices(0, 0, 0, 42) == ([], [])
+    assert raw_samples(fake_subset(), 0) == []
+    assert len(raw_samples(fake_subset(), 100)) == 3
+
+
+def test_load_splits_and_main_use_correct_sources_and_preserve_report(config, tmp_path, monkeypatch, capsys):
+    class FakeCIFAR10:
+        def __init__(self, root, train, download, transform):
+            self.root, self.train, self.download, self.transform = root, train, download, transform
+            size = 100 if train else 20
+            self.data = np.zeros((size, 32, 32, 3), dtype=np.uint8)
+            self.targets = [i % 10 for i in range(size)]
+
+        def __len__(self):
+            return len(self.targets)
+
+        def __getitem__(self, index):
+            return self.transform(Image.fromarray(self.data[index])), self.targets[index]
+
+    monkeypatch.setattr(data.datasets, "CIFAR10", FakeCIFAR10)
+    config["data"].update(data_dir=str(tmp_path / "data"), train_size=7, val_size=2, test_size=2, num_workers=0)
+    config["paths"]["reports_dir"] = str(tmp_path / "reports")
+    train, val, test = data.load_splits(config)
+    assert [len(subset) for subset in (train, val, test)] == [7, 2, 2]
+    assert train.dataset.train and val.dataset.train and not test.dataset.train
+    assert train.dataset is not val.dataset
+    assert all(subset.dataset.download for subset in (train, val, test))
+    assert all(subset.dataset.root == tmp_path / "data" for subset in (train, val, test))
+    assert not set(train.indices) & set(val.indices)
+    assert all(0 <= i < len(subset.dataset) for subset in (train, val, test) for i in subset.indices)
+    assert all(subset[0][0].shape == (3, 224, 224) for subset in (train, val, test))
+    assert [subset.indices for subset in data.load_splits(config)] == [train.indices, val.indices, test.indices]
+    assert all(sum(describe(subset)["class_counts"].values()) == len(subset) for subset in (train, val, test))
+    path = tmp_path / "config.yaml"
+    path.write_text(yaml.safe_dump(config), encoding="utf-8")
+    report_path = tmp_path / "reports/metrics.json"
+    report_path.parent.mkdir()
+    report_path.write_text('{"model": {"preserved": true}}', encoding="utf-8")
+    monkeypatch.setattr(sys, "argv", ["lab_2.data", "--config", str(path)])
+    data.main()
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    assert report["model"] == {"preserved": True}
+    assert report["data"] == {name: describe(subset) for name, subset in [("train", train), ("val", val), ("test", test)]}
+    assert "Shape ảnh sau tiền xử lý: (3, 224, 224)" in capsys.readouterr().out

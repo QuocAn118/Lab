@@ -2,3 +2,9 @@ data/
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
+.venv/
+checkpoints/
+reports/runs/
+reports/sessions/
+configs/sessions/
+*.tmp

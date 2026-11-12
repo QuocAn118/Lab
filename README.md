@@ -8,7 +8,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T10:16:25+07:00 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
@@ -19,7 +19,7 @@ Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng d�
 | Phần | Tài liệu bắt đầu | Trạng thái triển khai |
 | --- | --- | --- |
 | Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 17 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm trực tiếp trong repo, input/model qua Git LFS; xem README Lab 1 |
-| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | Có model độc lập và evaluation; chưa đủ các module package dùng chung để chạy toàn pipeline |
+| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | Đủ package/notebook Colab, 74 test offline đạt; phần dữ liệu Vân Anh đã kiểm chứng CIFAR-10 thật trên Windows ngày 2026-11-12; chưa train thật/KPI; xem README Lab 2 |
 | Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | Có notebook/pipeline và báo cáo lịch sử; bản nhập QuocAn và snapshot ThanhBinh được phân biệt rõ, chưa chạy lại trên môi trường hiện tại |
 
 Mỗi lab có hướng dẫn môi trường, cách chạy và tiến độ riêng. Các template `01_DEFINE.md`, `05_TOOLS.md`, `06_VERIFICATION.md`, `08_RELEASE.md` nằm trong `workflow/docs/`; không mặc định các file đó tồn tại trong `Lab X/docs/`.
@@ -31,7 +31,7 @@ Lab/
 ├── Learning/                    # Tài liệu lý thuyết
 ├── workflow/                    # Hướng dẫn và template
 ├── Lab 1/                       # docs/, data/, src/, tests/, tools/
-├── Lab 2/                       # docs/, configs/, model.py, test.py, src/lab_2/
+├── Lab 2/                       # package src/lab_2/, notebook Colab, kế hoạch bàn giao train
 ├── Lab 3/                       # docs/, notebook_helpers.py, lab3.py, report/, outputs/
 ├── Lab_3 (1).ipynb              # Notebook chính Lab 3
 ├── BRANCH_SYNC_2026-11-11.md     # Người sửa, thời gian, cách ghép nhánh
@@ -64,4 +64,4 @@ Tài liệu đang dùng có bảng thông tin mục 0. Người tạo chưa xác
 ## Nguồn và phạm vi
 
 - README, đặc tả và tiến độ hiện có của Lab 1–3; cấu trúc Git sau đồng bộ ngày 2026-11-11.
-- Yêu cầu chuẩn hóa tài liệu của người dùng; HoangDang chịu trách nhiệm tích hợp với hỗ trợ OpenAI Codex. Không sinh thêm code huấn luyện hoặc kết quả thực nghiệm trong lần này.
+- Yêu cầu chuẩn hóa tài liệu của người dùng; HoangDang chịu trách nhiệm tích hợp với hỗ trợ OpenAI Codex. Phần Lab 2 được hoàn thiện code và bàn giao kế hoạch train; chưa sinh kết quả thực nghiệm CIFAR-10.
