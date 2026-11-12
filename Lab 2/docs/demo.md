@@ -21,7 +21,7 @@ Nguồn đặc tả demo và bộ test nền: Nguyễn Quốc An (Quoc An). Ph�
 
 > **Phụ trách**: TV5. Đặc tả từng hàm đã triển khai nằm ở mục 4.
 
-> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
+> Đã demo thật ba ảnh test bằng DenseNet121 đã chọn trong phiên `rerun-thanhbinh-20261112-175308`; [ảnh xác suất](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/demo_probabilities.png), [metrics/demo](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json). Người chạy HoangDang/OpenAI Codex, RTX 5060; code/đặc tả nguồn giữ tên riêng. Dùng `--config` trỏ tới config phiên khi đọc model đã train, tránh nhầm checkpoint nguồn của Bình.
 
 ## 1. Cách Chạy
 

@@ -14,97 +14,108 @@
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-> **Trạng thái**: Chưa có số liệu chính thức. Mọi ô "Chờ Colab" sẽ được điền từ `reports/metrics.json` sau lần chạy thật trên Colab.
+> **Trạng thái**: Đã có số đo thật trên Windows/RTX 5060, phiên `rerun-thanhbinh-20261112-175308`, hoàn tất 2026-11-12T18:22:42+07:00. Người chạy: HoangDang, hỗ trợ OpenAI Codex. Nguồn code/đặc tả Quốc An và phần TV3 Thanh Bình được giữ riêng. Chưa nghiệm thu GPU T4/Run all Colab. Nguồn bảng dưới: [metrics phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json), [so sánh nguồn và chạy lại](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md).
 
 Mã nguồn: `src/lab_2/evaluation.py`.
 
 **Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có hỗ trợ Claude Code, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang/OpenAI Codex tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
 
-> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Sau khi chạy Colab, TV4 điền số thật vào các mục dưới đây và viết nhận xét Exercise 1, 2.
+> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Các mục dưới ghi số thật của phiên Windows; khi chạy Colab cần lập phiên riêng và đối chiếu tiếp.
 
-> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
+> Đã chạy bốn cấu hình, chọn bằng validation rồi đánh giá test một lần và demo trong phiên riêng. Các đường dẫn output trong đặc tả là tương đối với `reports_dir`/`checkpoints_dir` của config; không dùng `reports/metrics.json` tham số lịch sử ở gốc để thay cho metrics phiên.
 
 ## 1. So Sánh Các Lần Chạy (Exercise 1 và 2)
 
-So sánh bằng tập validation, không dùng tập test. Nguồn: `evaluation.comparison`.
+So sánh bằng validation, không dùng test. Một lần chạy mỗi cấu hình, seed 42; cùng RTX 5060 và cùng config phiên.
 
-| Lần chạy | Mục đích | Model | LR | Batch | Số epoch đã chạy | Epoch tốt nhất | Val Accuracy | Val Loss | Giây/epoch |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `resnet18_baseline` | Mô hình gốc | ResNet18 | $10^{-3}$ | 64 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-| `densenet121` | Exercise 1 | DenseNet121 | $10^{-3}$ | 64 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-| `resnet18_lr1e-2` | Exercise 2 | ResNet18 | $10^{-2}$ | 64 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-| `resnet18_bs128` | Exercise 2 | ResNet18 | $10^{-3}$ | 128 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
+| Run | Model | LR | Batch | Epoch | Best epoch | Val accuracy | Val loss | Giây/epoch |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `resnet18_baseline` | resnet18 | 0.001 | 64 | 5 | 4 | 84.76% | 0.4216 | 25.52 |
+| `densenet121` | densenet121 | 0.001 | 64 | 6 | 5 | 88.24% | 0.3455 | 57.72 |
+| `resnet18_lr1e-2` | resnet18 | 0.01 | 64 | 6 | 5 | 83.52% | 0.5671 | 25.31 |
+| `resnet18_bs128` | resnet18 | 0.001 | 128 | 6 | 6 | 85.08% | 0.4092 | 25.32 |
 
-- **Exercise 1**: Chờ Colab.
-- **Exercise 2**: Chờ Colab.
-- **Biểu đồ so sánh**: `reports/figures/val_accuracy_by_run.png` (có sau khi chạy).
-- **Exercise 3**: `reports/figures/tensorboard.png` (ảnh chụp sau khi chạy).
+Exercise 1: DenseNet121 cao hơn baseline 3.48 điểm phần trăm trong phiên này.
+Exercise 2: LR 0,01 chênh -1.24 điểm; batch 128 chênh +0.32 điểm. Không kết luận thống kê nhiều seed từ một phiên.
+
+[Đường validation theo epoch](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/val_accuracy_by_run.png). Log TensorBoard bốn run đã đối chiếu epoch/accuracy: [tensorboard_check.json](../reports/sessions/rerun-thanhbinh-20261112-175308/tensorboard_check.json); ảnh giao diện TensorBoard mới chưa chụp.
 
 ## 2. Đối Chiếu KPI
 
-Nguồn: `evaluation.kpi`. Điều kiện chạy: GPU T4, 22.500 ảnh train.
+Nguồn: `evaluation.kpi`. Chất lượng và tài nguyên được đối chiếu với mục tiêu; hai KPI tốc độ tham chiếu GPU T4 chưa được nghiệm thu trên RTX 5060.
 
-| Chỉ số | Giá trị đo | Mục tiêu | Kết quả | Cách đo |
-| :--- | :---: | :---: | :---: | :--- |
-| Validation Accuracy | Chờ Colab | $\ge 80.0\%$ | Chờ Colab | Của mốc `best` |
-| Test Accuracy | Chờ Colab | $\ge 80.0\%$ | Chờ Colab | Mốc `best`, 5.000 ảnh test |
-| Test Macro F1 | Chờ Colab | $\ge 0.80$ | Chờ Colab | Mốc `best`, 5.000 ảnh test |
-| Thời gian train | Chờ Colab | $\le 300$ giây/epoch | Chờ Colab | Trung bình các epoch của lần chạy tốt nhất, không tính thời gian đánh giá |
-| Độ trễ suy luận | Chờ Colab | $\le 25$ ms/ảnh | Chờ Colab | Tiền xử lý và suy luận từng ảnh trên GPU, trung bình 200 ảnh test, 5 lần chạy nháp đầu không tính |
-| VRAM cao nhất | Chờ Colab | $\le 4.0$ GB | Chờ Colab | `torch.cuda.max_memory_allocated()`, đặt lại ở đầu mỗi tiến trình; lấy mức cao nhất của 4 lần chạy và đánh giá |
-| RAM cao nhất | Chờ Colab | $\le 6.0$ GB | Chờ Colab | Mức cao nhất của tiến trình chính, không gồm tiến trình con của `DataLoader`; lấy mức cao nhất của 4 lần chạy và đánh giá |
+| Chỉ số | Giá trị | Mục tiêu | Kết quả |
+| --- | ---: | ---: | --- |
+| Validation Accuracy | 88.24% | 80% | Đạt |
+| Test Accuracy | 87.68% | 80% | Đạt |
+| Test Macro F1 | 0.8755 | 0.8 | Đạt |
+| Thời gian train (giây/epoch) | Chưa đo trên T4 | 300 | Không đo được |
+| Độ trễ suy luận (ms/ảnh) | Chưa đo trên T4 | 25 | Không đo được |
+| VRAM cao nhất (GB) | 1.3124 | 4 | Đạt |
+| RAM cao nhất (GB) | 2.6624 | 6 | Đạt |
+
+Số đo thô trên RTX 5060 vẫn giữ: DenseNet121 57.72 giây train/epoch; latency trung bình 17.99 ms/ảnh, p95 20.64 ms/ảnh. Không coi đây là benchmark T4.
 
 ## 3. Kết Quả Trên Tập Test
 
-Tập test chỉ dùng một lần, trên mốc `best`. Nguồn: `evaluation.test_metrics`.
+Chọn DenseNet121 bằng validation; test không tham gia chọn model. Đã đánh giá một lần trong phiên mới trên 5.000 ảnh.
 
-| Lần chạy được chọn | Epoch | Accuracy | Sai số (95%) | Macro F1 | Loss |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
+| Run được chọn | Epoch | Accuracy | Sai số 95% (điểm %) | Macro F1 | Loss |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `densenet121` | 5 | 87.68% | ±0.91 | 0.8755 | 0.3517 |
 
-Với 5.000 ảnh và accuracy quanh $80\%$, sai số khoảng $\pm 1{,}1$ điểm phần trăm. Nếu không đạt, vẫn ghi "Không đạt" và nêu lý do.
+### Accuracy từng lớp
 
-### Accuracy Từng Lớp
+| Lớp | Accuracy |
+| --- | ---: |
+| airplane | 90.04% |
+| automobile | 91.98% |
+| bird | 80.39% |
+| cat | 75.41% |
+| deer | 80.53% |
+| dog | 86.09% |
+| frog | 94.85% |
+| horse | 92.29% |
+| ship | 89.86% |
+| truck | 94.60% |
 
-Nguồn: `evaluation.per_class_accuracy`.
-
-| airplane | automobile | bird | cat | deer | dog | frog | horse | ship | truck |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-
-### Confusion Matrix
-
-Biểu đồ: `reports/figures/confusion_matrix.png` (có sau khi chạy).
+[Confusion matrix](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/confusion_matrix.png). Checkpoint gốc của Bình cũng được chọn bằng validation và kiểm lại riêng: [historical_checkpoint_recheck.json](../reports/sessions/rerun-thanhbinh-20261112-175308/historical_checkpoint_recheck.json); đây là phép kiểm tra mới trên trọng số cũ, không phải lần train mới hoặc kết quả test đã có trong báo cáo gốc.
 
 ## 4. Nhật Ký Lần Chạy Tốt Nhất
 
-Số dòng phụ thuộc vào epoch dừng thực tế, tối đa 6 dòng. Nguồn: `training.runs`.
+| Epoch | Train loss | Val loss | Val accuracy | LR | Giây train | Mốc lưu |
+| ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 1 | 0.7050 | 0.4438 | 85.32% | 0.001 | 58.02 | final_epoch, best_val_loss, best_val_acc |
+| 2 | 0.4419 | 0.3764 | 86.96% | 0.001 | 58.52 | final_epoch, best_val_loss, best_val_acc |
+| 3 | 0.4055 | 0.3641 | 87.48% | 0.001 | 56.95 | final_epoch, best_val_loss, best_val_acc |
+| 4 | 0.3887 | 0.3551 | 87.80% | 0.001 | 56.89 | final_epoch, best_val_loss, best_val_acc |
+| 5 | 0.3859 | 0.3455 | 88.24% | 0.001 | 57.61 | final_epoch, best_val_loss, best_val_acc |
+| 6 | 0.3805 | 0.3459 | 87.92% | 0.001 | 58.34 | final_epoch |
 
-| Epoch | Train Loss | Val Loss | Val Accuracy | Learning Rate | Giây | Mốc đạt được |
-| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| Chờ Colab | | | | | | |
-
-- **Train Loss** là trung bình trên toàn bộ batch của epoch.
-- **Dừng sớm**: Chờ Colab.
-- **Biểu đồ loss**: `reports/figures/loss_curve_best.png` (có sau khi chạy).
+Train loss là trung bình theo batch. DenseNet121 chạy đủ 6 epoch, không dừng sớm; checkpoint tốt nhất ở epoch 5.
+[Đường loss](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/loss_curve_best.png).
 
 ## 5. Checkpoint
 
-| Mốc | Đường dẫn | Epoch | Giá trị |
-| :--- | :--- | :---: | :---: |
-| `final_epoch` | `checkpoints/<lần chạy>/final_epoch.pth` | Chờ Colab | |
-| `best_val_loss` | `checkpoints/<lần chạy>/best_val_loss.pth` | Chờ Colab | Loss: Chờ Colab |
-| `best_val_acc` | `checkpoints/<lần chạy>/best_val_acc.pth` | Chờ Colab | Accuracy: Chờ Colab |
-| `best_val_pause` | Không có file | Chờ Colab | Có dừng sớm hay không |
-| `best` | `checkpoints/best.pth` | Chờ Colab | Bản sao `best_val_acc` của lần chạy tốt nhất |
+Đường dẫn dưới đây thuộc phiên mới, tách khỏi 12 trọng số gốc ở `Lab 2/checkpoints/`.
+
+| Mốc | Trọng số | Epoch |
+| --- | --- | ---: |
+| `final_epoch` | [DenseNet121](../reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/densenet121/final_epoch.pth) | 6 |
+| `best_val_loss` | [DenseNet121](../reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/densenet121/best_val_loss.pth) | 5 |
+| `best_val_acc` | [DenseNet121](../reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/densenet121/best_val_acc.pth) | 5 |
+| `best` | [Model được chọn](../reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/best.pth) | 5 |
+| `best_val_pause` | Không có file riêng; DenseNet121 không dừng sớm | — |
+
+[Đối chiếu 12 checkpoint theo run](../reports/sessions/rerun-thanhbinh-20261112-175308/checkpoint_check.json); `best.pth` là bản sao của best validation, tổng 13 file trọng số mới. [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json) chốt hash toàn bộ artifact phiên.
 
 ## 6. Môi Trường Chạy
 
-Nguồn: `training.runs.<tên lần chạy>.device`, `library_versions`.
-
 | GPU | torch | torchvision | tensorboard | scikit-learn |
-| :--- | :---: | :---: | :---: | :---: |
-| Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
+| --- | --- | --- | --- | --- |
+| NVIDIA GeForce RTX 5060 Laptop GPU | 2.9.1+cu128 | 0.24.1+cu128 | 2.21.0 | 1.9.1 |
+
+Người chạy mới: HoangDang, assisted by OpenAI Codex; code commit `5c03204`. Bắt đầu phiên 2026-11-12T18:01:16+07:00, hoàn tất 2026-11-12T18:22:42+07:00. Config và snapshot source có trong thư mục phiên; nguồn Bình dùng RTX 4060/torch 2.6.0+cu124 được giữ nguyên, không gán các số đo của phiên mới cho nguồn.
 
 ## 7. Lần Chạy Trước (Chỉ Để Tham Khảo)
 
@@ -197,12 +208,14 @@ Mỗi lần chạy một đường `val_accuracy` theo epoch, dùng lần lượ
 | `Validation Accuracy` | `best_val_accuracy` của lần tốt nhất | `kpi.accuracy` | Có |
 | `Test Accuracy` | Kết quả test | `kpi.accuracy` | Có |
 | `Test Macro F1` | Kết quả test | `kpi.macro_f1` | Có |
-| `Thời gian train (giây/epoch)` | `mean_train_seconds_per_epoch`; `None` nếu `device` của lần đó là `"cpu"` | `kpi.seconds_per_epoch` | Không |
-| `Độ trễ suy luận (ms/ảnh)` | `latency["mean"]`; `None` nếu không có GPU | `kpi.latency_ms` | Không |
+| `Thời gian train (giây/epoch)` | `mean_train_seconds_per_epoch`; `None` nếu GPU train không phải T4 | `kpi.seconds_per_epoch` | Không |
+| `Độ trễ suy luận (ms/ảnh)` | `latency["mean"]`; `None` nếu GPU đánh giá không phải T4 | `kpi.latency_ms` | Không |
 | `VRAM cao nhất (GB)` | Lớn nhất của 4 lần chạy và bước này; `None` nếu không có số nào | `kpi.peak_vram_gb` | Không |
 | `RAM cao nhất (GB)` | Lớn nhất của 4 lần chạy và `peak_ram_gb()` | `kpi.peak_ram_gb` | Không |
 
 7. Vẽ vào `<reports_dir>/figures/`: `loss_curve_best.png`, `val_accuracy_by_run.png`, `confusion_matrix.png`. Tự tạo thư mục.
 8. Ghi `update_report(config, "evaluation", ...)` với các khóa trong `lab_2_description.md` mục 10, rồi in bảng KPI và `Test Accuracy ± sai số`.
+
+Kiểm chứng phần cứng ngày 2026-11-12: `evaluation.device_name` ghi tên thiết bị thật, `speed_kpi_reference` là `NVIDIA T4`. Trên RTX/CPU, hai KPI tốc độ mang trạng thái `Không đo được` theo chuẩn T4; số đo thô vẫn có ở `comparison.seconds_per_epoch` và `latency_ms`, không bị xóa hoặc đánh đồng phần cứng.
 
 **Tiêu chí đạt**: `python -m pytest tests/test_evaluation.py -q` cho `6 passed`.

@@ -1,0 +1,9 @@
+Lần chạy tốt nhất theo validation: densenet121, epoch 5
+Validation Accuracy: 0.8824 | mục tiêu 0.8 | Đạt
+Test Accuracy: 0.8768 | mục tiêu 0.8 | Đạt
+Test Macro F1: 0.8755301811857628 | mục tiêu 0.8 | Đạt
+Thời gian train (giây/epoch): None | mục tiêu 300 | Không đo được
+Độ trễ suy luận (ms/ảnh): None | mục tiêu 25 | Không đo được
+VRAM cao nhất (GB): 1.312366008758545 | mục tiêu 4.0 | Đạt
+RAM cao nhất (GB): 2.662433624267578 | mục tiêu 6.0 | Đạt
+Test Accuracy 0.877 ± 0.009 (khoảng tin cậy 95%)

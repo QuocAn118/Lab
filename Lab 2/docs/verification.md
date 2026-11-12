@@ -13,6 +13,16 @@
 
 ## 1. Kết quả và giới hạn
 
+### TV3 nhập lịch sử và chuẩn bị chạy lại — 2026-11-12
+
+Nguồn bàn giao: Nguyễn Thanh Bình (`origin/ThanhBinh`, `92930e6`), có khai báo OpenAI Codex. HoangDang/OpenAI Codex tiếp nhận và kiểm chứng trên máy hiện tại. Đây là một phiên lịch sử gồm bốn cấu hình, không ghi thành bốn lần train mới. [IMPORT.json](../reports/imported-thanhbinh-92930e6/IMPORT.json) giữ nguồn, thời gian gốc, đường dẫn và hash. Người chạy cũ chưa được ghi tên trong manifest, không suy từ tác giả commit.
+
+Đã kiểm chứng **12 checkpoint đúng byte/hash, 21 snapshot source đúng hash, ba manifest không đổi**, và nạp best checkpoint của cả bốn model cho output hữu hạn `[1,10]`. Snapshot khôi phục dòng chú thích cũ đã giải quyết chênh hash training.py trước đó; không sửa manifest cũ. Metrics/CSV/số epoch được đối chiếu riêng.
+
+Bản tích hợp đạt **85 test offline**, gồm 71 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**, trong 29,94 giây. Code mới giữ chống ghi đè/path an toàn; runner nhận config/output riêng và snapshot nguồn khi bắt đầu. KPI tốc độ chỉ được chấm khi tên phần cứng đúng T4; số đo RTX vẫn lưu trong báo cáo.
+
+Phiên mới dùng `configs/sessions/rerun-thanhbinh-20261112-175308.yaml`, ghi kết quả riêng trong `reports/sessions/rerun-thanhbinh-20261112-175308/`. [Trạng thái phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json) phân biệt chuẩn bị, đang chạy và hoàn tất. Báo cáo, checkpoint và log gốc của Bình được giữ nguyên; kết quả mới không thay cho kết quả cũ hoặc benchmark T4.
+
 ### 1.1. Kiểm chứng bổ sung ngày 2026-11-12 — phần dữ liệu Vân Anh
 
 Sau merge `828e5ef`, đã chạy lại bộ test offline với kiểm tra dữ liệu bổ sung: **74 passed**, 0 lỗi, 0 skipped; 60 test package (20 test data) và 14 test tương thích. Thời gian 10,538 giây; 46 DeprecationWarning từ `torch.pin_memory`. Các test mới kiểm tra kiểu/số âm, tập rỗng, `load_splits` với dataset nhỏ và `main` giữ các mục báo cáo đã có.
@@ -58,3 +68,9 @@ Nền main `a7b7ef8`. Model kế thừa Xuân Bảo (`hbao2123-debug`); evaluati
 Không ghi Đạt cho accuracy, F1, GPU KPI hoặc Run all Colab trước khi người nhận train cung cấp bằng chứng thật. Người nhận thực hiện [training_handoff.md](training_handoff.md).
 
 Kiểm tra bổ sung: 3 smoke test thu thập được (không thực thi); cấu hình phiên của notebook đã chạy với thư mục tạm để kiểm tra giữ nguyên tham số/chặn sửa config. Logic đổi RAM Linux được kiểm tra bằng mock resource. Ba test biểu đồ/luồng demo pass sau khi chỉnh tiêu đề ảnh dài và khoảng trống trên đường loss; đã mở ảnh giả để kiểm tra bố cục, không dùng chúng làm số liệu bài nộp.
+
+## Kết quả thực thi phiên tái lập
+
+Phiên `rerun-thanhbinh-20261112-175308` đã hoàn tất 2026-11-12T18:22:42+07:00, trạng thái `completed`: bốn run, 13 file trọng số mới, checkpoint epoch/metrics khớp và TensorBoard đủ tag/epoch. [SESSION.json](../reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json), [so sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md). Model/config/snapshot source, log lệnh train/evaluation/demo và kết quả đều giữ trong phiên; snapshot trước sửa T4 và kết quả test sau sửa được phân biệt bằng tên file.
+
+DenseNet121 validation 88,24%, test 87,68%, macro F1 0,8755; kiểm lại checkpoint nguồn cho cùng validation/test accuracy. Test của phiên mới chỉ đánh giá model đã chọn bằng validation. Phép kiểm tra checkpoint nguồn là đánh giá mới riêng, không viết thêm vào kết quả lịch sử của Bình. Hai KPI tốc độ T4 chưa được nghiệm thu; chưa Run all Colab hoặc chụp giao diện TensorBoard mới. Biểu đồ so sánh đã được mở để kiểm tra bố cục.

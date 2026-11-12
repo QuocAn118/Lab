@@ -12,6 +12,12 @@
 
 ## Lab 2 preparation for training handoff
 
+### Nhận TV3 Thanh Bình và tách phiên chạy lại — 2026-11-12
+
+Nguồn bàn giao: Nguyễn Thanh Bình (Thanh Binh trong Git), commit `92930e6`; giữ riêng đóng góp data của Vân Anh, model Xuân Bảo và evaluation/đặc tả Quốc An. HoangDang, hỗ trợ OpenAI Codex, nhận một phiên lịch sử gồm bốn cấu hình: [IMPORT.json](Lab%202/reports/imported-thanhbinh-92930e6/IMPORT.json). Đã đối chiếu 12 checkpoint LFS, 21 snapshot source, ba manifest, metrics/CSV, TensorBoard và nạp bốn model; không ghi bản nhập thành kết quả train mới.
+
+Bản tích hợp giữ cơ chế chống ghi đè và bổ sung config/output riêng cho runner. 85 test offline và ba smoke thật đạt trên RTX 5060. Phiên mới `rerun-thanhbinh-20261112-175308` dùng config/output riêng, người chạy HoangDang/OpenAI Codex; trạng thái và kết quả được ghi riêng sau khi thực thi. Bản nguồn dùng RTX 4060, không thay thời gian/hardware/metadata cũ bằng thông tin của máy tích hợp. KPI tốc độ T4 chỉ được chấm trên đúng T4, số đo RTX vẫn được giữ.
+
 ### Bổ sung ghi nhận Quốc An cho Lab 1 và Lab 2 — 2026-11-12
 
 Người đối chiếu/ghi nhận: HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex. Mốc kiểm tra: main `bae987d`; nguồn `origin/QuocAn` tại `32ca8b1` đã là ancestor của main, không có commit nguồn mới cần nhập. Lần cập nhật này bổ sung tên/nguồn đóng góp bằng một PR riêng, không tạo merge rỗng hoặc viết lại tác giả commit cũ.
@@ -233,3 +239,9 @@ Bảng đối chiếu blob sau merge với đầu nhánh nguồn. JSON giữ đ�
 - [BRANCH_SYNC_2026-11-11.json](BRANCH_SYNC_2026-11-11.json): snapshot đầu nhánh, metadata commit, danh sách file, quyết định xử lý, kiểm tra hash.
 - Lịch sử Git các commit/nhánh nêu trên; yêu cầu người dùng ngày 2026-11-11 về kiểm tra, đưa thay đổi nhánh về nhánh cá nhân và ghi người/thời gian.
 - Nhật ký chỉ xác nhận việc đồng bộ; không xác nhận các tuyên bố kiểm thử/chỉ số thực nghiệm của tác giả khi chưa chạy lại.
+
+### Hoàn tất tái lập TV3 — 2026-11-12
+
+HoangDang/OpenAI Codex thực thi phiên `rerun-thanhbinh-20261112-175308` từ code `5c03204`, tách khỏi phiên lịch sử của Nguyễn Thanh Bình (`92930e6`). Đã train bốn cấu hình 5/6/6/6 epoch; validation 84,76% / 88,24% / 83,52% / 85,08%, chênh bản nguồn −0,04 đến +0,04 điểm phần trăm. DenseNet121 được chọn bằng validation, test 87,68%, F1 0,8755 trên 5.000 ảnh. Kiểm lại checkpoint DenseNet gốc cũng cho validation 88,24%, test 87,68%; đây là phép đánh giá mới riêng, không ghi thành lần train nguồn.
+
+[Báo cáo so sánh](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [SESSION](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [manifest artifact](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json). Phiên mới có 13 file trọng số; bản nguồn giữ 12 checkpoint, log và manifest nguyên byte. Nguồn/tác giả và người chạy lại được ghi riêng; chưa nghiệm thu GPU T4/Run all Colab hoặc chụp UI TensorBoard mới.

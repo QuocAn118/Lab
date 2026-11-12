@@ -1,0 +1,1100 @@
+{
+  "data": {
+    "train": {
+      "samples": 22500,
+      "class_counts": {
+        "airplane": 2298,
+        "automobile": 2240,
+        "bird": 2192,
+        "cat": 2264,
+        "deer": 2296,
+        "dog": 2198,
+        "frog": 2290,
+        "horse": 2279,
+        "ship": 2241,
+        "truck": 2202
+      }
+    },
+    "val": {
+      "samples": 2500,
+      "class_counts": {
+        "airplane": 263,
+        "automobile": 242,
+        "bird": 266,
+        "cat": 248,
+        "deer": 246,
+        "dog": 246,
+        "frog": 224,
+        "horse": 227,
+        "ship": 246,
+        "truck": 292
+      }
+    },
+    "test": {
+      "samples": 5000,
+      "class_counts": {
+        "airplane": 512,
+        "automobile": 524,
+        "bird": 464,
+        "cat": 488,
+        "deer": 529,
+        "dog": 489,
+        "frog": 505,
+        "horse": 506,
+        "ship": 483,
+        "truck": 500
+      }
+    }
+  },
+  "training": {
+    "runs": {
+      "resnet18_baseline": {
+        "name": "resnet18_baseline",
+        "purpose": "Mô hình gốc",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.9.1+cu128",
+          "torchvision": "0.24.1+cu128",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.1"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.8437686824155125,
+            "val_loss": 0.5096626739501953,
+            "val_accuracy": 0.8176,
+            "learning_rate": 0.001,
+            "train_seconds": 25.247878900000046,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.5391036741943522,
+            "val_loss": 0.448050016784668,
+            "val_accuracy": 0.8384,
+            "learning_rate": 0.001,
+            "train_seconds": 25.590189399999986,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.5028771662407301,
+            "val_loss": 0.4321088180541992,
+            "val_accuracy": 0.8392,
+            "learning_rate": 0.001,
+            "train_seconds": 25.82456830000001,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.4831069927154617,
+            "val_loss": 0.42159678802490236,
+            "val_accuracy": 0.8476,
+            "learning_rate": 0.001,
+            "train_seconds": 25.398035100000016,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.4712095775810832,
+            "val_loss": 0.4187363319396973,
+            "val_accuracy": 0.8456,
+            "learning_rate": 0.001,
+            "train_seconds": 25.53527310000004,
+            "marks": [
+              "final_epoch",
+              "best_val_loss"
+            ]
+          }
+        ],
+        "epochs_run": 5,
+        "stop_epoch": 5,
+        "best_epoch": 4,
+        "best_val_accuracy": 0.8476,
+        "best_val_accuracy_loss": 0.42159678802490236,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.4187363319396973,
+        "mean_train_seconds_per_epoch": 25.51918896000002,
+        "peak_vram_gb": 0.8960180282592773,
+        "peak_ram_gb": 2.537700653076172,
+        "config": {
+          "seed": 42,
+          "data": {
+            "data_dir": "data",
+            "train_size": 22500,
+            "val_size": 2500,
+            "test_size": 5000,
+            "image_size": 224,
+            "crop_padding": 4,
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "num_workers": 2
+          },
+          "model": {
+            "dropout": 0.2
+          },
+          "training": {
+            "weight_decay": 0.0001,
+            "max_epochs": 6,
+            "scheduler_patience": 2,
+            "early_stopping_patience": 3,
+            "early_stopping_threshold": 0.01,
+            "log_every_batches": 50,
+            "eval_batch_size": 128
+          },
+          "runs": [
+            {
+              "name": "resnet18_baseline",
+              "purpose": "Mô hình gốc",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "densenet121",
+              "purpose": "Exercise 1, đổi model",
+              "model": "densenet121",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_lr1e-2",
+              "purpose": "Exercise 2, đổi learning rate",
+              "model": "resnet18",
+              "learning_rate": 0.01,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_bs128",
+              "purpose": "Exercise 2, đổi batch size",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 128
+            }
+          ],
+          "paths": {
+            "reports_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/reports",
+            "checkpoints_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints"
+          },
+          "kpi": {
+            "accuracy": 0.8,
+            "macro_f1": 0.8,
+            "seconds_per_epoch": 300,
+            "latency_ms": 25,
+            "peak_vram_gb": 4.0,
+            "peak_ram_gb": 6.0
+          }
+        },
+        "started_at": "2026-11-12T18:01:36+07:00",
+        "finished_at": "2026-11-12T18:04:40+07:00",
+        "operator": "HoangDang, assisted by OpenAI Codex",
+        "code_commit": "5c03204d0f38b716f3a5e2f1bb4be846725bab78"
+      },
+      "densenet121": {
+        "name": "densenet121",
+        "purpose": "Exercise 1, đổi model",
+        "model": "densenet121",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.9.1+cu128",
+          "torchvision": "0.24.1+cu128",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.1"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.7049978655678305,
+            "val_loss": 0.44378704528808594,
+            "val_accuracy": 0.8532,
+            "learning_rate": 0.001,
+            "train_seconds": 58.02120060000016,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.44192963013086806,
+            "val_loss": 0.3764419189453125,
+            "val_accuracy": 0.8696,
+            "learning_rate": 0.001,
+            "train_seconds": 58.520245799999884,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.4054911288602108,
+            "val_loss": 0.36408588638305667,
+            "val_accuracy": 0.8748,
+            "learning_rate": 0.001,
+            "train_seconds": 56.94983409999986,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.3886614499020983,
+            "val_loss": 0.3550630687713623,
+            "val_accuracy": 0.878,
+            "learning_rate": 0.001,
+            "train_seconds": 56.8933062000001,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.38588096463883464,
+            "val_loss": 0.34547087020874023,
+            "val_accuracy": 0.8824,
+            "learning_rate": 0.001,
+            "train_seconds": 57.61459450000007,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.3805046704682437,
+            "val_loss": 0.34594019546508786,
+            "val_accuracy": 0.8792,
+            "learning_rate": 0.001,
+            "train_seconds": 58.34388179999996,
+            "marks": [
+              "final_epoch"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": null,
+        "best_epoch": 5,
+        "best_val_accuracy": 0.8824,
+        "best_val_accuracy_loss": 0.34547087020874023,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.34547087020874023,
+        "mean_train_seconds_per_epoch": 57.72384383333334,
+        "peak_vram_gb": 1.312366008758545,
+        "peak_ram_gb": 2.637836456298828,
+        "config": {
+          "seed": 42,
+          "data": {
+            "data_dir": "data",
+            "train_size": 22500,
+            "val_size": 2500,
+            "test_size": 5000,
+            "image_size": 224,
+            "crop_padding": 4,
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "num_workers": 2
+          },
+          "model": {
+            "dropout": 0.2
+          },
+          "training": {
+            "weight_decay": 0.0001,
+            "max_epochs": 6,
+            "scheduler_patience": 2,
+            "early_stopping_patience": 3,
+            "early_stopping_threshold": 0.01,
+            "log_every_batches": 50,
+            "eval_batch_size": 128
+          },
+          "runs": [
+            {
+              "name": "resnet18_baseline",
+              "purpose": "Mô hình gốc",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "densenet121",
+              "purpose": "Exercise 1, đổi model",
+              "model": "densenet121",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_lr1e-2",
+              "purpose": "Exercise 2, đổi learning rate",
+              "model": "resnet18",
+              "learning_rate": 0.01,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_bs128",
+              "purpose": "Exercise 2, đổi batch size",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 128
+            }
+          ],
+          "paths": {
+            "reports_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/reports",
+            "checkpoints_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints"
+          },
+          "kpi": {
+            "accuracy": 0.8,
+            "macro_f1": 0.8,
+            "seconds_per_epoch": 300,
+            "latency_ms": 25,
+            "peak_vram_gb": 4.0,
+            "peak_ram_gb": 6.0
+          }
+        },
+        "started_at": "2026-11-12T18:04:50+07:00",
+        "finished_at": "2026-11-12T18:12:06+07:00",
+        "operator": "HoangDang, assisted by OpenAI Codex",
+        "code_commit": "5c03204d0f38b716f3a5e2f1bb4be846725bab78"
+      },
+      "resnet18_lr1e-2": {
+        "name": "resnet18_lr1e-2",
+        "purpose": "Exercise 2, đổi learning rate",
+        "model": "resnet18",
+        "learning_rate": 0.01,
+        "batch_size": 64,
+        "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.9.1+cu128",
+          "torchvision": "0.24.1+cu128",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.1"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.6902273735454814,
+            "val_loss": 0.6240017265319824,
+            "val_accuracy": 0.8076,
+            "learning_rate": 0.01,
+            "train_seconds": 27.95396699999992,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.6772814603861083,
+            "val_loss": 0.6263441665649414,
+            "val_accuracy": 0.8096,
+            "learning_rate": 0.01,
+            "train_seconds": 24.251620700000103,
+            "marks": [
+              "final_epoch",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.6873889994299547,
+            "val_loss": 0.5923120315551758,
+            "val_accuracy": 0.834,
+            "learning_rate": 0.01,
+            "train_seconds": 25.3654219,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.7243400130590255,
+            "val_loss": 0.6419174942016601,
+            "val_accuracy": 0.8304,
+            "learning_rate": 0.01,
+            "train_seconds": 23.34053310000013,
+            "marks": [
+              "final_epoch"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.6907233027741313,
+            "val_loss": 0.5670773025512695,
+            "val_accuracy": 0.8352,
+            "learning_rate": 0.01,
+            "train_seconds": 25.43822320000004,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.7275925512764264,
+            "val_loss": 0.7963857398986817,
+            "val_accuracy": 0.7916,
+            "learning_rate": 0.01,
+            "train_seconds": 25.50333509999996,
+            "marks": [
+              "final_epoch"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": 6,
+        "best_epoch": 5,
+        "best_val_accuracy": 0.8352,
+        "best_val_accuracy_loss": 0.5670773025512695,
+        "best_val_loss_epoch": 5,
+        "best_val_loss": 0.5670773025512695,
+        "mean_train_seconds_per_epoch": 25.30885016666669,
+        "peak_vram_gb": 0.8960180282592773,
+        "peak_ram_gb": 2.662433624267578,
+        "config": {
+          "seed": 42,
+          "data": {
+            "data_dir": "data",
+            "train_size": 22500,
+            "val_size": 2500,
+            "test_size": 5000,
+            "image_size": 224,
+            "crop_padding": 4,
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "num_workers": 2
+          },
+          "model": {
+            "dropout": 0.2
+          },
+          "training": {
+            "weight_decay": 0.0001,
+            "max_epochs": 6,
+            "scheduler_patience": 2,
+            "early_stopping_patience": 3,
+            "early_stopping_threshold": 0.01,
+            "log_every_batches": 50,
+            "eval_batch_size": 128
+          },
+          "runs": [
+            {
+              "name": "resnet18_baseline",
+              "purpose": "Mô hình gốc",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "densenet121",
+              "purpose": "Exercise 1, đổi model",
+              "model": "densenet121",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_lr1e-2",
+              "purpose": "Exercise 2, đổi learning rate",
+              "model": "resnet18",
+              "learning_rate": 0.01,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_bs128",
+              "purpose": "Exercise 2, đổi batch size",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 128
+            }
+          ],
+          "paths": {
+            "reports_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/reports",
+            "checkpoints_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints"
+          },
+          "kpi": {
+            "accuracy": 0.8,
+            "macro_f1": 0.8,
+            "seconds_per_epoch": 300,
+            "latency_ms": 25,
+            "peak_vram_gb": 4.0,
+            "peak_ram_gb": 6.0
+          }
+        },
+        "started_at": "2026-11-12T18:12:15+07:00",
+        "finished_at": "2026-11-12T18:15:54+07:00",
+        "operator": "HoangDang, assisted by OpenAI Codex",
+        "code_commit": "5c03204d0f38b716f3a5e2f1bb4be846725bab78"
+      },
+      "resnet18_bs128": {
+        "name": "resnet18_bs128",
+        "purpose": "Exercise 2, đổi batch size",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "library_versions": {
+          "torch": "2.9.1+cu128",
+          "torchvision": "0.24.1+cu128",
+          "tensorboard": "2.21.0",
+          "scikit-learn": "1.9.1"
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "train_loss": 0.9937085990201343,
+            "val_loss": 0.5516373184204102,
+            "val_accuracy": 0.8176,
+            "learning_rate": 0.001,
+            "train_seconds": 25.571201100000053,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.5790055741301992,
+            "val_loss": 0.48026746520996094,
+            "val_accuracy": 0.8332,
+            "learning_rate": 0.001,
+            "train_seconds": 25.230864800000063,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.5245959757065232,
+            "val_loss": 0.4405133010864258,
+            "val_accuracy": 0.8364,
+            "learning_rate": 0.001,
+            "train_seconds": 25.392564499999935,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.4983306075022979,
+            "val_loss": 0.4424364288330078,
+            "val_accuracy": 0.8376,
+            "learning_rate": 0.001,
+            "train_seconds": 25.122688400000015,
+            "marks": [
+              "final_epoch",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.4868630805814808,
+            "val_loss": 0.4188593650817871,
+            "val_accuracy": 0.8488,
+            "learning_rate": 0.001,
+            "train_seconds": 25.255134100000078,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.4743192885071039,
+            "val_loss": 0.4092033569335938,
+            "val_accuracy": 0.8508,
+            "learning_rate": 0.001,
+            "train_seconds": 25.356780800000024,
+            "marks": [
+              "final_epoch",
+              "best_val_loss",
+              "best_val_acc"
+            ]
+          }
+        ],
+        "epochs_run": 6,
+        "stop_epoch": null,
+        "best_epoch": 6,
+        "best_val_accuracy": 0.8508,
+        "best_val_accuracy_loss": 0.4092033569335938,
+        "best_val_loss_epoch": 6,
+        "best_val_loss": 0.4092033569335938,
+        "mean_train_seconds_per_epoch": 25.32153895000003,
+        "peak_vram_gb": 0.8965063095092773,
+        "peak_ram_gb": 2.4428062438964844,
+        "config": {
+          "seed": 42,
+          "data": {
+            "data_dir": "data",
+            "train_size": 22500,
+            "val_size": 2500,
+            "test_size": 5000,
+            "image_size": 224,
+            "crop_padding": 4,
+            "mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "num_workers": 2
+          },
+          "model": {
+            "dropout": 0.2
+          },
+          "training": {
+            "weight_decay": 0.0001,
+            "max_epochs": 6,
+            "scheduler_patience": 2,
+            "early_stopping_patience": 3,
+            "early_stopping_threshold": 0.01,
+            "log_every_batches": 50,
+            "eval_batch_size": 128
+          },
+          "runs": [
+            {
+              "name": "resnet18_baseline",
+              "purpose": "Mô hình gốc",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "densenet121",
+              "purpose": "Exercise 1, đổi model",
+              "model": "densenet121",
+              "learning_rate": 0.001,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_lr1e-2",
+              "purpose": "Exercise 2, đổi learning rate",
+              "model": "resnet18",
+              "learning_rate": 0.01,
+              "batch_size": 64
+            },
+            {
+              "name": "resnet18_bs128",
+              "purpose": "Exercise 2, đổi batch size",
+              "model": "resnet18",
+              "learning_rate": 0.001,
+              "batch_size": 128
+            }
+          ],
+          "paths": {
+            "reports_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/reports",
+            "checkpoints_dir": "reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints"
+          },
+          "kpi": {
+            "accuracy": 0.8,
+            "macro_f1": 0.8,
+            "seconds_per_epoch": 300,
+            "latency_ms": 25,
+            "peak_vram_gb": 4.0,
+            "peak_ram_gb": 6.0
+          }
+        },
+        "started_at": "2026-11-12T18:16:03+07:00",
+        "finished_at": "2026-11-12T18:19:41+07:00",
+        "operator": "HoangDang, assisted by OpenAI Codex",
+        "code_commit": "5c03204d0f38b716f3a5e2f1bb4be846725bab78"
+      }
+    }
+  },
+  "model": {
+    "resnet18": {
+      "total": 11181642,
+      "trainable": 5130
+    },
+    "densenet121": {
+      "total": 6964106,
+      "trainable": 10250
+    },
+    "resnet18_unfreeze_layer4": {
+      "total": 11181642,
+      "trainable": 8398858
+    }
+  },
+  "evaluation": {
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "speed_kpi_reference": "NVIDIA T4",
+    "best_run": "densenet121",
+    "best_epoch": 5,
+    "test_samples": 5000,
+    "test_metrics": {
+      "accuracy": 0.8768,
+      "accuracy_ci95_half_width": 0.009110174457341635,
+      "macro_f1": 0.8755301811857628,
+      "loss": 0.35169974093437195
+    },
+    "comparison": [
+      {
+        "run": "resnet18_baseline",
+        "purpose": "Mô hình gốc",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "epochs_run": 5,
+        "best_epoch": 4,
+        "val_accuracy": 0.8476,
+        "val_loss": 0.42159678802490236,
+        "seconds_per_epoch": 25.51918896000002
+      },
+      {
+        "run": "densenet121",
+        "purpose": "Exercise 1, đổi model",
+        "model": "densenet121",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "epochs_run": 6,
+        "best_epoch": 5,
+        "val_accuracy": 0.8824,
+        "val_loss": 0.34547087020874023,
+        "seconds_per_epoch": 57.72384383333334
+      },
+      {
+        "run": "resnet18_lr1e-2",
+        "purpose": "Exercise 2, đổi learning rate",
+        "model": "resnet18",
+        "learning_rate": 0.01,
+        "batch_size": 64,
+        "epochs_run": 6,
+        "best_epoch": 5,
+        "val_accuracy": 0.8352,
+        "val_loss": 0.5670773025512695,
+        "seconds_per_epoch": 25.30885016666669
+      },
+      {
+        "run": "resnet18_bs128",
+        "purpose": "Exercise 2, đổi batch size",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "epochs_run": 6,
+        "best_epoch": 6,
+        "val_accuracy": 0.8508,
+        "val_loss": 0.4092033569335938,
+        "seconds_per_epoch": 25.32153895000003
+      }
+    ],
+    "kpi": [
+      {
+        "metric": "Validation Accuracy",
+        "value": 0.8824,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Test Accuracy",
+        "value": 0.8768,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Test Macro F1",
+        "value": 0.8755301811857628,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Thời gian train (giây/epoch)",
+        "value": null,
+        "target": 300,
+        "status": "Không đo được"
+      },
+      {
+        "metric": "Độ trễ suy luận (ms/ảnh)",
+        "value": null,
+        "target": 25,
+        "status": "Không đo được"
+      },
+      {
+        "metric": "VRAM cao nhất (GB)",
+        "value": 1.312366008758545,
+        "target": 4.0,
+        "status": "Đạt"
+      },
+      {
+        "metric": "RAM cao nhất (GB)",
+        "value": 2.662433624267578,
+        "target": 6.0,
+        "status": "Đạt"
+      }
+    ],
+    "per_class_accuracy": {
+      "airplane": 0.900390625,
+      "automobile": 0.9198473282442748,
+      "bird": 0.8038793103448276,
+      "cat": 0.7540983606557377,
+      "deer": 0.8052930056710775,
+      "dog": 0.8609406952965235,
+      "frog": 0.9485148514851485,
+      "horse": 0.9229249011857708,
+      "ship": 0.8985507246376812,
+      "truck": 0.946
+    },
+    "confusion_matrix": {
+      "labels": [
+        "airplane",
+        "automobile",
+        "bird",
+        "cat",
+        "deer",
+        "dog",
+        "frog",
+        "horse",
+        "ship",
+        "truck"
+      ],
+      "rows_true_columns_pred": [
+        [
+          461,
+          3,
+          7,
+          3,
+          1,
+          0,
+          2,
+          3,
+          18,
+          14
+        ],
+        [
+          4,
+          482,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          32
+        ],
+        [
+          19,
+          0,
+          373,
+          13,
+          23,
+          5,
+          23,
+          6,
+          2,
+          0
+        ],
+        [
+          5,
+          1,
+          12,
+          368,
+          10,
+          52,
+          18,
+          16,
+          0,
+          6
+        ],
+        [
+          8,
+          0,
+          9,
+          13,
+          426,
+          8,
+          27,
+          34,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          6,
+          35,
+          8,
+          421,
+          5,
+          12,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          11,
+          4,
+          4,
+          479,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2,
+          7,
+          9,
+          11,
+          1,
+          467,
+          2,
+          1
+        ],
+        [
+          25,
+          10,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          434,
+          9
+        ],
+        [
+          5,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          8,
+          473
+        ]
+      ]
+    },
+    "latency_ms": {
+      "mean": 17.989955499995176,
+      "p95": 20.637914999929308
+    }
+  },
+  "demo": [
+    {
+      "image": "Ảnh test số 1",
+      "prediction": "automobile",
+      "confidence": 0.34732383489608765,
+      "truth": "ship",
+      "correct": false,
+      "probabilities": {
+        "airplane": 0.0012281844392418861,
+        "automobile": 0.34732383489608765,
+        "bird": 1.370828158542281e-05,
+        "cat": 0.00022758476552553475,
+        "deer": 2.9691524105146527e-05,
+        "dog": 0.00014186867338139564,
+        "frog": 0.0004988258588127792,
+        "horse": 1.5497014828724787e-05,
+        "ship": 0.34432822465896606,
+        "truck": 0.30619263648986816
+      }
+    },
+    {
+      "image": "Ảnh test số 2",
+      "prediction": "automobile",
+      "confidence": 0.9791040420532227,
+      "truth": "automobile",
+      "correct": true,
+      "probabilities": {
+        "airplane": 0.002851257799193263,
+        "automobile": 0.9791040420532227,
+        "bird": 8.112254363368265e-06,
+        "cat": 1.6749181668274105e-05,
+        "deer": 2.7411999781179475e-06,
+        "dog": 1.358155714115128e-05,
+        "frog": 8.254739327639982e-07,
+        "horse": 0.00011143139272462577,
+        "ship": 0.00017149200721178204,
+        "truck": 0.017719656229019165
+      }
+    },
+    {
+      "image": "Ảnh test số 3",
+      "prediction": "ship",
+      "confidence": 0.9307247400283813,
+      "truth": "ship",
+      "correct": true,
+      "probabilities": {
+        "airplane": 0.06752095371484756,
+        "automobile": 2.6982505005435087e-05,
+        "bird": 6.654165190411732e-05,
+        "cat": 8.401478407904506e-05,
+        "deer": 0.0008564271265640855,
+        "dog": 0.00016712462820578367,
+        "frog": 3.456528020251426e-06,
+        "horse": 7.93220242485404e-05,
+        "ship": 0.9307247400283813,
+        "truck": 0.0004704852181021124
+      }
+    }
+  ]
+}

@@ -22,7 +22,7 @@ Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguy�
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
 
-> Đã chuẩn bị đủ package và notebook, 74 test offline đạt ngày 2026-11-12, gồm 20 test dữ liệu. Chưa train thật; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
+> Sau ghép TV3: 85 test offline và 3 smoke thật trên RTX 5060 đạt; đã nhận phiên lịch sử của Thanh Bình với bốn cấu hình và 12 checkpoint, đã hoàn tất tái lập riêng. Chưa nghiệm thu Colab T4; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
 
 ### Đầu vào và đầu ra
 
@@ -43,11 +43,11 @@ Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguy�
 | Bước 3 | In model, xác định các tầng và tham số | `model.md` mục 2, 5 | `src/lab_2/model.py` |
 | Bước 4 | Thay lớp cuối, đóng băng, mở khóa để fine-tune | `model.md` mục 3, 4 | `src/lab_2/model.py` |
 | Bước 5 | Tải dữ liệu, dùng `transforms` và `DataLoader` | `data.md` | `src/lab_2/data.py` |
-| Bước 6 | Khai báo loss, optimizer, viết vòng lặp train | `training.md` mục 1, 3 | `src/lab_2/training.py` |
+| Bước 6 | Khai báo loss, optimizer, viết vòng lặp train | `training_specification.md` mục 1, 3 | `src/lab_2/training.py` |
 | Bước 7 | Đánh giá trên tập test | `evaluation.md` mục 3 | `src/lab_2/evaluation.py` |
-| Exercise 1 | Thử các model pre-trained khác | `training.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
-| Exercise 2 | Điều chỉnh siêu tham số | `training.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
-| Exercise 3 | Theo dõi huấn luyện bằng TensorBoard | `training.md` mục 5 | `src/lab_2/training.py`, cell TensorBoard trong notebook |
+| Exercise 1 | Thử các model pre-trained khác | `training_specification.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
+| Exercise 2 | Điều chỉnh siêu tham số | `training_specification.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
+| Exercise 3 | Theo dõi huấn luyện bằng TensorBoard | `training_specification.md` mục 5 | `src/lab_2/training.py`, cell TensorBoard trong notebook |
 
 ---
 
@@ -155,13 +155,13 @@ Cột "Kết quả" chỉ ghi Đạt/Không đạt theo bằng chứng phù hợ
 | AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Đầu ra notebook, mục `model` trong `metrics.json` | Chờ chạy Colab |
 | AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py` | Kết quả pytest offline, 12 test model | Đạt offline |
 | AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | 20 test data; [kiểm chứng CIFAR-10 thật](../reports/data_validation_2026-11-12.json), báo cáo phiên riêng | Đạt trên Windows 2026-11-12; Colab cần kiểm tra lại |
-| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Chờ chạy Colab |
-| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/`, ảnh chụp `reports/figures/tensorboard.png` | Chờ chạy Colab |
-| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | `checkpoints/`, mục `training` trong `metrics.json` | Chờ chạy Colab |
-| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Mục `evaluation` trong `metrics.json`, `evaluation.md` | Chờ chạy Colab |
-| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo` trong `metrics.json`, `demo.md` | Chờ chạy Colab |
+| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Đạt trên RTX 5060; Colab cần kiểm tra lại |
+| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
+| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
+| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/`, ảnh chụp `reports/figures/tensorboard.png` | Đạt event/plot; ảnh UI phiên mới chưa chụp |
+| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | `checkpoints/`, mục `training` trong `metrics.json` | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
+| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Mục `evaluation` trong `metrics.json`, `evaluation.md` | Đạt chất lượng/tài nguyên trên Windows; tốc độ T4 chưa nghiệm thu |
+| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo` trong `metrics.json`, `demo.md` | Đạt demo thật trên Windows |
 | AC-11 | TV5 | Run all trên notebook không lỗi | Chạy `notebooks/Lab_2_colab.ipynb` trên Colab | Notebook đã lưu kết quả | Chờ chạy Colab |
 
 ---

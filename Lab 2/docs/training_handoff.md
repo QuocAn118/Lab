@@ -13,7 +13,7 @@
 
 ## 1. Phạm vi và người làm
 
-Người chuẩn bị: HoangDang, hỗ trợ OpenAI Codex. Người train: **chưa chỉ định**; bạn nhận việc điền `OPERATOR` trong cell đầu notebook. Không suy tên thật từ TV1–TV5 hoặc tên nhánh.
+Người chuẩn bị/tích hợp: HoangDang, hỗ trợ OpenAI Codex. Bản bàn giao TV3: Nguyễn Thanh Bình (`92930e6`), lưu như phiên lịch sử; manifest cũ chưa ghi tên người vận hành nên không suy từ tác giả commit. Phiên chạy lại `rerun-thanhbinh-20261112-175308`: HoangDang/OpenAI Codex, RTX 5060, config và output riêng. Người chạy Colab sau này vẫn phải điền `OPERATOR` trong notebook.
 
 Đã chuẩn bị code, notebook và kiểm tra offline. Người nhận chạy thực nghiệm theo đúng config, lưu bằng chứng và bàn giao kết quả. Không phải viết thêm pipeline. Chưa có cam kết accuracy hoặc thời gian chạy; không cần giải nén ZIP.
 
