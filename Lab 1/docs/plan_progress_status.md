@@ -14,6 +14,8 @@
 
 Trạng thái căn cứ vào code và bằng chứng đang có trong repo. “Có code” không đồng nghĩa đã nghiệm thu pipeline. Các mốc chạy trước đây trong changelog được giữ làm lịch sử, không phải kết quả chạy lại ở lần rà này.
 
+**Nguồn training đã đối chiếu ngày 2026-11-12:** Nguyễn Quốc An (Quoc An) thực hiện `src/train.py` và `tests/test_train.py` tại `773a5a1`/`e2b6402`, có khai báo Claude Code trong registry nguồn. [Hồ sơ training](training.md) ghi riêng người cập nhật code nguồn và người hoàn thiện/tích hợp. Người chạy smoke/bốn normal run vẫn là HoangDang/OpenAI Codex theo bằng chứng hiện có. Việc bổ sung tên do HoangDang/OpenAI Codex đối chiếu lịch sử; code, số đo và artifact đã chốt giữ nguyên.
+
 ## 1. Tiến độ nghiệm thu kỹ thuật
 
 | Task | Trạng thái | Bằng chứng |

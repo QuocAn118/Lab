@@ -12,6 +12,20 @@
 
 ## Lab 2 preparation for training handoff
 
+### Bổ sung ghi nhận Quốc An cho Lab 1 và Lab 2 — 2026-11-12
+
+Người đối chiếu/ghi nhận: HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex. Mốc kiểm tra: main `bae987d`; nguồn `origin/QuocAn` tại `32ca8b1` đã là ancestor của main, không có commit nguồn mới cần nhập. Lần cập nhật này bổ sung tên/nguồn đóng góp bằng một PR riêng, không tạo merge rỗng hoặc viết lại tác giả commit cũ.
+
+| Lab | Phần ghi tên Nguyễn Quốc An (Quoc An) | Bằng chứng nguồn |
+| --- | --- | --- |
+| Lab 1 | Triển khai ban đầu và chỉnh đặc tả cho `src/train.py`, `tests/test_train.py` | `773a5a1` (2026-11-10T09:11:52+07:00), `e2b6402` (2026-11-10T09:42:35+07:00); registry ở `773a5a1` ghi `created_by: Quoc An`, có khai báo Claude Code |
+| Lab 2 | Cập nhật đặc tả theo đề, cấu hình, requirements, bộ test nền; khôi phục các mục tài liệu | `3a86e93`, `00b8d04`, `fa27469`, `0f71b4f`, `9096223`, `f9f2fd8`, `d0cd42f`; danh sách file ở [tiến độ Lab 2](Lab%202/docs/plan_progress_status.md) mục 1.1 |
+| Lab 2 | Tích hợp và đối chiếu evaluation TV4, ghi khai báo AI/6 test/3 biểu đồ | `32ca8b1` (2026-11-10T21:18:59+07:00); khai báo nguồn Claude Code/nhánh riêng do thành viên ghi, không diễn giải là kiểm chứng mới |
+
+Các commit `33bf735` (lấy Lab 1 từ HoangDang), `fc5aa39`/`48f73bf` (lấy model từ Vân Anh) chỉ ghi Quốc An là người thực hiện nhập/tích hợp, không quy tác giả code/tài liệu gốc cho người nhập. Notebook cũ Lab 2 được nhập/chuyển đường dẫn qua `186582e`/`00b8d04`; không suy người viết toàn bộ notebook hay người chạy từ metadata commit. Phần hiện hành của Vân Anh, Xuân Bảo và các bước hoàn thiện/chạy của HoangDang được giữ riêng.
+
+Hồ sơ cập nhật tại [training Lab 1](Lab%201/docs/training.md), [AI Lab 1](Lab%201/docs/AI_Usage.md), [evaluation Lab 2](Lab%202/docs/evaluation.md) và các trường nguồn đặc tả Lab 2. Các tên/ngày cập nhật nguồn được tách khỏi người/ngày tích hợp. Code, dataset, test, checkpoint, manifest và báo cáo thực nghiệm được giữ nguyên; không sửa KPI/thuật toán hoặc tuyên bố đã train lại trong lần ghi nhận này.
+
 2026-11-11T11:10:28+07:00 — HoangDang, assisted by OpenAI Codex, prepared the Lab 2 package and Colab notebook using main `a7b7ef8` as the base. Model code is derived from Xuan Bao (`hbao2123-debug`); evaluation is derived from Quoc An. Model now lives in `src/lab_2/model.py`; the old root entry point remains compatible. New common/data/training/demo modules, synthetic integration checks and session safeguards were added.
 
 63 offline tests passed (49 package + 14 compatibility). Three real-data smoke tests and four normal training runs were deliberately not executed: user requested preparation for another trainer. The old metrics JSON and notebook contents are preserved. Names already present in the workspace assignment table were preserved, not inferred from branch names. The new notebook and handoff instructions require the actual operator/session name before running. See [handoff plan](Lab%202/docs/training_handoff.md), [verification](Lab%202/docs/verification.md), [preparation report](Lab%202/reports/preparation_check.json). This phase does not claim that new changes have been merged into main.
