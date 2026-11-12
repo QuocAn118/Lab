@@ -106,7 +106,21 @@ Tên người tạo và người cập nhật model fine-tuned là **HoangDang**
 
 Đối với run cũ: sao chép nguyên byte các log còn có, ghi đường dẫn nguồn và hash để đối chiếu. Run full cũ chỉ có một phần file; số khôi phục từ báo cáo phải ghi `recovered_from_documentation`. Không tạo stdout/stderr, timestamp hoặc lịch sử loss giả cho phần đã mất. Manifest mới xác minh các file thực có trong report; manifest gốc được giữ riêng với tên `original_provenance.json`.
 
-Khi đưa lên Git, giữ trọng số/optimizer ở máy và bỏ qua chúng qua `.gitignore`; code, cấu hình, report và log vẫn được đưa lên repository. `.gitattributes` tắt chuyển đổi xuống dòng cho `report/**` và `outputs/**` để giữ nguyên byte bằng chứng và hash sau clone/checkout. Không thay nội dung report đã chốt chỉ để phù hợp cấu hình xuống dòng của Git.
+Khi đưa lên Git, chỉ stage trọng số của phiên đã kiểm chứng bằng đường dẫn cụ thể và quản lý bằng Git LFS. Optimizer/cache tiếp tục được bỏ qua qua `.gitignore`. Code, cấu hình, report và log được lưu trong repository. `.gitattributes` tắt chuyển đổi xuống dòng cho `report/**` và `outputs/**` để giữ nguyên byte bằng chứng và hash sau clone/checkout.
+
+## 10. Hoàn thiện sau nhập nhánh ngày 2026-11-12
+
+Notebook tiếp tục dùng tám ô code và các tiện ích `notebook_helpers.py` đã có ở commit `eb6bfad`. Exercise 1 dùng câu mẫu có thể sửa trong ô để Run All thực thi được. Exercise 2 khai báo `TRAIN=False` khi đánh giá model đã lưu. Khi cần huấn luyện mới, đặt `TRAIN=True` và dùng thư mục run mới theo tiện ích hiện có.
+
+`available_checkpoint(root)` kiểm tra thư mục `outputs/full/checkpoints/best`, sau đó kiểm tra checkpoint được ánh xạ trong `outputs/imported-thanhbinh-40acced/full/checkpoints/best`. Chỉ nhận thư mục có config và trọng số nhị phân, phát hiện pointer Git LFS chưa tải. Nếu thiếu model dùng cho đánh giá, báo đường dẫn và lệnh lấy LFS. Checkpoint được chọn phải được in trong notebook và ghi vào report đánh giá. Metadata nguồn của bản nhập tiếp tục nằm trong `IMPORT.json`.
+
+Luồng nạp model, lịch sử loss còn có hoặc đã mất, save/reload và thời gian train được kiểm thử qua tiện ích sẵn có. Kiểm chứng toàn notebook dùng đúng 20.000/5.000/25.000 mẫu theo mục 2. Kết quả thực thi và môi trường cập nhật tại `06_verification.md`.
+
+Kiểm tra nguồn bỏ qua `.pytest_cache` do pytest tạo, theo phạm vi cache tại `11_AI_Usage.md` mục 2. Các file code và tài liệu của hai bản triển khai vẫn được kiểm tra header và liên kết nguồn.
+
+Bản `src/exercise_2` kế thừa từ Quốc An được bổ sung kiểm tra trước khi train để từ chối checkpoint hoặc báo cáo training đã có. Báo cáo JSON từ chối giá trị NaN/Infinity trước khi ghi. Đánh giá dùng tên GPU thực tế để đối chiếu hai KPI tốc độ tham chiếu T4, đồng thời lưu các thời gian thô. Các thay đổi tích hợp do HoangDang thực hiện với hỗ trợ OpenAI Codex, nguồn code nhập tiếp tục được ghi trong `12_traceability.md`.
+
+Môi trường Windows được kiểm tra với pandas 2.3.3 và pyarrow 21.0.0 từ PyPI khi bản DLL cài trước bị Windows từ chối nạp. Ghi phiên bản sau kiểm chứng trong requirements và lock, cùng các dependency cần cho bản Exercise 2 nhập từ Quốc An.
 
 ## Nguồn và phạm vi
 

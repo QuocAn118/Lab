@@ -16,6 +16,8 @@
 
 Mã nguồn: `src/exercise_2/evaluation.py`.
 
+Bổ sung tích hợp ngày 2026-11-12 bởi HoangDang/OpenAI Codex theo `08_implementation.md` mục 10. Hai KPI tốc độ được đối chiếu khi tên GPU đo là T4. Báo cáo mới lưu tên GPU và mốc phần cứng, thời gian thô tiếp tục được ghi. Lệnh đánh giá từ chối ghi đè mục evaluation đã có.
+
 ## 1. Nhật Ký Huấn Luyện
 
 Số dòng phụ thuộc vào epoch dừng thực tế, tối đa 5 dòng. Nguồn: `training.epochs`.

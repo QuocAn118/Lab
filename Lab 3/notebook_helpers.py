@@ -1,5 +1,5 @@
 """Notebook support: timing, model export and loss display.
-Sources: docs/08_implementation.md §6; docs/04_training.md §6;
+Sources: docs/08_implementation.md §6, §10; docs/04_training.md §6;
 docs/05_evaluation.md; docs/11_AI_Usage.md.
 """
 from pathlib import Path
@@ -9,6 +9,24 @@ import csv
 import time
 from transformers import TrainerCallback
 from reporting import RunReport
+
+
+def available_checkpoint(root):
+    directories = [Path(root) / 'outputs/full/checkpoints/best',
+                   Path(root) / 'outputs/imported-thanhbinh-40acced/full/checkpoints/best']
+    for directory in directories:
+        if not (directory / 'config.json').is_file():
+            continue
+        for name in ('model.safetensors', 'pytorch_model.bin'):
+            weights = directory / name
+            if weights.is_file():
+                with weights.open('rb') as stream:
+                    header = stream.read(128)
+                    if header and not header.startswith(b'version https://git-lfs.github.com/spec/v1'):
+                        return directory
+    raise FileNotFoundError('Thiếu checkpoint best có trọng số. Chạy git lfs pull rồi kiểm tra ' +
+                            ', '.join(str(path) for path in directories))
+
 
 def save_training_time(path, values):
     values = {'sources_md': ['docs/04_training.md', 'docs/08_implementation.md'], **values}
@@ -115,17 +133,22 @@ def show_training_time(checkpoint):
 def plot_loss(trainer, checkpoint, root, training, report=None):
     import matplotlib.pyplot as plt
     history_path = Path(checkpoint).parent/'trainer_state.json'
-    full_history_path = Path(root)/'outputs/full/trainer_history.json'
+    full_history_path = Path(checkpoint).parent.parent/'trainer_history.json'
+    history_source = None
     if training:
         history = trainer.state.log_history
+        history_source = 'trainer.state.log_history'
     elif history_path.exists():
         history = json.loads(history_path.read_text(encoding='utf-8'))['log_history']
+        history_source = str(history_path)
     elif full_history_path.exists():
         history = json.loads(full_history_path.read_text(encoding='utf-8'))['history']
+        history_source = str(full_history_path)
     else:
         history = []
     if report is not None:
-        report.write_json('loss_history.json', {'available': bool(history), 'history': history})
+        report.write_json('loss_history.json', {'available': bool(history), 'source': history_source,
+                                               'history': history})
     if not history:
         print('Không có log loss của lượt train cũ để vẽ lại biểu đồ.')
         return

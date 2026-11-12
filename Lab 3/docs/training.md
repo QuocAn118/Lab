@@ -16,6 +16,8 @@ Exercise 1 không huấn luyện. Toàn bộ file này áp dụng cho Exercise 2
 
 Mã nguồn: `src/exercise_2/training.py`. Tham số: `configs/exercise_2.yaml`.
 
+Bổ sung tích hợp ngày 2026-11-12 bởi HoangDang/OpenAI Codex theo `08_implementation.md` mục 10. Lệnh train từ chối thư mục checkpoint có dữ liệu hoặc báo cáo đã có mục training. Phiên mới cần đổi đường dẫn checkpoint và reports trong config. Bảng số liệu lịch sử của bản Quốc An vẫn được đọc theo nguồn báo cáo tương ứng.
+
 ## 1. Siêu Tham Số
 
 | Tham số | Giá trị | Ghi chú |

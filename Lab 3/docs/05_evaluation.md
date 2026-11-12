@@ -44,6 +44,14 @@ Mỗi lần chạy được ghi riêng trong `report/<run-id>/`. File log consol
 
 Các file được nhập từ output cũ có bản kê nguồn/hash. Phần full mất log chỉ có dữ liệu còn giữ hoặc số đã báo cáo; danh sách thiếu được ghi rõ. Report mới ghi stdout/stderr trong phạm vi train/đánh giá, không khẳng định đã thu được console trước khi thao tác bắt đầu.
 
+## 4. Đánh giá lại ngày 2026-11-12
+
+Đã chạy notebook tám cell với checkpoint full nhập tại `outputs/imported-thanhbinh-40acced/full/checkpoints/best`, trên RTX 5060 Laptop. Tập test gồm 25.000 mẫu, accuracy 0,91012, macro F1 0,9101182914, binary F1 0,9097264071 và loss 0,3465386629. Thời gian predict của lượt này là 48,3776 giây. Số đo và nguồn checkpoint được lưu trong report mới.
+
+Confusion matrix có 11.431 / 1.069 ở hàng NEGATIVE và 1.178 / 11.322 ở hàng POSITIVE. Loss curve được vẽ từ lịch sử nằm cạnh checkpoint nhập, có đường dẫn nguồn trong `loss_history.json`. Hai ảnh đã được mở để kiểm tra bố cục. [Metrics](../report/evaluate-20261112-204226-805293/metrics.json), [loss history](../report/evaluate-20261112-204226-805293/loss_history.json), [manifest](../report/evaluate-20261112-204226-805293/manifest.json).
+
+Người thực hiện HoangDang, hỗ trợ OpenAI Codex. Đây là đánh giá lại checkpoint có sẵn. Thời gian train lịch sử và KPI tham chiếu T4 được đọc theo đúng nguồn và thiết bị đo tương ứng.
+
 ## Nguồn và phạm vi
 
 - Tiêu chí nghiệm thu kế thừa [01_lab_3_description.md](01_lab_3_description.md) và đặc tả đánh giá hiện có trong dự án.

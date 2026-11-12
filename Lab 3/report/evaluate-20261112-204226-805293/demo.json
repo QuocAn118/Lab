@@ -1,0 +1,23 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "checkpoint": "Lab 3\\outputs\\imported-thanhbinh-40acced\\full\\checkpoints\\best",
+  "predictions": [
+    {
+      "text": "I loved this movie. The acting was great!",
+      "label": "POSITIVE",
+      "score": 0.9967653751373291
+    },
+    {
+      "text": "The movie was boring and disappointing.",
+      "label": "NEGATIVE",
+      "score": 0.9973766803741455
+    }
+  ]
+}

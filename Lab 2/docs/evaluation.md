@@ -38,7 +38,7 @@ So sánh bằng validation, không dùng test. Một lần chạy mỗi cấu h�
 Exercise 1: DenseNet121 cao hơn baseline 3.48 điểm phần trăm trong phiên này.
 Exercise 2: LR 0,01 chênh -1.24 điểm; batch 128 chênh +0.32 điểm. Không kết luận thống kê nhiều seed từ một phiên.
 
-[Đường validation theo epoch](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/val_accuracy_by_run.png). Log TensorBoard bốn run đã đối chiếu epoch/accuracy: [tensorboard_check.json](../reports/sessions/rerun-thanhbinh-20261112-175308/tensorboard_check.json); ảnh giao diện TensorBoard mới chưa chụp.
+[Đường validation theo epoch](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/val_accuracy_by_run.png). Log TensorBoard bốn run đã đối chiếu epoch/accuracy. Giao diện thật đã được chụp với smoothing 0 và hiển thị toàn bộ điểm dữ liệu. [Đối chiếu event](../reports/sessions/rerun-thanhbinh-20261112-175308/tensorboard_check.json), [ảnh TensorBoard](../reports/sessions/tensorboard-review-20261112-191218/tensorboard.png), [biên bản bổ sung](../reports/sessions/tensorboard-review-20261112-191218/REVIEW.json).
 
 ## 2. Đối Chiếu KPI
 

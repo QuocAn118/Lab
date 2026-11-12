@@ -46,7 +46,7 @@ Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12
 
 Giữ `Lab 3/notebook_helpers.py` đi kèm notebook khi sao chép.
 
-Môi trường được mô tả trong báo cáo cũ không mặc nhiên có trên máy mới. Python đang kiểm tra ngày 2026-11-11 thiếu torch/transformers/datasets. Khối lệnh dưới tái hiện cấu hình PyTorch CUDA 12.8 của máy GPU được ghi trong báo cáo; nếu dùng phần cứng khác, chọn bản PyTorch phù hợp trước khi cài các dependency còn lại. Chạy từ repo gốc:
+Môi trường đã được kiểm tra lại ngày 2026-11-12 với Python 3.12.10, torch 2.9.1+cu128, transformers 4.57.1 và datasets 4.3.0. `requirements.txt` và `requirements-lock.txt` ghi các phiên bản đã chạy, gồm pandas 2.3.3 và pyarrow 21.0.0 trên Windows. Chạy từ repo gốc để cài môi trường mới:
 
 ```powershell
 $env:PYTHONUTF8='1'
@@ -56,13 +56,21 @@ python -m venv 'Lab 3/.venv'
 & 'Lab 3/.venv/Scripts/python.exe' -m ipykernel install --user --name lab3 --display-name 'Python (Lab 3)'
 ```
 
-Dataset/model được tải từ Hugging Face ở lần đầu. Các báo cáo trước đây dùng đường dẫn `outputs/full/`. Snapshot nhập từ nhánh local hiện nằm trong `outputs/imported-thanhbinh-40acced/full/`; xem `IMPORT.json` để ánh xạ. Không mặc định notebook tự tìm snapshot ở vị trí mới: kiểm tra đường dẫn model trước khi Run All; nếu không tìm được checkpoint, code có thể huấn luyện mới. CPU có thể chạy chậm hơn GPU.
+Dataset/model được tải từ Hugging Face ở lần đầu. Sau clone/pull, chạy `git lfs pull` từ repo gốc để lấy trọng số. Notebook mặc định `TRAIN=False`, kiểm tra model trong `outputs/full/checkpoints/best`, rồi tìm snapshot đầy đủ tại `outputs/imported-thanhbinh-40acced/full/checkpoints/best`. Nếu còn pointer LFS hoặc thiếu trọng số, notebook báo đường dẫn cần tải. Checkpoint thực dùng được in và ghi trong report đánh giá. `IMPORT.json` ánh xạ nguồn và tác giả của snapshot.
 
 `lab3.py`, `test.py` và các manifest full là phần hỗ trợ nâng cao đã có; không cần đọc hoặc chạy chúng để theo dõi nội dung notebook rút gọn.
 
 ## Thời gian huấn luyện
 
 Mỗi run mới có `training_time.json`: bắt đầu/kết thúc, tổng số giây, trạng thái và thời lượng từng epoch. Checkpoint lưu thông tin thời gian tại lúc lưu; `best` giữ bản tổng kết. Nạp model cũ chỉ đọc thời gian đã có. Xem [cách ghi và đọc thời gian](docs/04_training.md).
+
+## Kiểm chứng ngày 2026-11-12
+
+Đã chạy toàn bộ tám cell bằng kernel `.venv` hiện tại. Checkpoint full nhập từ commit `40acced` được đánh giá lại trên 25.000 mẫu test, accuracy 91,012%, macro F1 0,910118 và loss 0,346539. Exercise 1, hai biểu đồ và demo đều có kết quả mới trong notebook. [Báo cáo đánh giá](report/evaluate-20261112-204226-805293/summary.md), [suy luận đa ngôn ngữ](report/infer-20261112-204208-788129/summary.md).
+
+Bộ kiểm thử đạt 43 test, gồm CLI, report và logic bản Quốc An. Smoke pretrained mới chạy hai optimizer step, lưu/nạp đủ năm checkpoint và verifier đạt 48 artifact. [Báo cáo smoke](report/cli-smoke-20261112-204427-088939/summary.md), [đối chiếu nguồn](report/completion-review-20261112/summary.md). Các số đo full mới thuộc phép đánh giá checkpoint đã có. Thông tin lần train gốc được đối chiếu trong `IMPORT.json`.
+
+Người hoàn thiện và kiểm chứng ngày 2026-11-12 là HoangDang, hỗ trợ OpenAI Codex. Nguồn code, metadata tác giả và các snapshot lịch sử được ghi trong Git và hồ sơ tương ứng.
 
 ## Nguồn và phạm vi
 

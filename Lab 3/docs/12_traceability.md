@@ -25,6 +25,7 @@
 | R-10 Thời gian train/checkpoint | `04_training.md` §6 | `notebook_helpers.py`: `TrainingTime`, `train_and_save`; CLI `CheckpointCallback`, `train_run` | Hai lượt train riêng, đủ 3 epoch, lỗi giữa lượt; 5 checkpoint CLI có thời gian |
 | R-09 Nguồn MD | `11_AI_Usage.md` §2 | `record_provenance`, `audit_sources` | CLI audit; artifact hash |
 | R-11 Report riêng/từng file | `08_implementation.md` §9; `05_evaluation.md` §3 | `reporting.py`: `RunReport`, `collect_output`, `verify_report`; tích hợp notebook/CLI | `test_reporting.py`: console nguyên nội dung, hash, nhập log cũ, ngắt, train/evaluate model nhỏ; chạy notebook thực |
+| R-12 Nạp checkpoint sau nhập nhánh | `08_implementation.md` §10 | `notebook_helpers.py`: `available_checkpoint`; notebook Step 3 | Config thiếu trọng số, checkpoint nhập còn đủ, pointer LFS và Run All trên dữ liệu thật |
 
 Các hàm trong bảng thuộc `lab3.py`, trừ các tiện ích có ghi rõ file.
 

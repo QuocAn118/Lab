@@ -20,9 +20,11 @@ Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng d�
 | --- | --- | --- |
 | Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 17 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm trực tiếp trong repo, input/model qua Git LFS; xem README Lab 1 |
 | Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | 85 test offline và 3 smoke thật đạt; đã nhận phiên TV3 Thanh Bình (4 cấu hình, 12 checkpoint LFS), đã tái lập bốn cấu hình, test 87,68% với DenseNet121; chưa nghiệm thu KPI tốc độ T4; xem README Lab 2 |
-| Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | Có notebook/pipeline và báo cáo lịch sử; bản nhập QuocAn và snapshot ThanhBinh được phân biệt rõ, chưa chạy lại trên môi trường hiện tại |
+| Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | 43 test, smoke pretrained và notebook tám cell đạt trên môi trường hiện tại; đánh giá lại 25.000 test đạt accuracy 91,012%; xem hồ sơ kiểm chứng Lab 3 |
 
 Mỗi lab có hướng dẫn môi trường, cách chạy và tiến độ riêng. Các template `01_DEFINE.md`, `05_TOOLS.md`, `06_VERIFICATION.md`, `08_RELEASE.md` nằm trong `workflow/docs/`; không mặc định các file đó tồn tại trong `Lab X/docs/`.
+
+[Rà soát và hoàn thiện ba lab ngày 2026-11-12](COMPLETION_REVIEW_2026-11-12.md) ghi các sửa đổi, phép kiểm chứng và hạng mục còn chờ kết quả Colab T4.
 
 ## Cấu trúc đang dùng
 
@@ -64,4 +66,4 @@ Tài liệu đang dùng có bảng thông tin mục 0. Người tạo chưa xác
 ## Nguồn và phạm vi
 
 - README, đặc tả và tiến độ hiện có của Lab 1–3; cấu trúc Git sau đồng bộ ngày 2026-11-11.
-- Yêu cầu chuẩn hóa tài liệu của người dùng; HoangDang chịu trách nhiệm tích hợp với hỗ trợ OpenAI Codex. Phần Lab 2 được hoàn thiện code và bàn giao kế hoạch train; chưa sinh kết quả thực nghiệm CIFAR-10.
+- Yêu cầu hoàn thiện cả ba lab của người dùng; HoangDang chịu trách nhiệm tích hợp với hỗ trợ OpenAI Codex. Các lần chạy, báo cáo nhập lịch sử và phép kiểm chứng mới có hồ sơ nguồn, người thực hiện và thời gian tương ứng.

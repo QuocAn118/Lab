@@ -1,3 +1,4 @@
+# Sources: docs/training.md; docs/lab_3_description.md; docs/08_implementation.md §10
 """Exercise 2, bước 5 và 6: khai báo tham số, tạo Trainer và fine-tune. Đặc tả: docs/training.md."""
 import importlib.metadata
 import shutil
@@ -14,7 +15,7 @@ from transformers import (
     set_seed,
 )
 
-from exercise_2.common import config_from_args, peak_ram_gb, project_path, update_report
+from exercise_2.common import config_from_args, peak_ram_gb, project_path, read_report, update_report
 from exercise_2.data import load_splits, tokenize_dataset
 from exercise_2.evaluation import compute_metrics
 from exercise_2.model import load_model, load_tokenizer
@@ -120,6 +121,12 @@ def build_training_args(config, output_dir):
 
 def main():
     config = config_from_args(__doc__)
+    checkpoints_dir = project_path(config["paths"]["checkpoints_dir"])
+    if checkpoints_dir.exists() and any(checkpoints_dir.iterdir()):
+        raise FileExistsError(f"Đã có checkpoint tại {checkpoints_dir}. Dùng config phiên mới.")
+    report_path = project_path(config["paths"]["reports_dir"]) / "metrics.json"
+    if report_path.exists() and "training" in read_report(config):
+        raise FileExistsError(f"Đã có kết quả training tại {report_path}. Dùng config phiên mới.")
     set_seed(config["seed"])
     gpu = torch.cuda.is_available()
     if gpu:
@@ -129,7 +136,6 @@ def main():
 
     tokenizer = load_tokenizer(config)
     train, val, _ = load_splits(config)  # Tập test chỉ được dùng trong evaluation.py.
-    checkpoints_dir = project_path(config["paths"]["checkpoints_dir"])
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     callback = CheckpointCallback(tokenizer, checkpoints_dir)
     training = config["training"]

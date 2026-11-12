@@ -1,3 +1,4 @@
+# Sources: docs/lab_3_description.md; docs/08_implementation.md §10
 """Tiện ích dùng chung của Exercise 2: đọc cấu hình, ghi báo cáo, đo RAM."""
 import argparse
 import json
@@ -39,7 +40,7 @@ def update_report(config, section, values):
     path.parent.mkdir(parents=True, exist_ok=True)
     report = read_report(config) if path.exists() else {}
     report[section] = values
-    path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False), encoding="utf-8")
 
 
 def ci_half_width(accuracy, sample_count):

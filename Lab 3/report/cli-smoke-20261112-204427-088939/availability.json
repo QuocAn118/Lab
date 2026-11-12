@@ -1,0 +1,16 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "original_output": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047",
+  "not_present_in_original_output": [
+    "failure.json",
+    "timing_sources.md"
+  ],
+  "note": "Only files present at collection time are copied; missing logs are not reconstructed."
+}

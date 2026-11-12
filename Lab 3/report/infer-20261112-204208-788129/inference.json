@@ -1,0 +1,27 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "model": "tabularisai/multilingual-sentiment-analysis",
+  "text": "Bộ phim này rất hay!",
+  "tokens": [
+    "Bộ",
+    "phim",
+    "này",
+    "rất",
+    "hay",
+    "!"
+  ],
+  "model_revision": "eea032081f8d247b4303ef3565e7cec1b6f201c9",
+  "predictions": [
+    {
+      "label": "Positive",
+      "score": 0.6520066261291504
+    }
+  ]
+}

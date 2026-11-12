@@ -3,4 +3,5 @@
 report/** -text -whitespace
 outputs/** -text -whitespace
 checkpoints/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
+outputs/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
 outputs/imported-thanhbinh-40acced/**/*.safetensors filter=lfs diff=lfs merge=lfs -text

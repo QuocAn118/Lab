@@ -1,3 +1,4 @@
+# Sources: docs/data.md; docs/lab_3_description.md
 """Exercise 2, bước 2 và 4: tải IMDB, chia tập và tiền xử lý. Đặc tả: docs/data.md."""
 from collections import Counter
 

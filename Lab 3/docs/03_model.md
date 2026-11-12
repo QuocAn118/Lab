@@ -141,8 +141,8 @@ Các đường dẫn dưới đây tính từ thư mục repo `Lab/`.
 
 | Mục | Đường dẫn | Tình trạng |
 | --- | --- | --- |
-| Model full đang dùng | `Lab 3/outputs/full/checkpoints/best/` | Có config, trọng số, tokenizer và file thời gian |
-| Trọng số | `Lab 3/outputs/full/checkpoints/best/model.safetensors` | Có |
+| Model full đang dùng | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/` | Đã nạp và đánh giá lại trên 25.000 test ngày 2026-11-12 |
+| Trọng số | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/model.safetensors` | Git LFS, hash khớp biên bản nhập |
 | Cấu hình | `Lab 3/outputs/full/checkpoints/best/config.json` | Có |
 | Tokenizer | `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json`, `vocab.txt` trong thư mục best | Có |
 | Thời gian model/run cũ | `Lab 3/outputs/full/checkpoints/best/training_time.json` | Khôi phục từ báo cáo, không có timestamp gốc |
@@ -157,6 +157,8 @@ Các đường dẫn dưới đây tính từ thư mục repo `Lab/`.
 Để nạp bản full, dùng `AutoModelForSequenceClassification.from_pretrained('Lab 3/outputs/full/checkpoints/best')` cùng tokenizer ở chính thư mục đó.
 
 ## Nguồn và phạm vi
+
+Ngày 2026-11-12 đã kiểm lại toàn bộ 176 file của bản nhập, gồm 20 file trọng số. Các hàng đường dẫn `outputs/full/` còn lại trong bảng phản ánh phần metadata cũ còn ở đó. Bộ năm checkpoint đầy đủ có trong snapshot nhập. Notebook chọn thư mục có trọng số nhị phân và ghi đường dẫn vào report. [Biên bản nhập đã đối chiếu](../report/completion-review-20261112/intake_check.json), [đánh giá mới](../report/evaluate-20261112-204226-805293/metrics.json).
 
 - [08_implementation.md §8](08_implementation.md): các trường hồ sơ và xác nhận HoangDang ở vai trò người tạo/người cập nhật.
 - [01_lab_3_description.md](01_lab_3_description.md), [02_data.md](02_data.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md): mục đích, dữ liệu và phương pháp.

@@ -1,0 +1,3 @@
+{"recorded_at": "2026-11-12T20:42:26.839016+07:00", "event": "run_started", "kind": "evaluate"}
+{"recorded_at": "2026-11-12T20:43:15.421560+07:00", "event": "test_evaluated", "metrics": {"test_loss": 0.3465386629104614, "test_model_preparation_time": 0.002, "test_accuracy": 0.91012, "test_precision": 0.913727705592769, "test_recall": 0.90576, "test_f1_binary": 0.9097264071351091, "test_f1_macro": 0.9101182913846719, "test_runtime": 48.3776, "test_samples_per_second": 516.768, "test_steps_per_second": 32.308}, "samples": 25000}
+{"recorded_at": "2026-11-12T20:43:15.814827+07:00", "event": "run_finished", "status": "completed"}

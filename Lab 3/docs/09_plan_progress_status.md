@@ -14,6 +14,8 @@
 
 ## 1. Kết quả ngày 2026-11-06
 
+Trạng thái kiểm lại ngày 2026-11-12 được ghi tại `06_verification.md` mục 7. Notebook tám cell đã chạy trên checkpoint nhập với đủ 25.000 test. Bộ kiểm thử hiện tại đạt 43 test, smoke pretrained mới và manifest artifact đạt. HoangDang/OpenAI Codex thực hiện sửa đường dẫn nạp model, nối lại tiện ích report/thời gian và bổ sung kiểm tra bảo vệ phiên trong bản Quốc An.
+
 | Task | Công việc | Trạng thái | Bằng chứng |
 | --- | --- | --- | --- |
 | TASK-01 | Chốt đặc tả và nguồn AI | DONE | 08_implementation.md, 11_AI_Usage.md, 10_sources.md, 12_traceability.md |
