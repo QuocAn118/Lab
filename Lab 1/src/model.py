@@ -1,6 +1,11 @@
+"""Mô hình FashionMLP cho phân loại FashionMNIST.
+
+Spec: docs/requirements/3_3_build_model.md
+"""
 import torch
 from torch import nn
 from pathlib import Path
+from run_tracking import record_artifact
 
 class FashionMLP(nn.Module):
   def __init__(self, model_config):
@@ -82,6 +87,8 @@ def check_model():
         f.write(f"Tổng tham số: {total_params}\n")
         f.write(f"Tham số được phép học: {trainable_params}\n")
 
+    record_artifact(summary_path, specs=["docs/requirements/3_3_build_model.md"],
+                    note="Architecture check; not training evidence")
     print("Đã lưu báo cáo:", summary_path)
 
 if __name__ == "__main__":

@@ -1,10 +1,28 @@
 # Báo Cáo Đánh Giá (Performance Evaluation) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Báo Cáo Đánh Giá (Performance Evaluation) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
+| Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |
+| Người cập nhật nguồn code evaluation | Nguyễn Quốc An (Quoc An), `32ca8b1`, 2026-11-10T21:18:59+07:00 |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
 > **Trạng thái**: Chưa có số liệu chính thức. Mọi ô "Chờ Colab" sẽ được điền từ `reports/metrics.json` sau lần chạy thật trên Colab.
 
 Mã nguồn: `src/lab_2/evaluation.py`.
 
-> **Phụ trách**: TV4. Đặc tả từng hàm cần viết nằm ở mục 8. Sau khi chạy Colab, TV4 điền số thật vào các mục dưới đây và viết nhận xét Exercise 1, 2.
+**Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có hỗ trợ Claude Code, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang/OpenAI Codex tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
+
+> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Sau khi chạy Colab, TV4 điền số thật vào các mục dưới đây và viết nhận xét Exercise 1, 2.
+
+> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
 
 ## 1. So Sánh Các Lần Chạy (Exercise 1 và 2)
 
@@ -103,7 +121,7 @@ Kết quả trong notebook cũ `notebooks/Lab 2.ipynb`. Lần chạy này khác 
 
 ## 8. Đặc Tả Mã Nguồn (TV4)
 
-**File cần tạo**: `src/lab_2/evaluation.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`; TV1, TV2 đã đẩy `data.py`, `model.py`; TV3 đã đẩy `select_best_run`.
+**File đã triển khai**: `src/lab_2/evaluation.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`; TV1, TV2 đã đẩy `data.py`, `model.py`; TV3 đã đẩy `select_best_run`.
 **Người khác dùng lại**: `evaluate_model` (TV3), `style_axis`, `SERIES`, `SURFACE` (TV5).
 
 **Đầu file**: Gọi `matplotlib.use("Agg")` trước khi import `matplotlib.pyplot`, vì `!python` trên Colab thừa hưởng backend inline của notebook.
@@ -119,11 +137,11 @@ SERIES = [("#2a78d6", "o"), ("#eb6834", "s"), ("#1baf7a", "^"), ("#eda100", "D")
 
 Bảng màu này đã qua validator. Mỗi màu đi với một hình marker riêng để người khó phân biệt màu vẫn đọc được biểu đồ.
 
-Viết theo thứ tự dưới đây. Các test nằm trong `tests/test_evaluation.py`.
+Giao diện triển khai và test tương ứng như dưới đây. Các test nằm trong `tests/test_evaluation.py`.
 
 #### `evaluate_model(model, loader, device)`
 - **Trả về**: Dict `loss`, `accuracy`, `predictions` (list), `labels` (list).
-- **Quy tắc**: `model.eval()` và `torch.no_grad()`. `loss` là trung bình theo ảnh: cộng `cross_entropy(..., reduction="sum")` rồi chia cho số ảnh, vì batch cuối có thể nhỏ hơn.
+- **Quy tắc**: Loader rỗng hoặc logits không hữu hạn báo lỗi. `model.eval()` và `torch.no_grad()`. `loss` là trung bình theo ảnh: cộng `cross_entropy(..., reduction="sum")` rồi chia cho số ảnh, vì batch cuối có thể nhỏ hơn.
 - **Test**: `test_evaluate_model_computes_accuracy_loss_and_predictions`.
 
 #### `kpi_status(value, target, higher_is_better)`
@@ -164,7 +182,7 @@ Mỗi lần chạy một đường `val_accuracy` theo epoch, dùng lần lượ
 - **Cách làm**: `shutil.copyfile` từ `<checkpoints_dir>/<run_name>/best_val_acc.pth` sang file tạm, rồi `os.replace`.
 
 #### `main()`
-1. `runs = completed_runs(config, read_report(config))`, `best_name = select_best_run(runs)`.
+1. Chặn nếu báo cáo đã có `evaluation`; yêu cầu đủ 4 run và `config` trong từng summary khớp config hiện tại. Chọn `best_name = select_best_run(runs)` bằng validation.
 2. Nếu có GPU thì `reset_peak_memory_stats`. Nạp `load_checkpoint(copy_best(config, best_name), device)`.
 3. Lấy tập test từ `load_splits`, đánh giá với `make_loader(test, eval_batch_size, config)`.
 4. Tính bằng `sklearn.metrics`, luôn truyền `labels=list(range(10))`, `zero_division=0` nếu hàm có tham số này:

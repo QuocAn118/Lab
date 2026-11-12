@@ -1,8 +1,27 @@
 # Kiến Trúc Mô Hình (Model Specification) — Lab 2
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Kiến Trúc Mô Hình (Model Specification) — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
+| Last updated | 2026-11-11T11:13:30+07:00 |
+| Updated by — nguồn đặc tả giao diện | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `0f71b4f` |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
+> Code gốc của Xuân Bảo (`hbao2123-debug`) đã được tích hợp vào `src/lab_2/model.py`. `Lab 2/model.py` hiện là entry point tương thích cho lệnh/test cũ. Hai báo cáo triển khai model giữ nguồn và kết quả lịch sử; báo cáo package dùng hợp đồng `total`/`trainable`.
+
+Ghi nhận nguồn ngày 2026-11-12: Nguyễn Quốc An thực hiện phần đặc tả giao diện và bộ test nền; phần triển khai model của Xuân Bảo được ghi riêng như trên. HoangDang/OpenAI Codex đối chiếu lịch sử và bổ sung thông tin này; không thay tên tác giả code model hoặc các báo cáo triển khai của Bảo.
+
 Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2.yaml`.
 
-> **Phụ trách**: TV2. Đặc tả từng hàm cần viết nằm ở mục 7.
+> **Phụ trách**: TV2. Đặc tả từng hàm đã triển khai nằm ở mục 7.
+
+> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
 
 ## 1. Model Sử Dụng
 
@@ -60,13 +79,13 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 
 ## 7. Đặc Tả Mã Nguồn (TV2)
 
-**File cần tạo**: `src/lab_2/model.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`.
+**File đã triển khai**: `src/lab_2/model.py`. **Điều kiện trước**: TV5 đã đẩy `common.py`.
 **Lấy từ `common.py`**: `argument_parser`, `load_config`, `update_report`.
 **Người khác dùng lại**: `build_model`, `save_checkpoint`, `set_train_mode`, `trainable_parameters` (TV3), `load_checkpoint` (TV4, TV5), `head_of` (`test_smoke.py`).
 
 Hằng số: `NUM_CLASSES = 10`, `HEADS = {"resnet18": "fc", "densenet121": "classifier"}`, `SUPPORTED_MODELS = tuple(HEADS)`.
 
-Viết theo thứ tự dưới đây. Mỗi hàm có các test tương ứng trong `tests/test_model.py`.
+Giao diện triển khai và test tương ứng như dưới đây. Mỗi hàm có các test tương ứng trong `tests/test_model.py`.
 
 #### `build_model(name, dropout, unfreeze=(), pretrained=True)`
 - **Trả về**: Model có đầu ra 10 lớp.

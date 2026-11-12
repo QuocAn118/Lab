@@ -1,120 +1,64 @@
 # Practice 2 — Hands-on Practice with Pre-trained Neural Network Architectures
 
-Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR-10 và làm 3 Exercise:
-- **Exercise 1**: So sánh ResNet18 với DenseNet121.
-- **Exercise 2**: Điều chỉnh learning rate và batch size.
-- **Exercise 3**: Theo dõi quá trình huấn luyện bằng TensorBoard.
+## 0. Thông tin tài liệu
 
-> **Trạng thái**: Chưa có code. 5 thành viên tự tạo `src/lab_2/` và `notebooks/Lab_2_colab.ipynb` theo đặc tả trong `docs/`. Bài chưa chạy được cho đến khi các phần được viết xong.
+| Trường | Nội dung |
+| --- | --- |
+| Name | Practice 2 — Hands-on Practice with Pre-trained Neural Network Architectures |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
+| Last updated | 2026-11-11T11:13:30+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-## Phân Công
+**Trạng thái: đã chuẩn bị code để bàn giao train; chưa nghiệm thu bài thực nghiệm.** Bám đặc tả trên `main` tại `a7b7ef8`: ResNet18/DenseNet121 pre-trained, 4 run, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
 
-| Thành viên | Tạo file | Đặc tả từng hàm | Kiểm tra |
-| :---: | :--- | :--- | :--- |
-| **TV1** | `src/lab_2/data.py` | `docs/data.md` mục 5 | `tests/test_data.py` |
-| **TV2** | `src/lab_2/model.py` | `docs/model.md` mục 7 | `tests/test_model.py` |
-| **TV3** | `src/lab_2/training.py` | `docs/training.md` mục 8 | `tests/test_training.py`, `tests/test_smoke.py` |
-| **TV4** | `src/lab_2/evaluation.py` | `docs/evaluation.md` mục 8 | `tests/test_evaluation.py` |
-| **TV5** | `src/lab_2/common.py`, `src/lab_2/demo.py`, `notebooks/Lab_2_colab.ipynb` | `docs/lab_2_description.md` mục 9, `docs/demo.md` mục 4 | `tests/test_common.py`, `tests/test_demo.py`, `tests/test_integration.py` |
+Đã có đủ 6 module package và notebook Colab. Kiểm tra offline ngày 2026-11-12: **74 passed**, gồm 60 test package (20 test dữ liệu) và 14 test tương thích model cũ. Mọi dữ liệu/model dùng trong bộ test offline đều là dữ liệu giả/trọng số khởi tạo, không phải kết quả huấn luyện CIFAR-10. Xem [bằng chứng kiểm chứng](docs/verification.md).
 
-Thứ tự làm và cách đẩy code: xem [`plan_progress_status.md`](./docs/plan_progress_status.md) mục 2. TV5 làm `common.py` đầu tiên vì mọi file đều cần file này.
+## Bàn giao cho bạn train
 
-## Bắt Đầu Viết Phần Của Bạn
+Đọc [kế hoạch train và bàn giao](docs/training_handoff.md), mở [Lab_2_colab.ipynb](notebooks/Lab_2_colab.ipynb). Chọn T4 GPU, điền đường dẫn project, họ tên người chạy và mã phiên trong cell đầu. Notebook chạy lần lượt kiểm tra offline → tải dữ liệu/model → smoke thật → 4 run → đánh giá → demo → TensorBoard. Lệnh lỗi sẽ dừng cell bằng `check=True`.
 
-Lấy code về:
+Code đã chuẩn bị trên nhánh `hoangdang`, nền là `main` tại `a7b7ef8`; dùng bản bàn giao mới nhất trên nhánh này cho đến khi PR được merge. Không lấy riêng các file từ nhánh cá nhân cũ.
 
-```bash
-git clone -b main https://github.com/QuocAn118/Lab.git
+## Code, input và output
+
+| Thành phần | Vị trí | Vai trò |
+| --- | --- | --- |
+| Cấu hình chuẩn | [configs/lab_2.yaml](configs/lab_2.yaml) | Dataset, 4 run, early stopping, KPI; giữ nguyên khi so sánh |
+| Tiện ích | [common.py](src/lab_2/common.py) | Đọc YAML, cập nhật JSON nguyên tử, đo RAM |
+| Input | [data.py](src/lab_2/data.py) | Tải CIFAR-10, chia tập seed 42, augmentation/chuẩn hóa |
+| Model | [model.py](src/lab_2/model.py) | Model 10 lớp, đóng băng/mở khóa, checkpoint |
+| Training | [training.py](src/lab_2/training.py) | AdamW, scheduler, checkpoint, early stopping, TensorBoard |
+| Đánh giá | [evaluation.py](src/lab_2/evaluation.py) | Chọn bằng validation, test một lần, KPI và biểu đồ |
+| Demo | [demo.py](src/lab_2/demo.py) | Ảnh test hoặc ảnh của bạn → 10 xác suất và nhãn dự đoán |
+
+Input model: tensor float32 `[B,3,224,224]`, chuẩn hóa theo ImageNet; nhãn int64 0–9. Output: logits `[B,10]`; demo đổi thành xác suất bằng softmax.
+
+Notebook tạo config phiên trong `configs/sessions/<SESSION_ID>.yaml`; output thực tế nằm dưới `reports/sessions/<SESSION_ID>/`: `checkpoints/`, `reports/metrics.json`, `reports/runs/`, `reports/figures/`. Phiên mới không ghi đè báo cáo lịch sử `reports/metrics.json`. Các đường dẫn `checkpoints/`, `reports/` trong đặc tả là mặc định của config gốc; config phiên chỉ đổi nơi lưu, giữ nguyên tham số thí nghiệm.
+
+Phần dữ liệu của Vân Anh đã kiểm chứng với CIFAR-10 thật trên Windows ngày 2026-11-12: checksum đúng, chia tập 22.500/2.500/5.000, batch/transform/CLI báo cáo đạt; xem [bằng chứng dữ liệu](reports/data_validation_2026-11-12.json). Dataset đã tải nằm trong `data/`, bị Git bỏ qua; máy mới cần tải lại. **Chưa có** checkpoint đã train, accuracy chính thức hay log TensorBoard của 4 run. [metrics.json hiện có](reports/metrics.json) là báo cáo tham số lịch sử của Bảo; giữ nguyên, chưa phải kết quả training.
+
+## Kiểm tra offline trên máy cá nhân
+
+Từ `Lab 2/`, dùng Python 3.12 và môi trường riêng:
+
+```powershell
+python -m venv .venv
+& .venv/Scripts/python.exe -m pip install -r requirements.txt
+$env:PYTHONPATH = 'src'
+$env:PYTHONUTF8 = '1'
+& .venv/Scripts/python.exe -m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
 ```
 
-Đứng trong thư mục `Lab 2`:
+Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Colab dùng `export PYTHONPATH=src` và `python` của môi trường tương ứng. Bộ smoke thật nằm riêng trong `tests/test_smoke.py`, dành cho người train thực hiện trước 4 run.
 
-```bash
-pip install -r requirements.txt
+## Tài liệu và nguồn
 
-# Windows PowerShell: $env:PYTHONPATH = "src"
-# Linux, macOS, Colab:
-export PYTHONPATH=src
+- [Đặc tả tổng quan](docs/lab_2_description.md), [dữ liệu](docs/data.md), [model](docs/model.md), [huấn luyện](docs/training.md).
+- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): giữ ô chờ số đo thật.
+- [Tiến độ, phân công và khai báo AI](docs/plan_progress_status.md).
+- [Triển khai model gốc](docs/model_implementation.md), [bản tiếng Việt](docs/model_vi.md): nguồn Xuân Bảo; đã chuyển code sang package, giữ `model.py` làm lệnh tương thích cho `test.py` cũ.
 
-python -m pytest tests/test_data.py -q   # đổi thành file test của bạn
-```
-
-Ban đầu test báo `ModuleNotFoundError` vì chưa có file. Tạo file của bạn theo đặc tả, viết từng hàm và chạy test cho đến khi đạt. Máy cá nhân chỉ cần chạy test; việc huấn luyện đầy đủ chạy trên Colab.
-
-## Cấu Trúc Thư Mục
-
-```text
-Lab 2/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── configs/lab_2.yaml           # Tham số và 4 lần chạy
-├── docs/                        # 7 file đặc tả
-├── notebooks/
-│   ├── Lab_2_colab.ipynb        # TV5 tạo: Notebook chạy trên Colab, chỉ gọi code trong src/
-│   └── Lab 2.ipynb              # Notebook cũ, giữ làm tham khảo
-├── src/lab_2/                   # Các thành viên tự tạo
-│   ├── common.py                # TV5: Đọc cấu hình, ghi báo cáo, đo RAM
-│   ├── data.py                  # TV1: Bước 5
-│   ├── model.py                 # TV2: Bước 2, 3, 4
-│   ├── training.py              # TV3: Bước 6, Exercise 1, 2, 3
-│   ├── evaluation.py            # TV4: Bước 7
-│   └── demo.py                  # TV5
-├── tests/
-│   ├── conftest.py              # Fixture dùng chung
-│   ├── test_common.py           # TV5
-│   ├── test_data.py             # TV1
-│   ├── test_model.py            # TV2
-│   ├── test_training.py         # TV3
-│   ├── test_evaluation.py       # TV4
-│   ├── test_demo.py             # TV5
-│   ├── test_integration.py      # Cả nhóm: ghép các file
-│   └── test_smoke.py            # TV3: Smoke test 2 batch
-├── reports/                     # Tạo khi chạy: metrics.json, figures/, runs/
-├── checkpoints/                 # Tạo khi chạy
-└── data/                        # Tạo khi chạy, không đưa lên git
-```
-
-## Cách Chạy Trên Google Colab
-
-Làm sau khi các phần đã được ghép xong.
-
-1. Tải cả thư mục `Lab 2` lên `MyDrive` trên Google Drive. Drive cần trống khoảng 1 GB.
-2. Mở `notebooks/Lab_2_colab.ipynb` bằng Google Colab.
-3. Chọn **Runtime → Change runtime type → T4 GPU**.
-4. Chọn **Run all** và cho phép Colab truy cập Drive khi được hỏi.
-5. Chụp biểu đồ TensorBoard ở cell cuối, lưu tại `reports/figures/tensorboard.png`.
-6. Lấy kết quả trong `reports/metrics.json` và `reports/figures/` để điền vào `docs/evaluation.md`, `docs/demo.md`.
-
-Nếu đặt thư mục ở nơi khác trên Drive, hãy sửa `PROJECT_DIR` trong cell đầu của notebook.
-
-Muốn chạy từng phần, hãy đứng trong thư mục `Lab 2` và đặt `PYTHONPATH=src`:
-
-```bash
-python -m pytest tests -q -s
-python -m lab_2.data
-python -m lab_2.model
-python -m lab_2.training --run resnet18_baseline
-python -m lab_2.training --run densenet121
-python -m lab_2.training --run resnet18_lr1e-2
-python -m lab_2.training --run resnet18_bs128
-python -m lab_2.evaluation
-python -m lab_2.demo
-tensorboard --logdir reports/runs
-```
-
-## Tài Liệu Đặc Tả
-
-1. **[`lab_2_description.md`](./docs/lab_2_description.md)**: Bài toán, đối chiếu đề bài, thiết kế, KPI, checkpoint, bảng nghiệm thu.
-2. **[`data.md`](./docs/data.md)**: Nguồn dữ liệu, cách chia tập, tiền xử lý, `DataLoader`.
-3. **[`model.md`](./docs/model.md)**: Các model, lớp phân loại, đóng băng và fine-tuning, số tham số.
-4. **[`training.md`](./docs/training.md)**: Siêu tham số, các lần chạy, smoke test, TensorBoard, early stopping.
-5. **[`evaluation.md`](./docs/evaluation.md)**: So sánh các lần chạy, đối chiếu KPI, kết quả test.
-6. **[`demo.md`](./docs/demo.md)**: Lệnh chạy và kết quả suy luận.
-7. **[`plan_progress_status.md`](./docs/plan_progress_status.md)**: Thành viên, cách làm việc nhóm, tiến độ, nhật ký, việc dùng AI.
-
-## Giới Hạn
-
-- Bài dùng một nửa dữ liệu CIFAR-10 và tối đa 6 epoch để giảm thời gian dùng GPU.
-- Fine-tuning `layer4` chỉ được kiểm tra bằng smoke test, không có lần chạy đầy đủ.
-- Nếu Colab ngắt phiên giữa lúc huấn luyện thì phải chạy lại lần đang chạy dở.
+Không ghi đè run đã có log/checkpoint/kết quả. Nếu phiên dở dang cần chạy lại, dùng mã phiên mới; giữ phiên cũ làm bằng chứng. Không bảo đảm đạt KPI trước khi đo; GPU khác T4 phải ghi rõ, không trình bày như số đo trên T4.

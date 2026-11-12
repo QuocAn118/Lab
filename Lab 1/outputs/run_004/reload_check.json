@@ -1,0 +1,10 @@
+{
+  "run_id": "run_004",
+  "checkpoint": "checkpoints/run_004/best.pth",
+  "device": "cpu",
+  "checked_samples": 16,
+  "labels_match": true,
+  "max_abs_logit_difference": 0.0,
+  "tolerance": 1e-06,
+  "passed": true
+}

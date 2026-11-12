@@ -1,0 +1,8 @@
+{
+  "run_id": "smoke_001",
+  "verified_at": "2026-11-11T09:40:30+07:00",
+  "phase": "before_manifest",
+  "num_samples": 256,
+  "passed": true,
+  "errors": []
+}

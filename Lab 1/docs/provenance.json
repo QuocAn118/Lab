@@ -2,11 +2,35 @@
   "schema_version": 1,
   "entries": [
     {
+      "path": ".gitattributes",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:55:36+07:00",
+      "status": "active",
+      "note": "Preserve generated artifact bytes and manifest sizes across checkout platforms.",
+      "reviews": [
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
       "path": ".gitignore",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.4"
         }
       ],
@@ -15,14 +39,61 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Soạn với Claude Code",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Ignore raw dataset only"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "README.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -31,14 +102,372 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Tạo 2026-11-04 (ca3b03e)",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Link data module"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "data/README.md",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
+        },
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:17:42+07:00",
+      "status": "active",
+      "note": "Data layout and commands",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final commands reviewed"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "data/data_pipeline.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.2; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/data_pipeline.py -> data/data_pipeline.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "Update module and report paths"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "data/prepare_data.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:15:59+07:00",
+      "status": "active",
+      "note": "Implement 3.1; human review pending",
+      "reviews": [
+        {
+          "at": "2026-11-10T16:17:41+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Moved src/prepare_data.py -> data/prepare_data.py: Group data module"
+        },
+        {
+          "at": "2026-11-10T16:17:42+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Update module and report paths"
+        },
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "Final data directory layout"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/AI_Usage.md",
+      "sources": [
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Codex",
+      "recorded_at": "2026-11-10T16:16:00+07:00",
+      "status": "active",
+      "note": "AI disclosure",
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/data.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -47,14 +476,61 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:00+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Implement data sections 3.1 and 3.2"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/demo.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -63,14 +539,55 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/evaluation.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -79,7 +596,48 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/lab_1_description.md",
@@ -106,7 +664,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -115,14 +673,55 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/plan_progress_status.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -131,14 +730,67 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:16:17+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data implementation and actual validation results"
+        },
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data layout update"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/provenance.json",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.2"
         }
       ],
@@ -147,14 +799,55 @@
       "recorded_at": "2026-11-07T11:32:15+07:00",
       "status": "active",
       "note": "",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_1_prepare_data.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -163,14 +856,61 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:19+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Data reports directory"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_2_transforms_dataloader.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -179,14 +919,55 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_3_build_model.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -195,14 +976,55 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_4_train.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -211,14 +1033,55 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_5_evaluate.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -227,14 +1090,55 @@
       "recorded_at": "2026-11-07T11:32:13+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/requirements/3_6_save_load.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§6"
         }
       ],
@@ -243,14 +1147,55 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Chưa rõ người viết; lần đầu vào git ở d41a9fe (HoangDang commit). Cần đồng bộ với §6.1 checkpoint",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/team_plan_integrity.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4-§5"
         },
         {
@@ -262,14 +1207,93 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Soạn với Claude Code 2026-11-07, HoangDang rà",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/traceability.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "docs/training.md",
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§4"
         }
       ],
@@ -278,19 +1302,359 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Bản cũ tạo 2026-11-04 (aee3dd8), chưa đồng bộ với description bản 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/verification.md",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/team_plan_integrity.md",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "requirements.txt",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/verification.md",
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "src/compare_runs.py",
+      "sources": [
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        },
+        {
+          "path": "docs/evaluation.md",
+          "sha256": "3f98ee47f7fa2b1bbfe59fa704711b893b43df4b83c3150676511ef1a0fc5ac9"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/evaluation.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "src/demo.py",
+      "sources": [
+        {
+          "path": "docs/demo.md",
+          "sha256": "06f3660566323a66744470b199679f74218febc18060252adc680c8a4acb7bc7"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/demo.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "src/evaluate.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_5_evaluate.md",
+          "sha256": "afff0c5397ed371d83a6122885ada7514228e35e995782b5788c6bc048ced9aa"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:55+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_5_evaluate.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "src/model.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_3_build_model.md",
+          "sha256": "d8772a5a2b6c369d2ffd910722e48a87dc207a758de15e3c4717fc713b8b6a6c"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Van Anh",
+      "recorded_at": "2026-11-10T21:30:39+07:00",
+      "status": "active",
+      "note": "FashionMLP PyTorch implementation",
+      "reviews": [
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
+    },
+    {
+      "path": "src/model_io.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_6_save_load.md",
+          "sha256": "5ef7656dbfcbd2adf433062fcd93deaa54b2ffeac619de2fb60130b16270bba4"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "Van Anh",
+      "recorded_at": "2026-11-10T21:30:43+07:00",
+      "status": "active",
+      "note": "Luu va tai checkpoint model",
+      "reviews": [
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        }
+      ]
     },
     {
       "path": "src/run_tracking.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "§10"
         }
       ],
@@ -299,18 +1663,70 @@
       "recorded_at": "2026-11-07T11:32:14+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07; đã chạy thử smoke giả lập",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:21+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Include data module in code snapshots"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "src/train.py",
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "9329c867339fb8f83fe9b3afda4049032242c1e63c04d464faa0abd959ce52ba"
+          "sha256": "9b5b5b7a226e29f827485af8235b64b696ce3b21028f00f4b4bd9d3dea380c8f"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "eb12efe00bacefa49c55bc54c0299d5831628dc88884d4238b29fc55b2aa4020",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
           "section": "6.1"
         }
       ],
@@ -319,14 +1735,129 @@
       "recorded_at": "2026-11-10T09:06:40+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code (Claude Opus 5.5), TV3 review; test: tests/test_train.py",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "src/verify.py",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+        },
+        {
+          "path": "docs/lab_1_description.md",
+          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+        }
+      ],
+      "method": "ai-assisted",
+      "created_by": "HoangDang",
+      "recorded_at": "2026-11-11T09:39:56+07:00",
+      "status": "active",
+      "note": "Completed with OpenAI Codex; implementation and 17 tests reviewed; real runs pending.",
+      "reviews": [
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     },
     {
       "path": "tools/check_provenance.py",
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "d117bf5ef094846a465f2e2cf9d11ec0f70f96b88e52367f433a0bb71d417f67",
+          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
           "section": "§9"
         }
       ],
@@ -335,7 +1866,54 @@
       "recorded_at": "2026-11-07T11:32:15+07:00",
       "status": "active",
       "note": "Sinh bằng Claude Code 2026-11-07",
-      "reviews": []
+      "reviews": [
+        {
+          "at": "2026-11-10T16:18:20+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Track data code and reports; preserve registry on moves"
+        },
+        {
+          "at": "2026-11-10T21:01:47+07:00",
+          "by": "Codex",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Reviewed docs, paths and interfaces against current code; documented pending best checkpoint/evaluation/demo and existing provenance gaps. Runtime tests not verified: current Python lacks torch."
+        },
+        {
+          "at": "2026-11-11T08:55:27+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Static review with OpenAI Codex: documentation, paths, config, data/model/train/model I-O and provenance tooling checked. Metadata and workflow clarified; known best/evaluation/demo/sidecar-generation gaps remain documented. No runtime tests or regenerated artifacts."
+        },
+        {
+          "at": "2026-11-11T09:39:56+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Implementation review with OpenAI Codex: 17 tests passed, real data checked, GPU works; interfaces/docs aligned; real runs pending."
+        },
+        {
+          "at": "2026-11-11T09:55:36+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-11T10:16:25+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        }
+      ]
     }
   ]
 }

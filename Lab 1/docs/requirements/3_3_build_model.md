@@ -1,14 +1,30 @@
 # 3.3. Xây dựng mạng neural
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | 3.3. Xây dựng mạng neural |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận người tạo nội dung |
+| Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
+| Last updated | 2026-11-11T09:54:14+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
+Trạng thái: đã có code và `outputs/model_summary.txt`; báo cáo đã có sidecar nguồn gốc `.prov.json`, đã được tạo lại từ code đã commit. Bằng chứng huấn luyện nằm trong bốn normal run; summary chỉ là kiểm tra kiến trúc.
+
+`check_model()` ghi summary rồi gọi `record_artifact`; sidecar mới giữ lịch sử các lần tạo trước. Đã có test đối chiếu hash sidecar với summary; không sửa tay hash báo cáo.
+
 ## 1. Mục đích
 
 Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức lớp đầu vào, lớp ẩn, hàm kích hoạt và lớp đầu ra trong Chương 2.
 
 ## 2. File thực hiện
 
-- File code dự kiến: `src/model.py`.
+- File code: `src/model.py`.
 - Định nghĩa lớp `FashionMLP`, kế thừa `torch.nn.Module`, có phương thức `forward`.
-- Hàm dự kiến: `build_model(model_config)` trả về mô hình.
+- Hàm: `build_model(model_config)` trả về mô hình.
 - Được sử dụng bởi `src/train.py` và `src/model_io.py` khi khởi tạo hoặc tải lại mô hình.
 
 ## 3. Đầu vào
@@ -20,7 +36,7 @@ Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức
 
 ## 4. Các bước xử lý
 
-1. Kiểm tra cấu hình có số lớp đầu ra là 10 và các kích thước lớp ẩn là số nguyên dương.
+1. Kiểm tra cấu hình có số lớp đầu ra là 10, đúng hai lớp ẩn và kích thước lớp ẩn là số nguyên dương.
 2. Làm phẳng mỗi ảnh từ `[1, 28, 28]` thành vector 784 phần tử.
 3. Với cấu hình cơ sở, lần lượt áp dụng `Linear(784, 512)`, ReLU, `Linear(512, 512)`, ReLU và `Linear(512, 10)`.
 4. Trả về 10 điểm số thô (logits) cho mỗi ảnh. Không thêm Softmax trước `CrossEntropyLoss`.
@@ -39,7 +55,7 @@ Xây dựng mạng MLP cho phân loại FashionMNIST, vận dụng kiến thức
 
 ## 6. Cách chạy và kiểm tra
 
-Lệnh dự kiến từ thư mục `Lab 1`:
+Chạy từ thư mục `Lab 1`:
 
 ```powershell
 python src/model.py --check

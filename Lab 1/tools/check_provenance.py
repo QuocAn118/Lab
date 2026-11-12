@@ -24,7 +24,7 @@ from run_tracking import (  # noqa: E402
 )
 
 # Các file bắt buộc phải có trong sổ đăng ký nguồn gốc.
-COVERED_GLOBS = ["README.md", ".gitignore", "docs/**/*.md", "src/*.py", "tools/*.py"]
+COVERED_GLOBS = ["README.md", ".gitignore", "docs/**/*.md", "src/*.py", "tools/*.py", "data/*.py", "data/README.md"]
 HEADER_LINES = 15
 
 
@@ -133,7 +133,8 @@ def check_runs(rep: Report) -> None:
 def check_artifacts(rep: Report) -> None:
     if not OUTPUTS.is_dir():
         return
-    for p in sorted(OUTPUTS.iterdir()):
+    artifact_dirs = [OUTPUTS, LAB_ROOT / "data" / "reports"]
+    for p in sorted(p for folder in artifact_dirs if folder.is_dir() for p in folder.iterdir()):
         if not p.is_file() or p.name.endswith(SIDECAR_SUFFIX) or p.name.endswith(".tmp"):
             continue
         sidecar = p.with_name(p.name + SIDECAR_SUFFIX)
@@ -143,7 +144,7 @@ def check_artifacts(rep: Report) -> None:
         data = json.loads(sidecar.read_text(encoding="utf-8"))
         if data.get("sha256") != sha256_file(p):
             rep.error(f"[đầu ra] {rel(p)}: bị sửa sau khi tạo (hash không khớp {sidecar.name})")
-    for s in sorted(OUTPUTS.glob("*" + SIDECAR_SUFFIX)):
+    for s in sorted(p for folder in artifact_dirs for p in folder.glob("*" + SIDECAR_SUFFIX)):
         if not s.with_name(s.name[: -len(SIDECAR_SUFFIX)]).is_file():
             rep.error(f"[đầu ra] {rel(s)}: file gốc đã bị xóa")
 
@@ -212,15 +213,32 @@ def main() -> int:
     ap.add_argument("--source", action="append", metavar="PATH[#mục] | external:mô tả")
     ap.add_argument("--method", default="manual", choices=["manual", "ai-assisted", "generated-by-script"])
     ap.add_argument("--ack", metavar="PATH|all", help="ghi nhận đã rà lại sau khi nguồn thay đổi")
+    ap.add_argument("--move", nargs=2, metavar=("OLD", "NEW"), help="cập nhật đường dẫn file đã di chuyển")
     ap.add_argument("--by", help="người thực hiện (bắt buộc với --add/--ack)")
     ap.add_argument("--note")
     args = ap.parse_args()
 
     registry = load_registry()
-    if args.add or args.ack:
+    if args.add or args.ack or args.move:
         if not args.by:
             sys.exit("Cần --by <tên người thực hiện>")
-        cmd_add(registry, args) if args.add else cmd_ack(registry, args)
+        if args.move:
+            old, new = args.move
+            destination = (LAB_ROOT / new).resolve()
+            if not destination.is_relative_to(LAB_ROOT) or not destination.is_file():
+                sys.exit("Đường dẫn đích không hợp lệ")
+            matches = [e for e in registry["entries"] if e["path"] == old]
+            if len(matches) != 1 or any(e["path"] == new for e in registry["entries"]):
+                sys.exit("Đường dẫn nguồn không duy nhất hoặc đích đã đăng ký")
+            entry = matches[0]
+            entry["path"] = new
+            entry.setdefault("reviews", []).append({"at": now_iso(), "by": args.by,
+                                                     "sources_changed": [],
+                                                     "note": f"Moved {old} -> {new}: {args.note or ''}"})
+            save_registry(registry)
+            print(f"Moved {old} -> {new}")
+        else:
+            cmd_add(registry, args) if args.add else cmd_ack(registry, args)
         return 0
 
     rep = Report()

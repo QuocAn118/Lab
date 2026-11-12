@@ -7,8 +7,8 @@
 | Name | Phân công nhóm và bảo đảm toàn vẹn — Lab 1 |
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
-| Last updated | 2026-11-07 — thêm mục 9 Lưu vết |
-| Updated by | HoangDang |
+| Last updated | 2026-11-11T10:16:25+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
 
@@ -25,13 +25,13 @@ Theo hướng dẫn của cô: **không bắt buộc tự viết code**, nhưng 
 
 | Lớp | Yêu cầu | Cách thực hiện | Bằng chứng |
 | --- | --- | --- | --- |
-| **Dữ liệu** | Dataset gốc không bị sửa | Tính SHA-256 các file IDX trong `data/FashionMNIST/raw/` | `outputs/data_summary.json` |
-| | Split cố định, tái lập được | Chia 54.000/6.000 bằng seed 42, lưu chỉ số mẫu | `outputs/split_indices.json` |
-| | Không rò rỉ dữ liệu | Train ∩ val = ∅; test không dùng để train hay chọn checkpoint | `outputs/data_summary.json` (trường `overlap_train_val = 0`) |
+| **Dữ liệu** | Dataset gốc không bị sửa | Tính SHA-256 các file IDX trong `data/FashionMNIST/raw/` | `data/reports/data_summary.json` |
+| | Split cố định, tái lập được | Chia 54.000/6.000 bằng seed 42, lưu chỉ số mẫu | `data/reports/split_indices.json` |
+| | Không rò rỉ dữ liệu | Train ∩ val = ∅; test không dùng để train hay chọn checkpoint | `data/reports/data_summary.json` (trường `overlap_train_val = 0`) |
 | **Kết quả** | Mọi con số đến từ run thật | Mỗi run có manifest gồm hash từng file, git commit, người chạy, thời điểm bắt đầu/kết thúc | `outputs/<run_id>/manifest.json` |
-| | Số liệu tự nhất quán | Tính lại accuracy từ `predictions.csv` và so với `metrics.json`; kiểm tra hash khớp manifest | `outputs/<run_id>/verify_report.json` |
+| | Số liệu tự nhất quán | Trước khi chốt manifest: tính lại accuracy từ `predictions.csv` và so với `metrics.json`, ghi báo cáo. Sau khi chốt: kiểm hash bằng công cụ lưu vết, không ghi thêm file | `outputs/<run_id>/verify_report.json` |
 | | So sánh công bằng | Mọi normal run chạy trên cùng một máy; ghi thiết bị trong `performance.json` | `outputs/compare_runs.csv` |
-| **Tài liệu** | Các file khớp nhau và khớp code | Mỗi số liệu trong docs có link tới file nguồn trong `outputs/` | Các file `docs/*.md` |
+| **Tài liệu** | Các file khớp nhau và khớp code | Mỗi số liệu trong docs có link tới file nguồn trong `outputs/` hoặc `data/reports/` | Các file `docs/*.md` |
 | | Truy vết được | Bảng yêu cầu → code → kiểm tra → bằng chứng | `docs/traceability.md` |
 | | Biết ai sửa gì, vì sao | Mỗi file có bảng thông tin (mục 0); mọi thay đổi ghi changelog | `docs/plan_progress_status.md` |
 | | Khai báo AI | Ghi phần AI sinh, prompt chính, người review, phần đã sửa | `docs/AI_Usage.md` |
@@ -42,7 +42,7 @@ Mỗi người làm trọn vòng cho module của mình: **đặc tả → promp
 
 | Vai trò | Thành viên | Module | Code (AI hỗ trợ) | Tài liệu phụ trách | Kiểm chứng bắt buộc |
 | --- | --- | --- | --- | --- | --- |
-| TV1 — Data | | 3.1, 3.2 | `src/prepare_data.py`, `src/data_pipeline.py` | `data.md`, `requirements/3_1`, `3_2` | Hash file gốc; đủ 54.000/6.000/10.000; không trùng mẫu; batch `[B,1,28,28]` |
+| TV1 — Data | | 3.1, 3.2 | `data/prepare_data.py`, `data/data_pipeline.py` | `data.md`, `requirements/3_1`, `3_2` | Hash file gốc; đủ 54.000/6.000/10.000; không trùng mẫu; batch `[B,1,28,28]` |
 | TV2 — Model | | 3.3, 3.6 | `src/model.py`, `src/model_io.py` | `model.md`, `requirements/3_3`, `3_6` | Output `[2,10]`; 669.706 tham số; tải lại khớp, logits lệch ≤ 1e-6 |
 | TV3 — Training | | 3.4, checkpoint | `src/train.py` | `training.md`, `requirements/3_4` | Smoke run đạt; đủ 5 checkpoint và `checkpoint_index.json`; từ chối `run_id` trùng |
 | TV4 — Evaluation | | 3.5, performance | `src/evaluate.py` | `evaluation.md`, `requirements/3_5` | Đủ 10.000 dòng dự đoán; accuracy CSV khớp JSON; `performance.json` đủ 3 nhóm |
@@ -59,16 +59,18 @@ Chốt ở buổi họp đầu. Muốn đổi phải báo cả nhóm và TV5 c�
 create_dataloaders(config) -> (train_loader, val_loader, test_loader)
 # TV2
 build_model(model_config) -> torch.nn.Module
-save_model(model, path) -> None
-load_model(config_path, checkpoint_path, device) -> torch.nn.Module
-verify_reload(model, reloaded, batch) -> dict
+save_model(model, run_id) -> Path
+load_model(run_id, device, checkpoint="final_epoch") -> torch.nn.Module
+verify_reload(model, sample_batch, run_id, checkpoint="final_epoch") -> bool
 ```
+
+Giao diện hiện có hỗ trợ final/best; sample batch là 16 ảnh validation đầu tiên. Train tích hợp evaluation, demo, đồ thị và verify_report trước manifest. Sau khi chốt chỉ kiểm hash ở chế độ đọc.
 
 | Thành phần dùng chung | Quy định |
 | --- | --- |
 | `config.json` | `schema_version`, `run_id`, `created_by`, `started_at`, `dataset`, `classes`, `model`, `data`, `training` |
 | `history.csv` | `epoch, train_loss, train_accuracy, val_loss, val_accuracy, epoch_seconds` |
-| `manifest.json` | `run_id`, `git_commit`, `created_by`, `started_at`, `finished_at`, danh sách `{path, sha256, bytes}` |
+| `manifest.json` | `run_id`, `git.commit`, `created_by`, `started_at`, `finished_at`, `files` là danh sách `{path, sha256, bytes, ignored_by_git}` |
 | Thư mục | `outputs/<run_id>/`, `checkpoints/<run_id>/` theo [lab_1_description.md §10](lab_1_description.md) |
 | Đơn vị | Accuracy dạng tỷ lệ 0–1; thời gian tính bằng giây; timestamp ISO 8601 |
 
@@ -81,8 +83,8 @@ verify_reload(model, reloaded, batch) -> dict
 | 1. Description + Discussion | Đọc đề, chốt mục 4 và phân công | TV5 | Mục 4 được cả nhóm đồng ý, ghi vào changelog |
 | 2. Detail | Mỗi người hoàn thiện `requirements/` của mình | Từng TV | Đặc tả có input, xử lý, output, đường dẫn, cách kiểm tra |
 | 3. Implementation | Prompt nhỏ → AI sinh code → review → kiểm tra riêng module | Từng TV | Kiểm chứng bắt buộc ở mục 3 đạt; có khai báo AI |
-| 4. Smoke run | Ghép code, chạy `smoke_001` | TV3, TV5 | `verify.py --run-id smoke_001` báo PASS |
-| 5. Normal run | Chạy `run_001`–`run_004` trên **cùng một máy** | TV3 | Mỗi run có manifest và PASS |
+| 4. Smoke run | Ghép code, chạy `smoke_001` | TV3, TV5 | Kiểm số liệu và ghi `verify_report.json` PASS trước khi chốt manifest; sau đó kiểm hash chỉ đọc |
+| 5. Normal run | Chạy `run_001` và ít nhất hai trong `run_002`–`run_004` trên **cùng một máy**; khuyến nghị đủ bốn run | TV3 | Mỗi run có manifest và PASS |
 | 6. Check | Tổng hợp, cập nhật docs, đối chiếu đặc tả | TV4, TV5 | Checklist mục 7 đạt |
 
 ## 6. Quy tắc làm việc
@@ -91,7 +93,7 @@ verify_reload(model, reloaded, batch) -> dict
 
 - Mỗi người một nhánh theo module, ví dụ `lab1-data`, `lab1-model`.
 - Merge qua pull request có người review theo mục 3.
-- Không commit `data/` và `*.pth`. Hash trong manifest là bằng chứng thay cho file nặng.
+- Dataset gốc `data/FashionMNIST/raw/` và checkpoint được version qua Git LFS; không lưu binary lớn thành blob Git thường. Code, kiểm thử và báo cáo lưu trực tiếp trên Git; manifest giữ hash byte gốc.
 - Commit message ghi rõ module và nội dung, ví dụ `feat(lab1-data): save split indices`.
 
 ### 6.2. Dùng AI
@@ -131,9 +133,9 @@ TV5 chạy và đánh dấu; mỗi mục phải có bằng chứng đi kèm.
 - [ ] Mọi file `docs/` có bảng thông tin cập nhật; changelog đầy đủ.
 
 **Lưu vết**
-- [ ] `python "Lab 1/tools/check_provenance.py" --strict` báo PASS.
+- [ ] `python tools/check_provenance.py --strict` báo PASS.
 - [ ] Mọi run (kể cả smoke, lỗi) có manifest và đã được commit.
-- [ ] Mọi file trọng số của run báo cáo có trên Drive, hash khớp manifest.
+- [ ] Mọi file trọng số và input của run báo cáo có trên Git LFS, tải được bằng `git lfs pull`, hash khớp manifest/data summary.
 - [ ] Mỗi thành viên giải thích được module của mình.
 
 ## 8. Tài liệu bổ sung so với danh sách cơ bản
@@ -167,7 +169,7 @@ Mục tiêu: với **bất kỳ file nào** trong `Lab 1/` phải trả lời đ
 
 ### 9.2. Nguồn gốc file (markdown → file)
 
-Mọi file thuộc `README.md`, `.gitignore`, `docs/**/*.md`, `src/*.py`, `tools/*.py` phải có một mục trong `docs/provenance.json`:
+Mọi file thuộc `README.md`, `.gitignore`, `docs/**/*.md`, `src/*.py`, `tools/*.py`, `data/*.py`, `data/README.md` phải có một mục trong `docs/provenance.json`:
 
 ```json
 {
@@ -189,11 +191,11 @@ Mọi file thuộc `README.md`, `.gitignore`, `docs/**/*.md`, `src/*.py`, `tools
 
 ```powershell
 # Đăng ký file mới
-python "Lab 1/tools/check_provenance.py" --add src/model.py --source "docs/requirements/3_3_build_model.md" --by TenBan --method ai-assisted --note "Sinh bằng <công cụ AI>, TV1 review"
+python tools/check_provenance.py --add src/model.py --source "docs/requirements/3_3_build_model.md" --by TenBan --method ai-assisted --note "Sinh bằng <công cụ AI>, TV1 review"
 # Ghi nhận đã rà lại sau khi đặc tả đổi
-python "Lab 1/tools/check_provenance.py" --ack src/model.py --by TenBan --note "Cập nhật theo §6 mới"
+python tools/check_provenance.py --ack src/model.py --by TenBan --note "Cập nhật theo §6 mới"
 # Kiểm tra toàn bộ
-python "Lab 1/tools/check_provenance.py"
+python tools/check_provenance.py
 ```
 
 ### 9.3. Lần chạy (train, smoke, đánh giá)
@@ -216,7 +218,7 @@ with Run("run_001", purpose="Cấu hình cơ sở", config=config,
 | Định danh | `run_id`, `kind` (normal/smoke), `purpose`, `command` |
 | Người và thời gian | `created_by`, `started_at`, `finished_at`, `duration_seconds` |
 | Trạng thái | `status`: running → completed / failed / interrupted; `error` nếu lỗi |
-| Code | `git.commit`, `git.branch`, `git.dirty`, `git.dirty_files`; hash từng file `src/*.py` và đặc tả nguồn của nó |
+| Code | `git.commit`, `git.branch`, `git.dirty`, `git.dirty_files`; hash từng file `src/*.py`, `data/*.py` và đặc tả nguồn của nó |
 | Đặc tả và cấu hình | `specs` kèm hash; `config_sha256` |
 | Môi trường | Python, PyTorch, torchvision, máy, CPU/GPU |
 | Đầu ra | Đường dẫn, kích thước, SHA-256 của **mọi** file trong `outputs/<run_id>/` và `checkpoints/<run_id>/`; cờ `ignored_by_git` cho file trọng số |
@@ -228,14 +230,17 @@ Quy tắc:
 - `run_id` đã tồn tại thì dừng, không ghi đè.
 - **Không xóa run nào**, kể cả run lỗi hoặc smoke. Commit thư mục `outputs/<run_id>/` (và `checkpoint_index.json`) ngay sau khi chạy xong, với message `run(lab1): run_001 completed — <mục đích>`.
 - Sửa, thêm hoặc xóa file trong run sau khi kết thúc sẽ bị công cụ phát hiện qua hash.
-- File trọng số `.pth` không lên git; tải lên Drive chung theo đường dẫn `Lab1/checkpoints/<run_id>/` và ghi link vào `model.md`. Hash trong manifest dùng để xác nhận file trên Drive đúng là file đã chạy.
+- File trọng số `.pth` được quản lý bằng Git LFS tại `checkpoints/<run_id>/`. Sau clone/pull, `git lfs pull origin hoangdang` khôi phục byte gốc. Hash trong manifest xác nhận đúng trọng số đã chạy; không yêu cầu ZIP/Drive riêng.
+- Đánh giá, demo, đồ thị và kiểm chứng phải tích hợp trước khi `Run` chốt manifest. Không thêm hoặc thay thế báo cáo vào run đã kết thúc; train hiện tại chưa ghép các bước này.
 
 ### 9.4. File đầu ra lẻ và file bị bỏ qua
 
-- File trong `outputs/` không thuộc run nào (ví dụ `data_summary.json`, `compare_runs.csv`) phải gọi `record_artifact(path, specs=[...], inputs=[...])` ngay sau khi ghi. Tạo lại file thì lần cũ được giữ trong `history`.
-- `.gitignore` của Lab 1 chỉ bỏ qua môi trường, cache, `data/` và file trọng số. Mọi file JSON/CSV/PNG/TXT trong `outputs/` đều được commit làm bằng chứng.
+- File trong `outputs/` hoặc `data/reports/` không thuộc run nào phải gọi `record_artifact(path, specs=[...], inputs=[...])` ngay sau khi ghi. Tạo lại file thì lần cũ được giữ trong `history`; sidecar nằm cạnh file đầu ra.
+- `.gitignore` bỏ qua môi trường, cache, file tạm và ZIP lịch sử trong `deliverables/`. Input và checkpoint được track qua LFS trong `.gitattributes`; code, kiểm thử, metadata và báo cáo được commit trực tiếp. Các cờ `ignored_by_git` trong manifest cũ phản ánh thời điểm chạy trước khi đổi cách lưu trữ; không sửa lại manifest đã chốt để thay cờ lịch sử.
 
 ### 9.5. Tự động kiểm tra khi commit
+
+Các lệnh Python trong tài liệu này chạy từ `Lab 1/`. Riêng `.githooks/` nằm ở gốc repo; chạy lệnh cấu hình Git dưới đây từ gốc repo.
 
 Hook `.githooks/pre-commit` chạy `check_provenance.py` mỗi khi commit có file trong `Lab 1/` và chặn commit nếu có lỗi. Mỗi thành viên bật một lần sau khi clone:
 
@@ -244,3 +249,7 @@ git config core.hooksPath .githooks
 ```
 
 Không dùng `git commit --no-verify` để bỏ qua hook. Nếu buộc phải bỏ qua, ghi lý do vào changelog.
+
+## 10. Bàn giao kỹ thuật ngày 2026-11-11
+
+17 test, smoke và bốn normal run PASS trên máy ghi trong manifest. Tác giả/người chạy/thời gian/commit được ghi trong Git và verification.md; bảng TV1–TV5 chưa có xác nhận tên nên không tự điền. `.gitattributes` giữ nguyên byte outputs/data reports/checkpoint index khi clone; `deliverables/` chỉ giữ ZIP dự phòng cũ. Theo yêu cầu mới, dữ liệu/trọng số nằm trực tiếp trong repo qua LFS; không ghi đè hoặc train lại artifact khi thay cách lưu trữ. Xác nhận thành viên vẫn phải dựa trên bằng chứng.
