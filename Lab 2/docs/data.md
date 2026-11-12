@@ -2,7 +2,7 @@
 
 **Module:** `src/lab_2/data.py`  
 **Người tạo:** Nguyễn Thị Vân Anh  
-**Ngày cập nhật nguồn:** 11/11/2026
+**Ngày cập nhật nguồn:** 2026-11-11
 
 **Người cập nhật nguồn:** Nguyễn Thị Vân Anh (nhánh `vananh`, commit `4d3fb94`)
 
@@ -13,7 +13,7 @@
 | Trường | Nội dung |
 | --- | --- |
 | Name | Chuẩn bị dữ liệu CIFAR-10 — Lab 2 |
-| Created date | Chưa xác nhận |
+| Created date | 2026-11-11 |
 | Created by | Nguyễn Thị Vân Anh (bản nội dung nhập từ `origin/vananh`) |
 | Last updated — nguồn | 2026-11-11 |
 | Updated by — nguồn | Nguyễn Thị Vân Anh |
