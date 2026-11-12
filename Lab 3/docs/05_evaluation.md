@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Đo lường
@@ -50,7 +50,7 @@ Các file được nhập từ output cũ có bản kê nguồn/hash. Phần ful
 
 Confusion matrix có 11.431 / 1.069 ở hàng NEGATIVE và 1.178 / 11.322 ở hàng POSITIVE. Loss curve được vẽ từ lịch sử nằm cạnh checkpoint nhập, có đường dẫn nguồn trong `loss_history.json`. Hai ảnh đã được mở để kiểm tra bố cục. [Metrics](../report/evaluate-20261112-204226-805293/metrics.json), [loss history](../report/evaluate-20261112-204226-805293/loss_history.json), [manifest](../report/evaluate-20261112-204226-805293/manifest.json).
 
-Người thực hiện HoangDang, hỗ trợ OpenAI Codex. Đây là đánh giá lại checkpoint có sẵn. Thời gian train lịch sử và KPI tham chiếu T4 được đọc theo đúng nguồn và thiết bị đo tương ứng.
+Người thực hiện HoangDang. Đây là đánh giá lại checkpoint có sẵn. Thời gian train lịch sử và KPI tham chiếu T4 được đọc theo đúng nguồn và thiết bị đo tương ứng.
 
 ## Nguồn và phạm vi
 

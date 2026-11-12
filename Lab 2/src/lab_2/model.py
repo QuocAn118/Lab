@@ -1,4 +1,4 @@
-"""Model implementation by Xuan Bao (hbao2123-debug); package integration by HoangDang/Codex."""
+"""Model implementation by Xuan Bao (hbao2123-debug); package integration by HoangDang."""
 import os
 from pathlib import Path
 

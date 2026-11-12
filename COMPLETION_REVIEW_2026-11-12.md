@@ -1,6 +1,6 @@
 # Rà soát và hoàn thiện ba lab — 2026-11-12
 
-HoangDang thực hiện với hỗ trợ OpenAI Codex theo yêu cầu hoàn thiện Lab 1, Lab 2 và Lab 3. Tác giả nguồn và các lần tích hợp trước được đối chiếu trong Git, registry Lab 1 và hồ sơ nhập từng phiên.
+HoangDang thực hiện theo yêu cầu hoàn thiện Lab 1, Lab 2 và Lab 3. Tác giả nguồn và các lần tích hợp trước được đối chiếu trong Git, registry Lab 1 và hồ sơ nhập từng phiên.
 
 | Lab | Kiểm chứng | Kết quả bài thực hành | Phần đã hoàn thiện trong lượt này |
 | --- | --- | --- | --- |
@@ -38,8 +38,12 @@ Bộ kiểm thử đạt 43/43 trong 11,01 giây. Notebook tám cell hoàn tất
 
 Lượt này đánh giá lại model full Lab 3 đã có và chạy smoke mới. Chưa chạy full training Lab 3 mới hoặc benchmark Lab 3 trên T4. Số đo GPU RTX được đọc theo môi trường đã lưu. Kết quả T4 của Lab 2 cần lấy từ phiên Colab trước khi kết luận về tốc độ hoặc Run All trên Colab.
 
+## Kiểm lại sau commit `25cc678`
+
+HoangDang, chạy lại lúc 2026-11-12T21:30+07:00. Commit `25cc678` thêm test chặn ghi đè nên số test tăng: Lab 1 **20/20**, Lab 2 **93/93** offline, Lab 3 **44/44** (cần `PYTHONPATH=src`). Strict provenance Lab 1, verifier năm run Lab 1, verifier bàn giao Lab 2 và source audit Lab 3 đều PASS. Các số liệu ở bảng trên là của lượt rà trước, giữ nguyên. Chi tiết và môi trường: [Lab 1](Lab%201/docs/verification.md), [Lab 2](Lab%202/docs/verification.md), [Lab 3](Lab%203/docs/06_verification.md). Kết quả Colab T4 của Lab 2 vẫn chờ.
+
 ## Nguồn và phạm vi
 
 - Đặc tả, tiến độ, kiểm chứng và artifact được liên kết cho từng lab.
 - [Quy tắc repo](AGENTS.md), [quy tắc Lab 3](Lab%203/AGENTS.md), [truy nguồn Lab 3](Lab%203/docs/12_traceability.md).
-- Các sửa đổi và kiểm chứng ngày 2026-11-12 do HoangDang thực hiện với hỗ trợ OpenAI Codex. Hồ sơ nguồn của Vân Anh, Thanh Bình, Quốc An, Xuân Bảo và các khai báo AI đã có tiếp tục nằm trong tài liệu và lịch sử tương ứng.
+- Các sửa đổi và kiểm chứng ngày 2026-11-12 do HoangDang thực hiện. Hồ sơ nguồn của Vân Anh, Thanh Bình, Quốc An, Xuân Bảo và các khai báo AI đã có tiếp tục nằm trong tài liệu và lịch sử tương ứng.

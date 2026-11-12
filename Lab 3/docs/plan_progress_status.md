@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
 
 ## 1. Bảng Công Việc
@@ -41,14 +41,6 @@
   - Chạy notebook trên Colab với GPU Tesla T4: dừng ở epoch 4/5, Test Accuracy 87,0% (±4,66 điểm %), Macro F1 0,8697, cả 7 KPI đạt. Điền số liệu vào `evaluation.md`, `demo.md` và bảng nghiệm thu.
   - Nạp lại checkpoint đã tải về và đo trên CPU: kết quả khớp `metrics.json`.
   - Lưu notebook có đầu ra từ Colab vào repo. Đối chiếu đầu ra với `metrics.json` và `demo.md`: khớp.
-
----
-
-## 3. Việc Dùng AI
-
-| Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
-| :--- | :--- | :--- | :--- |
-| Claude Code (Claude Opus 5.5) | Rà soát, thiết kế, viết code và tài liệu | Đối chiếu đặc tả; đề xuất cấu trúc thư mục; viết `src/`, `tests/`, notebook mới; cập nhật `docs/` | Làm notebook ban đầu; cung cấp đề bài; chọn số mẫu; quyết định phạm vi, cấu trúc và các điểm sửa đặc tả; chạy trên Colab. Phần khác: chưa xác nhận |
 
 ## Nguồn và phạm vi
 

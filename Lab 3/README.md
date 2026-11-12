@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook giữ các ô code chính viết tuần tự. Tiện ích thời gian/lưu model/vẽ loss được tách vào `notebook_helpers.py`; không dùng pipeline `lab3.py`.
@@ -22,7 +22,7 @@ Tài liệu trong `docs/` được đánh số theo thứ tự đọc. Bắt đ�
 
 Tài liệu của bản này là các file không đánh số trong `docs/`, bắt đầu từ [lab_3_description.md](docs/lab_3_description.md). Danh sách thư viện gốc được giữ ở `requirements_quocan.txt`; môi trường chính tiếp tục dùng `requirements.txt` đã khóa phiên bản. Chưa kiểm chứng chạy chung hai bản. Các checkpoint mới được quản lý bằng Git LFS; xem trạng thái tải trong nhật ký đồng bộ.
 
-Người tích hợp: HoangDang, hỗ trợ OpenAI Codex. Tác giả, thời gian commit gốc, thời gian tích hợp và cách xử lý conflict được ghi trong [nhật ký đồng bộ](../BRANCH_SYNC_2026-11-11.md).
+Người tích hợp: HoangDang. Tác giả, thời gian commit gốc, thời gian tích hợp và cách xử lý conflict được ghi trong [nhật ký đồng bộ](../BRANCH_SYNC_2026-11-11.md).
 
 ## Nội dung
 
@@ -68,9 +68,9 @@ Mỗi run mới có `training_time.json`: bắt đầu/kết thúc, tổng số 
 
 Đã chạy toàn bộ tám cell bằng kernel `.venv` hiện tại. Checkpoint full nhập từ commit `40acced` được đánh giá lại trên 25.000 mẫu test, accuracy 91,012%, macro F1 0,910118 và loss 0,346539. Exercise 1, hai biểu đồ và demo đều có kết quả mới trong notebook. [Báo cáo đánh giá](report/evaluate-20261112-204226-805293/summary.md), [suy luận đa ngôn ngữ](report/infer-20261112-204208-788129/summary.md).
 
-Bộ kiểm thử đạt 43 test, gồm CLI, report và logic bản Quốc An. Smoke pretrained mới chạy hai optimizer step, lưu/nạp đủ năm checkpoint và verifier đạt 48 artifact. [Báo cáo smoke](report/cli-smoke-20261112-204427-088939/summary.md), [đối chiếu nguồn](report/completion-review-20261112/summary.md). Các số đo full mới thuộc phép đánh giá checkpoint đã có. Thông tin lần train gốc được đối chiếu trong `IMPORT.json`.
+Bộ kiểm thử đạt 44 test khi kiểm lại sau `25cc678` (đặt `PYTHONPATH=src`, xem [kiểm chứng mục 7.1](docs/06_verification.md)), gồm CLI, report và logic bản Quốc An. Smoke pretrained mới chạy hai optimizer step, lưu/nạp đủ năm checkpoint và verifier đạt 48 artifact. [Báo cáo smoke](report/cli-smoke-20261112-204427-088939/summary.md), [đối chiếu nguồn](report/completion-review-20261112/summary.md). Các số đo full mới thuộc phép đánh giá checkpoint đã có. Thông tin lần train gốc được đối chiếu trong `IMPORT.json`.
 
-Người hoàn thiện và kiểm chứng ngày 2026-11-12 là HoangDang, hỗ trợ OpenAI Codex. Nguồn code, metadata tác giả và các snapshot lịch sử được ghi trong Git và hồ sơ tương ứng.
+Người hoàn thiện và kiểm chứng ngày 2026-11-12 là HoangDang. Nguồn code, metadata tác giả và các snapshot lịch sử được ghi trong Git và hồ sơ tương ứng.
 
 ## Nguồn và phạm vi
 

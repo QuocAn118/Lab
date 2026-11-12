@@ -8,13 +8,13 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## Sản phẩm đã hoàn thành
 
-Pipeline Python CLI phân loại FashionMNIST bằng MLP đã chạy end to end: data → train/checkpoint → reload best → test/performance → đồ thị/demo → verification/manifest. **17 test đạt; smoke_001 và cả bốn normal run PASS**, kiểm lại hash sau khi chốt.
+Pipeline Python CLI phân loại FashionMNIST bằng MLP đã chạy end to end: data → train/checkpoint → reload best → test/performance → đồ thị/demo → verification/manifest. **20 test đạt; smoke_001 và cả bốn normal run PASS**, kiểm lại hash sau khi chốt.
 
 Model được chọn bằng validation: **run_004**, validation **88.10%**, test **87.70%** trên 10.000 ảnh. [Báo cáo so sánh](docs/evaluation.md), [kiểm chứng](docs/verification.md), [truy vết](docs/traceability.md).
 
@@ -84,4 +84,4 @@ Xem [training.md](docs/training.md) và [đặc tả](docs/lab_1_description.md)
 ## Nguồn và phạm vi
 
 - Các file trong `docs/requirements/`, source và artifact Lab 1. Không dùng kết quả Lab 3 làm bằng chứng cho Lab 1.
-- HoangDang hoàn thiện với hỗ trợ OpenAI Codex; tác giả code/tài liệu kế thừa giữ trong Git và registry. Tên thành viên TV1–TV5/ngày tạo model chưa được xác nhận chính thức không được tự điền.
+- HoangDang hoàn thiện; tác giả code/tài liệu kế thừa giữ trong Git và registry. Tên thành viên TV1–TV5/ngày tạo model chưa được xác nhận chính thức không được tự điền.

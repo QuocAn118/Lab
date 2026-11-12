@@ -8,13 +8,13 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 **Trạng thái: đã nhận và kiểm chứng bản bàn giao TV3 của Thanh Bình; phiên chạy lại được lưu riêng. Chưa nghiệm thu KPI Colab T4.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
 
-Đủ 6 module package và notebook Colab. Sau ghép TV3: **85 test offline PASS**, gồm 71 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**. Bộ test offline dùng dữ liệu giả, được phân biệt với smoke thật và training. Xem [kiểm chứng](docs/verification.md).
+Đủ 6 module package và notebook Colab. Sau ghép TV3: **93 test offline PASS** (kiểm lại sau `25cc678`), gồm 79 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**. Bộ test offline dùng dữ liệu giả, được phân biệt với smoke thật và training. Xem [kiểm chứng](docs/verification.md).
 
 ## Bàn giao cho bạn train
 
@@ -62,7 +62,7 @@ Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Col
 
 - [Đặc tả tổng quan](docs/lab_2_description.md), [dữ liệu](docs/data.md), [model](docs/model.md), [huấn luyện](docs/training.md).
 - [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): giữ ô chờ số đo thật.
-- [Tiến độ, phân công và khai báo AI](docs/plan_progress_status.md).
+- [Tiến độ, phân công](docs/plan_progress_status.md); [khai báo công cụ](docs/AI_Usage.md).
 - [Triển khai model gốc](docs/model_implementation.md), [bản tiếng Việt](docs/model_vi.md): nguồn Xuân Bảo; đã chuyển code sang package, giữ `model.py` làm lệnh tương thích cho `test.py` cũ.
 
 Không ghi đè run đã có log/checkpoint/kết quả. Nếu phiên dở dang cần chạy lại, dùng mã phiên mới; giữ phiên cũ làm bằng chứng. Không bảo đảm đạt KPI trước khi đo; GPU khác T4 phải ghi rõ, không trình bày như số đo trên T4.

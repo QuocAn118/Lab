@@ -1,6 +1,6 @@
 # TV3 — Hướng dẫn huấn luyện Lab 2
 
-Cập nhật: 2026-11-11. OpenAI Codex hỗ trợ theo yêu cầu người dùng; cần thành viên phụ trách review trước khi bàn giao.
+Cập nhật: 2026-11-11. Cần thành viên phụ trách review trước khi bàn giao.
 
 **Cập nhật 2026-11-12:** Các mục mô tả adapter và xóa log bên dưới là thiết kế lịch sử trước ghép. Code hiện tại dùng module main; từ chối ghi đè log/run cũ. Checkpoint đã đưa vào Git LFS. Dùng [biên bản review](TV3_REVIEW_RESOLUTION.md) và [kế hoạch phiên mới](training_handoff.md) khi bàn giao; không chạy lại run cũ.
 

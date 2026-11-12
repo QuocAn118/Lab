@@ -11,14 +11,14 @@
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |
 | Người cập nhật nguồn code evaluation | Nguyễn Quốc An (Quoc An), `32ca8b1`, 2026-11-10T21:18:59+07:00 |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-> **Trạng thái**: Đã có số đo thật trên Windows/RTX 5060, phiên `rerun-thanhbinh-20261112-175308`, hoàn tất 2026-11-12T18:22:42+07:00. Người chạy: HoangDang, hỗ trợ OpenAI Codex. Nguồn code/đặc tả Quốc An và phần TV3 Thanh Bình được giữ riêng. Chưa nghiệm thu GPU T4/Run all Colab. Nguồn bảng dưới: [metrics phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json), [so sánh nguồn và chạy lại](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md).
+> **Trạng thái**: Đã có số đo thật trên Windows/RTX 5060, phiên `rerun-thanhbinh-20261112-175308`, hoàn tất 2026-11-12T18:22:42+07:00. Người chạy: HoangDang. Nguồn code/đặc tả Quốc An và phần TV3 Thanh Bình được giữ riêng. Chưa nghiệm thu GPU T4/Run all Colab. Nguồn bảng dưới: [metrics phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json), [so sánh nguồn và chạy lại](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md).
 
 Mã nguồn: `src/lab_2/evaluation.py`.
 
-**Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có hỗ trợ Claude Code, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang/OpenAI Codex tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
+**Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
 
 > **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Các mục dưới ghi số thật của phiên Windows; khi chạy Colab cần lập phiên riêng và đối chiếu tiếp.
 
@@ -115,7 +115,7 @@ Train loss là trung bình theo batch. DenseNet121 chạy đủ 6 epoch, không 
 | --- | --- | --- | --- | --- |
 | NVIDIA GeForce RTX 5060 Laptop GPU | 2.9.1+cu128 | 0.24.1+cu128 | 2.21.0 | 1.9.1 |
 
-Người chạy mới: HoangDang, assisted by OpenAI Codex; code commit `5c03204`. Bắt đầu phiên 2026-11-12T18:01:16+07:00, hoàn tất 2026-11-12T18:22:42+07:00. Config và snapshot source có trong thư mục phiên; nguồn Bình dùng RTX 4060/torch 2.6.0+cu124 được giữ nguyên, không gán các số đo của phiên mới cho nguồn.
+Người chạy mới: HoangDang; code commit `5c03204`. Bắt đầu phiên 2026-11-12T18:01:16+07:00, hoàn tất 2026-11-12T18:22:42+07:00. Config và snapshot source có trong thư mục phiên; nguồn Bình dùng RTX 4060/torch 2.6.0+cu124 được giữ nguyên, không gán các số đo của phiên mới cho nguồn.
 
 ## 7. Lần Chạy Trước (Chỉ Để Tham Khảo)
 

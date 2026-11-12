@@ -60,7 +60,7 @@ def main():
     (folder / "checkpoint_check.json").write_text(json.dumps(checkpoints, indent=2), encoding="utf-8")
     lines = ["# Báo cáo TV3 — Huấn luyện và TensorBoard, Lab 2", "",
              f"Ngày xuất: {datetime.now().astimezone().isoformat(timespec='seconds')}. "
-             "OpenAI Codex hỗ trợ triển khai, chạy và tổng hợp theo yêu cầu người dùng.", "",
+             "Khai báo công cụ: `docs/AI_Usage.md`.", "",
              "## Kết quả bốn cấu hình", "",
              "Nguồn: `reports/metrics.json`, mục `training.runs`; so sánh bằng validation, không dùng test.", "",
              "| Run | Epoch | Best epoch | Val accuracy | Val loss | Giây/epoch | Stop epoch | VRAM GB |",

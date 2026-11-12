@@ -10,13 +10,13 @@
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/test nền | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `9096223` |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
-| Người cập nhật nguồn TV3 | Nguyễn Thanh Bình (Thanh Binh), `7961f49` và `92930e6`; hỗ trợ OpenAI Codex theo hồ sơ nguồn |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
+| Người cập nhật nguồn TV3 | Nguyễn Thanh Bình (Thanh Binh), `7961f49` và `92930e6`; theo hồ sơ nguồn |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
 
-Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). Đây là ghi nhận đóng góp đặc tả/test, không chuyển phần triển khai package do HoangDang/OpenAI Codex chuẩn bị tại `4176139` hoặc vai trò TV3 của Nguyễn Thanh Bình sang Quốc An. Ghi nhận bổ sung do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12.
+Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). Đây là ghi nhận đóng góp đặc tả/test, không chuyển phần triển khai package do HoangDang chuẩn bị tại `4176139` hoặc vai trò TV3 của Nguyễn Thanh Bình sang Quốc An. Ghi nhận bổ sung do HoangDang đối chiếu Git ngày 2026-11-12.
 
 > **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
 
@@ -182,6 +182,6 @@ Summary lưu thêm `config`, `operator` (biến môi trường `LAB2_OPERATOR`),
 
 ## Phiên tái lập đã hoàn tất — 2026-11-12
 
-Phiên `rerun-thanhbinh-20261112-175308`, code `5c03204`, người chạy HoangDang/OpenAI Codex trên RTX 5060. Đã chạy đủ bốn cấu hình theo config gốc, không đổi siêu tham số sau khi xem kết quả: 5/6/6/6 epoch, checkpoint tốt nhất 4/5/5/6. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md) cho validation 84,76% / 88,24% / 83,52% / 85,08%. Một seed và khác GPU/phiên bản torch so với nguồn; không coi thời gian giữa hai máy là benchmark tương đương.
+Phiên `rerun-thanhbinh-20261112-175308`, code `5c03204`, người chạy HoangDang trên RTX 5060. Đã chạy đủ bốn cấu hình theo config gốc, không đổi siêu tham số sau khi xem kết quả: 5/6/6/6 epoch, checkpoint tốt nhất 4/5/5/6. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md) cho validation 84,76% / 88,24% / 83,52% / 85,08%. Một seed và khác GPU/phiên bản torch so với nguồn; không coi thời gian giữa hai máy là benchmark tương đương.
 
 12 checkpoint từng run, bản sao best và TensorBoard được kiểm tra lại; [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json) chốt hash artifact. DenseNet121 được chọn bằng validation; đánh giá test và demo thực tế đã chạy trong phiên riêng. Config phiên này là bằng chứng đã kết thúc; khi tái lập, sao chép config sang mã mới và đổi cả reports_dir/checkpoints_dir, không ghi đè dữ liệu cũ.

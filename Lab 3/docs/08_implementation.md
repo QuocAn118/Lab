@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Yêu cầu và quyết định đã chốt
@@ -118,7 +118,7 @@ Luồng nạp model, lịch sử loss còn có hoặc đã mất, save/reload v�
 
 Kiểm tra nguồn bỏ qua `.pytest_cache` do pytest tạo, theo phạm vi cache tại `11_AI_Usage.md` mục 2. Các file code và tài liệu của hai bản triển khai vẫn được kiểm tra header và liên kết nguồn.
 
-Bản `src/exercise_2` kế thừa từ Quốc An được bổ sung kiểm tra trước khi train để từ chối checkpoint hoặc báo cáo training đã có. Báo cáo JSON từ chối giá trị NaN/Infinity trước khi ghi. Đánh giá dùng tên GPU thực tế để đối chiếu hai KPI tốc độ tham chiếu T4, đồng thời lưu các thời gian thô. Các thay đổi tích hợp do HoangDang thực hiện với hỗ trợ OpenAI Codex, nguồn code nhập tiếp tục được ghi trong `12_traceability.md`.
+Bản `src/exercise_2` kế thừa từ Quốc An được bổ sung kiểm tra trước khi train để từ chối checkpoint hoặc báo cáo training đã có. Báo cáo JSON từ chối giá trị NaN/Infinity trước khi ghi. Đánh giá dùng tên GPU thực tế để đối chiếu hai KPI tốc độ tham chiếu T4, đồng thời lưu các thời gian thô. Các thay đổi tích hợp do HoangDang thực hiện, nguồn code nhập tiếp tục được ghi trong `12_traceability.md`.
 
 Demo của bản này kiểm tra báo cáo đã có mục demo trước khi nạp model. Để lưu một lượt demo mới, dùng đường dẫn reports mới trong config. Các checkpoint đã train có thể tiếp tục được nạp để đọc.
 

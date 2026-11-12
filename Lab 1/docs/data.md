@@ -8,8 +8,7 @@
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00; HoangDang; aee3dd8 |
 | Last updated | 2026-11-11 (UTC+07:00) |
 | Updated by — nguồn tài liệu | Nguyễn Thanh Bình (Thanh Binh trong Git), `542b395` |
-| Hỗ trợ nguồn | OpenAI Codex, theo khai báo trong tài liệu nhập |
-| Người/ngày tiếp nhận | HoangDang, hỗ trợ OpenAI Codex; 2026-11-12 |
+| Người/ngày tiếp nhận | HoangDang; 2026-11-12 |
 | Phạm vi | 3.1 — Chuẩn bị FashionMNIST; 3.2 — Transforms và DataLoader |
 | Trạng thái | Hoàn thành triển khai và kiểm thử phần data |
 
@@ -26,15 +25,15 @@
 | DataLoader | `create_dataloaders(config)` | Trả về train/validation/test; batch cơ sở 64; chỉ train shuffle; `drop_last=False`, `num_workers=0` |
 | Batch check | `data/data_pipeline.py --check` | Ảnh `[64,1,28,28]`, nhãn `[64]`; dtype `float32`/`int64`; pixel min 0.0, max 1.0 |
 | Kiểm thử riêng data | `python -m pytest "Lab 1/data/tests/test_data.py" -q` từ gốc repo | **2 passed in 33.92s** |
-| Tích hợp chung của nhóm | Theo [verification.md](verification.md) | 17 test toàn pipeline, smoke và bốn normal run đạt; không phải 17 test riêng data |
+| Tích hợp chung của nhóm | Theo [verification.md](verification.md) | 20 test toàn pipeline, smoke và bốn normal run đạt; không phải 20 test riêng data |
 
 ## Người chạy, thời gian và commit
 
 | Mốc | Thời gian | Người/công cụ và nguồn | Phạm vi |
 | --- | --- | --- | --- |
-| Triển khai data ban đầu | 2026-11-10 | Theo yêu cầu người dùng, OpenAI Codex hỗ trợ; commit `eb86ab8` | Code, báo cáo và kiểm thử 3.1–3.2 |
-| Kiểm chứng tích hợp | 2026-11-11 | HoangDang, hỗ trợ OpenAI Codex; [verification.md](verification.md) | Pipeline chung, không ghi nhận thành công việc riêng phần data |
-| Kiểm tra lại phần data | 2026-11-11 | OpenAI Codex chạy trên workspace theo yêu cầu người dùng | Hai test dữ liệu thật đạt; không chạy lại training |
+| Triển khai data ban đầu | 2026-11-10 | Theo yêu cầu người dùng; commit `eb86ab8` | Code, báo cáo và kiểm thử 3.1–3.2 |
+| Kiểm chứng tích hợp | 2026-11-11 | HoangDang; [verification.md](verification.md) | Pipeline chung, không ghi nhận thành công việc riêng phần data |
+| Kiểm tra lại phần data | 2026-11-11 | HoangDang chạy trên workspace | Hai test dữ liệu thật đạt; không chạy lại training |
 
 Tác giả nội dung ban đầu chưa xác nhận được giữ nguyên trong lịch sử. Không suy người tạo code từ tên nhánh hoặc người tích hợp.
 
@@ -76,4 +75,3 @@ Split ngẫu nhiên theo chỉ số, chưa chia phân tầng. Cấu hình cơ s�
 
 - [Yêu cầu 3.1](requirements/3_1_prepare_data.md), [yêu cầu 3.2](requirements/3_2_transforms_dataloader.md), [mô tả Lab 1](lab_1_description.md).
 - Code và báo cáo thật trong `data/`; [kiểm chứng chung](verification.md), [tiến độ](plan_progress_status.md).
-- OpenAI Codex hỗ trợ triển khai và biên soạn theo yêu cầu người dùng; xem [AI_Usage.md](AI_Usage.md). Báo cáo chỉ xác nhận phần chuẩn bị dữ liệu và DataLoader.

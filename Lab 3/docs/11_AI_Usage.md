@@ -43,6 +43,21 @@ Yêu cầu dự án được ghi nhận ngày 2026-11-06: hoàn thiện Lab 3 v�
 
 Người thực hiện chịu trách nhiệm rà soát mã nguồn, kiểm chứng kết quả và công bố phạm vi hỗ trợ AI. Ghi nhận quyền tác giả và đóng góp theo bằng chứng, không quy toàn bộ mã nguồn cho một cá nhân khi chưa được xác nhận.
 
+
+## Bổ sung 2026-11-12
+
+| Ngày | Công cụ | Phần hỗ trợ | Prompt chính | Review |
+| --- | --- | --- | --- | --- |
+| 2026-11-12 | Claude Code (Claude Opus 5.5), theo yêu cầu HoangDang | Kiểm lại ba lab, cập nhật số test, sửa link/đặc tả cũ/header nguồn, chuyển khai báo công cụ về file này và bỏ byline công cụ khỏi tài liệu khác | Rà soát và hoàn thiện | HoangDang duyệt; test và kiểm tra nguồn chạy lại đều đạt |
+
+Byline công cụ trong các tài liệu khác của lab đã được bỏ; file này và lịch sử Git là nơi ghi công cụ.
+
+### Khai báo của bản nhánh QuocAn (chuyển từ `plan_progress_status.md`)
+
+| Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
+| :--- | :--- | :--- | :--- |
+| Claude Code (Claude Opus 5.5) | Rà soát, thiết kế, viết code và tài liệu | Đối chiếu đặc tả; đề xuất cấu trúc thư mục; viết `src/`, `tests/`, notebook mới; cập nhật `docs/` | Làm notebook ban đầu; cung cấp đề bài; chọn số mẫu; quyết định phạm vi, cấu trúc và các điểm sửa đặc tả; chạy trên Colab. Phần khác: chưa xác nhận |
+
 ## Nguồn và phạm vi
 
 - Căn cứ của tài liệu: yêu cầu truy nguồn dự án được ghi nhận tại mục 1; đây là điểm gốc của quy tắc, không sử dụng tham chiếu vòng để chứng minh nguồn gốc.

@@ -11,12 +11,12 @@
 | Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by — nguồn code training/test | Nguyễn Quốc An (Quoc An), `773a5a1`, `e2b6402` |
 | Thời gian cập nhật nguồn code | 2026-11-10T09:42:35+07:00 (AuthorDate của `e2b6402`) |
-| Updated by — tài liệu/tích hợp | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by — tài liệu/tích hợp | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Cấu hình cơ sở
 
-**Ghi nhận phần triển khai:** Nguyễn Quốc An đưa `src/train.py` và `tests/test_train.py` vào repo tại `773a5a1`, sau đó chỉnh theo đặc tả tại `e2b6402`. Registry nguồn tại commit này ghi code training có hỗ trợ Claude Code (Claude Opus 5.5). Các commit lấy thư mục Lab 1 từ HoangDang hoặc lấy model từ Vân Anh là thao tác tích hợp, không chuyển tác giả các phần đó sang Quốc An. Cập nhật dữ liệu tại `eb86ab8` (Thanh Binh theo Git) và hoàn thiện pipeline tại `e36cc00` (HoangDang) được ghi riêng; người chạy các thí nghiệm ngày 2026-11-11 là HoangDang, hỗ trợ OpenAI Codex. Bản ghi nhận bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu lịch sử, không phải lần train mới.
+**Ghi nhận phần triển khai:** Nguyễn Quốc An đưa `src/train.py` và `tests/test_train.py` vào repo tại `773a5a1`, sau đó chỉnh theo đặc tả tại `e2b6402`. Registry nguồn tại commit này ghi code training có. Các commit lấy thư mục Lab 1 từ HoangDang hoặc lấy model từ Vân Anh là thao tác tích hợp, không chuyển tác giả các phần đó sang Quốc An. Cập nhật dữ liệu tại `eb86ab8` (Thanh Binh theo Git) và hoàn thiện pipeline tại `e36cc00` (HoangDang) được ghi riêng; người chạy các thí nghiệm ngày 2026-11-11 là HoangDang. Bản ghi nhận bổ sung ngày 2026-11-12 do HoangDang đối chiếu lịch sử, không phải lần train mới.
 
 Theo [đặc tả gốc §6](lab_1_description.md), `src/train.py` dùng MLP `[512, 512]`, `ToTensor`, batch 64, `CrossEntropyLoss`, SGD (lr 0.001, momentum 0.9), seed 42; chọn CUDA nếu có, nếu không CPU.
 

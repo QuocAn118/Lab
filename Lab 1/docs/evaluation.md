@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T09:54:14+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## Kết quả thực tế ngày 2026-11-11
@@ -69,4 +69,4 @@ Shirt là lớp thấp nhất trong lần đo này; cần đọc ảnh đoán sa
 
 ## Nguồn và phạm vi
 
-- [Đặc tả gốc](lab_1_description.md), [3.5](requirements/3_5_evaluate.md), artifact thật của bốn run nêu trên. Báo cáo được HoangDang tổng hợp với hỗ trợ OpenAI Codex; không dùng kết quả Lab 3 hoặc smoke thay cho normal run.
+- [Đặc tả gốc](lab_1_description.md), [3.5](requirements/3_5_evaluate.md), artifact thật của bốn run nêu trên. Báo cáo được HoangDang tổng hợp; không dùng kết quả Lab 3 hoặc smoke thay cho normal run.

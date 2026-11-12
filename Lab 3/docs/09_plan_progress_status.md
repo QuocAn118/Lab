@@ -8,13 +8,13 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Kết quả ngày 2026-11-06
 
-Trạng thái kiểm lại ngày 2026-11-12 được ghi tại `06_verification.md` mục 7. Notebook tám cell đã chạy trên checkpoint nhập với đủ 25.000 test. Bộ kiểm thử hiện tại đạt 43 test, smoke pretrained mới và manifest artifact đạt. HoangDang/OpenAI Codex thực hiện sửa đường dẫn nạp model, nối lại tiện ích report/thời gian và bổ sung kiểm tra bảo vệ phiên trong bản Quốc An.
+Trạng thái kiểm lại ngày 2026-11-12 được ghi tại `06_verification.md` mục 7. Notebook tám cell đã chạy trên checkpoint nhập với đủ 25.000 test. Bộ kiểm thử hiện tại đạt 44 test (kiểm lại sau `25cc678`, cần `PYTHONPATH=src`), smoke pretrained mới và manifest artifact đạt. HoangDang thực hiện sửa đường dẫn nạp model, nối lại tiện ích report/thời gian và bổ sung kiểm tra bảo vệ phiên trong bản Quốc An.
 
 | Task | Công việc | Trạng thái | Bằng chứng |
 | --- | --- | --- | --- |

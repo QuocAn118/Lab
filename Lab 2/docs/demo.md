@@ -10,18 +10,18 @@
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/test nền | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `d0cd42f` |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mục đích: Kiểm chứng model đã huấn luyện bằng cách phân loại từng ảnh và xem xác suất của các lớp. Các lệnh chạy trong thư mục `Lab 2` trên Colab, với `PYTHONPATH=src` đã được notebook thiết lập.
 
 Mã nguồn: `src/lab_2/demo.py`.
 
-Nguồn đặc tả demo và bộ test nền: Nguyễn Quốc An (Quoc An). Phần triển khai package/demo do HoangDang/OpenAI Codex chuẩn bị tại `4176139` được ghi riêng, không quy cho người viết đặc tả. Ghi nhận bổ sung do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12.
+Nguồn đặc tả demo và bộ test nền: Nguyễn Quốc An (Quoc An). Phần triển khai package/demo do HoangDang chuẩn bị tại `4176139` được ghi riêng, không quy cho người viết đặc tả. Ghi nhận bổ sung do HoangDang đối chiếu Git ngày 2026-11-12.
 
 > **Phụ trách**: TV5. Đặc tả từng hàm đã triển khai nằm ở mục 4.
 
-> Đã demo thật ba ảnh test bằng DenseNet121 đã chọn trong phiên `rerun-thanhbinh-20261112-175308`; [ảnh xác suất](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/demo_probabilities.png), [metrics/demo](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json). Người chạy HoangDang/OpenAI Codex, RTX 5060; code/đặc tả nguồn giữ tên riêng. Dùng `--config` trỏ tới config phiên khi đọc model đã train, tránh nhầm checkpoint nguồn của Bình.
+> Đã demo thật ba ảnh test bằng DenseNet121 đã chọn trong phiên `rerun-thanhbinh-20261112-175308`; [ảnh xác suất](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/demo_probabilities.png), [metrics/demo](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json). Người chạy HoangDang, RTX 5060; code/đặc tả nguồn giữ tên riêng. Dùng `--config` trỏ tới config phiên khi đọc model đã train, tránh nhầm checkpoint nguồn của Bình.
 
 ## 1. Cách Chạy
 

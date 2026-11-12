@@ -5,9 +5,9 @@
 | Trường | Nội dung |
 | --- | --- |
 | Created date | 2026-11-11 |
-| Created by | HoangDang, hỗ trợ OpenAI Codex |
+| Created by | HoangDang |
 | Last updated | 2026-11-11T09:54:14+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 
 | Yêu cầu | Code | Phép kiểm | Bằng chứng đích |
 | --- | --- | --- | --- |
@@ -19,7 +19,7 @@
 | Demo/đồ thị/so sánh | `src/demo.py`, `src/evaluate.py`, `src/compare_runs.py` | Pipeline smoke, ảnh cố định seed 42 | loss_curve, prediction_samples, compare_runs/compare_loss |
 | Toàn vẹn | `src/verify.py`, `src/run_tracking.py`, `tools/check_provenance.py` | Sửa CSV phải bị phát hiện; kiểm manifest/hash sau run | verify_report, manifest, sidecar |
 
-Các dòng trên đã được kiểm chứng qua 17 test, smoke và bốn normal run; kết quả thật được ghi tại [verification.md](verification.md).
+Các dòng trên đã được kiểm chứng qua 20 test, smoke và bốn normal run; kết quả thật được ghi tại [verification.md](verification.md).
 
 ## Nguồn và phạm vi
 

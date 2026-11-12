@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-06T22:10:18+07:00 ; HoangDang ; 77cd208 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 | Yêu cầu | Nguồn Markdown | Triển khai | Kiểm chứng |
@@ -65,11 +65,11 @@ Căn cứ yêu cầu truy nguồn được ghi nhận tại `11_AI_Usage.md` §1
 | `configs/exercise_2.yaml`, `requirements_quocan.txt`, `tests/`, `notebooks/` | `lab_3_description.md`, `plan_progress_status.md` | Cấu hình, môi trường, kiểm thử và notebook của bản nhập |
 | `checkpoints/`, `reports/` | Commit gốc `7fea49d`, `186582e` và lịch sử trong nhật ký đồng bộ | Artifact kế thừa; không được diễn giải là kết quả chạy mới |
 
-Đối chiếu tác giả, thời điểm commit, hash nhánh và quyết định giữ bản hiện hành tại [BRANCH_SYNC_2026-11-11.md](../../BRANCH_SYNC_2026-11-11.md). Phần này do HoangDang tích hợp với hỗ trợ OpenAI Codex; chưa xác nhận các kiểm thử runtime của bản nhập đã đạt trên máy hiện tại.
+Đối chiếu tác giả, thời điểm commit, hash nhánh và quyết định giữ bản hiện hành tại [BRANCH_SYNC_2026-11-11.md](../../BRANCH_SYNC_2026-11-11.md). Phần này do HoangDang tích hợp; chưa xác nhận các kiểm thử runtime của bản nhập đã đạt trên máy hiện tại.
 
 ## Nguồn và phạm vi
 
-- Snapshot local ThanhBinh được nhập ngày 2026-11-11 tại [outputs/imported-thanhbinh-40acced/](../outputs/imported-thanhbinh-40acced/README.md). `IMPORT.json` giữ ánh xạ 176 file và nguồn commit; 20 trọng số dùng LFS. Đây là bản nhập lịch sử, không phải lần huấn luyện mới. Người tích hợp: HoangDang, hỗ trợ OpenAI Codex.
+- Snapshot local ThanhBinh được nhập ngày 2026-11-11 tại [outputs/imported-thanhbinh-40acced/](../outputs/imported-thanhbinh-40acced/README.md). `IMPORT.json` giữ ánh xạ 176 file và nguồn commit; 20 trọng số dùng LFS. Đây là bản nhập lịch sử, không phải lần huấn luyện mới. Người tích hợp: HoangDang.
 
 - [08_implementation.md](08_implementation.md): R-01–R-09 chốt trước code.
 - [11_AI_Usage.md](11_AI_Usage.md): quy tắc; [10_sources.md](10_sources.md): nguồn ngoài repo.

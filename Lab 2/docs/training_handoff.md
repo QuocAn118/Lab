@@ -6,14 +6,14 @@
 | --- | --- |
 | Name | Kế hoạch bàn giao train — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
-| Created by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
 ## 1. Phạm vi và người làm
 
-Người chuẩn bị/tích hợp: HoangDang, hỗ trợ OpenAI Codex. Bản bàn giao TV3: Nguyễn Thanh Bình (`92930e6`), lưu như phiên lịch sử; manifest cũ chưa ghi tên người vận hành nên không suy từ tác giả commit. Phiên chạy lại `rerun-thanhbinh-20261112-175308`: HoangDang/OpenAI Codex, RTX 5060, config và output riêng. Người chạy Colab sau này vẫn phải điền `OPERATOR` trong notebook.
+Người chuẩn bị/tích hợp: HoangDang. Bản bàn giao TV3: Nguyễn Thanh Bình (`92930e6`), lưu như phiên lịch sử; manifest cũ chưa ghi tên người vận hành nên không suy từ tác giả commit. Phiên chạy lại `rerun-thanhbinh-20261112-175308`: HoangDang, RTX 5060, config và output riêng. Người chạy Colab sau này vẫn phải điền `OPERATOR` trong notebook.
 
 Đã chuẩn bị code, notebook và kiểm tra offline. Người nhận chạy thực nghiệm theo đúng config, lưu bằng chứng và bàn giao kết quả. Không phải viết thêm pipeline. Chưa có cam kết accuracy hoặc thời gian chạy; không cần giải nén ZIP.
 

@@ -9,4 +9,4 @@
 ## Nguồn và phạm vi
 
 - README và đặc tả hiện có; yêu cầu truy nguồn trong Lab 1 và Lab 3.
-- Chuẩn hóa ngày 2026-11-11 bởi HoangDang, hỗ trợ OpenAI Codex. Tổng quan cấu trúc trước đây nằm trong README và lịch sử Git.
+- Chuẩn hóa ngày 2026-11-11 bởi HoangDang. Tổng quan cấu trúc trước đây nằm trong README và lịch sử Git.

@@ -545,7 +545,6 @@
   ],
   "integration_finished_at": "2026-11-11T08:23:49+07:00",
   "integrated_head": "06fbc7af3c62ea19a08e0c6792b22e3c495686cb",
-  "integration_tool": "OpenAI Codex; configured Git identity: HoangDang",
   "merge_commits": [
     {
       "commit": "e1616ada33cabdf3d20901950a34642967908d28",
@@ -2251,7 +2250,6 @@
     "lfs_commit": "ecb71b108d46cb0d96e028075dcde8b53ffa8bd5",
     "imported_at": "2026-11-11T08:43:09+07:00",
     "integrated_by": "HoangDang",
-    "assisted_by": "OpenAI Codex",
     "original_author": "HoangDang",
     "original_author_date": "2026-11-07T07:33:28+07:00",
     "imported_files": 176,
@@ -2269,7 +2267,7 @@
   },
   "documentation_update": {
     "at": "2026-11-11T08:52:28+07:00",
-    "by": "HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex",
+    "by": "HoangDang",
     "files": [
       "AGENTS.md",
       "BRANCH_SYNC_2026-11-11.md",
@@ -2337,7 +2335,6 @@
   "lab1_completion": {
     "recorded_at": "2026-11-11T09:55:36+07:00",
     "by": "HoangDang",
-    "assisted_by": "OpenAI Codex",
     "implementation_commit": "e36cc00",
     "tests_passed": 17,
     "smoke": "smoke_001",
@@ -2393,7 +2390,6 @@
   "lab1_product_in_codebase": {
     "at": "2026-11-11T10:16:25+07:00",
     "by": "HoangDang",
-    "assisted_by": "OpenAI Codex",
     "method": "Git LFS in existing working directories",
     "checkpoint_files": 25,
     "dataset_files": 8,
@@ -2410,7 +2406,7 @@
   },
   "lab2_preparation": {
     "at": "2026-11-11T11:13:30+07:00",
-    "by": "HoangDang, assisted by OpenAI Codex",
+    "by": "HoangDang",
     "base": "origin/main at a7b7ef8",
     "status": "code and documentation prepared; real training pending",
     "offline_tests_passed": 63,

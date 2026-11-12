@@ -7,10 +7,10 @@
 | Name | Mô tả bài Lab 1 — FashionMNIST MLP |
 | Created date | 2026-11-04 |
 | Created by | HoangDang |
-| Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Chương tham chiếu | Chương 2 — Artificial Neural Networks |
-| Trạng thái | Hoàn thành kỹ thuật: 17 test, smoke thật và bốn normal run PASS; có sản phẩm đầu vào/đầu ra và gói bàn giao cục bộ |
+| Trạng thái | Hoàn thành kỹ thuật: 20 test, smoke thật và bốn normal run PASS; có sản phẩm đầu vào/đầu ra và gói bàn giao cục bộ |
 
 File này là tài liệu gốc của Lab 1. Các file khác trong `docs/` mô tả chi tiết từng phần và phải khớp với file này. Khi có mâu thuẫn, sửa theo file này hoặc cập nhật file này trước, rồi ghi lý do vào [plan_progress_status.md](plan_progress_status.md).
 

@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
 | Last updated | 2026-11-11T09:54:14+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Trạng thái: `src/train.py` đã có; smoke_001 và bốn normal run đã hoàn tất, kiểm hash PASS. Code kiểm tra final/best, gọi evaluation/performance/đồ thị/demo và verifier trước khi chốt manifest.

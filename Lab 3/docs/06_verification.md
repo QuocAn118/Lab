@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Kết luận ngày 2026-11-06
@@ -121,7 +121,7 @@ Phạm vi nghiệm thu dựa trên yêu cầu dự án và đặc tả hiện c�
 
 ## 7. Kiểm chứng bản hiện tại ngày 2026-11-12
 
-HoangDang, hỗ trợ OpenAI Codex, thực thi trên Windows/RTX 5060 Laptop, Python 3.12.10, torch 2.9.1+cu128, transformers 4.57.1, datasets 4.3.0, pandas 2.3.3 và pyarrow 21.0.0. Sau điều chỉnh dependency, `pip check` đạt.
+HoangDang, thực thi trên Windows/RTX 5060 Laptop, Python 3.12.10, torch 2.9.1+cu128, transformers 4.57.1, datasets 4.3.0, pandas 2.3.3 và pyarrow 21.0.0. Sau điều chỉnh dependency, `pip check` đạt.
 
 - `pytest test.py test_reporting.py tests/test_exercise_2.py` đạt 43 test trong 11,01 giây. Có bốn cảnh báo về mtime checkpoint và backend ảnh trong test. [JUnit](../report/completion-review-20261112/offline-tests.xml).
 - Notebook tám cell Run All bằng NBClient đạt, hoàn tất lúc 2026-11-12T20:43:18+07:00. Đánh giá đủ 25.000 test, accuracy 91,012%, macro F1 0,9101182914 và loss 0,3465386629. Exercise 1, hai biểu đồ và demo đều có output mới. [Report đánh giá](../report/evaluate-20261112-204226-805293/summary.md), [report suy luận](../report/infer-20261112-204208-788129/summary.md).
@@ -131,6 +131,20 @@ HoangDang, hỗ trợ OpenAI Codex, thực thi trên Windows/RTX 5060 Laptop, Py
 Manifest full lịch sử có 18 file khớp byte trực tiếp. 27 file text còn lại khớp hash và kích thước khi khôi phục kiểu xuống dòng đã ghi lúc tạo manifest, gồm CSV có dòng chú thích LF và các dòng dữ liệu CRLF. Verifier byte nghiêm ngặt của manifest lịch sử vì thế báo khác hash trên bản nhập. Biên bản mới ghi từng đường dẫn và phép đối chiếu. [Đối chiếu manifest lịch sử](../report/completion-review-20261112/historical_manifest_check.json).
 
 Phép đánh giá ngày 2026-11-12 dùng trọng số full đã có. Smoke là kiểm tra pipeline rút gọn. Lượt này chưa chạy full training mới hoặc đo benchmark Lab 3 trên T4.
+
+## 7.1. Kiểm lại sau commit `25cc678` — 2026-11-12
+
+HoangDang, dùng `.venv` Lab 3. Lệnh test cần đặt `PYTHONPATH=src` vì `tests/` nhập package `exercise_2` trong `src/`; thiếu biến này pytest dừng ở bước thu thập. Từ thư mục `Lab 3`:
+
+```powershell
+$env:PYTHONUTF8 = '1'
+$env:PYTHONPATH = 'src'
+& .venv/Scripts/python.exe -m pytest test.py test_reporting.py tests/test_exercise_2.py -q
+```
+
+- Kết quả: **44 passed**, 4 cảnh báo, 8,09 giây (commit `25cc678` thêm một test chặn ghi đè). `tests/test_smoke.py` chạy riêng cũng đạt.
+- `lab3.py audit` PASS, 40 file và tám cell. Notebook chính `Lab_3 (1).ipynb` ở repo gốc có 8/8 cell đã chạy, không có output lỗi; `notebooks/Lab_3 (1).ipynb` là bản nhánh Quốc An chưa chạy, không phải bản nộp chính.
+- Không chạy lại notebook, smoke CLI hay đánh giá; số đo accuracy giữ theo mục 7.
 
 ## Nguồn và phạm vi
 

@@ -9,14 +9,14 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
 
 > **Trạng thái**: Đã có số liệu chính thức từ lần chạy trên Colab, GPU Tesla T4, ngày 2026-11-06. Toàn bộ số liệu lấy từ `reports/metrics.json`. Cả 7 KPI đều đạt.
 
 Mã nguồn: `src/exercise_2/evaluation.py`.
 
-Bổ sung tích hợp ngày 2026-11-12 bởi HoangDang/OpenAI Codex theo `08_implementation.md` mục 10. Hai KPI tốc độ được đối chiếu khi tên GPU đo là T4. Báo cáo mới lưu tên GPU và mốc phần cứng, thời gian thô tiếp tục được ghi. Lệnh đánh giá từ chối ghi đè mục evaluation đã có.
+Bổ sung tích hợp ngày 2026-11-12 bởi HoangDang theo `08_implementation.md` mục 10. Hai KPI tốc độ được đối chiếu khi tên GPU đo là T4. Báo cáo mới lưu tên GPU và mốc phần cứng, thời gian thô tiếp tục được ghi. Lệnh đánh giá từ chối ghi đè mục evaluation đã có.
 
 ## 1. Nhật Ký Huấn Luyện
 

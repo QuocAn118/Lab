@@ -5,44 +5,44 @@
 | Trường | Nội dung |
 | --- | --- |
 | Created date | 2026-11-11 |
-| Created by | HoangDang, hỗ trợ OpenAI Codex |
+| Created by | HoangDang |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 
 
 ## Lab 2 preparation for training handoff
 
 ### Nhận TV3 Thanh Bình và tách phiên chạy lại — 2026-11-12
 
-Nguồn bàn giao: Nguyễn Thanh Bình (Thanh Binh trong Git), commit `92930e6`; giữ riêng đóng góp data của Vân Anh, model Xuân Bảo và evaluation/đặc tả Quốc An. HoangDang, hỗ trợ OpenAI Codex, nhận một phiên lịch sử gồm bốn cấu hình: [IMPORT.json](Lab%202/reports/imported-thanhbinh-92930e6/IMPORT.json). Đã đối chiếu 12 checkpoint LFS, 21 snapshot source, ba manifest, metrics/CSV, TensorBoard và nạp bốn model; không ghi bản nhập thành kết quả train mới.
+Nguồn bàn giao: Nguyễn Thanh Bình (Thanh Binh trong Git), commit `92930e6`; giữ riêng đóng góp data của Vân Anh, model Xuân Bảo và evaluation/đặc tả Quốc An. HoangDang, nhận một phiên lịch sử gồm bốn cấu hình: [IMPORT.json](Lab%202/reports/imported-thanhbinh-92930e6/IMPORT.json). Đã đối chiếu 12 checkpoint LFS, 21 snapshot source, ba manifest, metrics/CSV, TensorBoard và nạp bốn model; không ghi bản nhập thành kết quả train mới.
 
-Bản tích hợp giữ cơ chế chống ghi đè và bổ sung config/output riêng cho runner. 85 test offline và ba smoke thật đạt trên RTX 5060. Phiên mới `rerun-thanhbinh-20261112-175308` dùng config/output riêng, người chạy HoangDang/OpenAI Codex; trạng thái và kết quả được ghi riêng sau khi thực thi. Bản nguồn dùng RTX 4060, không thay thời gian/hardware/metadata cũ bằng thông tin của máy tích hợp. KPI tốc độ T4 chỉ được chấm trên đúng T4, số đo RTX vẫn được giữ.
+Bản tích hợp giữ cơ chế chống ghi đè và bổ sung config/output riêng cho runner. 85 test offline và ba smoke thật đạt trên RTX 5060. Phiên mới `rerun-thanhbinh-20261112-175308` dùng config/output riêng, người chạy HoangDang; trạng thái và kết quả được ghi riêng sau khi thực thi. Bản nguồn dùng RTX 4060, không thay thời gian/hardware/metadata cũ bằng thông tin của máy tích hợp. KPI tốc độ T4 chỉ được chấm trên đúng T4, số đo RTX vẫn được giữ.
 
 ### Bổ sung ghi nhận Quốc An cho Lab 1 và Lab 2 — 2026-11-12
 
-Người đối chiếu/ghi nhận: HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex. Mốc kiểm tra: main `bae987d`; nguồn `origin/QuocAn` tại `32ca8b1` đã là ancestor của main, không có commit nguồn mới cần nhập. Lần cập nhật này bổ sung tên/nguồn đóng góp bằng một PR riêng, không tạo merge rỗng hoặc viết lại tác giả commit cũ.
+Người đối chiếu/ghi nhận: HoangDang (Nguyễn Hoàng Đăng). Mốc kiểm tra: main `bae987d`; nguồn `origin/QuocAn` tại `32ca8b1` đã là ancestor của main, không có commit nguồn mới cần nhập. Lần cập nhật này bổ sung tên/nguồn đóng góp bằng một PR riêng, không tạo merge rỗng hoặc viết lại tác giả commit cũ.
 
 | Lab | Phần ghi tên Nguyễn Quốc An (Quoc An) | Bằng chứng nguồn |
 | --- | --- | --- |
-| Lab 1 | Triển khai ban đầu và chỉnh đặc tả cho `src/train.py`, `tests/test_train.py` | `773a5a1` (2026-11-10T09:11:52+07:00), `e2b6402` (2026-11-10T09:42:35+07:00); registry ở `773a5a1` ghi `created_by: Quoc An`, có khai báo Claude Code |
+| Lab 1 | Triển khai ban đầu và chỉnh đặc tả cho `src/train.py`, `tests/test_train.py` | `773a5a1` (2026-11-10T09:11:52+07:00), `e2b6402` (2026-11-10T09:42:35+07:00); registry ở `773a5a1` ghi `created_by: Quoc An`; khai báo công cụ tại `Lab 1/docs/AI_Usage.md` |
 | Lab 2 | Cập nhật đặc tả theo đề, cấu hình, requirements, bộ test nền; khôi phục các mục tài liệu | `3a86e93`, `00b8d04`, `fa27469`, `0f71b4f`, `9096223`, `f9f2fd8`, `d0cd42f`; danh sách file ở [tiến độ Lab 2](Lab%202/docs/plan_progress_status.md) mục 1.1 |
-| Lab 2 | Tích hợp và đối chiếu evaluation TV4, ghi khai báo AI/6 test/3 biểu đồ | `32ca8b1` (2026-11-10T21:18:59+07:00); khai báo nguồn Claude Code/nhánh riêng do thành viên ghi, không diễn giải là kiểm chứng mới |
+| Lab 2 | Tích hợp và đối chiếu evaluation TV4, ghi khai báo công cụ/6 test/3 biểu đồ | `32ca8b1` (2026-11-10T21:18:59+07:00); khai báo công cụ/nhánh riêng do thành viên ghi tại `Lab 2/docs/AI_Usage.md`, không diễn giải là kiểm chứng mới |
 
 Các commit `33bf735` (lấy Lab 1 từ HoangDang), `fc5aa39`/`48f73bf` (lấy model từ Vân Anh) chỉ ghi Quốc An là người thực hiện nhập/tích hợp, không quy tác giả code/tài liệu gốc cho người nhập. Notebook cũ Lab 2 được nhập/chuyển đường dẫn qua `186582e`/`00b8d04`; không suy người viết toàn bộ notebook hay người chạy từ metadata commit. Phần hiện hành của Vân Anh, Xuân Bảo và các bước hoàn thiện/chạy của HoangDang được giữ riêng.
 
 Hồ sơ cập nhật tại [training Lab 1](Lab%201/docs/training.md), [AI Lab 1](Lab%201/docs/AI_Usage.md), [evaluation Lab 2](Lab%202/docs/evaluation.md) và các trường nguồn đặc tả Lab 2. Các tên/ngày cập nhật nguồn được tách khỏi người/ngày tích hợp. Code, dataset, test, checkpoint, manifest và báo cáo thực nghiệm được giữ nguyên; không sửa KPI/thuật toán hoặc tuyên bố đã train lại trong lần ghi nhận này.
 
-2026-11-11T11:10:28+07:00 — HoangDang, assisted by OpenAI Codex, prepared the Lab 2 package and Colab notebook using main `a7b7ef8` as the base. Model code is derived from Xuan Bao (`hbao2123-debug`); evaluation is derived from Quoc An. Model now lives in `src/lab_2/model.py`; the old root entry point remains compatible. New common/data/training/demo modules, synthetic integration checks and session safeguards were added.
+2026-11-11T11:10:28+07:00 — HoangDang, prepared the Lab 2 package and Colab notebook using main `a7b7ef8` as the base. Model code is derived from Xuan Bao (`hbao2123-debug`); evaluation is derived from Quoc An. Model now lives in `src/lab_2/model.py`; the old root entry point remains compatible. New common/data/training/demo modules, synthetic integration checks and session safeguards were added.
 
 63 offline tests passed (49 package + 14 compatibility). Three real-data smoke tests and four normal training runs were deliberately not executed: user requested preparation for another trainer. The old metrics JSON and notebook contents are preserved. Names already present in the workspace assignment table were preserved, not inferred from branch names. The new notebook and handoff instructions require the actual operator/session name before running. See [handoff plan](Lab%202/docs/training_handoff.md), [verification](Lab%202/docs/verification.md), [preparation report](Lab%202/reports/preparation_check.json). This phase does not claim that new changes have been merged into main.
 
 ## Lab 1 product versioned in the codebase
 
-2026-11-11T10:16:25+07:00 — HoangDang, assisted by OpenAI Codex, changed the delivery method at user request: the existing dataset and all 25 checkpoints are now tracked with Git LFS in their working directories. Source, reports, images and CSV remain directly in the repo. ZIP is a historical backup, not the primary product. Finalized manifests and numeric results were preserved; historical ignored_by_git flags were not rewritten. See [Lab 1 README](Lab%201/README.md). Earlier ZIP/local-only statements below describe earlier phases.
+2026-11-11T10:16:25+07:00 — HoangDang, changed the delivery method at user request: the existing dataset and all 25 checkpoints are now tracked with Git LFS in their working directories. Source, reports, images and CSV remain directly in the repo. ZIP is a historical backup, not the primary product. Finalized manifests and numeric results were preserved; historical ignored_by_git flags were not rewritten. See [Lab 1 README](Lab%201/README.md). Earlier ZIP/local-only statements below describe earlier phases.
 
 ## Lab 1 completion (2026-11-11)
 
-HoangDang, assisted by OpenAI Codex, completed Lab 1 implementation and real verification. 17 tests passed; smoke_001 and four normal runs completed and passed finalized manifest/hash checks. Selected by validation: run_004, val 88.10%, test 87.70% on 10,000 images.
+HoangDang, completed Lab 1 implementation and real verification. 17 tests passed; smoke_001 and four normal runs completed and passed finalized manifest/hash checks. Selected by validation: run_004, val 88.10%, test 87.70% on 10,000 images.
 
 Input/output/product locations: [Lab 1 README](Lab%201/README.md), [evaluation](Lab%201/docs/evaluation.md), [verification](Lab%201/docs/verification.md), [actual demo JSON](Lab%201/outputs/demo_example.json). The local ZIP includes raw input, weights and outputs; it is excluded from Git and has not been uploaded to Drive. Earlier completion-status paragraphs below are snapshots of their respective phases.
 
@@ -58,7 +58,7 @@ Input/output/product locations: [Lab 1 README](Lab%201/README.md), [evaluation](
 
 ## Cập nhật tiếp theo: xử lý nhánh local ThanhBinh
 
-Snapshot `40acced` được nhập lúc **2026-11-11T08:43:09+07:00**, bởi **HoangDang**, hỗ trợ **OpenAI Codex**, vào `Lab 3/outputs/imported-thanhbinh-40acced/`. Tác giả/committer gốc là HoangDang, lúc **2026-11-07T07:33:28+07:00**; không suy tác giả từ tên nhánh.
+Snapshot `40acced` được nhập lúc **2026-11-11T08:43:09+07:00**, bởi **HoangDang**, vào `Lab 3/outputs/imported-thanhbinh-40acced/`. Tác giả/committer gốc là HoangDang, lúc **2026-11-07T07:33:28+07:00**; không suy tác giả từ tên nhánh.
 
 Commit riêng chứa 20 tệp trọng số raw, tổng khoảng 5,4 GB (5 nội dung khác nhau). Chỉ commit riêng được chuyển sang LFS trên nhánh trung gian: **40acced → ecb71b1**. Tác giả và thời gian gốc được giữ nguyên; commit raw được giữ ở `backup/ThanhBinh-raw-40acced`. Không rewrite lịch sử remote hoặc force-push.
 
@@ -71,7 +71,7 @@ Các mục dưới ghi nhận lần đồng bộ remote đầu tiên, không đ�
 - Nhánh nhận: **hoangdang**; remote: origin (https://github.com/QuocAn118/Lab.git).
 - Bắt đầu: **2026-11-11T08:14:59+07:00**.
 - Hoàn tất merge và kiểm tra nội dung: **2026-11-11T08:23:49+07:00**. Mọi thời gian hiển thị theo UTC+07:00 (Asia/Bangkok).
-- Người tích hợp theo cấu hình Git: **HoangDang**, email dangnh3549@ut.edu.vn; hỗ trợ **OpenAI Codex**.
+- Người tích hợp theo cấu hình Git: **HoangDang**, email dangnh3549@ut.edu.vn;.
 - Commit trước đồng bộ: 054a9f15857045a9966207d3d4e67fabe68ca2e8.
 - Nhánh dự phòng: **backup/hoangdang-before-sync-20261111-081459**.
 - Commit sau ba lần merge: 06fbc7af3c62ea19a08e0c6792b22e3c495686cb. Commit ghi nhật ký được tạo sau mốc này; dùng git log để xem hash/thời gian của chính nhật ký.
@@ -108,7 +108,7 @@ origin/hoangdang khớp commit ban đầu. main và ThanhBinh không có commit 
 1. **vananh:** model/model I/O đã được lấy về từ trước. Giữ header nguồn Spec, tài liệu đã rà và khả năng lưu snapshot code data của bản hiện hành.
 2. **xbao:** nhận Lab 2/model.py, test.py, docs/model_vi.md, báo cáo model và ignore cache. Giữ docs/model.md làm đặc tả giao diện chung; lưu đầy đủ tài liệu triển khai tiếng Anh của Bảo ở docs/model_implementation.md. Ghi rõ đường dẫn model dùng chung chưa được ghép.
 3. **QuocAn — Lab 1:** giữ nguyên toàn bộ cây Lab 1 trước đồng bộ; các bản nhập cũ hơn phần gom data và cập nhật tài liệu.
-4. **QuocAn — Lab 2:** nhận src/lab_2/evaluation.py và khai báo nguồn AI/kiểm thử do tác giả ghi trong tiến độ. Giữ model/test vừa nhận từ xbao.
+4. **QuocAn — Lab 2:** nhận src/lab_2/evaluation.py và khai báo nguồn/kiểm thử do tác giả ghi, nay tại `Lab 2/docs/AI_Usage.md`. Giữ model/test vừa nhận từ xbao.
 5. **QuocAn — Lab 3:** nhận source/config/tests, notebook bổ sung, checkpoint LFS, reports/ và bộ tài liệu không đánh số. Giữ notebook gốc, pipeline hiện hành, tài liệu đánh số và bằng chứng outputs/, report/. Báo cáo nhập vào không phải kết quả vừa chạy.
 6. Giữ requirements.txt đã khóa phiên bản; danh sách thư viện của QuocAn ở requirements_quocan.txt. Kết hợp LFS với quy tắc giữ nguyên byte log/report. Giữ README gốc và ghi rõ hai bản Lab 3.
 7. Git LFS tự tạo bốn hook post-checkout, post-commit, post-merge, pre-push trong .githooks/; giữ pre-commit có sẵn. AGENTS.md tại gốc được nhận từ QuocAn.
@@ -242,6 +242,6 @@ Bảng đối chiếu blob sau merge với đầu nhánh nguồn. JSON giữ đ�
 
 ### Hoàn tất tái lập TV3 — 2026-11-12
 
-HoangDang/OpenAI Codex thực thi phiên `rerun-thanhbinh-20261112-175308` từ code `5c03204`, tách khỏi phiên lịch sử của Nguyễn Thanh Bình (`92930e6`). Đã train bốn cấu hình 5/6/6/6 epoch; validation 84,76% / 88,24% / 83,52% / 85,08%, chênh bản nguồn −0,04 đến +0,04 điểm phần trăm. DenseNet121 được chọn bằng validation, test 87,68%, F1 0,8755 trên 5.000 ảnh. Kiểm lại checkpoint DenseNet gốc cũng cho validation 88,24%, test 87,68%; đây là phép đánh giá mới riêng, không ghi thành lần train nguồn.
+HoangDang thực thi phiên `rerun-thanhbinh-20261112-175308` từ code `5c03204`, tách khỏi phiên lịch sử của Nguyễn Thanh Bình (`92930e6`). Đã train bốn cấu hình 5/6/6/6 epoch; validation 84,76% / 88,24% / 83,52% / 85,08%, chênh bản nguồn −0,04 đến +0,04 điểm phần trăm. DenseNet121 được chọn bằng validation, test 87,68%, F1 0,8755 trên 5.000 ảnh. Kiểm lại checkpoint DenseNet gốc cũng cho validation 88,24%, test 87,68%; đây là phép đánh giá mới riêng, không ghi thành lần train nguồn.
 
 [Báo cáo so sánh](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [SESSION](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [manifest artifact](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json). Phiên mới có 13 file trọng số; bản nguồn giữ 12 checkpoint, log và manifest nguyên byte. Nguồn/tác giả và người chạy lại được ghi riêng; chưa nghiệm thu GPU T4/Run all Colab hoặc chụp UI TensorBoard mới.

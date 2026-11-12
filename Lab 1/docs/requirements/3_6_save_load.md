@@ -7,7 +7,7 @@
 | Created date | Chưa xác nhận |
 | Created by | Chưa xác nhận người tạo nội dung |
 | Last updated | 2026-11-11T09:54:14+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 
 ## Giao diện và đầu vào
 
@@ -32,4 +32,4 @@ Năm checkpoint và metadata nằm ở `checkpoints/<run_id>/`. `best` sao chép
 
 ## Nguồn và phạm vi
 
-- [Đặc tả gốc](../lab_1_description.md), [toàn vẹn](../team_plan_integrity.md). Giữ tác giả code kế thừa trong Git; thay đổi API/kiểm chứng do HoangDang tích hợp với hỗ trợ OpenAI Codex.
+- [Đặc tả gốc](../lab_1_description.md), [toàn vẹn](../team_plan_integrity.md). Giữ tác giả code kế thừa trong Git; thay đổi API/kiểm chứng do HoangDang tích hợp.

@@ -166,8 +166,8 @@ Sự trỗi dậy của Deep Learning được thúc đẩy bởi 4 yếu tố c
 
 Kiến thức từ **Chapter 01** kết nối trực tiếp với các bài Lab trong thư mục học tập:
 
-1. **Với bài [`Lab 1`](../Lab%201/)**:
+1. **Với bài [`Lab 1`](../../Lab%201/)**:
    - Sử dụng các bộ dữ liệu cơ bản (như MNIST hoặc bài toán phân lớp nhị phân) để làm quen với **Forward Propagation**, hàm kích hoạt (**Activation Function**) và tính toán hàm mất mát (**Loss Function**).
-2. **Với bài [`Lab 3`](../Lab%203/) & Notebook [`Lab_3 (1).ipynb`](../Lab_3%20(1).ipynb)**:
+2. **Với bài [`Lab 3`](../../Lab%203/) & Notebook [`Lab_3 (1).ipynb`](../../Lab_3%20(1).ipynb)**:
    - Bài Lab 3 sử dụng chính bộ dữ liệu **IMDB Dataset** (`load_dataset("stanfordnlp/imdb")`) và mô hình Transformer **DistilBERT** để phân tích cảm xúc (Sentiment Analysis) — chính là ứng dụng thực tế của phần *NLP & Transformers* được giới thiệu trong slide này!
 

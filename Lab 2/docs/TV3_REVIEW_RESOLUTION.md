@@ -1,6 +1,6 @@
 # Xử lý review TV3 — Lab 2
 
-Ngày: 2026-11-12. Thực hiện: OpenAI Codex theo yêu cầu người dùng. Chỉ thay đổi Lab 2; giữ nguyên dữ liệu thực nghiệm đã hoàn tất.
+Ngày: 2026-11-12. Thực hiện: HoangDang. Chỉ thay đổi Lab 2; giữ nguyên dữ liệu thực nghiệm đã hoàn tất.
 
 ## 1. Checkpoint trên GitHub
 

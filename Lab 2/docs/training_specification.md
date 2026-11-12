@@ -9,10 +9,12 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
+
+> **Bản cũ, chỉ giữ làm lịch sử.** Đặc tả đang áp dụng là [training.md](training.md). Bản này còn mô tả xóa log cũ khi chạy lại và chạy lại cell khi Colab ngắt phiên; code hiện tại báo `FileExistsError`, giữ nguyên log/checkpoint đã có và dùng phiên mới.
 
 > **Phụ trách**: TV3. Đặc tả từng hàm cần viết nằm ở mục 8.
 

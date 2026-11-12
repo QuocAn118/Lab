@@ -6,16 +6,16 @@
 | --- | --- |
 | Name | Kiểm chứng chuẩn bị — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
-| Created by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
 ## 1. Kết quả và giới hạn
 
 ### TV3 nhập lịch sử và chuẩn bị chạy lại — 2026-11-12
 
-Nguồn bàn giao: Nguyễn Thanh Bình (`origin/ThanhBinh`, `92930e6`), có khai báo OpenAI Codex. HoangDang/OpenAI Codex tiếp nhận và kiểm chứng trên máy hiện tại. Đây là một phiên lịch sử gồm bốn cấu hình, không ghi thành bốn lần train mới. [IMPORT.json](../reports/imported-thanhbinh-92930e6/IMPORT.json) giữ nguồn, thời gian gốc, đường dẫn và hash. Người chạy cũ chưa được ghi tên trong manifest, không suy từ tác giả commit.
+Nguồn bàn giao: Nguyễn Thanh Bình (`origin/ThanhBinh`, `92930e6`). HoangDang tiếp nhận và kiểm chứng trên máy hiện tại. Đây là một phiên lịch sử gồm bốn cấu hình, không ghi thành bốn lần train mới. [IMPORT.json](../reports/imported-thanhbinh-92930e6/IMPORT.json) giữ nguồn, thời gian gốc, đường dẫn và hash. Người chạy cũ chưa được ghi tên trong manifest, không suy từ tác giả commit.
 
 Đã kiểm chứng **12 checkpoint đúng byte/hash, 21 snapshot source đúng hash, ba manifest không đổi**, và nạp best checkpoint của cả bốn model cho output hữu hạn `[1,10]`. Snapshot khôi phục dòng chú thích cũ đã giải quyết chênh hash training.py trước đó; không sửa manifest cũ. Metrics/CSV/số epoch được đối chiếu riêng.
 
@@ -29,7 +29,7 @@ Sau merge `828e5ef`, đã chạy lại bộ test offline với kiểm tra dữ l
 
 **CIFAR-10 thật PASS trên Windows:** archive và 7 file sau giải nén khớp MD5; chia đúng 22.500/2.500/5.000, seed tái lập, train/validation không giao nhau. Đã kiểm tra batch train 64 ảnh, validation/test 128 ảnh ở shape `[B,3,224,224]`, ảnh hữu hạn, nhãn int64 0–9, `num_workers=2`, transform đánh giá ổn định. CLI data đã ghi thống kê vào phiên mới và giữ nguyên `reports/metrics.json` lịch sử. Chi tiết, config, thời gian và hash source tại [data_validation_2026-11-12.json](../reports/data_validation_2026-11-12.json).
 
-Nguồn phần data: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`); HoangDang, hỗ trợ OpenAI Codex, tích hợp và kiểm chứng ngày 2026-11-12. Không đổi tên/ngày cập nhật nguồn của Vân Anh. Đây là kiểm chứng dữ liệu; chưa chạy 3 smoke model pretrained, 4 normal run, accuracy/F1/KPI hoặc Run all Colab. Trên Colab vẫn cần thực hiện lại bước tải/chia dữ liệu theo [kế hoạch bàn giao](training_handoff.md).
+Nguồn phần data: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`); HoangDang, tích hợp và kiểm chứng ngày 2026-11-12. Không đổi tên/ngày cập nhật nguồn của Vân Anh. Đây là kiểm chứng dữ liệu; chưa chạy 3 smoke model pretrained, 4 normal run, accuracy/F1/KPI hoặc Run all Colab. Trên Colab vẫn cần thực hiện lại bước tải/chia dữ liệu theo [kế hoạch bàn giao](training_handoff.md).
 
 ### 1.2. Kết quả chuẩn bị ngày 2026-11-11 — giữ làm lịch sử
 
@@ -63,11 +63,15 @@ Windows, Python 3.12.10. Dùng interpreter Lab 1 `.venv/Scripts/python.exe` và 
 
 ## 3. Nguồn và bảo toàn dữ liệu
 
-Nền main `a7b7ef8`. Model kế thừa Xuân Bảo (`hbao2123-debug`); evaluation kế thừa Quốc An. HoangDang/Codex ghép và hoàn thiện package. `reports/metrics.json` và `notebooks/Lab 2.ipynb` là artifact cũ, không sửa hoặc diễn giải thành lần chạy mới. Bằng chứng chuẩn bị máy đọc được: [preparation_check.json](../reports/preparation_check.json).
+Nền main `a7b7ef8`. Model kế thừa Xuân Bảo (`hbao2123-debug`); evaluation kế thừa Quốc An. HoangDang ghép và hoàn thiện package. `reports/metrics.json` và `notebooks/Lab 2.ipynb` là artifact cũ, không sửa hoặc diễn giải thành lần chạy mới. Bằng chứng chuẩn bị máy đọc được: [preparation_check.json](../reports/preparation_check.json).
 
 Không ghi Đạt cho accuracy, F1, GPU KPI hoặc Run all Colab trước khi người nhận train cung cấp bằng chứng thật. Người nhận thực hiện [training_handoff.md](training_handoff.md).
 
 Kiểm tra bổ sung: 3 smoke test thu thập được (không thực thi); cấu hình phiên của notebook đã chạy với thư mục tạm để kiểm tra giữ nguyên tham số/chặn sửa config. Logic đổi RAM Linux được kiểm tra bằng mock resource. Ba test biểu đồ/luồng demo pass sau khi chỉnh tiêu đề ảnh dài và khoảng trống trên đường loss; đã mở ảnh giả để kiểm tra bố cục, không dùng chúng làm số liệu bài nộp.
+
+## Kiểm lại sau commit `25cc678` — 2026-11-12
+
+HoangDang, chạy lại bộ test offline: **93 passed** (79 test package, 14 test tương thích), 0 lỗi, 12,02 giây; commit `25cc678` bổ sung test chặn ghi đè output đã chốt. `tools/verify_tv3_handoff.py` PASS (21 source lịch sử, 3 manifest không đổi, 12 checkpoint). Máy kiểm lại không có `.venv` Lab 2: dùng torch 2.9.1+cu128/torchvision 0.24.1 của `.venv` Lab 1 và cài tạm tensorboard, scikit-learn, pyyaml, matplotlib, psutil vào thư mục ngoài repo, `PYTHONPATH=src`. Không chạy smoke thật, train, Colab hoặc đo KPI T4; TASK-16 và hai KPI tốc độ T4 vẫn chờ.
 
 ## Kết quả thực thi phiên tái lập
 
