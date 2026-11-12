@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | Kiểm chứng thực tế — Lab 3 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
 | Last updated | 2026-11-12T21:38:06+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng) |

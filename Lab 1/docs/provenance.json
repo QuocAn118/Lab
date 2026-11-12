@@ -196,11 +196,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "914f7f959a2652ac51a4ed86fe178543f3443ec3878c5d0681c316873615241a"
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "15c64bd749817c570400a96725743108be90b2d02afde5a8ad771ab52d980c38"
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
         }
       ],
       "method": "ai-assisted",
@@ -269,6 +269,15 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -277,7 +286,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "15c64bd749817c570400a96725743108be90b2d02afde5a8ad771ab52d980c38"
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
         },
         {
           "path": "docs/lab_1_description.md",
@@ -382,6 +391,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -390,7 +407,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "914f7f959a2652ac51a4ed86fe178543f3443ec3878c5d0681c316873615241a"
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
         },
         {
           "path": "docs/lab_1_description.md",
@@ -504,6 +521,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -512,11 +537,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "914f7f959a2652ac51a4ed86fe178543f3443ec3878c5d0681c316873615241a"
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "15c64bd749817c570400a96725743108be90b2d02afde5a8ad771ab52d980c38"
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
         }
       ],
       "method": "manual",
@@ -533,6 +558,15 @@
             "docs/requirements/3_2_transforms_dataloader.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2033,7 +2067,7 @@
         },
         {
           "path": "docs/evaluation.md",
-          "sha256": "1574cc2525525dfdbae5313fb3063e109c7b4a30afbab478c8bf0d3db7a4ed1d"
+          "sha256": "98d9ede7f7bc8ba349dbdba735aac7916eec97fb6e1a771133411a2ec7ec724a"
         }
       ],
       "method": "ai-assisted",
@@ -2083,6 +2117,14 @@
             "docs/evaluation.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/evaluation.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2091,7 +2133,7 @@
       "sources": [
         {
           "path": "docs/demo.md",
-          "sha256": "77de565b3781a46e9f21042e339ce03998bbf420d735701bdc93a4bb9921575d"
+          "sha256": "0f2058b517e456c0e2c76d940fed63edd47637e6bf6823eb33e52a85fce8c4e9"
         },
         {
           "path": "docs/lab_1_description.md",
@@ -2145,6 +2187,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/demo.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2153,7 +2203,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_5_evaluate.md",
-          "sha256": "b85922a3045d9c2ebea229d320d69214eb2a1de0ea22efe5aaf6381a7fcde48e"
+          "sha256": "f6aede3c029713cf7b037e630b58d9ba8b71639dc47af83fc4dec4059a2732ec"
         },
         {
           "path": "docs/lab_1_description.md",
@@ -2207,6 +2257,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_5_evaluate.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2215,7 +2273,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_3_build_model.md",
-          "sha256": "b7cf3997fc80072f913e391970f145c4770f451b693a9a14ec2d9d4c60f9f078"
+          "sha256": "125d392636e9e28faf1be4ec34fcafdf184d9e12f74051dc5ea9add070b4999d"
         }
       ],
       "method": "ai-assisted",
@@ -2255,6 +2313,14 @@
             "docs/requirements/3_3_build_model.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2263,7 +2329,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "484a9374c03cc7a3d8375c6a38bb786b51fe7c05d7efffd1e11b094480dbdeee"
+          "sha256": "a1f3dc3208287efcbe9ce8ed6656246eff7f64b8f84d55d3ee1191f7a123554d"
         }
       ],
       "method": "ai-assisted",
@@ -2311,6 +2377,14 @@
             "docs/requirements/3_6_save_load.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -2417,7 +2491,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "f6c1ed02b51f9b5b7a67b48c4a4090f18dc78db643f841ab88947a84619b77d0"
+          "sha256": "d0925c575da260c513dce94a426a393f3eb62f495de936c4813efbdc4ee7a03f"
         },
         {
           "path": "docs/lab_1_description.md",
@@ -2499,6 +2573,14 @@
             "docs/lab_1_description.md"
           ],
           "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },

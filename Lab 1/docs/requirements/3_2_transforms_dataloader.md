@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | 3.2. Áp dụng transforms và tạo DataLoader |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
 | Last updated | 2026-11-11T09:54:14+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng) |

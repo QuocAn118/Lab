@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | Báo Cáo Đánh Giá (Performance Evaluation) — Lab 2 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |

@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | Hướng dẫn đọc tài liệu và trình bày Lab 3 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T22:10:18+07:00 ; HoangDang ; 77cd208 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng) |

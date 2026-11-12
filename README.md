@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | Lab — thực hành Deep Learning |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
 | Last updated | 2026-11-12T21:38:06+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng) |

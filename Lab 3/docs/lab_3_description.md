@@ -6,7 +6,7 @@
 | --- | --- |
 | Name | Practice 3 — Get Started with Hugging Face: Đặc Tả Tổng Quan |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T08:52:28+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng) |
