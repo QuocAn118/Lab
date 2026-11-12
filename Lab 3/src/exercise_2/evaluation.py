@@ -1,3 +1,4 @@
+# Sources: docs/evaluation.md; docs/lab_3_description.md; docs/08_implementation.md §10
 """Exercise 2, bước 7: đánh giá mốc `best` trên tập test và đo hiệu năng. Đặc tả: docs/evaluation.md."""
 import functools
 import statistics
@@ -136,15 +137,23 @@ def plot_confusion_matrix(matrix, path):
     plt.close(figure)
 
 
+def t4_kpi_value(value, device_name):
+    return value if "T4" in device_name.upper().split() else None
+
+
 def main():
     config = config_from_args(__doc__)
     best_dir = project_path(config["paths"]["checkpoints_dir"]) / "best"
     if not best_dir.exists():
         raise SystemExit(f"Không thấy {best_dir}. Hãy chạy exercise_2.training trước.")
-    training_report = read_report(config)["training"]
+    report = read_report(config)
+    if "evaluation" in report:
+        raise FileExistsError("Đã có kết quả evaluation. Dùng config phiên mới.")
+    training_report = report["training"]
 
     gpu = torch.cuda.is_available()
     device = "cuda" if gpu else "cpu"
+    device_name = torch.cuda.get_device_name(0) if gpu else "cpu"
     if gpu:
         torch.cuda.reset_peak_memory_stats()
     tokenizer = AutoTokenizer.from_pretrained(best_dir)
@@ -182,15 +191,15 @@ def main():
         if epoch["epoch"] == training_report["best_epoch"]
     )
     kpi = config["kpi"]
-    # Mục tiêu tốc độ đặt cho GPU T4, nên số đo trên CPU không được tính là đạt hay không đạt.
+    # Mục tiêu tốc độ tham chiếu T4, tên GPU của từng phép đo quyết định đối chiếu.
     rows = [
         ("Validation Accuracy", best_epoch["val_accuracy"], kpi["accuracy"], True),
         ("Test Accuracy", metrics["accuracy"], kpi["accuracy"], True),
         ("Test Macro F1", metrics["macro_f1"], kpi["macro_f1"], True),
         ("Thời gian train (giây/epoch)",
-         training_report["mean_train_seconds_per_epoch"] if gpu else None,
+         t4_kpi_value(training_report["mean_train_seconds_per_epoch"], training_report["device"]),
          kpi["seconds_per_epoch"], False),
-        ("Độ trễ suy luận (ms/mẫu)", latency["mean"] if gpu else None, kpi["latency_ms"], False),
+        ("Độ trễ suy luận (ms/mẫu)", t4_kpi_value(latency["mean"], device_name), kpi["latency_ms"], False),
         ("VRAM cao nhất (GB)", peak_vram, kpi["peak_vram_gb"], False),
         ("RAM cao nhất (GB)", max(training_report["peak_ram_gb"], peak_ram_gb()),
          kpi["peak_ram_gb"], False),
@@ -208,6 +217,8 @@ def main():
 
     update_report(config, "evaluation", {
         "device": device,
+        "device_name": device_name,
+        "speed_kpi_reference": "NVIDIA T4",
         "checkpoint": "best",
         "test_samples": len(test),
         "test_metrics": metrics,

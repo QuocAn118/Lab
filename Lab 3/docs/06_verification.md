@@ -119,6 +119,19 @@ Lần sắp xếp docs ngày 2026-11-06: 10 kiểm thử offline PASS; audit ngu
 
 Phạm vi nghiệm thu dựa trên yêu cầu dự án và đặc tả hiện có. Nguồn gốc tác giả của notebook kế thừa chưa được xác minh độc lập. Không đo trên Colab T4, không triển khai web, không cung cấp resume optimizer. Module B chỉ huấn luyện tiếng Anh; câu trung tính vẫn buộc phân loại hai lớp. RSS host là đỉnh quan sát, không đo đỉnh tuyệt đối. Các ngưỡng chất lượng/phần cứng được kết luận trong đúng điều kiện đo nêu trên.
 
+## 7. Kiểm chứng bản hiện tại ngày 2026-11-12
+
+HoangDang, hỗ trợ OpenAI Codex, thực thi trên Windows/RTX 5060 Laptop, Python 3.12.10, torch 2.9.1+cu128, transformers 4.57.1, datasets 4.3.0, pandas 2.3.3 và pyarrow 21.0.0. Sau điều chỉnh dependency, `pip check` đạt.
+
+- `pytest test.py test_reporting.py tests/test_exercise_2.py` đạt 43 test trong 11,01 giây. Có bốn cảnh báo về mtime checkpoint và backend ảnh trong test. [JUnit](../report/completion-review-20261112/offline-tests.xml).
+- Notebook tám cell Run All bằng NBClient đạt, hoàn tất lúc 2026-11-12T20:43:18+07:00. Đánh giá đủ 25.000 test, accuracy 91,012%, macro F1 0,9101182914 và loss 0,3465386629. Exercise 1, hai biểu đồ và demo đều có output mới. [Report đánh giá](../report/evaluate-20261112-204226-805293/summary.md), [report suy luận](../report/infer-20261112-204208-788129/summary.md).
+- Smoke CLI pretrained mới dùng 32/16/16 mẫu, hai optimizer step, gradient hữu hạn và save/reload đủ năm checkpoint. Verifier xác nhận 48 artifact khớp hash. [Report smoke](../report/cli-smoke-20261112-204427-088939/summary.md).
+- Source audit đạt 40 file và tám cell. Báo cáo đánh giá mới đạt kiểm hash 28 file. Snapshot nhập khớp đủ 176 file, gồm 20 trọng số, với `IMPORT.json`. [Biên bản kiểm tra nguồn](../report/completion-review-20261112/intake_check.json).
+
+Manifest full lịch sử có 18 file khớp byte trực tiếp. 27 file text còn lại khớp hash và kích thước khi khôi phục kiểu xuống dòng đã ghi lúc tạo manifest, gồm CSV có dòng chú thích LF và các dòng dữ liệu CRLF. Verifier byte nghiêm ngặt của manifest lịch sử vì thế báo khác hash trên bản nhập. Biên bản mới ghi từng đường dẫn và phép đối chiếu. [Đối chiếu manifest lịch sử](../report/completion-review-20261112/historical_manifest_check.json).
+
+Phép đánh giá ngày 2026-11-12 dùng trọng số full đã có. Smoke là kiểm tra pipeline rút gọn. Lượt này chưa chạy full training mới hoặc đo benchmark Lab 3 trên T4.
+
 ## Nguồn và phạm vi
 
 - [08_implementation.md](08_implementation.md), [05_evaluation.md](05_evaluation.md), [04_training.md](04_training.md): yêu cầu và cách đo.

@@ -17,6 +17,47 @@ from reporting import RunReport, collect_output, verify_report
 
 
 class ReportTests(unittest.TestCase):
+    def test_loss_history_follows_imported_checkpoint_and_handles_missing_log(self):
+        from notebook_helpers import plot_loss
+        with tempfile.TemporaryDirectory(prefix="lab3-loss-test-") as folder:
+            root = Path(folder)
+            checkpoint = root / 'outputs/imported-thanhbinh-40acced/full/checkpoints/best'
+            checkpoint.mkdir(parents=True)
+            history_path = checkpoint.parent.parent / 'trainer_history.json'
+            history = [{'step': 1, 'loss': 0.6}, {'step': 1, 'eval_loss': 0.7}]
+            history_path.write_text(json.dumps({'history': history}))
+            with patch('matplotlib.pyplot.show'), RunReport('test-loss', root=root / 'reports') as report:
+                plot_loss(None, checkpoint, root, False, report)
+            measured = json.loads(report.path('loss_history.json').read_text())
+            self.assertEqual(measured['history'], history)
+            self.assertEqual(measured['source'], str(history_path))
+            self.assertTrue(report.path('loss_curve.png').is_file())
+            missing = root / 'outputs/no-history/checkpoints/best'
+            with RunReport('test-missing-loss', root=root / 'reports') as report:
+                plot_loss(None, missing, root, False, report)
+            self.assertFalse(json.loads(report.path('loss_history.json').read_text())['available'])
+            self.assertFalse(report.path('loss_curve.png').exists())
+
+    def test_checkpoint_selection_requires_weights_and_skips_lfs_pointer(self):
+        from notebook_helpers import available_checkpoint
+        with tempfile.TemporaryDirectory(prefix="lab3-checkpoint-test-") as folder:
+            root = Path(folder)
+            original = root / 'outputs/full/checkpoints/best'
+            imported = root / 'outputs/imported-thanhbinh-40acced/full/checkpoints/best'
+            for directory in (original, imported):
+                directory.mkdir(parents=True)
+                (directory / 'config.json').write_text('{}')
+            with self.assertRaises(FileNotFoundError):
+                available_checkpoint(root)
+            (original / 'model.safetensors').touch()
+            with self.assertRaises(FileNotFoundError):
+                available_checkpoint(root)
+            (original / 'model.safetensors').write_bytes(b'version https://git-lfs.github.com/spec/v1\n')
+            (imported / 'model.safetensors').write_bytes(b'binary model fixture')
+            self.assertEqual(available_checkpoint(root), imported)
+            (original / 'model.safetensors').write_bytes(b'binary original model fixture')
+            self.assertEqual(available_checkpoint(root), original)
+
     def test_exact_streams_events_and_integrity(self):
         with tempfile.TemporaryDirectory(prefix="lab3-report-test-") as folder:
             with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):

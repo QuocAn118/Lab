@@ -1,0 +1,43 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "checkpoints": [
+    {
+      "path": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047\\checkpoints\\best",
+      "config_present": true,
+      "weights_present": true,
+      "timing_present": true
+    },
+    {
+      "path": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047\\checkpoints\\best_val_acc",
+      "config_present": true,
+      "weights_present": true,
+      "timing_present": true
+    },
+    {
+      "path": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047\\checkpoints\\best_val_loss",
+      "config_present": true,
+      "weights_present": true,
+      "timing_present": true
+    },
+    {
+      "path": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047\\checkpoints\\best_val_pause",
+      "config_present": true,
+      "weights_present": true,
+      "timing_present": true
+    },
+    {
+      "path": "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 3\\outputs\\completion-smoke-20261112-2047\\checkpoints\\final_epoch",
+      "config_present": true,
+      "weights_present": true,
+      "timing_present": true
+    }
+  ],
+  "weights_copied": false
+}

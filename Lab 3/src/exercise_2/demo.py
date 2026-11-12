@@ -1,3 +1,4 @@
+# Sources: docs/demo.md; docs/lab_3_description.md
 """Suy luận nhanh bằng mốc `best` với câu thực tế. Đặc tả: docs/demo.md."""
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer

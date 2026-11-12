@@ -20,7 +20,7 @@
 
 Đọc [kế hoạch train và bàn giao](docs/training_handoff.md), mở [Lab_2_colab.ipynb](notebooks/Lab_2_colab.ipynb). Chọn T4 GPU, điền đường dẫn project, họ tên người chạy và mã phiên trong cell đầu. Notebook chạy lần lượt kiểm tra offline → tải dữ liệu/model → smoke thật → 4 run → đánh giá → demo → TensorBoard. Lệnh lỗi sẽ dừng cell bằng `check=True`.
 
-Code đã chuẩn bị trên nhánh `hoangdang`, nền là `main` tại `a7b7ef8`; dùng bản bàn giao mới nhất trên nhánh này cho đến khi PR được merge. Không lấy riêng các file từ nhánh cá nhân cũ.
+Code và kết quả chạy lại đã được tích hợp vào `main` tại `c6f4d54` qua PR #4. Dùng toàn bộ bản hiện hành của Lab 2 để giữ đồng bộ config, module và test.
 
 ## Code, input và output
 
@@ -72,3 +72,5 @@ Không ghi đè run đã có log/checkpoint/kết quả. Nếu phiên dở dang 
 DenseNet121 được chọn bằng validation 88,24%, epoch 5; test 87,68%, macro F1 0,8755 trên 5.000 ảnh. Bốn cấu hình có validation 84,76% / 88,24% / 83,52% / 85,08%; chênh bản nguồn từ −0,04 đến +0,04 điểm phần trăm. Kiểm lại trọng số DenseNet gốc của Bình cũng cho validation 88,24% và test 87,68%.
 
 [Báo cáo và biểu đồ so sánh](reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [báo cáo đánh giá](docs/evaluation.md), [best checkpoint mới](reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/best.pth). Phiên mới có 13 file trọng số (12 theo run và bản best), checkpoint/log/metrics gốc của Bình giữ nguyên. Lấy trọng số mới sau pull bằng Git LFS; dùng phiên/mã mới nếu tái lập, không chạy lại đè config phiên đã hoàn tất.
+
+Đã chụp [giao diện TensorBoard](reports/sessions/tensorboard-review-20261112-191218/tensorboard.png) của bốn run với accuracy, train loss và validation loss. [Biên bản kiểm tra bổ sung](reports/sessions/tensorboard-review-20261112-191218/REVIEW.json) ghi nguồn event, hash và tùy chọn hiển thị.

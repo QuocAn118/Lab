@@ -8,7 +8,7 @@
 | Created by | HoangDang, hỗ trợ OpenAI Codex |
 | Last updated | 2026-11-11T10:16:25+07:00 |
 | Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
-| Trạng thái | Đang triển khai; chưa ghi nhận nghiệm thu |
+| Trạng thái | Đạt nghiệm thu kỹ thuật trên môi trường đã đo |
 
 ## Kết luận nghiệm thu kỹ thuật
 
@@ -53,5 +53,7 @@ Sản phẩm chính là cây repo: source/requirements/tests/docs, raw dataset q
 Mỗi cấu hình đo một lần, cùng seed/máy; thời gian không phải benchmark nhiều lần, ms/ảnh là trung bình theo batch. Chưa thử full training trên máy khác. Không dùng Drive làm điều kiện lấy sản phẩm: dataset và checkpoint được version bằng Git LFS. Sau clone/pull cần tải LFS trước khi chạy demo/verifier. Tên đầy đủ TV1–TV5/ngày tạo model chưa được chủ thể xác nhận vẫn ghi chưa xác nhận; không tự gán tác giả từ tên nhánh.
 
 ## Nguồn và phạm vi
+
+Kiểm tra lại ngày 2026-11-12 bởi HoangDang, hỗ trợ OpenAI Codex, trên bản repo sau tích hợp `c6f4d54`. Bộ test đạt 17/17 trong 22,77 giây. Verifier chỉ đọc xác nhận `smoke_001` và `run_001`–`run_004` đều PASS, kiểm tra provenance strict có 0 lỗi và 0 cảnh báo. Lượt kiểm tra dùng thư mục tạm mới trong `.git/completion-checks` sau khi tạo thư mục cha. Báo cáo và checkpoint của các run tiếp tục là bằng chứng của ngày chạy ghi trong manifest.
 
 - [Đặc tả](lab_1_description.md), [đánh giá](evaluation.md), [truy vết](traceability.md), artifact thật trong outputs/checkpoints. HoangDang thực hiện với hỗ trợ OpenAI Codex ngày 2026-11-11.

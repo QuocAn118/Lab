@@ -158,7 +158,7 @@ Cột "Kết quả" chỉ ghi Đạt/Không đạt theo bằng chứng phù hợ
 | AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Đạt trên RTX 5060; Colab cần kiểm tra lại |
 | AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
 | AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
-| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/`, ảnh chụp `reports/figures/tensorboard.png` | Đạt event/plot; ảnh UI phiên mới chưa chụp |
+| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | Event phiên mới và [ảnh giao diện TensorBoard](../reports/sessions/tensorboard-review-20261112-191218/tensorboard.png) | Đạt event, plot và ảnh giao diện trên Windows |
 | AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | `checkpoints/`, mục `training` trong `metrics.json` | Đạt trên Windows, phiên nguồn và phiên mới tách riêng |
 | AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Mục `evaluation` trong `metrics.json`, `evaluation.md` | Đạt chất lượng/tài nguyên trên Windows; tốc độ T4 chưa nghiệm thu |
 | AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo` trong `metrics.json`, `demo.md` | Đạt demo thật trên Windows |

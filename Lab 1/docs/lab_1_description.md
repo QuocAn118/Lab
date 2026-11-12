@@ -129,7 +129,7 @@ Chi tiết từng yêu cầu nằm trong `docs/requirements/`. Bảng dưới l�
 | 3.3. Xây dựng mạng | [3_3](requirements/3_3_build_model.md) | `src/model.py` — `FashionMLP`, `build_model(model_config)` | `outputs/model_summary.txt` | Input `[2, 1, 28, 28]` → output hữu hạn `[2, 10]`; không có Softmax trước CrossEntropyLoss |
 | 3.4. Huấn luyện | [3_4](requirements/3_4_train.md) | `src/train.py` | `config.json`, `history.csv`, các checkpoint ở mục 6.1 | Mỗi epoch có train và val; từ chối `run_id` đã tồn tại |
 | 3.5. Đánh giá | [3_5](requirements/3_5_evaluate.md) | `src/evaluate.py` | `metrics.json`, `predictions.csv`, `performance.json` | Normal: 10.000 dòng; smoke: 256 dòng; accuracy tính lại từ CSV khớp JSON |
-| 3.6. Lưu và tải lại | [3_6](requirements/3_6_save_load.md) | `src/model_io.py` — `save_model(model, run_id)`, `load_model(run_id, device)`, `verify_reload(model, sample_batch, run_id)` | `reload_check.json` (hiện kiểm tra `final_epoch`) | Nhãn giống nhau; chênh lệch logits tối đa ≤ 1e-6; `passed=true`; còn phải hỗ trợ và kiểm tra `best` |
+| 3.6. Lưu và tải lại | [3_6](requirements/3_6_save_load.md) | `src/model_io.py` — `save_model(model, run_id)`, `load_model(run_id, device)`, `verify_reload(model, sample_batch, run_id)` | `reload_check.json`; hỗ trợ `final_epoch` và `best` | Nhãn giống nhau; chênh lệch logits tối đa ≤ 1e-6; `passed=true`; train và verifier đã kiểm chứng `best` |
 
 ### Cấu hình cơ sở
 

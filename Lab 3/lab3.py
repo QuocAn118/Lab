@@ -572,7 +572,7 @@ def audit_sources():
     errors, count = [], 0
     for file in sorted(ROOT.rglob("*")):
         relative = file.relative_to(ROOT)
-        if any(part in {".venv", "outputs", "report", "__pycache__", ".ipynb_checkpoints"} for part in relative.parts):
+        if any(part in {".venv", "outputs", "report", "__pycache__", ".pytest_cache", ".ipynb_checkpoints"} for part in relative.parts):
             continue
         if not file.is_file() or file.suffix not in {".md", ".py", ".txt"} and file.name != ".gitignore":
             continue

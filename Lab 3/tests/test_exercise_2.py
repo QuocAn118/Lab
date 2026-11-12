@@ -1,3 +1,4 @@
+# Sources: docs/lab_3_description.md; docs/plan_progress_status.md; docs/08_implementation.md §10
 """Kiểm thử logic Exercise 2, không cần GPU hay tải model."""
 import numpy as np
 import pytest
@@ -8,6 +9,57 @@ from exercise_2.common import ci_half_width
 from exercise_2.data import clean_text, split_dataset
 from exercise_2.evaluation import compute_classification_metrics, kpi_status
 from exercise_2.training import is_better
+
+
+@pytest.mark.parametrize('existing', ['checkpoint', 'training_report'])
+def test_training_refuses_existing_experiment_before_downloading(tmp_path, monkeypatch, existing):
+    from exercise_2 import common, training
+    config = {'paths': {'checkpoints_dir': str(tmp_path / 'checkpoints'),
+                        'reports_dir': str(tmp_path / 'reports')}}
+    if existing == 'checkpoint':
+        marker = tmp_path / 'checkpoints/model.safetensors'
+        marker.parent.mkdir()
+        marker.write_bytes(b'preserve weights')
+    else:
+        common.update_report(config, 'training', {'completed': True})
+        marker = tmp_path / 'reports/metrics.json'
+    before = marker.read_bytes()
+    monkeypatch.setattr(training, 'config_from_args', lambda _: config)
+    monkeypatch.setattr(training, 'load_tokenizer', lambda _: pytest.fail('download before preflight'))
+    with pytest.raises(FileExistsError):
+        training.main()
+    assert marker.read_bytes() == before
+
+
+def test_nonfinite_report_update_preserves_existing_json(tmp_path):
+    from exercise_2.common import update_report
+    config = {'paths': {'reports_dir': str(tmp_path)}}
+    update_report(config, 'data', {'samples': 10})
+    before = (tmp_path / 'metrics.json').read_bytes()
+    with pytest.raises(ValueError):
+        update_report(config, 'evaluation', {'accuracy': float('nan')})
+    assert (tmp_path / 'metrics.json').read_bytes() == before
+
+
+def test_evaluation_refuses_existing_result_before_loading_model(tmp_path, monkeypatch):
+    from exercise_2 import common, evaluation
+    config = {'paths': {'checkpoints_dir': str(tmp_path / 'checkpoints'),
+                        'reports_dir': str(tmp_path / 'reports')}}
+    (tmp_path / 'checkpoints/best').mkdir(parents=True)
+    common.update_report(config, 'evaluation', {'accuracy': 0.9})
+    before = (tmp_path / 'reports/metrics.json').read_bytes()
+    monkeypatch.setattr(evaluation, 'config_from_args', lambda _: config)
+    monkeypatch.setattr(evaluation.AutoTokenizer, 'from_pretrained', lambda _: pytest.fail('model loaded'))
+    with pytest.raises(FileExistsError):
+        evaluation.main()
+    assert (tmp_path / 'reports/metrics.json').read_bytes() == before
+
+
+@pytest.mark.parametrize('device, expected', [('Tesla T4', 12.5), ('NVIDIA T4', 12.5),
+                                            ('NVIDIA GeForce RTX 5060 Laptop GPU', None), ('cpu', None)])
+def test_speed_kpi_uses_t4_measurements(device, expected):
+    from exercise_2.evaluation import t4_kpi_value
+    assert t4_kpi_value(12.5, device) == expected
 
 
 def make_dataset(prefix, n):

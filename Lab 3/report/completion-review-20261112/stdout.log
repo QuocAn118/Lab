@@ -1,0 +1,3 @@
+PASS published intake: 176 files, 20 weights
+Historical manifest: 18 exact byte matches, 27 line-ending equivalents
+Verified fresh notebook evaluation on 25,000 samples and 43 offline tests. See linked run reports.

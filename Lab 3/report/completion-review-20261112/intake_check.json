@@ -1,0 +1,1072 @@
+{
+  "_provenance": {
+    "sources_md": [
+      "docs/08_implementation.md",
+      "docs/05_evaluation.md",
+      "docs/04_training.md",
+      "docs/11_AI_Usage.md"
+    ]
+  },
+  "status": "PASS",
+  "source_commit": "40accede964160fdafc0bff30741ae6e7b979058",
+  "files_checked": 176,
+  "weights_checked": 20,
+  "files": [
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/artifacts.md",
+      "sha256": "e2a56f0b962bbbd0462b8d03f5148221a9e35516f343c23ef006951de1419242",
+      "bytes": 615,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoint_policy.json",
+      "sha256": "93632f28ccfb37f10803948378041e4f5aa0c0c5a0018bad12d4953953eafbf3",
+      "bytes": 713,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/model.safetensors",
+      "sha256": "a1590ad342b7af656e667478aa68339b7fe3ea149c185cfd2dd1ac4df64df8c9",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/model.safetensors",
+      "sha256": "75022b1bdc1202fd96dcf3c0c402e05392be507ca82c2ee346d4c929cf04a590",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/confusion_matrix.png",
+      "sha256": "6ceb2d3332853ad088f43cab8cf035d7370b890cd85d4f45407e4c2c99c52436",
+      "bytes": 27898,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/epoch_history.json",
+      "sha256": "ebbe4fb18e2668d58dd14217fc1d74e36b68f426d7ea1334b68298f5408626fa",
+      "bytes": 1864,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/lab3_source.py",
+      "sha256": "5fbdcd722116179a37e3da58c6f924ce85ae6504e8c6448230238fd16ab942eb",
+      "bytes": 30976,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/loss_curve.png",
+      "sha256": "e1a8e43d295e926088ad873600f1808763671278c5e616473c1dfddbc639c36e",
+      "bytes": 64925,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_corrections.md",
+      "sha256": "5123b24d7a7cda9ff01a2207f07d6fe42654afe4e0a5d7daaae2c8b43fcbfac5",
+      "bytes": 1525,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/checkpoint_policy.json",
+      "sha256": "5c5ec33b006b02de30b63c721a9725063bd16e8be7648fec256b724586876691",
+      "bytes": 567,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/epoch_history.json",
+      "sha256": "779f45c1bc468e1cf701484d48a4aa2368c59630058ab92da1ea47bc8c8fa80a",
+      "bytes": 1632,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metadata_originals/metrics.json",
+      "sha256": "269f96c606ffd17d6b72a55f78168b24191375a5f6f1ba75f743e7a7892f8fe2",
+      "bytes": 8201,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/metrics.json",
+      "sha256": "03b119062c29911f5bd43ec0815fe333ca648f425af7257910a170bd8ce6a883",
+      "bytes": 8470,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/provenance.json",
+      "sha256": "27d116b58d4674d9a2d864d5e4932dd174250f0d37136a0aa43173747ab95f16",
+      "bytes": 39142,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/report.md",
+      "sha256": "341c22f83faecb87b68680f112a582d5226d5c9c6d92e4c5edf437c6a7a6b6a0",
+      "bytes": 1645,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/run.log",
+      "sha256": "3c45af73cf7f8ce6e7a469f9adb47566238168c2e32b5496a0e5c10e7c03e50c",
+      "bytes": 12222,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/run_config.json",
+      "sha256": "2d54d6fe8ca40431c6ee8b7f51bdaad2c45fa6348f174d9ee158a6f16d38dff1",
+      "bytes": 1955,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/test_predictions.csv",
+      "sha256": "9ac69cac0b7d63938fa889d1d79014fe9a172ac840ca9d661b1ac2e9c445449f",
+      "bytes": 238998,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/full/trainer_history.json",
+      "sha256": "6094e83885aeaa6c104dbed8ab3d0076822ebe7c68e5b9c99e919ca2df6749a2",
+      "bytes": 13736,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/artifacts.md",
+      "sha256": "2c46c809c6444a948e0c038a778bc49e9b2e80b7903a51d53ef146f49f0c1253",
+      "bytes": 669,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/inference.json",
+      "sha256": "d5519788aef7ff46f79e7af34700581c6eee09ca69d7c9b7cb37b697080428b4",
+      "bytes": 903,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/lab3_source.py",
+      "sha256": "3f4b4a8c616687bdeaed61cfe0833def41c489f4db8431c36cbf4f90009546a3",
+      "bytes": 30975,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/module-a/provenance.json",
+      "sha256": "214b99b1ee5957802992c464dbd2cd8eb81995043cb0b6efc02ab1980bbaaaaf",
+      "bytes": 22301,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/artifacts.md",
+      "sha256": "1a60f44ab0e1b2d4ecb6d1eb4b43b43fb233ee699e72c400d3bf5dd171df601f",
+      "bytes": 593,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoint_policy.json",
+      "sha256": "b553cb28590dc85e59df1462b4721773273b6018faf578bcb44892215935025a",
+      "bytes": 600,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/model.safetensors",
+      "sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/model.safetensors",
+      "sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/model.safetensors",
+      "sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/model.safetensors",
+      "sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/model.safetensors",
+      "sha256": "a2f13ba9bb1fd10f61d2e1b9eb4b0e66b6a61bf8d58f24bfef6c7d348456b8e6",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/confusion_matrix.png",
+      "sha256": "d27816ac5087f90af17098b5e92770d8c0a19dd2a468e556aa7da87366b18cf4",
+      "bytes": 21237,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/epoch_history.json",
+      "sha256": "ad1ddad9132325b6688a86c0044589795257a436e462fe2d972f1bedf991aa08",
+      "bytes": 751,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/lab3_source.py",
+      "sha256": "8b17732ae20750e6c247f817bdb056b921c2ff768fdee04d68448a0d9f420b4d",
+      "bytes": 31447,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/loss_curve.png",
+      "sha256": "30014154ca4a3b7d551e70d0f546f9e0b3167f386afe0ec014f3b7eba2278071",
+      "bytes": 51278,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/metrics.json",
+      "sha256": "2e0312639875baded5433b85952c568db387ef8631dd77ec762a41964ea3115a",
+      "bytes": 5294,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/notebook_source.ipynb",
+      "sha256": "37379cef0aa7ed061fe2e1d9760950b61871c876292b397432419869b8d96d28",
+      "bytes": 50249,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/provenance.json",
+      "sha256": "592ad6ebf0c886c3c7b341866e52d4d8a591f7ae89262cba964122fbbdeb7f90",
+      "bytes": 38706,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/report.md",
+      "sha256": "b5822e3be80f625f3ed684ee400fb8aac1ac8c6220c66efc41531e25233cb720",
+      "bytes": 1588,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/run.log",
+      "sha256": "7e901f5677d555d5bf3e15746c3a41b56a2940e07f6d9bfa5e9b56f35c3eb860",
+      "bytes": 3129,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/run_config.json",
+      "sha256": "b521962459c37264984ac22371365cda3579a541cd44af6206b70bc83faf58b2",
+      "bytes": 1928,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/test_predictions.csv",
+      "sha256": "9c11ad57336ffbca12562b83115749b19f66454fba3531a429243f6072d79bde",
+      "bytes": 210,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/notebook-smoke/trainer_history.json",
+      "sha256": "6820c0e5af0fbdf2188be77400371ca052b597d99a58231d5fa4eed9b090ba98",
+      "bytes": 1178,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/artifacts.md",
+      "sha256": "dc413e262a891f25bd18da23bafcc9f13972689b926c106348f8897f62e4bdab",
+      "bytes": 617,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoint_policy.json",
+      "sha256": "aed5098013cefd662d35dd4e74089fea0c615b3c4d52449c2c0f68e73af98265",
+      "bytes": 561,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/model.safetensors",
+      "sha256": "73b15788c8fd21e7c3da7152abed400f5e8c1d2135664c1f032c2df90bb78a55",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/epoch_history.json",
+      "sha256": "579f0fa5ace1c62a55ff0c39bbe7420506bda215eb7d8d7d78b696afeaa9beaf",
+      "bytes": 707,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/failure.json",
+      "sha256": "090fdb179ccb75590be01b6e7d492b15cd18789913240156e38f7f8a77e04ce2",
+      "bytes": 516,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/provenance.json",
+      "sha256": "e21cf889ecbc06ab8bd0c8c2a5b0ebb371893c67121b5e862504d80e4f433307",
+      "bytes": 15529,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/run.log",
+      "sha256": "0ce49a7b224df4595d49e6524fe88e991479973823ba3c331982e28b68b43a70",
+      "bytes": 2140,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/run_config.json",
+      "sha256": "6abee5752ff659df935885953522c95075ad21418ca37f95c1806e0cc11d9dcc",
+      "bytes": 1928,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke-failed-001/trainer_history.json",
+      "sha256": "4be6d4be9dc5fd9404844a3242fbea58da5a4042e7bf6dba7fb760c73a5ef141",
+      "bytes": 1177,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/artifacts.md",
+      "sha256": "dc413e262a891f25bd18da23bafcc9f13972689b926c106348f8897f62e4bdab",
+      "bytes": 617,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoint_policy.json",
+      "sha256": "70bafe83cf40a985b083fc1b7fef0a7ec4334ec62c5e5fe814a0237cc8338c6d",
+      "bytes": 561,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/model.safetensors",
+      "sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/model.safetensors",
+      "sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_acc/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/model.safetensors",
+      "sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_loss/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/model.safetensors",
+      "sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/best_val_pause/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/config.json",
+      "sha256": "a767c4c98c6f17c4333c2cf0a3ea0410bb9bd45352b341cfc9aca90bc38a6571",
+      "bytes": 683,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/model.safetensors",
+      "sha256": "ef2632617f857911a2c2dcc7042e112e368548771e5c0a13cc9b364023ee1d49",
+      "bytes": 267832560,
+      "lfs": true
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/special_tokens_map.json",
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/tokenizer.json",
+      "sha256": "8b79639ec74b46604e730f505186eaafb1006d2fd00f2c4930d168bb7f894680",
+      "bytes": 711494,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/tokenizer_config.json",
+      "sha256": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+      "bytes": 1227,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/checkpoints/final_epoch/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/confusion_matrix.png",
+      "sha256": "f9d0c34cb47c95082ecb490a89d1716bd46ce453b76ecc5af5d7535e9362caee",
+      "bytes": 21140,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/epoch_history.json",
+      "sha256": "b482c9da852fdb9b13d00c2c0d221e6834e6ed65e65af1c5ea7f2b15ef07ef6d",
+      "bytes": 708,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/lab3_source.py",
+      "sha256": "3f4b4a8c616687bdeaed61cfe0833def41c489f4db8431c36cbf4f90009546a3",
+      "bytes": 30975,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/loss_curve.png",
+      "sha256": "c4822a61020d161b1fc7d5e22fba039b33f8cdd71f0c079fd03af259f33c3c2b",
+      "bytes": 50947,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/metrics.json",
+      "sha256": "f84a0152c5a28d55634a2653142aa3b3e76abf82be7d96ec3149d2b02330c94d",
+      "bytes": 5207,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/provenance.json",
+      "sha256": "38d0440d53a00497b7a2f986c542ced917d87f74ba8b1743ef8637573794dde5",
+      "bytes": 37578,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/report.md",
+      "sha256": "f25c5dcbe442d10269203173ae6b86efbb3410a96839ef0e247a4e0a4a100850",
+      "bytes": 1588,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/run.log",
+      "sha256": "683665f5df066ac60fc196132997aa77cb54c2c3fb5eccc9cde7b5f886f519e0",
+      "bytes": 3084,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/run_config.json",
+      "sha256": "53b2a07e709e1911d6ddbfe4199d3ff1ad99089aa92cc7300821672d58a2bdc2",
+      "bytes": 1928,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/test_predictions.csv",
+      "sha256": "9c11ad57336ffbca12562b83115749b19f66454fba3531a429243f6072d79bde",
+      "bytes": 210,
+      "lfs": false
+    },
+    {
+      "path": "Lab 3/outputs/imported-thanhbinh-40acced/smoke/trainer_history.json",
+      "sha256": "4ef94edc3808a09d9f3ce4a1714daa8c3bdca164a48f990374b3080ad589386d",
+      "bytes": 1175,
+      "lfs": false
+    }
+  ]
+}
