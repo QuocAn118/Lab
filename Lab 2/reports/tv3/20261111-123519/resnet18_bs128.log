@@ -1,0 +1,7 @@
+resnet18_bs128 epoch 1: train_loss=0.9937, val_loss=0.5516, val_accuracy=0.8176, train_seconds=28.79
+resnet18_bs128 epoch 2: train_loss=0.5790, val_loss=0.4802, val_accuracy=0.8332, train_seconds=29.14
+resnet18_bs128 epoch 3: train_loss=0.5246, val_loss=0.4405, val_accuracy=0.8360, train_seconds=27.16
+resnet18_bs128 epoch 4: train_loss=0.4983, val_loss=0.4424, val_accuracy=0.8376, train_seconds=27.02
+resnet18_bs128 epoch 5: train_loss=0.4869, val_loss=0.4188, val_accuracy=0.8488, train_seconds=27.62
+resnet18_bs128 epoch 6: train_loss=0.4743, val_loss=0.4092, val_accuracy=0.8508, train_seconds=27.07
+Best epoch: 6; val accuracy: 0.8508; giây/epoch: 27.80

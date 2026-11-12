@@ -51,7 +51,7 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 ## 4. Đóng Băng & Fine-Tuning
 
 - **Mặc định (transfer learning)**: Đóng băng toàn bộ tầng trích xuất đặc trưng bằng `requires_grad = False`, chỉ huấn luyện lớp phân loại. Cả 4 lần chạy đều dùng cách này.
-- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
+- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training_specification.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
 - **BatchNorm**: Khi huấn luyện, chỉ phần được mở khóa ở chế độ `train`. BatchNorm của tầng đóng băng giữ chế độ `eval` để thống kê từ ImageNet không bị thay đổi.
 
 ## 5. Tham Số
@@ -68,7 +68,7 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 
 - **BatchNorm**: Có sẵn trong backbone của ResNet18 và DenseNet121, nhóm không tự thêm.
 - **Dropout**: Có ở lớp phân loại, xem mục 3.
-- **Weight decay**: Thuộc optimizer, xem `training.md` mục 1.
+- **Weight decay**: Thuộc optimizer, xem `training_specification.md` mục 1.
 
 ---
 

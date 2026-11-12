@@ -17,7 +17,7 @@ Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR
 - **Exercise 2**: Điều chỉnh learning rate và batch size.
 - **Exercise 3**: Theo dõi quá trình huấn luyện bằng TensorBoard.
 
-> **Trạng thái**: Đã có model độc lập `model.py`, kiểm thử `test.py`, báo cáo tham số và `src/lab_2/evaluation.py`. Package dùng chung còn thiếu `common.py`, `data.py`, `model.py`, `training.py`, `demo.py`; notebook Colab đích cũng chưa có. Vì vậy chưa chạy được toàn pipeline. Kết quả kiểm thử do thành viên báo cáo được phân biệt với kiểm chứng trên máy hiện tại.
+> **Trạng thái (2026-11-11)**: TV3 đã chạy 41 test, ba smoke test pretrained và đủ bốn run trên RTX 4060 Laptop. Validation accuracy cao nhất 88,24% (DenseNet121); đã có checkpoint, bảng so sánh và ảnh TensorBoard. Xem [báo cáo TV3](docs/training.md), [hướng dẫn](docs/TV3_TRAINING_GUIDE.md). Chưa chạy đánh giá test, demo hoặc nghiệm thu notebook Colab; không dùng số đo cục bộ thay benchmark T4.
 
 ## Phân Công
 
@@ -25,7 +25,7 @@ Dùng model pre-trained từ `torchvision.models` để phân loại ảnh CIFAR
 | :---: | :--- | :--- | :--- |
 | **TV1** | `src/lab_2/data.py` | `docs/data.md` mục 5 | `tests/test_data.py` |
 | **TV2** | `src/lab_2/model.py` | `docs/model.md` mục 7 | `tests/test_model.py` |
-| **TV3** | `src/lab_2/training.py` | `docs/training.md` mục 8 | `tests/test_training.py`, `tests/test_smoke.py` |
+| **TV3** | `src/lab_2/training.py` | `docs/training_specification.md` mục 8 | `tests/test_training.py`, `tests/test_smoke.py` |
 | **TV4** | `src/lab_2/evaluation.py` | `docs/evaluation.md` mục 8 | `tests/test_evaluation.py` |
 | **TV5** | `src/lab_2/common.py`, `src/lab_2/demo.py`, `notebooks/Lab_2_colab.ipynb` | `docs/lab_2_description.md` mục 9, `docs/demo.md` mục 4 | `tests/test_common.py`, `tests/test_demo.py`, `tests/test_integration.py` |
 
@@ -122,7 +122,7 @@ tensorboard --logdir reports/runs
 1. **[`lab_2_description.md`](./docs/lab_2_description.md)**: Bài toán, đối chiếu đề bài, thiết kế, KPI, checkpoint, bảng nghiệm thu.
 2. **[`data.md`](./docs/data.md)**: Nguồn dữ liệu, cách chia tập, tiền xử lý, `DataLoader`.
 3. **[`model.md`](./docs/model.md)**: Các model, lớp phân loại, đóng băng và fine-tuning, số tham số.
-4. **[`training.md`](./docs/training.md)**: Siêu tham số, các lần chạy, smoke test, TensorBoard, early stopping.
+4. **[`training.md`](./docs/training.md)**: Báo cáo huấn luyện và TensorBoard; [đặc tả kỹ thuật](./docs/training_specification.md) chứa siêu tham số và giao diện hàm.
 5. **[`evaluation.md`](./docs/evaluation.md)**: So sánh các lần chạy, đối chiếu KPI, kết quả test.
 6. **[`demo.md`](./docs/demo.md)**: Lệnh chạy và kết quả suy luận.
 7. **[`plan_progress_status.md`](./docs/plan_progress_status.md)**: Thành viên, cách làm việc nhóm, tiến độ, nhật ký, việc dùng AI.

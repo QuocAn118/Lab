@@ -38,11 +38,11 @@
 | Bước 3 | In model, xác định các tầng và tham số | `model.md` mục 2, 5 | `src/lab_2/model.py` |
 | Bước 4 | Thay lớp cuối, đóng băng, mở khóa để fine-tune | `model.md` mục 3, 4 | `src/lab_2/model.py` |
 | Bước 5 | Tải dữ liệu, dùng `transforms` và `DataLoader` | `data.md` | `src/lab_2/data.py` |
-| Bước 6 | Khai báo loss, optimizer, viết vòng lặp train | `training.md` mục 1, 3 | `src/lab_2/training.py` |
+| Bước 6 | Khai báo loss, optimizer, viết vòng lặp train | `training_specification.md` mục 1, 3 | `src/lab_2/training.py` |
 | Bước 7 | Đánh giá trên tập test | `evaluation.md` mục 3 | `src/lab_2/evaluation.py` |
-| Exercise 1 | Thử các model pre-trained khác | `training.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
-| Exercise 2 | Điều chỉnh siêu tham số | `training.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
-| Exercise 3 | Theo dõi huấn luyện bằng TensorBoard | `training.md` mục 5 | `src/lab_2/training.py`, cell TensorBoard trong notebook |
+| Exercise 1 | Thử các model pre-trained khác | `training_specification.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
+| Exercise 2 | Điều chỉnh siêu tham số | `training_specification.md` mục 2, `evaluation.md` mục 1 | `configs/lab_2.yaml`, `src/lab_2/training.py` |
+| Exercise 3 | Theo dõi huấn luyện bằng TensorBoard | `training_specification.md` mục 5 | `src/lab_2/training.py`, cell TensorBoard trong notebook |
 
 ---
 
@@ -205,7 +205,7 @@ Notebook chỉ gọi code trong `src/`, không chứa logic. Tạo các cell the
 | 5 | Smoke test | `!python -m pytest tests -q -s` |
 | 6 | Bước 5 | `!python -m lab_2.data` |
 | 7 | Bước 2, 3, 4 | `!python -m lab_2.model` |
-| 8 đến 11 | Bước 6, Exercise 1, 2 | Mỗi cell một lệnh `!python -m lab_2.training --run <tên>`, theo thứ tự trong `training.md` mục 2 |
+| 8 đến 11 | Bước 6, Exercise 1, 2 | Mỗi cell một lệnh `!python -m lab_2.training --run <tên>`, theo thứ tự trong `training_specification.md` mục 2 |
 | 12 | Bước 7 | `!python -m lab_2.evaluation` |
 | 13 | Bước 7 | Hiện `val_accuracy_by_run.png`, `loss_curve_best.png`, `confusion_matrix.png` |
 | 14, 15 | Demo | `!python -m lab_2.demo`; hiện `demo_probabilities.png` |

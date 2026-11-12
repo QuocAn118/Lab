@@ -1,0 +1,53 @@
+{
+  "started_at": "2026-11-11T12:34:21.457547+07:00",
+  "stage": "verify",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "cuda": true,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "commands": [
+    {
+      "command": [
+        "E:\\Study\\DeepLearning\\Lab\\Lab 2\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_common.py",
+        "tests/test_data.py",
+        "tests/test_model.py",
+        "tests/test_training.py",
+        "tests/test_training_standalone.py",
+        "tests/test_evaluation.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "seconds": 10.830540800001472,
+      "log": "logic.log"
+    },
+    {
+      "command": [
+        "E:\\Study\\DeepLearning\\Lab\\Lab 2\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_smoke.py",
+        "-q",
+        "-s"
+      ],
+      "exit_code": 0,
+      "seconds": 40.68970889993943,
+      "log": "smoke.log"
+    }
+  ],
+  "sources": {
+    "src/lab_2/common.py": "995e803d80c2f115387622226a652bea2f1389ae2fcb199b9ee155199273da53",
+    "src/lab_2/data.py": "ee30670de27537575c9ded7e62e743a7948362e22c45dd72cc3027befe0e9a40",
+    "src/lab_2/evaluation.py": "d3f54128107585d40fe6a841b2dc97086077ecf3d99de9e71d460875a596ac6f",
+    "src/lab_2/model.py": "2528d411924370f066348add05bebed3afd73c3f95b1257f7ca6ab8b43a953ed",
+    "src/lab_2/training.py": "30c283c0941c369039f3557acffbae3107111b1e4c133de9541c222577bee358",
+    "model.py": "d7b898f77b1fadc3b0f021aa1e5b32dae16297668f7cd3e9f8067ef8dff98132",
+    "configs/lab_2.yaml": "5095f6766c01ae2f1cfb456df72d907341c9c721b9f5a6962aa5a380f8a09cbb"
+  },
+  "status": "completed",
+  "finished_at": "2026-11-11T12:35:13.110924+07:00"
+}

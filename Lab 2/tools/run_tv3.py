@@ -1,0 +1,74 @@
+"""Chạy và lưu bằng chứng TV3; không sửa test hoặc kết quả lịch sử.
+
+python tools/run_tv3.py --stage verify
+python tools/run_tv3.py --stage train
+"""
+import argparse
+from datetime import datetime
+import hashlib
+import json
+import os
+from pathlib import Path
+import platform
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--stage", choices=["verify", "train"], required=True)
+    args = parser.parse_args()
+    destination = ROOT / "reports" / "tv3" / datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
+    destination.mkdir(parents=True, exist_ok=False)
+    env = {**os.environ, "PYTHONPATH": str(ROOT / "src"), "PYTHONUTF8": "1",
+           "PYTHONUNBUFFERED": "1", "OMP_NUM_THREADS": "4", "MKL_NUM_THREADS": "4"}
+    import torch
+    import torchvision
+    manifest = {"started_at": datetime.now().astimezone().isoformat(), "stage": args.stage,
+                "python": sys.version, "platform": platform.platform(), "torch": torch.__version__,
+                "torchvision": torchvision.__version__, "cuda": torch.cuda.is_available(),
+                "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+                "commands": [], "sources": {}}
+    for path in [*sorted((ROOT / "src/lab_2").glob("*.py")), ROOT / "model.py", ROOT / "configs/lab_2.yaml"]:
+        manifest["sources"][path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+    if args.stage == "verify":
+        commands = [
+            ("logic", ["-m", "pytest", "tests/test_common.py", "tests/test_data.py", "tests/test_model.py",
+                       "tests/test_training.py", "tests/test_training_standalone.py", "tests/test_evaluation.py", "-q"]),
+            ("smoke", ["-m", "pytest", "tests/test_smoke.py", "-q", "-s"])]
+    else:
+        from lab_2.common import load_config, read_report
+        config = load_config()
+        existing = read_report(config).get("training", {}).get("runs", {})
+        commands = [(run["name"], ["-m", "lab_2.training", "--run", run["name"]]) for run in config["runs"]]
+        for name, _ in commands:
+            if name in existing or (ROOT / "checkpoints" / name).exists():
+                raise SystemExit(f"Refusing to overwrite existing run: {name}")
+        commands.insert(0, ("data", ["-m", "lab_2.data"]))
+    status = 0
+    for label, command in commands:
+        full = [sys.executable, *command]
+        started = time.perf_counter()
+        print(f"Running {label}; log: {destination / (label + '.log')}", flush=True)
+        with (destination / (label + ".log")).open("w", encoding="utf-8") as output:
+            result = subprocess.run(full, cwd=ROOT, env=env, stdout=output, stderr=subprocess.STDOUT)
+        manifest["commands"].append({"command": full, "exit_code": result.returncode,
+                                     "seconds": time.perf_counter() - started, "log": label + ".log"})
+        manifest["status"] = "failed" if result.returncode else "running"
+        (destination / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+        if result.returncode:
+            status = result.returncode
+            break
+    manifest.update(status="failed" if status else "completed",
+                    finished_at=datetime.now().astimezone().isoformat())
+    (destination / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(manifest["status"], destination, flush=True)
+    return status
+
+
+if __name__ == "__main__":
+    sys.path.insert(0, str(ROOT / "src"))
+    raise SystemExit(main())
