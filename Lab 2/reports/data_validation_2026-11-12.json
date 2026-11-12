@@ -1,0 +1,232 @@
+{
+  "scope": "real CIFAR-10 data pipeline only; no model training or pretrained weights",
+  "status": "PASS",
+  "started_at": "2026-11-12T08:57:25+07:00",
+  "completed_at": "2026-11-12T08:57:47+07:00",
+  "source_author": "Nguyen Thi Van Anh (origin/vananh, 4d3fb94)",
+  "integrated_and_verified_by": "HoangDang, assisted by OpenAI Codex",
+  "base_commit": "828e5ef65312cd242efd14243644142e33c7a34e",
+  "source_hashes": {
+    "Lab 2/src/lab_2/data.py": "1830102abd084f39a0dcb78bef1d895f5c12aa809ebae4170317b9687ece4d78",
+    "Lab 2/tests/test_data.py": "14b812dce73c6ba9d085eb8e3f8dc5dcbc84556b09094c6faef680b7eef88697"
+  },
+  "source_state": "working-tree changes identified by source_hashes; committed after verification",
+  "dataset": {
+    "mirror": "https://huggingface.co/datasets/MIT-OL-AI-D/cifar-10-python/resolve/main/cifar-10-python.tar.gz",
+    "archive_bytes": 170498071,
+    "archive_md5": "c58f30108f718f92721af3b95e74349a",
+    "extracted_file_md5": {
+      "data_batch_1": "c99cafc152244af753f735de768cd75f",
+      "data_batch_2": "d4bba439e000b95fd0a9bffe97cbabec",
+      "data_batch_3": "54ebc095f3ab1f0389bbae665268c751",
+      "data_batch_4": "634d18415352ddfa80567beed471001a",
+      "data_batch_5": "482c414d41f54cd18b22e5b47cb7c3cb",
+      "test_batch": "40351d587109b95175f43aff81a1287e",
+      "batches.meta": "5ff9c542aee3614f3951f8cda6e48888"
+    },
+    "original_samples": {
+      "train": 50000,
+      "test": 10000
+    }
+  },
+  "config": {
+    "seed": 42,
+    "data": {
+      "data_dir": "data",
+      "train_size": 22500,
+      "val_size": 2500,
+      "test_size": 5000,
+      "image_size": 224,
+      "crop_padding": 4,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "num_workers": 2
+    },
+    "model": {
+      "dropout": 0.2
+    },
+    "training": {
+      "weight_decay": 0.0001,
+      "max_epochs": 6,
+      "scheduler_patience": 2,
+      "early_stopping_patience": 3,
+      "early_stopping_threshold": 0.01,
+      "log_every_batches": 50,
+      "eval_batch_size": 128
+    },
+    "runs": [
+      {
+        "name": "resnet18_baseline",
+        "purpose": "Mô hình gốc",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 64
+      },
+      {
+        "name": "densenet121",
+        "purpose": "Exercise 1, đổi model",
+        "model": "densenet121",
+        "learning_rate": 0.001,
+        "batch_size": 64
+      },
+      {
+        "name": "resnet18_lr1e-2",
+        "purpose": "Exercise 2, đổi learning rate",
+        "model": "resnet18",
+        "learning_rate": 0.01,
+        "batch_size": 64
+      },
+      {
+        "name": "resnet18_bs128",
+        "purpose": "Exercise 2, đổi batch size",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 128
+      }
+    ],
+    "paths": {
+      "checkpoints_dir": "checkpoints",
+      "reports_dir": "reports/sessions/data-validation-20261112-085725/reports"
+    },
+    "kpi": {
+      "accuracy": 0.8,
+      "macro_f1": 0.8,
+      "seconds_per_epoch": 300,
+      "latency_ms": 25,
+      "peak_vram_gb": 4.0,
+      "peak_ram_gb": 6.0
+    }
+  },
+  "split_summary": {
+    "train": {
+      "samples": 22500,
+      "class_counts": {
+        "airplane": 2298,
+        "automobile": 2240,
+        "bird": 2192,
+        "cat": 2264,
+        "deer": 2296,
+        "dog": 2198,
+        "frog": 2290,
+        "horse": 2279,
+        "ship": 2241,
+        "truck": 2202
+      }
+    },
+    "val": {
+      "samples": 2500,
+      "class_counts": {
+        "airplane": 263,
+        "automobile": 242,
+        "bird": 266,
+        "cat": 248,
+        "deer": 246,
+        "dog": 246,
+        "frog": 224,
+        "horse": 227,
+        "ship": 246,
+        "truck": 292
+      }
+    },
+    "test": {
+      "samples": 5000,
+      "class_counts": {
+        "airplane": 512,
+        "automobile": 524,
+        "bird": 464,
+        "cat": 488,
+        "deer": 529,
+        "dog": 489,
+        "frog": 505,
+        "horse": 506,
+        "ship": 483,
+        "truck": 500
+      }
+    }
+  },
+  "batches": {
+    "train": {
+      "shape": [
+        64,
+        3,
+        224,
+        224
+      ],
+      "images_dtype": "torch.float32",
+      "labels_dtype": "torch.int64",
+      "finite": true,
+      "num_workers": 2
+    },
+    "val": {
+      "shape": [
+        128,
+        3,
+        224,
+        224
+      ],
+      "images_dtype": "torch.float32",
+      "labels_dtype": "torch.int64",
+      "finite": true,
+      "num_workers": 2
+    },
+    "test": {
+      "shape": [
+        128,
+        3,
+        224,
+        224
+      ],
+      "images_dtype": "torch.float32",
+      "labels_dtype": "torch.int64",
+      "finite": true,
+      "num_workers": 2
+    }
+  },
+  "seed": 42,
+  "train_val_overlap": 0,
+  "split_reproducible": true,
+  "eval_transform_deterministic": true,
+  "cli_command": [
+    "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 1\\.venv\\Scripts\\python.exe",
+    "-m",
+    "lab_2.data",
+    "--config",
+    "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 2\\configs\\sessions\\data-validation-20261112-085725.yaml"
+  ],
+  "cli_stdout": "Train: 22500 ảnh\nValidation: 2500 ảnh\nTest: 5000 ảnh\nShape ảnh sau tiền xử lý: (3, 224, 224)\n",
+  "session_report": "Lab 2\\reports\\sessions\\data-validation-20261112-085725\\reports\\metrics.json",
+  "session_report_sha256": "9e03787e1c1bf36128b0978b791ae35bef3f152f62972f52898e559b5af91c4b",
+  "historical_metrics_unchanged": true,
+  "offline_tests": {
+    "tests": 74,
+    "data_tests": 20,
+    "package_tests": 60,
+    "compatibility_tests": 14,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "seconds": 10.538,
+    "warnings": "46 upstream torch pin_memory deprecations",
+    "command": "python -m pytest tests test.py --ignore=tests/test_smoke.py -q"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.9.1+cu128",
+    "torchvision": "0.24.1+cu128",
+    "verification_device": "CPU transforms/loaders; CUDA pin_memory available"
+  },
+  "not_run": [
+    "3 real model smoke configurations",
+    "4 normal training runs",
+    "test accuracy/F1 and GPU KPIs",
+    "Run all Colab"
+  ]
+}

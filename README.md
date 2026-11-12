@@ -19,7 +19,7 @@ Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng d�
 | Phần | Tài liệu bắt đầu | Trạng thái triển khai |
 | --- | --- | --- |
 | Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 17 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm trực tiếp trong repo, input/model qua Git LFS; xem README Lab 1 |
-| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | Đã chuẩn bị đủ package và notebook Colab, 63 test offline đạt; chưa train thật/KPI; xem kế hoạch bàn giao trong README Lab 2 |
+| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | Đủ package/notebook Colab, 74 test offline đạt; phần dữ liệu Vân Anh đã kiểm chứng CIFAR-10 thật trên Windows ngày 2026-11-12; chưa train thật/KPI; xem README Lab 2 |
 | Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | Có notebook/pipeline và báo cáo lịch sử; bản nhập QuocAn và snapshot ThanhBinh được phân biệt rõ, chưa chạy lại trên môi trường hiện tại |
 
 Mỗi lab có hướng dẫn môi trường, cách chạy và tiến độ riêng. Các template `01_DEFINE.md`, `05_TOOLS.md`, `06_VERIFICATION.md`, `08_RELEASE.md` nằm trong `workflow/docs/`; không mặc định các file đó tồn tại trong `Lab X/docs/`.

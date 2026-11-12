@@ -5,7 +5,7 @@
 | Trường | Nội dung |
 | --- | --- |
 | Name | MLP Architecture for Image Classification — Lab 1 |
-| Created date | 09/11/2026 |
+| Created date | 09/11/2026 (nội dung model, tác giả khai báo; ngày tạo file chưa xác nhận) |
 | Created by | vananh (Nguyễn Thị Vân Anh) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T13:32:59+07:00 |
@@ -126,7 +126,7 @@ Với một tầng Linear có bias:<br>
 **Số tham số** = `in_features` × `out_features` + `out_features`
 
 Trong đó:
-- `in_features` × `out_features` ilà số phần tử của ma trận weight
+- `in_features` × `out_features` là số phần tử của ma trận weight
 - `out_features` là số phần tử của vector bias
 
 | Tầng | Weight | Bias | Tổng |
@@ -141,14 +141,14 @@ Trong đó:
 - Không có tầng nào bị đóng băng trong cấu hình ban đầu
 - `Flatten` và `ReLU` không có tham số học
 
-## 3.6 rạng thái ban đầu
+## 3.6 Trạng thái ban đầu
 Mô hình được khởi tạo mới bằng cơ chế khởi tạo mặc định của PyTorch, không sử dụng weight đã được huấn luyện trước<br>
 
 Trước khi huấn luyện, mô hình đã có thể thực hiện forward và trả về logits, nhưng các weight chưa được tối ưu cho bài toán phân loại FashionMNIST
 
 ## 3.7. Tệp mã nguồn
 
-- Tệp mã nguồn: `src\model.py`
+- Tệp mã nguồn: [src/model.py](../src/model.py)
 - Lớp mô hình: `FashionMLP`
 - Hàm tạo mô hình: `build_model(model_config)`
 - Hàm kiểm tra kiến trúc: `check_model()`
@@ -183,8 +183,10 @@ Run được chọn: **run_004**, dựa trên validation accuracy cao nhất tro
 - [Kiểm tra reload](../outputs/run_004/reload_check.json): đạt, sử dụng 16 mẫu validation, các nhãn khớp nhau, chênh lệch logits lớn nhất bằng 0 trên CPU.
 - [Hiệu năng](../outputs/run_004/performance.json), [metrics](../outputs/run_004/metrics.json), [manifest](../outputs/run_004/manifest.json).
 
-Theo hồ sơ được kế thừa, tác giả triển khai ban đầu vẫn là Nguyen Thi Van Anh. Phần hoàn thiện và tích hợp do HoangDang thực hiện với OpenAI Codex. Ngày tạo ban đầu: 09/11/2026. Toàn bộ 25 file checkpoint, bao gồm mô hình tốt nhất được chọn, đều được quản lý phiên bản trong repository này thông qua Git LFS. Chạy `git lfs pull origin hoangdang` sau khi clone/pull; không cần file ZIP hoặc liên kết Drive.
+Theo hồ sơ được kế thừa, tác giả triển khai ban đầu vẫn là Nguyen Thi Van Anh. Phần hoàn thiện và tích hợp do HoangDang thực hiện với OpenAI Codex. Ngày tạo nội dung model 09/11/2026 được giữ theo khai báo trong bản nhập `origin/vananh` (`a2398cc`); chưa xác minh độc lập. Đây không phải ngày tạo file tài liệu: mốc Git đầu tiên của file là 2026-11-04 như bảng mục 0. Toàn bộ 25 file checkpoint, bao gồm mô hình tốt nhất được chọn, đều được quản lý phiên bản trong repository này thông qua Git LFS. Chạy `git lfs pull origin hoangdang` sau khi clone/pull; không cần file ZIP hoặc liên kết Drive.
 
 ## Nguồn và phạm vi
 
 - [Đặc tả](lab_1_description.md), [3.3](requirements/3_3_build_model.md), [3.6](requirements/3_6_save_load.md), mã nguồn mô hình và các file kết quả đo được nêu ở trên.
+
+Ghi nhận tích hợp/hiệu đính 2026-11-12: HoangDang, hỗ trợ OpenAI Codex, sửa lỗi chữ và làm rõ mốc ngày khai báo; giữ nguyên tên/ngày cập nhật nguồn của Vân Anh, số đo và artifact thực nghiệm.

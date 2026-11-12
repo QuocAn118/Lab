@@ -14,7 +14,7 @@
 
 **Trạng thái: đã chuẩn bị code để bàn giao train; chưa nghiệm thu bài thực nghiệm.** Bám đặc tả trên `main` tại `a7b7ef8`: ResNet18/DenseNet121 pre-trained, 4 run, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
 
-Đã có đủ 6 module package và notebook Colab. Kiểm tra offline: **63 passed**, gồm 49 test package và 14 test tương thích model cũ. Mọi dữ liệu/model dùng trong kiểm tra tích hợp đều là dữ liệu giả/trọng số khởi tạo, không phải kết quả CIFAR-10. Xem [bằng chứng chuẩn bị](docs/verification.md).
+Đã có đủ 6 module package và notebook Colab. Kiểm tra offline ngày 2026-11-12: **74 passed**, gồm 60 test package (20 test dữ liệu) và 14 test tương thích model cũ. Mọi dữ liệu/model dùng trong bộ test offline đều là dữ liệu giả/trọng số khởi tạo, không phải kết quả huấn luyện CIFAR-10. Xem [bằng chứng kiểm chứng](docs/verification.md).
 
 ## Bàn giao cho bạn train
 
@@ -38,7 +38,7 @@ Input model: tensor float32 `[B,3,224,224]`, chuẩn hóa theo ImageNet; nhãn i
 
 Notebook tạo config phiên trong `configs/sessions/<SESSION_ID>.yaml`; output thực tế nằm dưới `reports/sessions/<SESSION_ID>/`: `checkpoints/`, `reports/metrics.json`, `reports/runs/`, `reports/figures/`. Phiên mới không ghi đè báo cáo lịch sử `reports/metrics.json`. Các đường dẫn `checkpoints/`, `reports/` trong đặc tả là mặc định của config gốc; config phiên chỉ đổi nơi lưu, giữ nguyên tham số thí nghiệm.
 
-Hiện **chưa có** dataset CIFAR-10, checkpoint đã train, accuracy chính thức hay log TensorBoard của 4 run. [metrics.json hiện có](reports/metrics.json) là báo cáo tham số lịch sử của Bảo; giữ nguyên, chưa phải kết quả training.
+Phần dữ liệu của Vân Anh đã kiểm chứng với CIFAR-10 thật trên Windows ngày 2026-11-12: checksum đúng, chia tập 22.500/2.500/5.000, batch/transform/CLI báo cáo đạt; xem [bằng chứng dữ liệu](reports/data_validation_2026-11-12.json). Dataset đã tải nằm trong `data/`, bị Git bỏ qua; máy mới cần tải lại. **Chưa có** checkpoint đã train, accuracy chính thức hay log TensorBoard của 4 run. [metrics.json hiện có](reports/metrics.json) là báo cáo tham số lịch sử của Bảo; giữ nguyên, chưa phải kết quả training.
 
 ## Kiểm tra offline trên máy cá nhân
 

@@ -22,8 +22,8 @@ CLASS_NAMES = ["airplane",    # Nhãn 0
                ]
 
 def split_indices(total, train_size, val_size, seed):
-    if min(total, train_size, val_size) < 0 or train_size + val_size > total: 
-        raise ValueError("The number of requested images exceeds the number of available images")
+    if any(type(size) is not int or size < 0 for size in (total, train_size, val_size)) or train_size + val_size > total:
+        raise ValueError("Sizes must be non-negative integers and fit within the dataset")
 
     generator = torch.Generator().manual_seed(seed)
     indices = torch.randperm(total, generator= generator).tolist()
@@ -98,8 +98,8 @@ def make_loader(dataset, batch_size, config, shuffle=False):
                       generator= generator,)
 
 def raw_samples(subset, count):
-    if count < 0:
-        raise ValueError("Số ảnh phải không âm")
+    if type(count) is not int or count < 0:
+        raise ValueError("Số ảnh phải là số nguyên không âm")
     samples = []
 
     for index in subset.indices[:count]:

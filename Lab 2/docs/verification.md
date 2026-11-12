@@ -13,6 +13,16 @@
 
 ## 1. Kết quả và giới hạn
 
+### 1.1. Kiểm chứng bổ sung ngày 2026-11-12 — phần dữ liệu Vân Anh
+
+Sau merge `828e5ef`, đã chạy lại bộ test offline với kiểm tra dữ liệu bổ sung: **74 passed**, 0 lỗi, 0 skipped; 60 test package (20 test data) và 14 test tương thích. Thời gian 10,538 giây; 46 DeprecationWarning từ `torch.pin_memory`. Các test mới kiểm tra kiểu/số âm, tập rỗng, `load_splits` với dataset nhỏ và `main` giữ các mục báo cáo đã có.
+
+**CIFAR-10 thật PASS trên Windows:** archive và 7 file sau giải nén khớp MD5; chia đúng 22.500/2.500/5.000, seed tái lập, train/validation không giao nhau. Đã kiểm tra batch train 64 ảnh, validation/test 128 ảnh ở shape `[B,3,224,224]`, ảnh hữu hạn, nhãn int64 0–9, `num_workers=2`, transform đánh giá ổn định. CLI data đã ghi thống kê vào phiên mới và giữ nguyên `reports/metrics.json` lịch sử. Chi tiết, config, thời gian và hash source tại [data_validation_2026-11-12.json](../reports/data_validation_2026-11-12.json).
+
+Nguồn phần data: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`); HoangDang, hỗ trợ OpenAI Codex, tích hợp và kiểm chứng ngày 2026-11-12. Không đổi tên/ngày cập nhật nguồn của Vân Anh. Đây là kiểm chứng dữ liệu; chưa chạy 3 smoke model pretrained, 4 normal run, accuracy/F1/KPI hoặc Run all Colab. Trên Colab vẫn cần thực hiện lại bước tải/chia dữ liệu theo [kế hoạch bàn giao](training_handoff.md).
+
+### 1.2. Kết quả chuẩn bị ngày 2026-11-11 — giữ làm lịch sử
+
 **63 passed** khi chạy `pytest tests test.py --ignore=tests/test_smoke.py -q`: 49 test package và 14 test tương thích. Bao gồm chia tập/transform, head/freeze/BatchNorm, checkpoint reload, early stopping, TensorBoard, chọn model bằng validation, luồng train → evaluate → demo trên dữ liệu giả và chặn ghi đè/config sai/test lặp.
 
 Thời gian của lần kiểm tra: 12,19 giây. Có 46 DeprecationWarning từ cơ chế pin_memory của PyTorch 2.9.1; không có test lỗi. Đây là thời gian kiểm tra, không phải thời gian train CIFAR-10. Test tích hợp có bước optimizer trên vài tensor giả để kiểm tra logic; không tải CIFAR-10/ImageNet và không ghi kết quả thực nghiệm vào reports/metrics.json.

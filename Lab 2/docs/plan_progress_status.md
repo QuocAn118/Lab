@@ -28,11 +28,11 @@ Họ tên giữ theo bảng đang có trong workspace trong lúc chuẩn bị. V
 
 ## 2. Cách Làm Việc Nhóm
 
-Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang/Codex chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An. 63 test offline đạt; chưa chạy smoke thật hoặc 4 run. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có; người nhận train phiên mới chưa chỉ định. Người nhận train làm theo [training_handoff.md](training_handoff.md).
+Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang/Codex chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An; phần data của Vân Anh được nhận qua merge `828e5ef`. Ngày 2026-11-12 kiểm tra offline đạt 74 test, gồm 20 test data; chưa chạy smoke model thật hoặc 4 run. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có; người nhận train phiên mới chưa chỉ định. Người nhận train làm theo [training_handoff.md](training_handoff.md).
 
 | Thành viên | File phụ trách | Đặc tả từng hàm | Số test phải đạt |
 | :---: | :--- | :--- | :---: |
-| **TV1** | `src/lab_2/data.py` | `data.md` mục 5 | 9 |
+| **TV1** | `src/lab_2/data.py` | `data.md` mục 4 | 20 |
 | **TV2** | `src/lab_2/model.py` | `model.md` mục 7 | 12 |
 | **TV3** | `src/lab_2/training.py` | `training.md` mục 8 | 6, cộng 3 smoke test |
 | **TV4** | `src/lab_2/evaluation.py` | `evaluation.md` mục 8 | 6 |
@@ -96,7 +96,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-01** | Hoàn thiện đặc tả `docs/` | Toàn bài | **DONE** | Team | Bộ đặc tả gốc và tài liệu bàn giao/kiểm chứng đã cập nhật theo code |
 | **TASK-02** | Viết đặc tả từng hàm, test và phân công | Toàn bài | **DONE** | Team | Mục "Đặc Tả Mã Nguồn" trong `docs/`, `tests/`, mục 1, 2 của file này |
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **ĐẠT OFFLINE** | TV5 | `requirements.txt`, 3 test common đạt |
-| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT LOGIC OFFLINE, CHỜ DATA THẬT** | TV1 | 9 test data đạt; AC-03 chờ dữ liệu thật |
+| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT DỮ LIỆU THẬT TRÊN WINDOWS** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); AC-03 đạt trên máy này, cần kiểm tra lại khi chạy Colab |
 | **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐÃ GHÉP, ĐẠT OFFLINE** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
 | **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 6 test training đạt |
 | **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **TODO** | TV3 | AC-04 |
@@ -113,6 +113,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-12` — Nguồn phần dữ liệu/tài liệu: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`, merge `828e5ef`). HoangDang, hỗ trợ OpenAI Codex, hoàn thiện kiểm tra kiểu/kích thước, bổ sung test `load_splits`/`main`, đồng bộ tài liệu; 20 test data và toàn bộ 74 test offline đạt. CIFAR-10 thật đã kiểm tra checksum, chia tập, batch ba tập với worker=2 và CLI ghi báo cáo phiên riêng; giữ nguyên metrics lịch sử. Chưa smoke model thật/train/KPI/Colab. Bằng chứng: `reports/data_validation_2026-11-12.json`. Tên người cập nhật nguồn giữ là Vân Anh; người tích hợp/kiểm chứng ghi riêng.
 - `2026-11-11T11:06:40+07:00` — HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex: hoàn thiện package theo main a7b7ef8, wrapper model cũ, notebook Colab, hướng dẫn bàn giao; 63 test offline đạt. Chưa tải dữ liệu/model thật, chưa smoke thật/4 run, không tạo số accuracy. Báo cáo tham số cũ được giữ nguyên.
 
 Các dòng dưới là lịch sử từng giai đoạn:

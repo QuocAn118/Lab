@@ -2,7 +2,22 @@
 
 **Module:** `src/lab_2/data.py`  
 **Người tạo:** Nguyễn Thị Vân Anh  
-**Ngày cập nhật:** 11/11/2026
+**Ngày cập nhật nguồn:** 11/11/2026
+
+**Người cập nhật nguồn:** Nguyễn Thị Vân Anh (nhánh `vananh`, commit `4d3fb94`)
+
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Chuẩn bị dữ liệu CIFAR-10 — Lab 2 |
+| Created date | Chưa xác nhận |
+| Created by | Nguyễn Thị Vân Anh (bản nội dung nhập từ `origin/vananh`) |
+| Last updated — nguồn | 2026-11-11 |
+| Updated by — nguồn | Nguyễn Thị Vân Anh |
+| Người tích hợp/kiểm chứng | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Ngày tích hợp/kiểm chứng bổ sung | 2026-11-12 |
+| Phạm vi | Phần dữ liệu; trạng thái chạy thật xem mục kiểm chứng cuối tài liệu |
 
 ## 1. Mục đích
 
@@ -94,28 +109,28 @@ Theo đặc tả, báo cáo nằm trong `reports/metrics.json`; đường dẫn 
 
 ## 3. Success criteria
 
-Các tiêu chí dưới đây tương ứng với 9 test trong `tests/test_data.py`
+Chín nhóm tiêu chí dưới đây được kiểm tra bởi 20 test trong `tests/test_data.py`, bao gồm kiểm tra đầu vào, tập rỗng, `load_splits()` và `main()`. Các dấu hoàn thành trong bảng là kết quả offline; dữ liệu thật được ghi riêng ở cuối tài liệu.
 
 | STT | Tiêu chí | Kết quả cần đạt | Done |
 | --- | --- | --- | :---: |
-| 1 | Chia dữ liệu đúng số lượng | Train và validation có đúng số mẫu yêu cầu, không trùng chỉ số | [ ] |
-| 2 | Tái lập bằng seed | Cùng seed cho cùng kết quả; đổi seed cho kết quả khác trong trường hợp kiểm thử | [ ] |
-| 3 | Xử lý yêu cầu vượt số mẫu | Báo `ValueError` khi `train_size + val_size > total` | [ ] |
-| 4 | Chọn mẫu sau shuffle | Đúng số mẫu và không lấy nguyên các chỉ số đầu tiên theo thứ tự trong trường hợp kiểm thử | [ ] |
-| 5 | Transform đánh giá đúng | Tensor có shape `(3, 224, 224)`; giá trị normalize được kiểm tra ở kênh đỏ đúng | [ ] |
-| 6 | Transform phù hợp từng tập | Transform train có tính ngẫu nhiên; transform đánh giá cho kết quả ổn định | [ ] |
-| 7 | DataLoader hoạt động đúng | Chia batch thành `4, 4, 2` với 10 mẫu; shuffle tái lập được; giữ thứ tự khi tắt shuffle | [ ] |
-| 8 | Lấy ảnh gốc đúng | `raw_samples` trả đúng thứ tự nhãn và ảnh được kiểm tra có kích thước `(32, 32)` | [ ] |
-| 9 | Thống kê đúng | `describe` trả đúng tổng mẫu và số mẫu của các lớp được kiểm tra | [ ] |
+| 1 | Chia dữ liệu đúng số lượng | Train và validation có đúng số mẫu yêu cầu, không trùng chỉ số | [x] |
+| 2 | Tái lập bằng seed | Cùng seed cho cùng kết quả; đổi seed cho kết quả khác trong trường hợp kiểm thử | [x] |
+| 3 | Xử lý yêu cầu vượt số mẫu | Báo `ValueError` khi `train_size + val_size > total` | [x] |
+| 4 | Chọn mẫu sau shuffle | Đúng số mẫu và không lấy nguyên các chỉ số đầu tiên theo thứ tự trong trường hợp kiểm thử | [x] |
+| 5 | Transform đánh giá đúng | Tensor có shape `(3, 224, 224)`; giá trị normalize được kiểm tra ở kênh đỏ đúng | [x] |
+| 6 | Transform phù hợp từng tập | Transform train có tính ngẫu nhiên; transform đánh giá cho kết quả ổn định | [x] |
+| 7 | DataLoader hoạt động đúng | Chia batch thành `4, 4, 2` với 10 mẫu; shuffle tái lập được; giữ thứ tự khi tắt shuffle | [x] |
+| 8 | Lấy ảnh gốc đúng | `raw_samples` trả đúng thứ tự nhãn và ảnh được kiểm tra có kích thước `(32, 32)` | [x] |
+| 9 | Thống kê đúng | `describe` trả đúng tổng mẫu và số mẫu của các lớp được kiểm tra | [x] |
 
 
-**Phạm vi kiểm thử:** Bộ test dùng dữ liệu giả lập và fixture `config`, chưa kiểm tra trực tiếp `load_splits()` hoặc `main()`. Vì vậy, cần kiểm tra riêng nguồn dữ liệu từng tập và việc ghi báo cáo.
+**Phạm vi kiểm thử:** 20 test offline dùng dữ liệu giả và fixture `config`. Test tích hợp dữ liệu gọi trực tiếp `load_splits()` với dataset nhỏ để kiểm tra nguồn train/validation/test, chỉ số hợp lệ, transform, seed và tổng nhãn; gọi `main()` với config tạm để kiểm tra ghi mục `data` và giữ nguyên mục `model` đã có. Các test không tải CIFAR-10 hoặc huấn luyện model.
 
 ## 4. Các bước thực hiện
 
 ### Bước 1 — Chuẩn bị cấu hình và các thành phần dùng chung
 
-**Điều kiện chạy:** Theo trạng thái repo hiện tại, `src/lab_2/common.py` chưa tồn tại. TV5 cần bổ sung module này với `argument_parser`, `load_config`, `project_path` và `update_report` trước khi kiểm thử runtime. Tài liệu mô tả các hàm đó theo hợp đồng đã thống nhất. Vì `data.py` import `lab_2.common` ngay đầu file, cả chạy module lẫn thu thập test đều bị chặn nếu thiếu module này, dù đã cài các thư viện.
+**Điều kiện chạy:** `src/lab_2/common.py` đã được tích hợp, cung cấp `argument_parser`, `load_config`, `project_path` và `update_report`. Từ `Lab 2/`, đặt `PYTHONPATH=src` và cài các thư viện trong `requirements.txt`. Dùng config phiên với `paths.reports_dir` riêng khi kiểm chứng dữ liệu thật để giữ báo cáo tham số lịch sử. Notebook tải trước archive qua mirror; `torchvision.datasets.CIFAR10` kiểm tra MD5 khi đọc/tải dữ liệu.
 
 Import các thư viện cần thiết, khai báo `CLASS_NAMES` theo đúng thứ tự nhãn và lấy các hàm hỗ trợ từ `lab_2.common`.
 
@@ -125,11 +140,11 @@ Trong `main()`, đọc tham số dòng lệnh bằng `argument_parser`, sau đó
 
 ### Bước 2 — Tạo hàm chia chỉ số `split_indices`
 
-**Điều kiện input:** `total`, `train_size`, `val_size` phải là số nguyên không âm. Hàm hiện chỉ chủ động kiểm tra tổng số mẫu vượt giới hạn; chưa có kiểm tra riêng cho số âm hoặc kiểu dữ liệu.
+**Điều kiện input:** `total`, `train_size`, `val_size` phải là số nguyên Python không âm; không nhận `bool`. Hàm báo `ValueError` cho số âm, sai kiểu hoặc tổng số mẫu vượt dataset. Tập rỗng hợp lệ: `split_indices(0, 0, 0, seed)` trả hai list rỗng.
 
 Hàm nhận `total`, `train_size`, `val_size`, `seed` và thực hiện:
 
-1. Kiểm tra `train_size + val_size <= total`; nếu sai, báo `ValueError`.
+1. Kiểm tra kiểu số nguyên, giá trị không âm và `train_size + val_size <= total`; nếu sai, báo `ValueError`.
 2. Tạo generator riêng bằng `torch.Generator().manual_seed(seed)`.
 3. Xáo trộn các chỉ số từ 0 đến `total - 1` bằng `torch.randperm`.
 4. Lấy `train_size` chỉ số đầu cho train.
@@ -179,7 +194,7 @@ Tạo ba đối tượng `datasets.CIFAR10` riêng biệt với `download=True`:
 
 Train và validation cần hai đối tượng riêng để dùng transform khác nhau dù cùng đọc train gốc. Không dùng test gốc làm nền cho validation.
 
-Gọi `split_indices` cho 50.000 ảnh train gốc và 10.000 ảnh test gốc. Sau đó tạo `Subset` tương ứng và trả về chính xác **`(train, val, test)`** để thống nhất với nơi gọi.
+Gọi `split_indices` với `len(train_dataset)` và `len(test_dataset)`; CIFAR-10 đầy đủ tương ứng 50.000 và 10.000 ảnh, không cố định hai số này trong code. Sau đó tạo `Subset` tương ứng và trả về chính xác **`(train, val, test)`** để thống nhất với nơi gọi.
 
 **Kết quả cần có:** Ba tập đúng nguồn, đúng kích thước, dùng đúng transform. Chỉ so sánh giao chỉ số trực tiếp giữa train và validation vì chúng dùng cùng nguồn; chỉ số giống nhau ở hai nguồn train/test khác nhau không biểu thị cùng ảnh.
 
@@ -204,7 +219,7 @@ Generator được khởi tạo khi tạo loader, trạng thái của nó tiến
 
 Lấy tối đa `count` chỉ số đầu trong `subset.indices`. Với mỗi chỉ số, đọc ảnh từ `subset.dataset.data`, chuyển thành ảnh PIL bằng `Image.fromarray`, rồi lấy nhãn tại `subset.dataset.targets`.
 
-Không gọi `subset[index]` trong bước này vì cách đó sẽ áp dụng transform. Nếu `count` lớn hơn số mẫu, phép cắt list hiện tại trả toàn bộ mẫu có sẵn. Bên gọi nên truyền `count` là số nguyên không âm.
+Không gọi `subset[index]` trong bước này vì cách đó sẽ áp dụng transform. Nếu `count` lớn hơn số mẫu, phép cắt list hiện tại trả toàn bộ mẫu có sẵn. `count` phải là số nguyên Python không âm, không nhận `bool`; sai điều kiện sẽ báo `ValueError`. `count=0` trả list rỗng. Nhãn được chuyển về `int` trước khi trả về.
 
 **Kết quả cần có:** List ảnh RGB gốc kích thước `32 × 32` và nhãn tương ứng, thích hợp để xem mẫu hoặc phục vụ demo.
 
@@ -237,5 +252,19 @@ Test: 5000 ảnh
 Shape ảnh sau tiền xử lý: (3, 224, 224)
 ```
 
-`main()` hiện không gọi `make_loader`; cần kiểm tra loader riêng. Việc in được shape của train cũng chưa chứng minh transform của validation/test đúng.
+`main()` không tự tạo DataLoader. Bộ test kiểm tra loader riêng và kiểm tra transform của cả train/validation/test trong `load_splits()`; kiểm chứng dữ liệu thật được ghi riêng dưới đây.
+
+## 5. Kiểm chứng ngày 2026-11-12
+
+**Phần dữ liệu đạt trên máy Windows hiện tại:** 20 test data offline và kiểm chứng CIFAR-10 thật. Báo cáo mới: [data_validation_2026-11-12.json](../reports/data_validation_2026-11-12.json).
+
+- Archive 170.498.071 byte khớp MD5 chính thức `c58f30108f718f92721af3b95e74349a`; cả 7 file dữ liệu/metadata sau giải nén khớp MD5 của `torchvision`.
+- Chia đúng 22.500/2.500/5.000 ảnh, seed 42, không trùng chỉ số train/validation; chỉ số nằm trong dataset tương ứng và tái lập được.
+- Đã lấy batch thật: train `[64,3,224,224]`, validation/test `[128,3,224,224]`, ảnh `float32` hữu hạn, nhãn `int64` trong 0–9. DataLoader dùng đúng `num_workers=2` trong config; transform validation/test ổn định.
+- Đã chạy CLI `python -m lab_2.data --config <config phiên>` và đối chiếu thống kê 10 lớp, số mẫu với dữ liệu đọc trực tiếp. Config và báo cáo phiên cụ thể được ghi trong JSON; `reports/metrics.json` lịch sử giữ nguyên.
+- Toàn bộ Lab 2 đạt 74 test offline, gồm 60 test package và 14 test tương thích model cũ. Chưa chạy smoke model với trọng số pretrained, bốn run train, KPI hoặc Colab.
+
+Để kiểm tra lại, từ `Lab 2/`, đặt `PYTHONPATH=src`, chạy `python -m pytest tests/test_data.py -q`. Khi chạy `python -m lab_2.data`, dùng bản sao `configs/lab_2.yaml` với `paths.reports_dir` trỏ vào **phiên mới**; giữ nguyên tham số dữ liệu. Dataset nằm trong `data/` bị Git bỏ qua; máy mới cần tải lại qua notebook hoặc `torchvision`.
+
+Nguồn code/tài liệu dữ liệu: Nguyễn Thị Vân Anh, nhánh `vananh` (`4d3fb94`), đã nhập qua `828e5ef`. HoangDang, hỗ trợ OpenAI Codex, tích hợp kiểm tra đầu vào và thực hiện kiểm chứng bổ sung ngày 2026-11-12; không thay tên người cập nhật nguồn bằng người tích hợp.
 

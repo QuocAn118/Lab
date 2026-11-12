@@ -19,7 +19,7 @@
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
 
-> Đã chuẩn bị đủ package và notebook, 63 test offline đạt. Chưa train thật; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
+> Đã chuẩn bị đủ package và notebook, 74 test offline đạt ngày 2026-11-12, gồm 20 test dữ liệu. Chưa train thật; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
 
 ### Đầu vào và đầu ra
 
@@ -151,7 +151,7 @@ Cột "Kết quả" chỉ ghi Đạt/Không đạt theo bằng chứng phù hợ
 | :--- | :---: | :--- | :--- | :--- | :--- |
 | AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Đầu ra notebook, mục `model` trong `metrics.json` | Chờ chạy Colab |
 | AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py` | Kết quả pytest offline, 12 test model | Đạt offline |
-| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Kết quả pytest, mục `data` trong `metrics.json` | Chờ chạy Colab |
+| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | 20 test data; [kiểm chứng CIFAR-10 thật](../reports/data_validation_2026-11-12.json), báo cáo phiên riêng | Đạt trên Windows 2026-11-12; Colab cần kiểm tra lại |
 | AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Chờ chạy Colab |
 | AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
 | AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
