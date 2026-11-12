@@ -1,72 +1,147 @@
-"""Bước 5: CIFAR-10, chia tập cố định và transforms theo cấu hình main."""
-from collections import Counter
-
+import torch 
+from torchvision import transforms, datasets
+from torch.utils.data import Subset, DataLoader
+from lab_2.common import (
+    argument_parser,
+    load_config,
+    project_path,
+    update_report,
+)
 from PIL import Image
-import torch
-from torch.utils.data import DataLoader, Subset
-from torchvision import datasets, transforms
 
-from lab_2.common import argument_parser, load_config, project_path, update_report
-
-CLASS_NAMES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
-
+CLASS_NAMES = ["airplane",    # Nhãn 0
+               "automobile",  # Nhãn 1
+               "bird",        # Nhãn 2
+               "cat",        # Nhãn 3
+               "deer",        # Nhãn 4
+               "dog",         # Nhãn 5
+               "frog",        # Nhãn 6
+               "horse",       # Nhãn 7
+               "ship",        # Nhãn 8
+               "truck",       # Nhãn 9
+               ]
 
 def split_indices(total, train_size, val_size, seed):
-    if min(total, train_size, val_size) < 0 or train_size + val_size > total:
-        raise ValueError("Số mẫu không hợp lệ hoặc lớn hơn dataset")
-    indices = torch.randperm(total, generator=torch.Generator().manual_seed(seed)).tolist()
-    return indices[:train_size], indices[train_size:train_size + val_size]
+    if min(total, train_size, val_size) < 0 or train_size + val_size > total: 
+        raise ValueError("The number of requested images exceeds the number of available images")
 
+    generator = torch.Generator().manual_seed(seed)
+    indices = torch.randperm(total, generator= generator).tolist()
+
+    train_indices = indices[:train_size]
+    val_indices = indices[train_size:train_size + val_size]
+
+    return train_indices, val_indices
 
 def build_transform(config, train):
-    data = config["data"]
-    steps = [transforms.RandomHorizontalFlip(), transforms.RandomCrop(32, padding=data["crop_padding"])] if train else []
-    return transforms.Compose(steps + [
-        transforms.Resize((data["image_size"], data["image_size"])),
-        transforms.ToTensor(), transforms.Normalize(data["mean"], data["std"]),
-    ])
+    data_config = config["data"]
 
+    steps = [] # Create a list of processing steps
+
+    if train:
+        steps.append(transforms.RandomHorizontalFlip())
+        steps.append(transforms.RandomCrop(32, padding= data_config["crop_padding"]))
+    steps.extend([transforms.Resize((data_config["image_size"], 
+                                     data_config["image_size"])),
+                transforms.ToTensor(),
+                transforms.Normalize(mean= data_config["mean"],
+                                     std= data_config["std"]),])
+
+    return transforms.Compose(steps)
 
 def load_splits(config):
-    data = config["data"]
-    root = project_path(data["data_dir"])
-    train = datasets.CIFAR10(root, train=True, download=True, transform=build_transform(config, True))
-    val = datasets.CIFAR10(root, train=True, download=True, transform=build_transform(config, False))
-    test = datasets.CIFAR10(root, train=False, download=True, transform=build_transform(config, False))
-    train_ids, val_ids = split_indices(len(train), data["train_size"], data["val_size"], config["seed"])
-    test_ids, _ = split_indices(len(test), data["test_size"], 0, config["seed"])
-    return Subset(train, train_ids), Subset(val, val_ids), Subset(test, test_ids)
+    data_config = config["data"]
+    root = project_path(data_config["data_dir"])
 
+    train_dataset = datasets.CIFAR10(root= root,
+                                     train= True, 
+                                     download= True,
+                                     transform= build_transform(config, train= True),)
+
+    val_dataset = datasets.CIFAR10(root= root, 
+                                   train= True,
+                                   download= True,
+                                   transform= build_transform(config, train= False),)
+
+    test_dataset = datasets.CIFAR10(root= root,
+                                    train= False, 
+                                    download= True,
+                                    transform= build_transform(config, train= False),)
+
+    train_indices, val_indices = split_indices(total= len(train_dataset),
+                                                  train_size= data_config["train_size"],
+                                                  val_size= data_config["val_size"],
+                                                  seed= config["seed"],)
+    
+    test_indices, _ = split_indices(total= len(test_dataset),
+                                      train_size= data_config["test_size"],
+                                      val_size= 0,
+                                      seed= config["seed"],)
+
+    train = Subset(train_dataset, train_indices)
+    test = Subset(test_dataset, test_indices)
+    val = Subset(val_dataset, val_indices)
+
+    return train, val, test
 
 def make_loader(dataset, batch_size, config, shuffle=False):
-    return DataLoader(
-        dataset, batch_size=batch_size, shuffle=shuffle,
-        num_workers=config["data"]["num_workers"], pin_memory=torch.cuda.is_available(),
-        generator=torch.Generator().manual_seed(config["seed"]) if shuffle else None,
-    )
+    generator = None
 
+    if shuffle: 
+        generator = torch.Generator().manual_seed(config["seed"])
+
+    return DataLoader(dataset, 
+                      batch_size= batch_size,
+                      shuffle= shuffle, 
+                      num_workers= config["data"]["num_workers"],
+                      pin_memory= torch.cuda.is_available(),
+                      generator= generator,)
 
 def raw_samples(subset, count):
     if count < 0:
         raise ValueError("Số ảnh phải không âm")
-    return [(Image.fromarray(subset.dataset.data[i]), int(subset.dataset.targets[i]))
-            for i in subset.indices[:count]]
+    samples = []
 
+    for index in subset.indices[:count]:
+        image = Image.fromarray(subset.dataset.data[index])
+        label = int(subset.dataset.targets[index])
+        samples.append((image, label))
+
+    return samples
 
 def describe(subset):
-    counts = Counter(int(subset.dataset.targets[i]) for i in subset.indices)
-    return {"samples": len(subset), "class_counts": {name: counts[i] for i, name in enumerate(CLASS_NAMES)}}
+    class_counts = {name: 0 for name in CLASS_NAMES}
 
+    for index in subset.indices:
+        label = int(subset.dataset.targets[index])
+        class_name = CLASS_NAMES[label]
+        class_counts[class_name] += 1
+
+    return {"samples": len(subset),
+            "class_counts": class_counts,}
 
 def main():
-    config = load_config(argument_parser(__doc__).parse_args().config)
-    train, val, test = load_splits(config)
-    assert not set(train.indices) & set(val.indices), "Train và val bị trùng mẫu"
-    summary = {name: describe(subset) for name, subset in [("train", train), ("val", val), ("test", test)]}
-    update_report(config, "data", summary)
-    print(summary)
-    print("Input shape:", tuple(train[0][0].shape))
+    args = argument_parser(__doc__).parse_args()
+    config = load_config(args.config)
 
+    train, val, test = load_splits(config)
+
+    assert set(train.indices).isdisjoint(val.indices), (
+        "Tập train và validation bị trùng chỉ số ảnh."
+    )
+
+    report = {"train": describe(train),
+              "val": describe(val),
+              "test": describe(test),}
+
+    update_report(config, "data", report)
+
+    print(f"Train: {len(train)} ảnh")
+    print(f"Validation: {len(val)} ảnh")
+    print(f"Test: {len(test)} ảnh")
+
+    image, label = train[0]
+    print(f"Shape ảnh sau tiền xử lý: {tuple(image.shape)}")
 
 if __name__ == "__main__":
     main()
