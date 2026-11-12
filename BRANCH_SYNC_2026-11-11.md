@@ -239,3 +239,9 @@ Bảng đối chiếu blob sau merge với đầu nhánh nguồn. JSON giữ đ�
 - [BRANCH_SYNC_2026-11-11.json](BRANCH_SYNC_2026-11-11.json): snapshot đầu nhánh, metadata commit, danh sách file, quyết định xử lý, kiểm tra hash.
 - Lịch sử Git các commit/nhánh nêu trên; yêu cầu người dùng ngày 2026-11-11 về kiểm tra, đưa thay đổi nhánh về nhánh cá nhân và ghi người/thời gian.
 - Nhật ký chỉ xác nhận việc đồng bộ; không xác nhận các tuyên bố kiểm thử/chỉ số thực nghiệm của tác giả khi chưa chạy lại.
+
+### Hoàn tất tái lập TV3 — 2026-11-12
+
+HoangDang/OpenAI Codex thực thi phiên `rerun-thanhbinh-20261112-175308` từ code `5c03204`, tách khỏi phiên lịch sử của Nguyễn Thanh Bình (`92930e6`). Đã train bốn cấu hình 5/6/6/6 epoch; validation 84,76% / 88,24% / 83,52% / 85,08%, chênh bản nguồn −0,04 đến +0,04 điểm phần trăm. DenseNet121 được chọn bằng validation, test 87,68%, F1 0,8755 trên 5.000 ảnh. Kiểm lại checkpoint DenseNet gốc cũng cho validation 88,24%, test 87,68%; đây là phép đánh giá mới riêng, không ghi thành lần train nguồn.
+
+[Báo cáo so sánh](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [SESSION](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [manifest artifact](Lab%202/reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json). Phiên mới có 13 file trọng số; bản nguồn giữ 12 checkpoint, log và manifest nguyên byte. Nguồn/tác giả và người chạy lại được ghi riêng; chưa nghiệm thu GPU T4/Run all Colab hoặc chụp UI TensorBoard mới.

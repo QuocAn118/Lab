@@ -179,3 +179,9 @@ Tạo parser bằng `argument_parser(__doc__)`, thêm `--run` bắt buộc. Gọ
 ### Lưu vết phiên chạy
 
 Summary lưu thêm `config`, `operator` (biến môi trường `LAB2_OPERATOR`), `started_at`, `finished_at` (ISO 8601 có múi giờ) và `code_commit` (null nếu không có metadata Git). Khai báo người chạy trước khi train. Test tích hợp dùng output tạm, không tạo summary thực nghiệm trong repo.
+
+## Phiên tái lập đã hoàn tất — 2026-11-12
+
+Phiên `rerun-thanhbinh-20261112-175308`, code `5c03204`, người chạy HoangDang/OpenAI Codex trên RTX 5060. Đã chạy đủ bốn cấu hình theo config gốc, không đổi siêu tham số sau khi xem kết quả: 5/6/6/6 epoch, checkpoint tốt nhất 4/5/5/6. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md) cho validation 84,76% / 88,24% / 83,52% / 85,08%. Một seed và khác GPU/phiên bản torch so với nguồn; không coi thời gian giữa hai máy là benchmark tương đương.
+
+12 checkpoint từng run, bản sao best và TensorBoard được kiểm tra lại; [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json) chốt hash artifact. DenseNet121 được chọn bằng validation; đánh giá test và demo thực tế đã chạy trong phiên riêng. Config phiên này là bằng chứng đã kết thúc; khi tái lập, sao chép config sang mã mới và đổi cả reports_dir/checkpoints_dir, không ghi đè dữ liệu cũ.

@@ -7,6 +7,5 @@ reports/tv3/**/sources/** -text
 reports/tv3/**/manifest.json -text
 reports/runs/** -text
 reports/imported-thanhbinh-*/** -text
-reports/sessions/**/sources/** -text
-reports/sessions/**/manifest.json -text
+reports/sessions/** -text
 reports/tv3/** -text

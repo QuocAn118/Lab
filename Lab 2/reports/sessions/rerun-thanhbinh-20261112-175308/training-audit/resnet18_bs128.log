@@ -1,0 +1,7 @@
+resnet18_bs128 epoch 1: train=0.9937 val=0.5516 acc=0.8176
+resnet18_bs128 epoch 2: train=0.5790 val=0.4803 acc=0.8332
+resnet18_bs128 epoch 3: train=0.5246 val=0.4405 acc=0.8364
+resnet18_bs128 epoch 4: train=0.4983 val=0.4424 acc=0.8376
+resnet18_bs128 epoch 5: train=0.4869 val=0.4189 acc=0.8488
+resnet18_bs128 epoch 6: train=0.4743 val=0.4092 acc=0.8508
+Best epoch 6, val acc 0.8508, 25.32 giây/epoch

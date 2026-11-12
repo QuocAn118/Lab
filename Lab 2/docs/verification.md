@@ -68,3 +68,9 @@ Nền main `a7b7ef8`. Model kế thừa Xuân Bảo (`hbao2123-debug`); evaluati
 Không ghi Đạt cho accuracy, F1, GPU KPI hoặc Run all Colab trước khi người nhận train cung cấp bằng chứng thật. Người nhận thực hiện [training_handoff.md](training_handoff.md).
 
 Kiểm tra bổ sung: 3 smoke test thu thập được (không thực thi); cấu hình phiên của notebook đã chạy với thư mục tạm để kiểm tra giữ nguyên tham số/chặn sửa config. Logic đổi RAM Linux được kiểm tra bằng mock resource. Ba test biểu đồ/luồng demo pass sau khi chỉnh tiêu đề ảnh dài và khoảng trống trên đường loss; đã mở ảnh giả để kiểm tra bố cục, không dùng chúng làm số liệu bài nộp.
+
+## Kết quả thực thi phiên tái lập
+
+Phiên `rerun-thanhbinh-20261112-175308` đã hoàn tất 2026-11-12T18:22:42+07:00, trạng thái `completed`: bốn run, 13 file trọng số mới, checkpoint epoch/metrics khớp và TensorBoard đủ tag/epoch. [SESSION.json](../reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json), [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json), [so sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md). Model/config/snapshot source, log lệnh train/evaluation/demo và kết quả đều giữ trong phiên; snapshot trước sửa T4 và kết quả test sau sửa được phân biệt bằng tên file.
+
+DenseNet121 validation 88,24%, test 87,68%, macro F1 0,8755; kiểm lại checkpoint nguồn cho cùng validation/test accuracy. Test của phiên mới chỉ đánh giá model đã chọn bằng validation. Phép kiểm tra checkpoint nguồn là đánh giá mới riêng, không viết thêm vào kết quả lịch sử của Bình. Hai KPI tốc độ T4 chưa được nghiệm thu; chưa Run all Colab hoặc chụp giao diện TensorBoard mới. Biểu đồ so sánh đã được mở để kiểm tra bố cục.

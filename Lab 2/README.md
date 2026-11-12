@@ -42,7 +42,7 @@ Phần dữ liệu của Vân Anh đã kiểm chứng với CIFAR-10 thật trê
 
 Đã nhận **một phiên lịch sử của Thanh Bình, gồm bốn cấu hình**, tại commit `92930e6`: [biên bản nhập](reports/imported-thanhbinh-92930e6/IMPORT.json), [metrics gốc](reports/imported-thanhbinh-92930e6/metrics.json), [báo cáo gốc](reports/imported-thanhbinh-92930e6/training_report.md). Đủ 12 checkpoint LFS trong `checkpoints/<run>/`, log TensorBoard trong `reports/runs/`, source/manifest gốc trong `reports/tv3/`. Đã kiểm hash 12 checkpoint, 21 source snapshot, ba manifest và nạp bốn model. Kết quả gốc dùng RTX 4060, không phải lần chạy mới trên máy này. [metrics.json ở gốc reports](reports/metrics.json) vẫn là báo cáo tham số lịch sử của Bảo, giữ nguyên.
 
-Phiên chạy lại mới: `rerun-thanhbinh-20261112-175308`, dùng [config riêng](configs/sessions/rerun-thanhbinh-20261112-175308.yaml); trạng thái và kết quả tại [SESSION.json](reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json). Không chấm KPI tốc độ T4 từ số đo RTX; số đo thực tế vẫn được lưu.
+Phiên chạy lại mới đã hoàn tất: `rerun-thanhbinh-20261112-175308`, dùng [config riêng](configs/sessions/rerun-thanhbinh-20261112-175308.yaml); trạng thái và kết quả tại [SESSION.json](reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json). Không chấm KPI tốc độ T4 từ số đo RTX; số đo thực tế vẫn được lưu.
 
 ## Kiểm tra offline trên máy cá nhân
 
@@ -66,3 +66,9 @@ Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Col
 - [Triển khai model gốc](docs/model_implementation.md), [bản tiếng Việt](docs/model_vi.md): nguồn Xuân Bảo; đã chuyển code sang package, giữ `model.py` làm lệnh tương thích cho `test.py` cũ.
 
 Không ghi đè run đã có log/checkpoint/kết quả. Nếu phiên dở dang cần chạy lại, dùng mã phiên mới; giữ phiên cũ làm bằng chứng. Không bảo đảm đạt KPI trước khi đo; GPU khác T4 phải ghi rõ, không trình bày như số đo trên T4.
+
+## Kết quả chạy lại trên máy hiện tại
+
+DenseNet121 được chọn bằng validation 88,24%, epoch 5; test 87,68%, macro F1 0,8755 trên 5.000 ảnh. Bốn cấu hình có validation 84,76% / 88,24% / 83,52% / 85,08%; chênh bản nguồn từ −0,04 đến +0,04 điểm phần trăm. Kiểm lại trọng số DenseNet gốc của Bình cũng cho validation 88,24% và test 87,68%.
+
+[Báo cáo và biểu đồ so sánh](reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [báo cáo đánh giá](docs/evaluation.md), [best checkpoint mới](reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/best.pth). Phiên mới có 13 file trọng số (12 theo run và bản best), checkpoint/log/metrics gốc của Bình giữ nguyên. Lấy trọng số mới sau pull bằng Git LFS; dùng phiên/mã mới nếu tái lập, không chạy lại đè config phiên đã hoàn tất.
