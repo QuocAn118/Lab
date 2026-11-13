@@ -8,9 +8,11 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T08:55:07+07:00 |
+| Last updated | 2026-11-13T08:56:14+07:00 |
 | Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
+
+> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, `notebooks/Lab_3_quocan.ipynb`). Tài liệu chính của bài là bộ `01_`–`12_`.
 
 > **Trạng thái**: Đã có số liệu chính thức từ lần chạy trên Colab, GPU Tesla T4, ngày 2026-11-06. Toàn bộ số liệu lấy từ `reports/metrics.json`. Cả 7 KPI đều đạt.
 
