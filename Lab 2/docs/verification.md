@@ -7,7 +7,7 @@
 | Name | Kiểm chứng chuẩn bị — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Last updated | 2026-11-13T11:02:55+07:00 |
+| Last updated | 2026-11-13T11:51:17+07:00 |
 | Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
@@ -240,3 +240,25 @@ $env:PYTHONPATH='src'; $env:PYTHONUTF8='1'
 Kết quả thực tế: **93 passed**, **46 warnings**, **13,43 giây**, exit 0. Python **3.12.10**, torch **2.9.1+cu128**, torchvision **0.24.1+cu128**; import cả hai thư viện thành công, `torch.cuda.is_available()` trả `True`. `pip check` trả `No broken requirements found.` Các cảnh báo là DeprecationWarning của `pin_memory`/`is_pinned` trong PyTorch.
 
 T1 hoàn thành với cặp phiên bản nêu trên. Các lỗi của lần cài mới ban đầu được giữ ở mục trước để lưu vết. Thao tác khắc phục chỉ thay distribution trong `.venv` Lab 2; không thay chính sách bảo mật Windows hoặc code dự án. Bộ test này dùng dữ liệu giả và bỏ qua smoke Lab 2. Phiên Colab T4 được thực hiện riêng theo T3.
+
+
+### Tiếp nhận T3 Colab Tesla T4 — 2026-11-13
+
+Phiên `colab-t4-20261113-browser-01`, source `735e5568f96819a9e52d25298ba5c34e213fa10b`. Notebook được vận hành qua Chrome; setup clone source GitHub cố định thay bước mount Drive, khai `OPERATOR` là `OpenAI Codex, authorized by HoangDang` và mã phiên mới. So sánh source từng ô xác nhận toàn bộ pipeline ngoài setup trùng `notebooks/Lab_2_colab.ipynb` trong repo. Mười bảy ô pipeline hoàn tất với execution 1–17; ô xuất dữ liệu bổ sung hoàn tất ở execution 19. Lần xuất đầu cần bổ sung `src` vào `sys.path` của kernel vì biến `PYTHONPATH` trước đó chỉ áp dụng cho subprocess. Source và kết quả train/evaluation được giữ theo phiên đã chạy.
+
+Bộ offline Colab kiểm lại bằng `python -m pytest tests test.py --ignore=tests/test_smoke.py -q`: **93 passed**, **23,76 giây**. Ba smoke của notebook hoàn tất với returncode 0. Cấu hình dữ liệu **22.500 train / 2.500 validation / 5.000 test** được đối chiếu trong JSON. Bốn run dùng seed và tham số của config gốc, chỉ đổi đường dẫn phiên.
+
+| Run | Epoch thực tế | Best epoch | Validation accuracy | Giây train/epoch |
+| --- | ---: | ---: | ---: | ---: |
+| `resnet18_baseline` | 5 | 4 | 84.80% | 43.67651 |
+| `densenet121` | 6 | 5 | 88.24% | 74.59119 |
+| `resnet18_lr1e-2` | 6 | 5 | 83.52% | 47.07446 |
+| `resnet18_bs128` | 6 | 6 | 85.08% | 48.80730 |
+
+DenseNet121 được chọn bằng validation 88,24%, epoch 5. Test accuracy 87,70%, macro F1 0,8757295828, loss 0,3516814043 trên 5.000 ảnh. Thời gian trung bình 74,591192584 giây/epoch và latency 20,38368944 ms/ảnh được đo trên Tesla T4. Cả 7 mục KPI trong JSON có trạng thái Đạt; các mục tiêu giữ theo config gốc.
+
+Kiểm tiếp nhận trên máy bằng Python của `.venv` Lab 2, torch 2.9.1+cu128: gói tải đúng 481.715.361 byte; SHA-256 và kích thước **38 file** khớp `FILES.json`; **10 source snapshot** khớp nguyên byte commit Git. Đủ **13 checkpoint**; epoch, model và validation metrics của 12 mốc theo run khớp summary; bản best khớp hash checkpoint được chọn. Event bốn run đủ tag và số điểm epoch. Best nạp trên CPU cho logits hữu hạn `[1,10]`. `tools/verify_tv3_handoff.py` của hồ sơ lịch sử cũng PASS với 21 source, 3 manifest và 12 checkpoint nguồn.
+
+Notebook tải về được `nbformat.validate` xác nhận hợp lệ, gồm 18 ô code, không có output lỗi ở bản lưu cuối. Ảnh TensorBoard được chụp bằng Chrome từ server cục bộ đọc đúng event T4 đã nhập, kích thước 3200 × 2000 pixel, smoothing 0, không bỏ điểm ngoài thang đo. Ảnh hiển thị bốn run và Accuracy/val, Loss/train, Loss/val; hash event được ghi trong biên bản riêng.
+
+[Metrics](../reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json), [config phiên](../configs/sessions/colab-t4-20261113-browser-01.yaml), [SESSION.json](../reports/sessions/colab-t4-20261113-browser-01/SESSION.json), [manifest phiên](../reports/sessions/colab-t4-20261113-browser-01/FILES.json), [biên bản tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json), [notebook](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), [ảnh TensorBoard](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png). Biên bản/hash tiếp nhận được lưu ở thư mục review riêng. TASK-13, TASK-15 và TASK-16 đã được cập nhật theo phiên T4 này. Giới hạn kết quả là một seed và một phiên phần cứng đã ghi trong metrics.
