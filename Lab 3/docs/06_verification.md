@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T08:55:07+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Kết luận ngày 2026-11-06
@@ -143,8 +143,21 @@ $env:PYTHONPATH = 'src'
 ```
 
 - Kết quả: **44 passed**, 4 cảnh báo, 8,09 giây (commit `25cc678` thêm một test chặn ghi đè). `tests/test_smoke.py` chạy riêng cũng đạt.
-- `lab3.py audit` PASS, 40 file và tám cell. Notebook chính `Lab_3 (1).ipynb` ở repo gốc có 8/8 cell đã chạy, không có output lỗi; `notebooks/Lab_3 (1).ipynb` là bản nhánh Quốc An chưa chạy, không phải bản nộp chính.
+- `lab3.py audit` PASS, 40 file và tám cell. Notebook chính `Lab_3 (1).ipynb` ở repo gốc có 8/8 cell đã chạy, không có output lỗi; `notebooks/Lab_3_quocan.ipynb` là bản nhánh Quốc An chưa chạy, không phải bản nộp chính.
 - Không chạy lại notebook, smoke CLI hay đánh giá; số đo accuracy giữ theo mục 7.
+
+## Kiểm lại 2026-11-13 — T4
+
+AI agent thực thi kế hoạch của HoangDang trên nhánh `hoangdang`. Đổi tên notebook nhập từ QuocAn thành `notebooks/Lab_3_quocan.ipynb`; Git nhận rename 100%, blob hash không đổi. Notebook chính `../Lab_3 (1).ipynb` giữ nguyên. Đã sửa hai tham chiếu hiện hành, README và bảng truy vết; `git grep` không còn đường dẫn cũ trong file đang theo dõi ngoài vùng lịch sử được loại trừ. File kế hoạch chưa theo dõi vẫn giữ mô tả ban đầu.
+
+Từ `Lab 3/`, đặt `PYTHONPATH=src`, `PYTHONUTF8=1`:
+
+```powershell
+& .venv/Scripts/python.exe -m pytest test.py test_reporting.py tests -q --basetemp .venv/pytest-temp
+& .venv/Scripts/python.exe lab3.py audit
+```
+
+Kết quả: **45 passed**, 4 cảnh báo, **14,94 giây**. Audit **PASS**, 40 file và 8 cell code. Đã đọc nhánh lệnh audit và `audit_sources` trước khi chạy: không ghi report/output khi không truyền tùy chọn. Bốn cảnh báo về mtime checkpoint và backend ảnh không tương tác phát sinh trong test với thư mục tạm. Không chạy lại notebook hoặc thực nghiệm.
 
 ## Nguồn và phạm vi
 

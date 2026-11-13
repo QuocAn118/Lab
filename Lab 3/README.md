@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T08:55:07+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook giữ các ô code chính viết tuần tự. Tiện ích thời gian/lưu model/vẽ loss được tách vào `notebook_helpers.py`; không dùng pipeline `lab3.py`.
@@ -18,7 +18,7 @@ Tài liệu trong `docs/` được đánh số theo thứ tự đọc. Bắt đ�
 
 ## Bản bổ sung từ nhánh QuocAn — 2026-11-11
 
-Đã nhận thêm `src/exercise_1/`, `src/exercise_2/`, `configs/exercise_2.yaml`, `tests/`, notebook trong `notebooks/`, checkpoint trong `checkpoints/` và báo cáo trong `reports/`. Đây là bản triển khai riêng của nhánh QuocAn; không thay thế notebook gốc, pipeline `lab3.py`, báo cáo `report/` hoặc dữ liệu thực nghiệm trong `outputs/`.
+Đã nhận thêm `src/exercise_1/`, `src/exercise_2/`, `configs/exercise_2.yaml`, `tests/`, notebook `notebooks/Lab_3_quocan.ipynb`, checkpoint trong `checkpoints/` và báo cáo trong `reports/`. Đây là bản triển khai riêng của nhánh QuocAn; không thay thế notebook gốc, pipeline `lab3.py`, báo cáo `report/` hoặc dữ liệu thực nghiệm trong `outputs/`.
 
 Tài liệu của bản này là các file không đánh số trong `docs/`, bắt đầu từ [lab_3_description.md](docs/lab_3_description.md). Danh sách thư viện gốc được giữ ở `requirements_quocan.txt`; môi trường chính tiếp tục dùng `requirements.txt` đã khóa phiên bản. Chưa kiểm chứng chạy chung hai bản. Các checkpoint mới được quản lý bằng Git LFS; xem trạng thái tải trong nhật ký đồng bộ.
 
