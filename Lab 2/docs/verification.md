@@ -7,7 +7,7 @@
 | Name | Kiểm chứng chuẩn bị — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Last updated | 2026-11-13T08:58:02+07:00 |
+| Last updated | 2026-11-13T11:02:55+07:00 |
 | Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
@@ -225,3 +225,18 @@ ERROR test.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 9 errors during collection !!!!!!!!!!!!!!!!!!!
 9 errors in 1.38s
 ```
+
+
+### Tiếp tục T1 ngày 2026-11-13 — môi trường đã kiểm chứng
+
+AI agent tiếp tục theo yêu cầu hoàn thiện, sau khi xác định lỗi nằm ở bước nạp DLL của distribution torch 2.15.0 vừa cài. Dùng cặp wheel CUDA 12.8 đã được README và các lần kiểm Lab 1/Lab 3 trên máy này xác nhận chạy được, cài từ kho chính thức PyTorch trong `.venv` riêng Lab 2:
+
+```powershell
+& .venv/Scripts/python.exe -m pip install --disable-pip-version-check torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu128
+$env:PYTHONPATH='src'; $env:PYTHONUTF8='1'
+& .venv/Scripts/python.exe -m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
+```
+
+Kết quả thực tế: **93 passed**, **46 warnings**, **13,43 giây**, exit 0. Python **3.12.10**, torch **2.9.1+cu128**, torchvision **0.24.1+cu128**; import cả hai thư viện thành công, `torch.cuda.is_available()` trả `True`. `pip check` trả `No broken requirements found.` Các cảnh báo là DeprecationWarning của `pin_memory`/`is_pinned` trong PyTorch.
+
+T1 hoàn thành với cặp phiên bản nêu trên. Các lỗi của lần cài mới ban đầu được giữ ở mục trước để lưu vết. Thao tác khắc phục chỉ thay distribution trong `.venv` Lab 2; không thay chính sách bảo mật Windows hoặc code dự án. Bộ test này dùng dữ liệu giả và bỏ qua smoke Lab 2. Phiên Colab T4 được thực hiện riêng theo T3.
