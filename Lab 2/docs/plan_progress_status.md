@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T11:51:17+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
+| Last updated | 2026-11-13T14:14:27+07:00 |
+| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Thành Viên
@@ -110,8 +110,8 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-01** | Hoàn thiện đặc tả `docs/` | Toàn bài | **DONE** | Team | Bộ đặc tả gốc và tài liệu bàn giao/kiểm chứng đã cập nhật theo code |
 | **TASK-02** | Viết đặc tả từng hàm, test và phân công | Toàn bài | **DONE** | Team | Mục "Đặc Tả Mã Nguồn" trong `docs/`, `tests/`, mục 1, 2 của file này |
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **ĐẠT OFFLINE** | TV5 | `requirements.txt`, 3 test common đạt |
-| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT DỮ LIỆU THẬT TRÊN WINDOWS** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); AC-03 đạt trên máy này, cần kiểm tra lại khi chạy Colab |
-| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐÃ GHÉP, ĐẠT OFFLINE** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
+| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT WINDOWS VÀ T4** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); ô data T4 execution 5 và metrics ghi đúng 22.500/2.500/5.000; AC-03 |
+| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐẠT OFFLINE VÀ COLAB** | TV2 | Test model, smoke T4 và [stdout kiến trúc bổ sung Colab CPU](../reports/sessions/model-architecture-colab-20261113/README.md); cùng source model, số tham số khớp T4; AC-01, AC-02 |
 | **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 13 test training/điều phối; giữ chống ghi đè và kiểm tra đường dẫn |
 | **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **ĐẠT TRÊN RTX 5060** | TV3 | 3 smoke pretrained/CIFAR-10 thật, 29,94 giây; AC-04 |
 | **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **ĐẠT TRÊN WINDOWS** | TV3 | Đã nhận nguồn và tái lập đủ 4 cấu hình; 12 checkpoint từng run và bản best mới |
@@ -127,6 +127,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-13` — AI agent kiểm lại ảnh danh sách thiếu: bổ sung báo cáo TV4 bằng số liệu T4 và nhận xét Exercise 1–2; cập nhật bảng 11 AC trong đặc tả. Ô model T4 đã chạy nhưng thiếu stdout trong notebook lưu; phép kiểm riêng trên Colab CPU in đủ ba kiến trúc/từng tham số, cùng source với training, số đếm khớp metrics T4. [Hồ sơ AC-01](../reports/sessions/model-architecture-colab-20261113/README.md); không train lại hoặc sửa artifact cũ. 25 test evaluation/handoff đạt.
 - `2026-11-13` — AI agent tiếp nhận T3 trên Tesla T4, phiên `colab-t4-20261113-browser-01` từ source `735e556`: 17 ô pipeline hoàn tất, 13 checkpoint và 38 file khớp manifest; 10 source khớp Git, 4 run đủ event, best nạp CPU `[1,10]`. Test 87,70%, macro F1 0,87573; 7 KPI đạt. Bộ offline Colab 93 passed/23,76 giây. Notebook và ảnh TensorBoard được lưu trong phiên review riêng; TASK-13/15/16 cập nhật theo bằng chứng. Windows kiểm lại 93 passed với torch 2.9.1+cu128.
 - `2026-11-13` — AI agent thực thi T2 theo kế hoạch HoangDang: xóa đúng `cells[23].metadata.colab` (widget Colab của cell TensorBoard) trong `notebooks/Lab 2.ipynb`; giữ nguyên toàn bộ output, source và metadata khác. File còn 42.278 byte; JSON, `nbformat.validate` và so sánh toàn bộ outputs bằng `json.dumps` đều PASS. Không chạy lại notebook.
 - `2026-11-12` — HoangDang: kiểm lại sau `25cc678`, 93 test offline và verifier bàn giao PASS; môi trường mượn torch của `.venv` Lab 1, chi tiết tại [verification.md](verification.md). TASK-16 và KPI T4 chưa đổi.

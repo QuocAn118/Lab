@@ -120,3 +120,16 @@ Tiếp nhận T4: `Lab 2/.venv/intake_colab.py` kiểm đường dẫn archive, 
 DenseNet121 được chọn bằng validation 88,24%, epoch 5; test 87,70%, macro F1 0,8757295828 trên 5.000 ảnh. Trung bình 74,591192584 giây train/epoch, latency 20,38368944 ms/ảnh trên Tesla T4; 7 KPI Đạt theo `reports/metrics.json` của phiên. Đây là một seed và một phiên phần cứng được ghi trong metrics.
 
 Kiểm phạm vi: Git không có M/D/R trong artifact cũ của các thư mục được bảo vệ hoặc BRANCH_SYNC so với `735e556`; các file thêm trong Lab 2 là phiên T4, config và hồ sơ tiếp nhận đã được T3 cho phép. Nội dung cũ của file báo cáo này giữ nguyên byte, chỉ bổ sung mục mới. Source snapshot giữ nguyên whitespace gốc và metadata review giữ nguyên CRLF trong manifest; kiểm whitespace của tài liệu đang sửa đạt. `PLAN_HOAN_THIEN_2026-11-13.md` là file chưa theo dõi có từ đầu, được giữ nguyên. Không còn task chưa làm trong T1–T6; chưa push hoặc tạo PR, chưa đóng gói sản phẩm để nộp.
+
+
+### Kiểm lại danh sách thiếu và chốt bằng chứng AC-01 — 2026-11-13
+
+Last updated: 2026-11-13T14:14:27+07:00
+
+Updated by: AI agent (theo yêu cầu kiểm tra của HoangDang)
+
+PR #6 đã merge các kết quả T1–T6 vào main tại `3faffbb8da00b773cc408a9c52a93ef5aa1c717f`. Kiểm lại ảnh người dùng gửi phát hiện `Lab 2/docs/evaluation.md` và bảng nghiệm thu của `lab_2_description.md` chưa đồng bộ phần T4. Đã bổ sung số thật của bốn run, nhận xét Exercise 1 (+3,44 điểm validation), Exercise 2 (LR −1,28; batch +0,28 điểm), test 87,70%, macro F1 0,87573 và 7 KPI Đạt. `reports/metrics.json` ở gốc vẫn giữ báo cáo model lịch sử; metrics đầy đủ nằm trong phiên T4. Các mục đặc tả `completed_runs`, loader rỗng/logits không hữu hạn, chặn evaluation lặp/config khác đã có trước lượt kiểm này.
+
+Notebook T4 ghi execution 6 cho bước model nhưng không lưu stdout ở ô subprocess đó. Bổ sung phép kiểm riêng trên Colab CPU bằng đúng source `model.py` (SHA-256 khớp commit training và main), `pretrained=False`: in ba kiến trúc, từng tham số, trạng thái train/frozen và tổng/trainable; tất cả số đếm khớp metrics T4. [Hồ sơ và nguồn](Lab%202/reports/sessions/model-architecture-colab-20261113/README.md), [notebook nguyên byte](Lab%202/reports/sessions/model-architecture-colab-20261113/Lab_2_AC01_architecture_20261113.ipynb), [biên bản tiếp nhận](Lab%202/reports/sessions/model-architecture-colab-20261113/INTAKE.json). Một ô code execution 1, không lỗi, stdout notebook khớp file xuất; đã kiểm manifest bốn file và archive an toàn, bỏ cache Python. Không training, inference hoặc ghi checkpoint trong phép kiểm bổ sung; artifact T4/Windows cũ giữ nguyên. Bảng nghiệm thu có bằng chứng đủ 11 AC; TASK-04/05 và chỉ dẫn README đã đồng bộ.
+
+Kiểm phù hợp: `python -m pytest tests/test_evaluation.py tests/test_handoff.py -q --basetemp .venv/pytest-temp` trong Lab 2 đạt **25 passed**, 9,10 giây. Tính lại early stopping từ validation đã lưu với class/config hiện hành khớp cả bốn run. Kết quả thực nghiệm chỉ có một seed; phép kiểm CPU bổ sung không phải benchmark T4 mới.
