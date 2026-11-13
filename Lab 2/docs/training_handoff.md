@@ -6,20 +6,20 @@
 | --- | --- |
 | Name | Kế hoạch bàn giao train — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
-| Created by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
 ## 1. Phạm vi và người làm
 
-Người chuẩn bị: HoangDang, hỗ trợ OpenAI Codex. Người train: **chưa chỉ định**; bạn nhận việc điền `OPERATOR` trong cell đầu notebook. Không suy tên thật từ TV1–TV5 hoặc tên nhánh.
+Người chuẩn bị/tích hợp: HoangDang. Bản bàn giao TV3: Nguyễn Thanh Bình (`92930e6`), lưu như phiên lịch sử; manifest cũ chưa ghi tên người vận hành nên không suy từ tác giả commit. Phiên chạy lại `rerun-thanhbinh-20261112-175308`: HoangDang, RTX 5060, config và output riêng. Người chạy Colab sau này vẫn phải điền `OPERATOR` trong notebook.
 
 Đã chuẩn bị code, notebook và kiểm tra offline. Người nhận chạy thực nghiệm theo đúng config, lưu bằng chứng và bàn giao kết quả. Không phải viết thêm pipeline. Chưa có cam kết accuracy hoặc thời gian chạy; không cần giải nén ZIP.
 
 ## 2. Nhận đúng phiên bản
 
-Lấy toàn bộ thư mục Lab 2 từ nhánh `hoangdang` mới nhất, mở `notebooks/Lab_2_colab.ipynb` trên Colab. Bản chuẩn bị dựa trên `main` tại `a7b7ef8`; chưa coi nó đã có trên main cho đến khi PR mới được merge.
+Lấy toàn bộ thư mục Lab 2 từ `main`, mở `notebooks/Lab_2_colab.ipynb` trên Colab. Bản tích hợp `c6f4d54` đã có code, test và kết quả phiên Windows. Người chạy Colab dùng mã phiên riêng để lưu số đo trên phần cứng được cấp.
 
 Đặt `Lab 2` trong Drive; chỉ cần code Lab 2, không cần tải checkpoint Lab 1/3. Chọn **Runtime → Change runtime type → T4 GPU**. Điền `PROJECT_DIR`, `OPERATOR`, `SESSION_ID` trong cell đầu; giữ cùng mã phiên cho cả 4 run. Chừa **ít nhất 2 GB** Drive cho một phiên: khoảng 540 MB trọng số model, khoảng 350 MB CIFAR-10 sau giải nén cùng archive và phần còn lại cho cache/log/file tạm. Đây là dự trù, chưa đo dung lượng phiên thật.
 

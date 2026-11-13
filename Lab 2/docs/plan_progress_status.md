@@ -6,10 +6,10 @@
 | --- | --- |
 | Name | Tiến Độ Thực Hiện (Project Status) — Lab 2 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-13T14:14:27+07:00 |
+| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Thành Viên
@@ -33,16 +33,16 @@ Tên nguồn được đối chiếu từ tác giả commit `Quoc An` và khai b
 | Cập nhật đặc tả theo đề, thêm cấu hình và yêu cầu môi trường | `README.md`, `configs/lab_2.yaml`, `requirements.txt`, `.gitignore`, `docs/lab_2_description.md`, `docs/data.md`, `docs/model.md`, `docs/training.md`, `docs/evaluation.md`, `docs/demo.md`, `docs/plan_progress_status.md` | `3a86e93` |
 | Viết đặc tả từng hàm, giao diện và bộ test nền | Các tài liệu `docs/` trên; `tests/conftest.py`, `test_common.py`, `test_data.py`, `test_demo.py`, `test_evaluation.py`, `test_integration.py`, `test_model.py`, `test_training.py`; smoke test ban đầu ở `tests/test_smoke.py` | `00b8d04`; smoke có từ `3a86e93` |
 | Khôi phục các mục tài liệu bị mất | `data.md`, `model.md`, `training.md`, `evaluation.md`, `demo.md` | `fa27469`, `0f71b4f`, `9096223`, `f9f2fd8`, `d0cd42f` |
-| Tích hợp, đối chiếu và kiểm thử evaluation TV4 | `src/lab_2/evaluation.py`, khai báo AI trong file tiến độ này | `32ca8b1` |
+| Tích hợp, đối chiếu và kiểm thử evaluation TV4 | `src/lab_2/evaluation.py`, khai báo công cụ tại [AI_Usage.md](AI_Usage.md) | `32ca8b1` |
 | Đưa notebook cũ vào repo và chuyển vị trí | `notebooks/Lab 2.ipynb` | `186582e`, `00b8d04`; ghi nhận thao tác nhập/chuyển file, không tự kết luận người viết mọi nội dung hoặc người chạy notebook |
 
-Phần đặc tả/test/evaluation của Quốc An có khai báo Claude Code ở mục 5, được giữ nguyên. Bản data/tài liệu hiện hành của Vân Anh, model của Xuân Bảo, cùng các sửa đổi/tích hợp sau đó được ghi riêng; bộ 74 test hiện tại có các bổ sung sau bộ test nền, không quy toàn bộ cho Quốc An. HoangDang, hỗ trợ OpenAI Codex, thực hiện đối chiếu và bổ sung hồ sơ ngày 2026-11-12; không đổi tác giả commit nguồn và không tạo kết quả thực nghiệm mới.
+Phần đặc tả/test/evaluation của Quốc An có khai báo công cụ tại [AI_Usage.md](AI_Usage.md), được giữ nguyên. Bản data/tài liệu hiện hành của Vân Anh, model của Xuân Bảo, cùng các sửa đổi/tích hợp sau đó được ghi riêng; bộ test hiện hành có các bổ sung sau bộ test nền, không quy toàn bộ cho Quốc An. HoangDang, thực hiện đối chiếu và bổ sung hồ sơ ngày 2026-11-12; không đổi tác giả commit nguồn và không tạo kết quả thực nghiệm mới.
 
 ---
 
 ## 2. Cách Làm Việc Nhóm
 
-Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang/Codex chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An; phần data của Vân Anh được nhận qua merge `828e5ef`. Ngày 2026-11-12 kiểm tra offline đạt 74 test, gồm 20 test data; chưa chạy smoke model thật hoặc 4 run. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có; người nhận train phiên mới chưa chỉ định. Người nhận train làm theo [training_handoff.md](training_handoff.md).
+Đã có đủ package `common`, `data`, `model`, `training`, `evaluation`, `demo` và notebook Colab. HoangDang chuẩn bị theo main tại `a7b7ef8`, kế thừa model Xuân Bảo và evaluation Quốc An; phần data của Vân Anh được nhận qua merge `828e5ef`. Sau ghép TV3, 85 test offline và 3 smoke thật đạt trên RTX 5060; đã nhận phiên lịch sử gồm bốn cấu hình/12 checkpoint của Thanh Bình và đã hoàn tất chạy lại bằng phiên riêng do HoangDang thực thi. Phân công TV1–TV5 bên dưới giữ theo bảng hiện có. Hướng dẫn cho phiên tiếp theo: [training_handoff.md](training_handoff.md).
 
 | Thành viên | File phụ trách | Đặc tả từng hàm | Số test phải đạt |
 | :---: | :--- | :--- | :---: |
@@ -110,47 +110,39 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-01** | Hoàn thiện đặc tả `docs/` | Toàn bài | **DONE** | Team | Bộ đặc tả gốc và tài liệu bàn giao/kiểm chứng đã cập nhật theo code |
 | **TASK-02** | Viết đặc tả từng hàm, test và phân công | Toàn bài | **DONE** | Team | Mục "Đặc Tả Mã Nguồn" trong `docs/`, `tests/`, mục 1, 2 của file này |
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **ĐẠT OFFLINE** | TV5 | `requirements.txt`, 3 test common đạt |
-| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT DỮ LIỆU THẬT TRÊN WINDOWS** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); AC-03 đạt trên máy này, cần kiểm tra lại khi chạy Colab |
-| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐÃ GHÉP, ĐẠT OFFLINE** | TV2 | `tests/test_model.py` đạt, AC-01, AC-02 |
-| **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 6 test training đạt |
-| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **TODO** | TV3 | AC-04 |
-| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **TODO** | TV3 | AC-08 |
-| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **TODO** | TV3 | AC-05 |
-| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **TODO** | TV3 | AC-06 |
-| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **TODO** | TV3 | AC-07 |
+| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT WINDOWS VÀ T4** | TV1 | 20 test data; [checksum/split/batch/CLI thật](../reports/data_validation_2026-11-12.json); ô data T4 execution 5 và metrics ghi đúng 22.500/2.500/5.000; AC-03 |
+| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐẠT OFFLINE VÀ COLAB** | TV2 | Test model, smoke T4 và [stdout kiến trúc bổ sung Colab CPU](../reports/sessions/model-architecture-colab-20261113/README.md); cùng source model, số tham số khớp T4; AC-01, AC-02 |
+| **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 13 test training/điều phối; giữ chống ghi đè và kiểm tra đường dẫn |
+| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **ĐẠT TRÊN RTX 5060** | TV3 | 3 smoke pretrained/CIFAR-10 thật, 29,94 giây; AC-04 |
+| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **ĐẠT TRÊN WINDOWS** | TV3 | Đã nhận nguồn và tái lập đủ 4 cấu hình; 12 checkpoint từng run và bản best mới |
+| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **ĐẠT, MỘT SEED** | TV3 | [So sánh phiên nguồn và phiên mới](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md); DenseNet121 hơn baseline 3,48 điểm validation |
+| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **ĐẠT, MỘT SEED** | TV3 | [So sánh phiên nguồn và phiên mới](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md); LR 0,01 −1,24 điểm, batch 128 +0,32 điểm so baseline trong phiên mới |
+| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **ĐẠT EVENT/PLOT/ẢNH UI** | TV3 | [Ảnh giao diện bốn run mới](../reports/sessions/tensorboard-review-20261112-191218/tensorboard.png), event và biên bản bổ sung |
 | **TASK-12** | Viết code đánh giá và biểu đồ | Bước 7 | **ĐẠT OFFLINE** | TV4 | `tests/test_evaluation.py` đạt |
-| **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **TODO** | TV4 | AC-09, `evaluation.md` |
-| **TASK-14** | Demo suy luận | Quy trình `docs/` | **ĐẠT OFFLINE, CHỜ MODEL THẬT** | TV5 | 2 test demo và luồng giả đạt; AC-10 chờ model thật |
-| **TASK-15** | Ghép code, hoàn thiện notebook | Toàn bài | **ĐẠT OFFLINE, CHỜ COLAB** | TV5 | 2 test integration và 9 test handoff đạt; notebook chưa chạy Colab |
-| **TASK-16** | Run all notebook trên Colab | Toàn bài | **TODO** | TV5 | AC-11 |
+| **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **ĐẠT WINDOWS VÀ T4** | TV4 | Phiên `colab-t4-20261113-browser-01`: DenseNet121 test 87,70%, macro F1 0,87573; cả 7 KPI T4 đạt, 74,59 giây/epoch và 20,38 ms/ảnh; [metrics](../reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json) |
+| **TASK-14** | Demo suy luận | Quy trình `docs/` | **ĐẠT VỚI MODEL THẬT** | TV5 | Đã tạo xác suất và biểu đồ cho 3 ảnh test trong phiên mới; AC-10 đạt trên Windows |
+| **TASK-15** | Ghép code, hoàn thiện notebook | Toàn bài | **ĐẠT WINDOWS VÀ COLAB T4** | TV5 | 93 test offline trên Windows và Colab; 3 smoke T4 kết thúc thành công; đủ 4 run, evaluation, demo và 13 checkpoint; [kiểm tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json) |
+| **TASK-16** | Run all notebook trên Colab | Toàn bài | **DONE** | TV5 | AC-11: 17/17 ô pipeline đã chạy, ô xuất bổ sung PASS; [notebook](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), [TensorBoard](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png); setup clone source `735e556`, các ô pipeline còn lại trùng notebook repo |
 
 ---
 
 ## 4. Nhật Ký Thực Hiện
-- `2026-11-12` — HoangDang, hỗ trợ OpenAI Codex: rà cả Lab 1/Lab 2 của nhánh `QuocAn` (`32ca8b1`); xác nhận toàn bộ lịch sử nguồn đã có trong main `bae987d`. Bổ sung tên Nguyễn Quốc An cho training/test training Lab 1, đặc tả/cấu hình/test nền và evaluation Lab 2; ghi rõ các thao tác lấy file của thành viên khác là tích hợp. Giữ tên Vân Anh/Xuân Bảo ở phần của họ, giữ khai báo AI nguồn, code và artifact đã kiểm chứng. Xem mục 1.1 và nhật ký đồng bộ ở gốc repo.
-- `2026-11-12` — Nguồn phần dữ liệu/tài liệu: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`, merge `828e5ef`). HoangDang, hỗ trợ OpenAI Codex, hoàn thiện kiểm tra kiểu/kích thước, bổ sung test `load_splits`/`main`, đồng bộ tài liệu; 20 test data và toàn bộ 74 test offline đạt. CIFAR-10 thật đã kiểm tra checksum, chia tập, batch ba tập với worker=2 và CLI ghi báo cáo phiên riêng; giữ nguyên metrics lịch sử. Chưa smoke model thật/train/KPI/Colab. Bằng chứng: `reports/data_validation_2026-11-12.json`. Tên người cập nhật nguồn giữ là Vân Anh; người tích hợp/kiểm chứng ghi riêng.
-- `2026-11-11T11:06:40+07:00` — HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex: hoàn thiện package theo main a7b7ef8, wrapper model cũ, notebook Colab, hướng dẫn bàn giao; 63 test offline đạt. Chưa tải dữ liệu/model thật, chưa smoke thật/4 run, không tạo số accuracy. Báo cáo tham số cũ được giữ nguyên.
+- `2026-11-13` — AI agent kiểm lại ảnh danh sách thiếu: bổ sung báo cáo TV4 bằng số liệu T4 và nhận xét Exercise 1–2; cập nhật bảng 11 AC trong đặc tả. Ô model T4 đã chạy nhưng thiếu stdout trong notebook lưu; phép kiểm riêng trên Colab CPU in đủ ba kiến trúc/từng tham số, cùng source với training, số đếm khớp metrics T4. [Hồ sơ AC-01](../reports/sessions/model-architecture-colab-20261113/README.md); không train lại hoặc sửa artifact cũ. 25 test evaluation/handoff đạt.
+- `2026-11-13` — AI agent tiếp nhận T3 trên Tesla T4, phiên `colab-t4-20261113-browser-01` từ source `735e556`: 17 ô pipeline hoàn tất, 13 checkpoint và 38 file khớp manifest; 10 source khớp Git, 4 run đủ event, best nạp CPU `[1,10]`. Test 87,70%, macro F1 0,87573; 7 KPI đạt. Bộ offline Colab 93 passed/23,76 giây. Notebook và ảnh TensorBoard được lưu trong phiên review riêng; TASK-13/15/16 cập nhật theo bằng chứng. Windows kiểm lại 93 passed với torch 2.9.1+cu128.
+- `2026-11-13` — AI agent thực thi T2 theo kế hoạch HoangDang: xóa đúng `cells[23].metadata.colab` (widget Colab của cell TensorBoard) trong `notebooks/Lab 2.ipynb`; giữ nguyên toàn bộ output, source và metadata khác. File còn 42.278 byte; JSON, `nbformat.validate` và so sánh toàn bộ outputs bằng `json.dumps` đều PASS. Không chạy lại notebook.
+- `2026-11-12` — HoangDang: kiểm lại sau `25cc678`, 93 test offline và verifier bàn giao PASS; môi trường mượn torch của `.venv` Lab 1, chi tiết tại [verification.md](verification.md). TASK-16 và KPI T4 chưa đổi.
+- `2026-11-12` — HoangDang đã chụp giao diện TensorBoard thật của phiên chạy lại, đủ bốn run và ba đồ thị accuracy/train loss/validation loss. Biên bản `tensorboard-review-20261112-191218/REVIEW.json` lưu nguồn và hash event. Colab đã cấp Tesla T4 cho notebook `Lab_2_T4_verification_20261112.ipynb`; kết quả đầy đủ đang chờ tiếp nhận và kiểm chứng.
+- `2026-11-12` — Phiên mới `rerun-thanhbinh-20261112-175308` hoàn tất trên RTX 5060, HoangDang thực thi từ code `5c03204`. Đủ bốn run, checkpoint/log/manifest riêng; validation chênh nguồn từ −0,04 đến +0,04 điểm. DenseNet121 được chọn: test 87,68%, macro F1 0,8755 trên 5.000 ảnh; checkpoint nguồn được kiểm lại riêng, kết quả nguồn không sửa. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md). Tốc độ T4/Run all Colab và ảnh UI TensorBoard mới chưa nghiệm thu.
+- `2026-11-12` — Nhận TV3 Nguyễn Thanh Bình tại `92930e6`: một phiên lịch sử, bốn cấu hình, 12 checkpoint LFS. HoangDang đối chiếu 21 snapshot source, ba manifest, hash checkpoint và nạp bốn model; 85 test offline và ba smoke thật trên RTX 5060 đạt. Chuẩn bị phiên mới `rerun-thanhbinh-20261112-175308`, không ghi đè kết quả nguồn; tên người bàn giao và người chạy lại tách riêng. [Biên bản nhập](../reports/imported-thanhbinh-92930e6/IMPORT.json).
+- `2026-11-12` — HoangDang: rà cả Lab 1/Lab 2 của nhánh `QuocAn` (`32ca8b1`); xác nhận toàn bộ lịch sử nguồn đã có trong main `bae987d`. Bổ sung tên Nguyễn Quốc An cho training/test training Lab 1, đặc tả/cấu hình/test nền và evaluation Lab 2; ghi rõ các thao tác lấy file của thành viên khác là tích hợp. Giữ tên Vân Anh/Xuân Bảo ở phần của họ, giữ khai báo AI nguồn, code và artifact đã kiểm chứng. Xem mục 1.1 và nhật ký đồng bộ ở gốc repo.
+- `2026-11-12` — Nguồn phần dữ liệu/tài liệu: Nguyễn Thị Vân Anh (`origin/vananh`, `4d3fb94`, merge `828e5ef`). HoangDang, hoàn thiện kiểm tra kiểu/kích thước, bổ sung test `load_splits`/`main`, đồng bộ tài liệu; 20 test data và toàn bộ 74 test offline đạt. CIFAR-10 thật đã kiểm tra checksum, chia tập, batch ba tập với worker=2 và CLI ghi báo cáo phiên riêng; giữ nguyên metrics lịch sử. Chưa smoke model thật/train/KPI/Colab. Bằng chứng: `reports/data_validation_2026-11-12.json`. Tên người cập nhật nguồn giữ là Vân Anh; người tích hợp/kiểm chứng ghi riêng.
+- `2026-11-11T11:06:40+07:00` — HoangDang (Nguyễn Hoàng Đăng): hoàn thiện package theo main a7b7ef8, wrapper model cũ, notebook Colab, hướng dẫn bàn giao; 63 test offline đạt. Chưa tải dữ liệu/model thật, chưa smoke thật/4 run, không tạo số accuracy. Báo cáo tham số cũ được giữ nguyên.
 
 Các dòng dưới là lịch sử từng giai đoạn:
-- `2026-11-11` — HoangDang, hỗ trợ OpenAI Codex: nhận model/test từ xbao và evaluation từ QuocAn; cập nhật trạng thái, đường dẫn và workflow nhánh cá nhân → PR main. Chưa chạy lại kiểm thử trên máy hiện tại; chưa đủ module package để chạy tích hợp.
+- `2026-11-11` — HoangDang: nhận model/test từ xbao và evaluation từ QuocAn; cập nhật trạng thái, đường dẫn và workflow nhánh cá nhân → PR main. Chưa chạy lại kiểm thử trên máy hiện tại; chưa đủ module package để chạy tích hợp.
 - `2026-10-31`: Chạy notebook cũ trên Colab với SGD, 2 epoch, ảnh $32 \times 32$. Kết quả xem tại `evaluation.md` mục 7.
 - `2026-11-04`: Tạo bộ khung tài liệu đặc tả.
 - `2026-11-07`:
   - Đối chiếu đặc tả và notebook cũ với đề bài. Notebook có đủ 7 bước và 3 Exercise, nhưng khác đặc tả về optimizer, kích thước ảnh, số epoch và checkpoint. Đặc tả thiếu 3 Exercise, bước xem kiến trúc và đánh giá trên tập test.
   - Thống nhất làm lại theo đặc tả. Hoàn thiện đặc tả theo đề bài: 2 model, 4 lần chạy, tối đa 6 epoch, 22.500/2.500/5.000 ảnh.
   - Chia việc cho 5 thành viên: xóa code, ghi đặc tả từng hàm vào `docs/`, tách test theo từng người. Chuyển notebook cũ vào `notebooks/`.
-
----
-
-## 5. Việc Dùng AI
-
-| Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
-| :--- | :--- | :--- | :--- |
-| Claude Code (Claude Opus 5.5) | Rà soát tài liệu, viết đặc tả và test | Đối chiếu đề bài với đặc tả và notebook; cập nhật `docs/`; viết test; viết một bản code đầy đủ để kiểm tra test và đặc tả, lưu riêng ở nhánh `lab2-ban-day-du` trên máy người điều phối, không có trong nhánh `main` và `QuocAn` | Làm notebook ban đầu; cung cấp đề bài; chọn model, số lần chạy, số epoch, số ảnh, cách chia việc; duyệt các điểm sửa. Phần code của từng thành viên: chưa thực hiện. Nếu dùng hoặc tham khảo nhánh trên, phải ghi rõ tại đây. TV4: `evaluation.py` lấy từ nhánh trên, đã đối chiếu từng hàm với `evaluation.md` mục 8, chạy `tests/test_evaluation.py` (6 passed, dùng tạm các file khác của nhánh trên) và xem lại 3 biểu đồ |
-
-
-Phần khai báo AI ở bảng trên là thông tin kế thừa do thành viên ghi. Lần chuẩn hóa ngày 2026-11-11 dùng OpenAI Codex để rà tài liệu, không sinh thêm code model/training hoặc số đo mới.
-
-### AI và nguồn của đợt chuẩn bị này
-
-OpenAI Codex hỗ trợ HoangDang triển khai common/data/training/demo, ghép model của Xuân Bảo và evaluation của Quốc An, viết kiểm tra bàn giao, notebook và cập nhật tài liệu. Không truy cập hay lấy code từ nhánh `lab2-ban-day-du` (không có trên origin). Lịch sử khai báo Claude phía trên được giữ nguyên như nguồn kế thừa, không phải công cụ của đợt này. Người train và kết quả thật chưa xác nhận.

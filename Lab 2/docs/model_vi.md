@@ -9,7 +9,7 @@
 | Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
 | Ghi nhận Git đầu tiên | 2026-11-10T17:54:38+07:00 ; hbao2123-debug ; 749c935 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 

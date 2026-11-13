@@ -1,0 +1,324 @@
+{
+  "session_id": "rerun-thanhbinh-20261112-175308",
+  "kind": "new_training",
+  "status": "completed",
+  "created_at": "2026-11-12T17:53:08+07:00",
+  "operator": "HoangDang, assisted by OpenAI Codex",
+  "comparison_source": "Lab 2/reports/imported-thanhbinh-92930e6/IMPORT.json",
+  "config_path": "Lab 2/configs/sessions/rerun-thanhbinh-20261112-175308.yaml",
+  "scope": "four original configurations, fresh initial weights and isolated output; not resuming or overwriting the historical experiment",
+  "hardware_note": "RTX 5060 Laptop; original source used RTX 4060; neither is Colab T4",
+  "started_at": "2026-11-12T18:01:16+07:00",
+  "code_commit": "5c03204d0f38b716f3a5e2f1bb4be846725bab78",
+  "training_audit": "training-audit/manifest.json",
+  "training_finished_at": "2026-11-12T18:19:43+07:00",
+  "training_exit_code": 0,
+  "completed_at": "2026-11-12T18:22:42+07:00",
+  "post_commands": [
+    {
+      "command": [
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 1\\.venv\\Scripts\\python.exe",
+        "-m",
+        "lab_2.model",
+        "--config",
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 2\\configs\\sessions\\rerun-thanhbinh-20261112-175308.yaml"
+      ],
+      "log": "model-182122.log",
+      "exit_code": 0,
+      "seconds": 5.048227200000156
+    },
+    {
+      "command": [
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 1\\.venv\\Scripts\\python.exe",
+        "-m",
+        "lab_2.evaluation",
+        "--config",
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 2\\configs\\sessions\\rerun-thanhbinh-20261112-175308.yaml"
+      ],
+      "log": "evaluation-182127.log",
+      "exit_code": 0,
+      "seconds": 35.06657570000016
+    },
+    {
+      "command": [
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 1\\.venv\\Scripts\\python.exe",
+        "-m",
+        "lab_2.demo",
+        "--config",
+        "C:\\Users\\Legion\\Desktop\\TÀI LIỆU HỌC\\Lab\\Lab 2\\configs\\sessions\\rerun-thanhbinh-20261112-175308.yaml"
+      ],
+      "log": "demo-182202.log",
+      "exit_code": 0,
+      "seconds": 7.2858069000003525
+    }
+  ],
+  "offline_tests": 85,
+  "real_smoke_tests": 3,
+  "training_configurations": 4,
+  "source_configuration_parity": true,
+  "checkpoint_checks": "checkpoint_check.json",
+  "tensorboard_checks": "tensorboard_check.json",
+  "comparison": "comparison.md",
+  "historical_checkpoint_recheck": "historical_checkpoint_recheck.json",
+  "evaluation": {
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "speed_kpi_reference": "NVIDIA T4",
+    "best_run": "densenet121",
+    "best_epoch": 5,
+    "test_samples": 5000,
+    "test_metrics": {
+      "accuracy": 0.8768,
+      "accuracy_ci95_half_width": 0.009110174457341635,
+      "macro_f1": 0.8755301811857628,
+      "loss": 0.35169974093437195
+    },
+    "comparison": [
+      {
+        "run": "resnet18_baseline",
+        "purpose": "Mô hình gốc",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "epochs_run": 5,
+        "best_epoch": 4,
+        "val_accuracy": 0.8476,
+        "val_loss": 0.42159678802490236,
+        "seconds_per_epoch": 25.51918896000002
+      },
+      {
+        "run": "densenet121",
+        "purpose": "Exercise 1, đổi model",
+        "model": "densenet121",
+        "learning_rate": 0.001,
+        "batch_size": 64,
+        "epochs_run": 6,
+        "best_epoch": 5,
+        "val_accuracy": 0.8824,
+        "val_loss": 0.34547087020874023,
+        "seconds_per_epoch": 57.72384383333334
+      },
+      {
+        "run": "resnet18_lr1e-2",
+        "purpose": "Exercise 2, đổi learning rate",
+        "model": "resnet18",
+        "learning_rate": 0.01,
+        "batch_size": 64,
+        "epochs_run": 6,
+        "best_epoch": 5,
+        "val_accuracy": 0.8352,
+        "val_loss": 0.5670773025512695,
+        "seconds_per_epoch": 25.30885016666669
+      },
+      {
+        "run": "resnet18_bs128",
+        "purpose": "Exercise 2, đổi batch size",
+        "model": "resnet18",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "epochs_run": 6,
+        "best_epoch": 6,
+        "val_accuracy": 0.8508,
+        "val_loss": 0.4092033569335938,
+        "seconds_per_epoch": 25.32153895000003
+      }
+    ],
+    "kpi": [
+      {
+        "metric": "Validation Accuracy",
+        "value": 0.8824,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Test Accuracy",
+        "value": 0.8768,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Test Macro F1",
+        "value": 0.8755301811857628,
+        "target": 0.8,
+        "status": "Đạt"
+      },
+      {
+        "metric": "Thời gian train (giây/epoch)",
+        "value": null,
+        "target": 300,
+        "status": "Không đo được"
+      },
+      {
+        "metric": "Độ trễ suy luận (ms/ảnh)",
+        "value": null,
+        "target": 25,
+        "status": "Không đo được"
+      },
+      {
+        "metric": "VRAM cao nhất (GB)",
+        "value": 1.312366008758545,
+        "target": 4.0,
+        "status": "Đạt"
+      },
+      {
+        "metric": "RAM cao nhất (GB)",
+        "value": 2.662433624267578,
+        "target": 6.0,
+        "status": "Đạt"
+      }
+    ],
+    "per_class_accuracy": {
+      "airplane": 0.900390625,
+      "automobile": 0.9198473282442748,
+      "bird": 0.8038793103448276,
+      "cat": 0.7540983606557377,
+      "deer": 0.8052930056710775,
+      "dog": 0.8609406952965235,
+      "frog": 0.9485148514851485,
+      "horse": 0.9229249011857708,
+      "ship": 0.8985507246376812,
+      "truck": 0.946
+    },
+    "confusion_matrix": {
+      "labels": [
+        "airplane",
+        "automobile",
+        "bird",
+        "cat",
+        "deer",
+        "dog",
+        "frog",
+        "horse",
+        "ship",
+        "truck"
+      ],
+      "rows_true_columns_pred": [
+        [
+          461,
+          3,
+          7,
+          3,
+          1,
+          0,
+          2,
+          3,
+          18,
+          14
+        ],
+        [
+          4,
+          482,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          32
+        ],
+        [
+          19,
+          0,
+          373,
+          13,
+          23,
+          5,
+          23,
+          6,
+          2,
+          0
+        ],
+        [
+          5,
+          1,
+          12,
+          368,
+          10,
+          52,
+          18,
+          16,
+          0,
+          6
+        ],
+        [
+          8,
+          0,
+          9,
+          13,
+          426,
+          8,
+          27,
+          34,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          6,
+          35,
+          8,
+          421,
+          5,
+          12,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          11,
+          4,
+          4,
+          479,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          2,
+          7,
+          9,
+          11,
+          1,
+          467,
+          2,
+          1
+        ],
+        [
+          25,
+          10,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          434,
+          9
+        ],
+        [
+          5,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          8,
+          473
+        ]
+      ]
+    },
+    "latency_ms": {
+      "mean": 17.989955499995176,
+      "p95": 20.637914999929308
+    }
+  },
+  "manifest": "FILES.json"
+}

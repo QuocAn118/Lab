@@ -62,6 +62,14 @@ def load_model(run_id, device, checkpoint="final_epoch"):
     return model
 
 def verify_reload(model, sample_batch, run_id, checkpoint="final_epoch"):
+    if not RUN_ID_RE.fullmatch(run_id):
+        raise ValueError("run_id phải theo mẫu run_001 hoặc smoke_001")
+    run_dir = project_root / "outputs" / run_id
+    manifest_path = run_dir / "manifest.json"
+    if manifest_path.is_file():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("status") != "running":
+            raise FileExistsError("Run đã chốt. Dùng verify.py để kiểm tra chỉ đọc.")
     if not isinstance(sample_batch, torch.Tensor):
         raise TypeError("sample_batch phải là tensor ảnh")
     if tuple(sample_batch.shape) != (16, 1, 28, 28):
@@ -99,7 +107,7 @@ def verify_reload(model, sample_batch, run_id, checkpoint="final_epoch"):
         "tolerance": tolerance,
         "passed": passed,
     }
-    report_path = project_root / "outputs" / run_id / "reload_check.json"
+    report_path = run_dir / "reload_check.json"
     with report_path.open("w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2, allow_nan=False)
         f.write("\n")

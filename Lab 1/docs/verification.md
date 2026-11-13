@@ -5,14 +5,14 @@
 | Trường | Nội dung |
 | --- | --- |
 | Created date | 2026-11-11 |
-| Created by | HoangDang, hỗ trợ OpenAI Codex |
-| Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
-| Trạng thái | Đang triển khai; chưa ghi nhận nghiệm thu |
+| Created by | HoangDang |
+| Last updated | 2026-11-12T21:38:06+07:00 |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Trạng thái | Đạt nghiệm thu kỹ thuật trên môi trường đã đo |
 
 ## Kết luận nghiệm thu kỹ thuật
 
-Đã hoàn thành phạm vi Lab 1 trên môi trường được ghi dưới đây: 17 test, smoke thật và bốn normal run đạt. Đã kiểm lại dữ liệu/số liệu/manifest; các run đã chốt không được bổ sung hoặc sửa artifact.
+Đã hoàn thành phạm vi Lab 1 trên môi trường được ghi dưới đây: 20 test (kiểm lại sau `25cc678`), smoke thật và bốn normal run đạt. Đã kiểm lại dữ liệu/số liệu/manifest; các run đã chốt không được bổ sung hoặc sửa artifact.
 
 | Giai đoạn | Lệnh/kiểm tra | Kết quả thực tế |
 | --- | --- | --- |
@@ -54,4 +54,8 @@ Mỗi cấu hình đo một lần, cùng seed/máy; thời gian không phải be
 
 ## Nguồn và phạm vi
 
-- [Đặc tả](lab_1_description.md), [đánh giá](evaluation.md), [truy vết](traceability.md), artifact thật trong outputs/checkpoints. HoangDang thực hiện với hỗ trợ OpenAI Codex ngày 2026-11-11.
+Kiểm tra lại ngày 2026-11-12 bởi HoangDang, trên bản repo sau tích hợp `c6f4d54`. Bộ test đạt 17/17 trong 22,77 giây. Verifier chỉ đọc xác nhận `smoke_001` và `run_001`–`run_004` đều PASS, kiểm tra provenance strict có 0 lỗi và 0 cảnh báo. Lượt kiểm tra dùng thư mục tạm mới trong `.git/completion-checks` sau khi tạo thư mục cha. Báo cáo và checkpoint của các run tiếp tục là bằng chứng của ngày chạy ghi trong manifest.
+
+Kiểm lại ngày 2026-11-12 sau commit `25cc678` bởi HoangDang, bằng `.venv` Lab 1 (Python 3.12.10, torch 2.9.1+cu128): `pytest tests data/tests` đạt **20/20** trong 7,69 giây (commit `25cc678` thêm test chặn ghi đè run đã chốt); `check_provenance.py --strict` 0 lỗi, 0 cảnh báo; verifier chỉ đọc xác nhận `smoke_001`, `run_001`–`run_004` PASS. Không train lại, không sửa artifact.
+
+- [Đặc tả](lab_1_description.md), [đánh giá](evaluation.md), [truy vết](traceability.md), artifact thật trong outputs/checkpoints. HoangDang thực hiện ngày 2026-11-11.

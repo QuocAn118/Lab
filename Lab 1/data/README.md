@@ -9,7 +9,7 @@
 | Created by | Chưa xác nhận người tạo nội dung |
 | Ghi nhận Git đầu tiên | 2026-11-10T16:24:05+07:00 ; Thanh Binh ; eb86ab8 |
 | Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Toàn bộ code, kiểm thử, dữ liệu tải về và báo cáo của hai phần nằm ở đây.

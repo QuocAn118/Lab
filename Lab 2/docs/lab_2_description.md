@@ -6,23 +6,24 @@
 | --- | --- |
 | Name | Practice 2 — Hands-on Practice with Pre-trained Neural Network Architectures: Đặc Tả Tổng Quan |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T11:13:30+07:00 |
+| Last updated | 2026-11-13T14:14:27+07:00 |
+| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
 | Updated by — nguồn đặc tả | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04` |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Bài Toán & Mục Tiêu
 
-Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguyễn Quốc An (Quoc An)**, theo `3a86e93`/`00b8d04`. Các phần triển khai của Vân Anh, Xuân Bảo, Quốc An và HoangDang được phân biệt trong [tiến độ và ghi nhận đóng góp](plan_progress_status.md). Ghi nhận nguồn bổ sung ngày 2026-11-12 do HoangDang/OpenAI Codex đối chiếu lịch sử; giữ khai báo AI của nguồn ở mục 5 của tiến độ.
+Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguyễn Quốc An (Quoc An)**, theo `3a86e93`/`00b8d04`. Các phần triển khai của Vân Anh, Xuân Bảo, Quốc An và HoangDang được phân biệt trong [tiến độ và ghi nhận đóng góp](plan_progress_status.md). Ghi nhận nguồn bổ sung ngày 2026-11-12 do HoangDang đối chiếu lịch sử; giữ khai báo công cụ của nguồn tại [AI_Usage.md](AI_Usage.md).
 - **Lĩnh vực**: Thị giác máy tính, phân loại ảnh bằng học chuyển giao (transfer learning).
 - **Công nghệ**: PyTorch, `torchvision.models`, `torchvision.transforms`, `torch.utils.data.DataLoader`, TensorBoard.
 - **Mục tiêu theo đề bài**:
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
 
-> Đã chuẩn bị đủ package và notebook, 74 test offline đạt ngày 2026-11-12, gồm 20 test dữ liệu. Chưa train thật; kế hoạch thực hiện: [training_handoff.md](training_handoff.md). Notebook dùng config phiên để giữ nguyên báo cáo lịch sử.
+> Trạng thái kiểm ngày 2026-11-13: phiên Colab Tesla T4 `colab-t4-20261113-browser-01` đã có 4 run, test accuracy 87,70%, 7 KPI Đạt, 13 checkpoint và notebook có đủ 17 ô pipeline đã chạy. Mục 8 có bằng chứng cho đủ 11 AC; stdout kiến trúc AC-01 được bổ sung bằng phép kiểm riêng trên Colab CPU, cùng source model với phiên T4. Xem [báo cáo đánh giá](evaluation.md) và [kiểm chứng](verification.md).
 
 ### Đầu vào và đầu ra
 
@@ -148,21 +149,21 @@ Mỗi lần chạy có thư mục riêng `checkpoints/<tên lần chạy>/`.
 
 ## 8. Bảng Nghiệm Thu
 
-Cột "Kết quả" chỉ ghi Đạt/Không đạt theo bằng chứng phù hợp. AC-02 đã đạt test offline; các tiêu chí dữ liệu thật/GPU/Colab còn chờ người train. Xem [verification.md](verification.md).
+Cột "Kết quả" cập nhật theo phiên `colab-t4-20261113-browser-01`, [biên bản tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json) và [phép kiểm kiến trúc bổ sung trên Colab CPU](../reports/sessions/model-architecture-colab-20261113/README.md). Đủ 11 tiêu chí có bằng chứng đạt. Phép kiểm CPU chỉ bổ sung stdout của cùng source model, không thay kết quả huấn luyện T4. Chi tiết tại [evaluation.md](evaluation.md) và [verification.md](verification.md).
 
 | Mã | Phụ trách | Tiêu chí | Cách kiểm tra | Bằng chứng | Kết quả |
 | :--- | :---: | :--- | :--- | :--- | :--- |
-| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Đầu ra notebook, mục `model` trong `metrics.json` | Chờ chạy Colab |
-| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py` | Kết quả pytest offline, 12 test model | Đạt offline |
-| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | 20 test data; [kiểm chứng CIFAR-10 thật](../reports/data_validation_2026-11-12.json), báo cáo phiên riêng | Đạt trên Windows 2026-11-12; Colab cần kiểm tra lại |
-| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Kết quả pytest | Chờ chạy Colab |
-| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/`, ảnh chụp `reports/figures/tensorboard.png` | Chờ chạy Colab |
-| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | `checkpoints/`, mục `training` trong `metrics.json` | Chờ chạy Colab |
-| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Mục `evaluation` trong `metrics.json`, `evaluation.md` | Chờ chạy Colab |
-| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo` trong `metrics.json`, `demo.md` | Chờ chạy Colab |
-| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy `notebooks/Lab_2_colab.ipynb` trên Colab | Notebook đã lưu kết quả | Chờ chạy Colab |
+| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model`; kiểm bổ sung bằng cùng `build_model`/`count_parameters` | Ô model T4 execution 6; [stdout Colab CPU](../reports/sessions/model-architecture-colab-20261113/architecture.txt) in đủ ba kiến trúc, từng tham số và train/frozen, số đếm khớp T4 | Đạt; stdout bổ sung trên Colab CPU, không train lại |
+| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py`, smoke T4 | Test model offline, smoke T4 hoàn tất, best nạp CPU cho `[1,10]` | Đạt offline và T4 |
+| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Ô data execution 5, metrics ghi 22.500/2.500/5.000; CLI đã kiểm train/val không giao nhau | Đạt Windows và T4 |
+| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Ô smoke execution 7, subprocess returncode 0; bộ smoke có 3 cấu hình | Đạt Windows và T4 |
+| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | Bảng và nhận xét T4 trong `evaluation.md`; DenseNet121 hơn baseline 3,44 điểm validation | Đạt Windows và T4 |
+| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | Bảng và nhận xét T4 trong `evaluation.md`; LR 0,01 −1,28 điểm, batch 128 +0,28 điểm validation | Đạt Windows và T4 |
+| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | 4 event T4 khớp manifest; [ảnh giao diện](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png) | Đạt event, plot và ảnh giao diện |
+| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | 13 checkpoint khớp hash/epoch/metrics; tính lại patience 3 và threshold 0,01 khớp 4 run | Đạt Windows và T4 |
+| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Test 87,70%, macro F1 0,87573; 7 KPI T4 Đạt theo metrics và `evaluation.md` | Đạt Windows và T4 |
+| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Demo execution 14, mục `demo` và biểu đồ xác suất của phiên T4 | Đạt Windows và T4 |
+| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy notebook Colab | [Notebook đã lưu](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), execution 1–17 cho pipeline, không có error output | Đạt Colab T4; setup clone source cố định thay mount Drive |
 
 ---
 

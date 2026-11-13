@@ -6,20 +6,23 @@
 | --- | --- |
 | Name | Cấu Hình Huấn Luyện (Training Specification) — Lab 2 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả/test nền | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `9096223` |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
+| Người cập nhật nguồn TV3 | Nguyễn Thanh Bình (Thanh Binh), `7961f49` và `92930e6`; theo hồ sơ nguồn |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Mã nguồn: `src/lab_2/training.py`. Tham số: `configs/lab_2.yaml`.
 
-Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). Đây là ghi nhận đóng góp đặc tả/test, không chuyển phần triển khai package do HoangDang/OpenAI Codex chuẩn bị tại `4176139` hoặc vai trò TV3 của Nguyễn Thanh Bình sang Quốc An. Ghi nhận bổ sung do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12.
+Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). Đây là ghi nhận đóng góp đặc tả/test, không chuyển phần triển khai package do HoangDang chuẩn bị tại `4176139` hoặc vai trò TV3 của Nguyễn Thanh Bình sang Quốc An. Ghi nhận bổ sung do HoangDang đối chiếu Git ngày 2026-11-12.
 
 > **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
 
-> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
+> Đã nhận một phiên lịch sử của TV3 gồm bốn cấu hình: [biên bản nhập](../reports/imported-thanhbinh-92930e6/IMPORT.json), [báo cáo gốc giữ nguyên](../reports/imported-thanhbinh-92930e6/training_report.md). Đủ 12 checkpoint, 21 source snapshot và ba manifest đã được đối chiếu; bản gốc dùng RTX 4060, không phải T4. `reports/metrics.json` tham số lịch sử của Bảo được giữ nguyên; metrics training gốc nằm trong thư mục nhập. Người chạy cũ chưa có tên trong manifest nên không thay bằng tên người commit.
+
+Phiên chạy lại mới dùng config trong `configs/sessions/`, với reports/checkpoints riêng. Chạy bằng `python tools/run_tv3.py --stage train --config <config phiên> --output-dir <thư mục audit mới>`. Công cụ từ chối ghi đè run/log; snapshot code và config được lưu khi bắt đầu. Lần chạy lại là kết quả mới trên máy HoangDang, tách khỏi kết quả nguồn của Bình.
 
 ## 1. Siêu Tham Số Chung
 
@@ -176,3 +179,9 @@ Tạo parser bằng `argument_parser(__doc__)`, thêm `--run` bắt buộc. Gọ
 ### Lưu vết phiên chạy
 
 Summary lưu thêm `config`, `operator` (biến môi trường `LAB2_OPERATOR`), `started_at`, `finished_at` (ISO 8601 có múi giờ) và `code_commit` (null nếu không có metadata Git). Khai báo người chạy trước khi train. Test tích hợp dùng output tạm, không tạo summary thực nghiệm trong repo.
+
+## Phiên tái lập đã hoàn tất — 2026-11-12
+
+Phiên `rerun-thanhbinh-20261112-175308`, code `5c03204`, người chạy HoangDang trên RTX 5060. Đã chạy đủ bốn cấu hình theo config gốc, không đổi siêu tham số sau khi xem kết quả: 5/6/6/6 epoch, checkpoint tốt nhất 4/5/5/6. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md) cho validation 84,76% / 88,24% / 83,52% / 85,08%. Một seed và khác GPU/phiên bản torch so với nguồn; không coi thời gian giữa hai máy là benchmark tương đương.
+
+12 checkpoint từng run, bản sao best và TensorBoard được kiểm tra lại; [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json) chốt hash artifact. DenseNet121 được chọn bằng validation; đánh giá test và demo thực tế đã chạy trong phiên riêng. Config phiên này là bằng chứng đã kết thúc; khi tái lập, sao chép config sang mã mới và đổi cả reports_dir/checkpoints_dir, không ghi đè dữ liệu cũ.

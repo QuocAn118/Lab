@@ -17,6 +17,7 @@ from torch import nn
 from lab_2.common import (
     argument_parser,
     ci_half_width,
+    ensure_writable_output,
     load_config,
     peak_ram_gb,
     project_path,
@@ -61,6 +62,10 @@ def kpi_status(value, target, higher_is_better):
         return "Không đo được"
     met = value >= target if higher_is_better else value <= target
     return "Đạt" if met else "Không đạt"
+
+
+def t4_kpi_value(value, device_name):
+    return value if "T4" in device_name.upper().split() else None
 
 
 def completed_runs(config, report):
@@ -171,6 +176,7 @@ def plot_confusion_matrix(matrix, path):
 def copy_best(config, run_name):
     """Ghi vào file tạm rồi mới thay thế, để lỗi giữa chừng không làm hỏng mốc cũ."""
     checkpoints = project_path(config["paths"]["checkpoints_dir"])
+    ensure_writable_output(checkpoints)
     destination = checkpoints / "best.pth"
     temporary = destination.with_name("best.pth.tmp")
     shutil.copyfile(checkpoints / run_name / "best_val_acc.pth", temporary)
@@ -195,6 +201,7 @@ def comparison_table(runs):
 
 def main():
     config = load_config(argument_parser(__doc__).parse_args().config)
+    ensure_writable_output(project_path(config["paths"]["reports_dir"]))
     report = read_report(config)
     if "evaluation" in report:
         raise SystemExit("Đã có đánh giá test. Giữ nguyên kết quả và dùng thư mục reports/checkpoints mới cho thí nghiệm khác.")
@@ -206,6 +213,7 @@ def main():
 
     gpu = torch.cuda.is_available()
     device = "cuda" if gpu else "cpu"
+    device_name = torch.cuda.get_device_name(0) if gpu else "cpu"
     if gpu:
         torch.cuda.reset_peak_memory_stats()
     model, info = load_checkpoint(copy_best(config, best_name), device)
@@ -222,8 +230,7 @@ def main():
         model, build_transform(config, train=False), raw_samples(test, LATENCY_SAMPLES), device
     )
 
-    # Mục tiêu tốc độ đặt cho GPU T4, nên số đo trên CPU không được tính là đạt hay không đạt.
-    trained_on_gpu = best_run["device"] != "cpu"
+    # Giữ số đo thật trong comparison/latency; chỉ chấm mục tiêu tốc độ khi đúng GPU T4.
     vram_values = [run["peak_vram_gb"] for run in runs.values() if run["peak_vram_gb"] is not None]
     if gpu:
         vram_values.append(torch.cuda.max_memory_allocated() / 1024**3)
@@ -234,9 +241,9 @@ def main():
         ("Test Accuracy", result["accuracy"], kpi["accuracy"], True),
         ("Test Macro F1", macro_f1, kpi["macro_f1"], True),
         ("Thời gian train (giây/epoch)",
-         best_run["mean_train_seconds_per_epoch"] if trained_on_gpu else None,
+         t4_kpi_value(best_run["mean_train_seconds_per_epoch"], best_run["device"]),
          kpi["seconds_per_epoch"], False),
-        ("Độ trễ suy luận (ms/ảnh)", latency["mean"] if gpu else None, kpi["latency_ms"], False),
+        ("Độ trễ suy luận (ms/ảnh)", t4_kpi_value(latency["mean"], device_name), kpi["latency_ms"], False),
         ("VRAM cao nhất (GB)", max(vram_values, default=None), kpi["peak_vram_gb"], False),
         ("RAM cao nhất (GB)", ram, kpi["peak_ram_gb"], False),
     ]
@@ -255,6 +262,8 @@ def main():
     half_width = ci_half_width(result["accuracy"], len(labels))
     update_report(config, "evaluation", {
         "device": device,
+        "device_name": device_name,
+        "speed_kpi_reference": "NVIDIA T4",
         "best_run": best_name,
         "best_epoch": info["epoch"],
         "test_samples": len(labels),

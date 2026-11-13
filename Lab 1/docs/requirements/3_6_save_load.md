@@ -5,15 +5,16 @@
 | Trường | Nội dung |
 | --- | --- |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Last updated | 2026-11-11T09:54:14+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 
 ## Giao diện và đầu vào
 
 - `save_model(model, run_id)` lưu `final_epoch.pth` theo cấu hình đã ghi trong `outputs/<run_id>/config.json`. Mã run được kiểm tra; mở file bằng `xb` để không ghi đè.
 - `load_model(run_id, device, checkpoint="final_epoch")` hỗ trợ `final_epoch` hoặc `best`; từ chối lựa chọn khác. Cách gọi cũ giữ nguyên hành vi tải checkpoint cuối.
 - `verify_reload(model, sample_batch, run_id, checkpoint="final_epoch")` yêu cầu tensor 16 ảnh validation đầu tiên `[16,1,28,28]`.
+- Hàm chỉ ghi `reload_check.json` trong run đang chạy hoặc thư mục kiểm tra chưa có manifest. Run đã có manifest hoàn tất, thất bại hoặc bị ngắt được kiểm tra bằng CLI `verify.py` chỉ đọc. Gọi lại `verify_reload` trên run đã chốt phải báo lỗi trước khi nạp model hoặc ghi file.
 
 ## Lưu, tải và kiểm chứng
 
@@ -31,4 +32,4 @@ Năm checkpoint và metadata nằm ở `checkpoints/<run_id>/`. `best` sao chép
 
 ## Nguồn và phạm vi
 
-- [Đặc tả gốc](../lab_1_description.md), [toàn vẹn](../team_plan_integrity.md). Giữ tác giả code kế thừa trong Git; thay đổi API/kiểm chứng do HoangDang tích hợp với hỗ trợ OpenAI Codex.
+- [Đặc tả gốc](../lab_1_description.md), [toàn vẹn](../team_plan_integrity.md). Giữ tác giả code kế thừa trong Git; thay đổi API/kiểm chứng do HoangDang tích hợp.

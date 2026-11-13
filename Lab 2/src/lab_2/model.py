@@ -1,4 +1,4 @@
-"""Model implementation by Xuan Bao (hbao2123-debug); package integration by HoangDang/Codex."""
+"""Model implementation by Xuan Bao (hbao2123-debug); package integration by HoangDang."""
 import os
 from pathlib import Path
 
@@ -201,9 +201,10 @@ def load_checkpoint(path, device="cpu"):
 
 def main():
     """Print architecture/parameters and write the shared report contract."""
-    from lab_2.common import argument_parser, load_config, update_report
+    from lab_2.common import argument_parser, ensure_writable_output, load_config, project_path, update_report
 
     config = load_config(argument_parser(__doc__).parse_args().config)
+    ensure_writable_output(project_path(config["paths"]["reports_dir"]))
     report = {}
     for key, name, unfreeze in [
         ("resnet18", "resnet18", []),

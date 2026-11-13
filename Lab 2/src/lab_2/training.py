@@ -3,7 +3,9 @@ from datetime import datetime
 from importlib.metadata import version
 import math
 import os
+from pathlib import Path
 import random
+import re
 import statistics
 import subprocess
 import time
@@ -13,7 +15,7 @@ import torch
 from torch import nn
 from torch.utils.tensorboard import SummaryWriter
 
-from lab_2.common import argument_parser, load_config, peak_ram_gb, project_path, read_report, update_report
+from lab_2.common import argument_parser, ensure_writable_output, load_config, peak_ram_gb, project_path, read_report, update_report
 from lab_2.data import load_splits, make_loader
 from lab_2.model import build_model, save_checkpoint, set_train_mode, trainable_parameters
 
@@ -57,6 +59,8 @@ def find_run(config, name):
 
 
 def train_one_epoch(model, loader, criterion, optimizer, device, writer, log_every, step):
+    if log_every < 1:
+        raise ValueError("log_every phải dương")
     set_train_mode(model)
     losses = []
     for images, targets in loader:
@@ -82,8 +86,17 @@ def train_run(config, run):
     settings = config["training"]
     if settings["max_epochs"] < 1 or settings["log_every_batches"] < 1:
         raise ValueError("max_epochs và log_every_batches phải dương")
-    checkpoint_dir = project_path(config["paths"]["checkpoints_dir"]) / run["name"]
-    log_dir = project_path(config["paths"]["reports_dir"]) / "runs" / run["name"]
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", run["name"]):
+        raise ValueError("Tên run chỉ được gồm chữ, số, _ và -")
+    checkpoint_parent = Path(project_path(config["paths"]["checkpoints_dir"])).resolve()
+    log_parent = (Path(project_path(config["paths"]["reports_dir"])) / "runs").resolve()
+    ensure_writable_output(checkpoint_parent)
+    ensure_writable_output(log_parent.parent)
+    checkpoint_dir = checkpoint_parent / run["name"]
+    log_dir = log_parent / run["name"]
+    for path, parent in ((checkpoint_dir, checkpoint_parent), (log_dir, log_parent)):
+        if path.is_symlink() or path.resolve().parent != parent:
+            raise ValueError("Đường dẫn run vượt thư mục dự kiến")
     training = read_report(config).get("training", {"runs": {}})
     if run["name"] in training["runs"] or any(p.exists() and any(p.iterdir()) for p in (checkpoint_dir, log_dir)):
         raise FileExistsError("Run đã có kết quả/log. Giữ nguyên và dùng thư mục reports/checkpoints mới trong config.")
@@ -118,6 +131,8 @@ def train_run(config, run):
                 torch.cuda.synchronize()
             train_seconds = time.perf_counter() - started
             result = evaluate_model(model, val_loader, device)
+            if not math.isfinite(result["loss"]) or not math.isfinite(result["accuracy"]):
+                raise FloatingPointError("Validation metrics không hữu hạn")
             lr = optimizer.param_groups[0]["lr"]
             marks = ["final_epoch"]
             if result["loss"] < best_loss:

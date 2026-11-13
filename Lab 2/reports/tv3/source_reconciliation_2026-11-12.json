@@ -1,0 +1,159 @@
+{
+  "recorded_date": "2026-11-12",
+  "method": "Recover exact bytes by matching pre-existing manifest SHA-256; no changes to historical manifests or checkpoints",
+  "runs": [
+    {
+      "manifest": "reports/tv3/20261111-122708/manifest.json",
+      "manifest_sha256": "8c338a9578084caa35eb7258c69ea331cda1df9056aa8cc76d62820ccff6dd33",
+      "sources": [
+        {
+          "original_path": "src/lab_2/common.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/src/lab_2/common.py",
+          "sha256": "995e803d80c2f115387622226a652bea2f1389ae2fcb199b9ee155199273da53",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/data.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/src/lab_2/data.py",
+          "sha256": "ee30670de27537575c9ded7e62e743a7948362e22c45dd72cc3027befe0e9a40",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/evaluation.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/src/lab_2/evaluation.py",
+          "sha256": "d3f54128107585d40fe6a841b2dc97086077ecf3d99de9e71d460875a596ac6f",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/src/lab_2/model.py",
+          "sha256": "2528d411924370f066348add05bebed3afd73c3f95b1257f7ca6ab8b43a953ed",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/training.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/src/lab_2/training.py",
+          "sha256": "30c283c0941c369039f3557acffbae3107111b1e4c133de9541c222577bee358",
+          "recovery": "restore pre-rename Spec header"
+        },
+        {
+          "original_path": "model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/model.py",
+          "sha256": "d7b898f77b1fadc3b0f021aa1e5b32dae16297668f7cd3e9f8067ef8dff98132",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "configs/lab_2.yaml",
+          "snapshot": "reports/tv3/source_snapshots/20261111-122708/configs/lab_2.yaml",
+          "sha256": "5095f6766c01ae2f1cfb456df72d907341c9c721b9f5a6962aa5a380f8a09cbb",
+          "recovery": "unchanged"
+        }
+      ],
+      "published_manifest_sha256": "68822c1300bf7f1b4511f44cc248da195b3e1d2373d86768a08b30c9a71c1ab7",
+      "published_manifest_commit": "7961f49266bb891bcb762635359129752a45cb2d",
+      "manifest_checkout_note": "Original Git blob is LF; existing Windows checkout is CRLF. Both hashes recorded; Git blob remains unchanged."
+    },
+    {
+      "manifest": "reports/tv3/20261111-123359/manifest.json",
+      "manifest_sha256": "45853ed1739c2b4412cfdaf1ef5d4a2533db89537f42cd94c25b38ca7b1d49ba",
+      "sources": [
+        {
+          "original_path": "src/lab_2/common.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/src/lab_2/common.py",
+          "sha256": "995e803d80c2f115387622226a652bea2f1389ae2fcb199b9ee155199273da53",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/data.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/src/lab_2/data.py",
+          "sha256": "ee30670de27537575c9ded7e62e743a7948362e22c45dd72cc3027befe0e9a40",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/evaluation.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/src/lab_2/evaluation.py",
+          "sha256": "d3f54128107585d40fe6a841b2dc97086077ecf3d99de9e71d460875a596ac6f",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/src/lab_2/model.py",
+          "sha256": "2528d411924370f066348add05bebed3afd73c3f95b1257f7ca6ab8b43a953ed",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/training.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/src/lab_2/training.py",
+          "sha256": "30c283c0941c369039f3557acffbae3107111b1e4c133de9541c222577bee358",
+          "recovery": "restore pre-rename Spec header"
+        },
+        {
+          "original_path": "model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/model.py",
+          "sha256": "d7b898f77b1fadc3b0f021aa1e5b32dae16297668f7cd3e9f8067ef8dff98132",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "configs/lab_2.yaml",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123359/configs/lab_2.yaml",
+          "sha256": "5095f6766c01ae2f1cfb456df72d907341c9c721b9f5a6962aa5a380f8a09cbb",
+          "recovery": "unchanged"
+        }
+      ],
+      "published_manifest_sha256": "930595a93a3746b008282e711de010ecb3523287ce64fceef694ed52e49c9bbb",
+      "published_manifest_commit": "7961f49266bb891bcb762635359129752a45cb2d",
+      "manifest_checkout_note": "Original Git blob is LF; existing Windows checkout is CRLF. Both hashes recorded; Git blob remains unchanged."
+    },
+    {
+      "manifest": "reports/tv3/20261111-123519/manifest.json",
+      "manifest_sha256": "af184387dd15041f3fe5ad0f54bf588cde1241f74063ee20fbae79e4df8b90bc",
+      "sources": [
+        {
+          "original_path": "src/lab_2/common.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/src/lab_2/common.py",
+          "sha256": "995e803d80c2f115387622226a652bea2f1389ae2fcb199b9ee155199273da53",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/data.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/src/lab_2/data.py",
+          "sha256": "ee30670de27537575c9ded7e62e743a7948362e22c45dd72cc3027befe0e9a40",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/evaluation.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/src/lab_2/evaluation.py",
+          "sha256": "d3f54128107585d40fe6a841b2dc97086077ecf3d99de9e71d460875a596ac6f",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/src/lab_2/model.py",
+          "sha256": "2528d411924370f066348add05bebed3afd73c3f95b1257f7ca6ab8b43a953ed",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "src/lab_2/training.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/src/lab_2/training.py",
+          "sha256": "30c283c0941c369039f3557acffbae3107111b1e4c133de9541c222577bee358",
+          "recovery": "restore pre-rename Spec header"
+        },
+        {
+          "original_path": "model.py",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/model.py",
+          "sha256": "d7b898f77b1fadc3b0f021aa1e5b32dae16297668f7cd3e9f8067ef8dff98132",
+          "recovery": "unchanged"
+        },
+        {
+          "original_path": "configs/lab_2.yaml",
+          "snapshot": "reports/tv3/source_snapshots/20261111-123519/configs/lab_2.yaml",
+          "sha256": "5095f6766c01ae2f1cfb456df72d907341c9c721b9f5a6962aa5a380f8a09cbb",
+          "recovery": "unchanged"
+        }
+      ],
+      "published_manifest_sha256": "ebaf7f4a975c15ffc549f18773ca93a130f18ee735f5017df0f880d2ca30db3b",
+      "published_manifest_commit": "7961f49266bb891bcb762635359129752a45cb2d",
+      "manifest_checkout_note": "Original Git blob is LF; existing Windows checkout is CRLF. Both hashes recorded; Git blob remains unchanged."
+    }
+  ]
+}

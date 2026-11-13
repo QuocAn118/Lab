@@ -8,7 +8,7 @@
 | Created date | 2026-11-07 |
 | Created by | HoangDang |
 | Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Áp dụng cho | Nhóm 5 người, toàn bộ Lab 1 |
 | Tài liệu gốc | [lab_1_description.md](lab_1_description.md) |
 

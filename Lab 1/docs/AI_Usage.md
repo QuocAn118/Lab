@@ -34,3 +34,11 @@ HoangDang, assisted by OpenAI Codex, executed 17 tests, real smoke and four full
 ## Repository product update
 
 2026-11-11T10:16:25+07:00 — HoangDang, assisted by OpenAI Codex: tracked existing input and all 25 checkpoint files with Git LFS at their original paths, updated delivery documentation and kept finalized artifacts unchanged. No retraining or changed metric is claimed. The previous ZIP entry records an earlier handoff phase.
+
+## Bổ sung 2026-11-12
+
+| Ngày | Công cụ | Phần hỗ trợ | Prompt chính | Review |
+| --- | --- | --- | --- | --- |
+| 2026-11-12 | Claude Code (Claude Opus 5.5), theo yêu cầu HoangDang | Kiểm lại ba lab, cập nhật số test, sửa link/đặc tả cũ/header nguồn, chuyển khai báo công cụ về file này và bỏ byline công cụ khỏi tài liệu khác | Rà soát và hoàn thiện | HoangDang duyệt; test và kiểm tra nguồn chạy lại đều đạt |
+
+Byline công cụ trong các tài liệu khác của lab đã được bỏ; file này và lịch sử Git là nơi ghi công cụ.

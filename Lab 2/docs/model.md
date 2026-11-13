@@ -6,16 +6,16 @@
 | --- | --- |
 | Name | Kiến Trúc Mô Hình (Model Specification) — Lab 2 |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-11T11:13:30+07:00 |
 | Updated by — nguồn đặc tả giao diện | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `0f71b4f` |
-| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 > Code gốc của Xuân Bảo (`hbao2123-debug`) đã được tích hợp vào `src/lab_2/model.py`. `Lab 2/model.py` hiện là entry point tương thích cho lệnh/test cũ. Hai báo cáo triển khai model giữ nguồn và kết quả lịch sử; báo cáo package dùng hợp đồng `total`/`trainable`.
 
-Ghi nhận nguồn ngày 2026-11-12: Nguyễn Quốc An thực hiện phần đặc tả giao diện và bộ test nền; phần triển khai model của Xuân Bảo được ghi riêng như trên. HoangDang/OpenAI Codex đối chiếu lịch sử và bổ sung thông tin này; không thay tên tác giả code model hoặc các báo cáo triển khai của Bảo.
+Ghi nhận nguồn ngày 2026-11-12: Nguyễn Quốc An thực hiện phần đặc tả giao diện và bộ test nền; phần triển khai model của Xuân Bảo được ghi riêng như trên. HoangDang đối chiếu lịch sử và bổ sung thông tin này; không thay tên tác giả code model hoặc các báo cáo triển khai của Bảo.
 
 Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2.yaml`.
 
@@ -56,7 +56,7 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 ## 4. Đóng Băng & Fine-Tuning
 
 - **Mặc định (transfer learning)**: Đóng băng toàn bộ tầng trích xuất đặc trưng bằng `requires_grad = False`, chỉ huấn luyện lớp phân loại. Cả 4 lần chạy đều dùng cách này.
-- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
+- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training_specification.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
 - **BatchNorm**: Khi huấn luyện, chỉ phần được mở khóa ở chế độ `train`. BatchNorm của tầng đóng băng giữ chế độ `eval` để thống kê từ ImageNet không bị thay đổi.
 
 ## 5. Tham Số

@@ -9,7 +9,7 @@
 | Created by | Xuân Bảo (theo hồ sơ kế thừa; Git: hbao2123-debug) |
 | Ghi nhận Git đầu tiên | File mới trong lần chuẩn hóa này |
 | Last updated | 2026-11-11T11:13:30+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 > Historical implementation report from Xuan Bao. The parameter/report examples below describe the original standalone version. Current package interface and session commands: [model.md](model.md), [training_handoff.md](training_handoff.md). Old verification results remain attributed to their original run.

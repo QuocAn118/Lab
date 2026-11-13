@@ -41,10 +41,23 @@ def read_report(config):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
+def ensure_writable_output(directory):
+    directory = Path(directory).resolve()
+    for root in (directory, directory.parent):
+        session_path = root / "SESSION.json"
+        finalized = (root / "FILES.json").is_file()
+        if session_path.is_file():
+            session = json.loads(session_path.read_text(encoding="utf-8"))
+            finalized = finalized or session.get("status") in {"completed", "failed", "interrupted"}
+        if finalized:
+            raise FileExistsError(f"Phiên đã chốt tại {root}. Dùng đường dẫn output mới trong config.")
+
+
 def update_report(config, section, values):
+    path = project_path(config["paths"]["reports_dir"]) / "metrics.json"
+    ensure_writable_output(path.parent)
     report = read_report(config)
     report[section] = values
-    path = project_path(config["paths"]["reports_dir"]) / "metrics.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(".json.tmp")
     try:

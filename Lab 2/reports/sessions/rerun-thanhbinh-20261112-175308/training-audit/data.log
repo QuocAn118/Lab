@@ -1,0 +1,4 @@
+Train: 22500 ảnh
+Validation: 2500 ảnh
+Test: 5000 ảnh
+Shape ảnh sau tiền xử lý: (3, 224, 224)

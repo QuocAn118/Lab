@@ -6,7 +6,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -22,6 +22,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -30,7 +38,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a",
           "section": "§9.4"
         }
       ],
@@ -85,6 +93,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -93,7 +109,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -148,6 +164,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -156,11 +196,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
         },
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
         }
       ],
       "method": "ai-assisted",
@@ -220,6 +260,24 @@
             "docs/requirements/3_1_prepare_data.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -228,15 +286,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_2_transforms_dataloader.md",
-          "sha256": "bc2233a232891fb9356dca598eb4760d38bd7a258c1b9914f2bc0581ff90e89b"
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -307,6 +365,40 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -315,15 +407,15 @@
       "sources": [
         {
           "path": "docs/requirements/3_1_prepare_data.md",
-          "sha256": "c28553c9dd474a311652b80ae9b61a7645ae9a540e55405c39c8592d0042a0b7"
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -403,6 +495,78 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
+        }
+      ]
+    },
+    {
+      "path": "data/tests/test_data.py",
+      "sources": [
+        {
+          "path": "docs/requirements/3_1_prepare_data.md",
+          "sha256": "1b49e53a9d15ec7f1b632545f4bc483b0324fbcba40a2dc73dccaf4bc429f0fd"
+        },
+        {
+          "path": "docs/requirements/3_2_transforms_dataloader.md",
+          "sha256": "3c40123461fa6d90bea9a8003ee4f92a487efc058d063924105accfd93bef47c"
+        }
+      ],
+      "method": "manual",
+      "created_by": "Thanh Binh",
+      "recorded_at": "2026-11-12T21:57:31+07:00",
+      "status": "active",
+      "note": "Tác giả theo Git eb86ab8 (2026-11-10). Đăng ký nguồn ngày 2026-11-12 bởi HoangDang.",
+      "reviews": [
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_1_prepare_data.md",
+            "docs/requirements/3_2_transforms_dataloader.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -411,7 +575,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -459,6 +623,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -467,7 +639,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -522,6 +694,42 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-11T12:05:12+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Restructure data module report using verification evidence and user-provided outline; preserve original authorship and distinguish data tests from pipeline tests"
+        },
+        {
+          "at": "2026-11-11T12:07:23+07:00",
+          "by": "Codex",
+          "sources_changed": [],
+          "note": "Match verification.md section structure; retain data-only scope and evidence"
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -530,7 +738,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -579,6 +787,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -587,7 +819,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -636,6 +868,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -664,7 +920,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -713,6 +969,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -721,7 +1001,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -782,6 +1062,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -790,7 +1094,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a",
           "section": "§9.2"
         }
       ],
@@ -839,6 +1143,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -847,7 +1159,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -902,6 +1214,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -910,7 +1246,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -959,6 +1295,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -967,7 +1327,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -1016,6 +1376,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1024,7 +1408,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -1073,6 +1457,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1081,7 +1489,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -1130,6 +1538,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1138,7 +1570,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§6"
         }
       ],
@@ -1187,6 +1619,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1195,7 +1651,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4-§5"
         },
         {
@@ -1247,6 +1703,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1255,11 +1735,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -1285,6 +1765,31 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1293,7 +1798,7 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§4"
         }
       ],
@@ -1342,6 +1847,30 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1350,11 +1879,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06"
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a"
         }
       ],
       "method": "ai-assisted",
@@ -1380,6 +1909,31 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1388,7 +1942,7 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+          "sha256": "72d3108f1250f8f3fbb5802928a080359578677afef940f8a85e22ced9f602b2"
         }
       ],
       "method": "ai-assisted",
@@ -1412,6 +1966,30 @@
             "docs/verification.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1420,11 +1998,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/verification.md",
-          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+          "sha256": "72d3108f1250f8f3fbb5802928a080359578677afef940f8a85e22ced9f602b2"
         }
       ],
       "method": "ai-assisted",
@@ -1450,6 +2028,33 @@
             "docs/verification.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1458,11 +2063,11 @@
       "sources": [
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         },
         {
           "path": "docs/evaluation.md",
-          "sha256": "3f98ee47f7fa2b1bbfe59fa704711b893b43df4b83c3150676511ef1a0fc5ac9"
+          "sha256": "98d9ede7f7bc8ba349dbdba735aac7916eec97fb6e1a771133411a2ec7ec724a"
         }
       ],
       "method": "ai-assisted",
@@ -1487,6 +2092,39 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md",
+            "docs/evaluation.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/evaluation.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1495,11 +2133,11 @@
       "sources": [
         {
           "path": "docs/demo.md",
-          "sha256": "06f3660566323a66744470b199679f74218febc18060252adc680c8a4acb7bc7"
+          "sha256": "0f2058b517e456c0e2c76d940fed63edd47637e6bf6823eb33e52a85fce8c4e9"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         }
       ],
       "method": "ai-assisted",
@@ -1524,6 +2162,39 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/demo.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/demo.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1532,11 +2203,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_5_evaluate.md",
-          "sha256": "afff0c5397ed371d83a6122885ada7514228e35e995782b5788c6bc048ced9aa"
+          "sha256": "f6aede3c029713cf7b037e630b58d9ba8b71639dc47af83fc4dec4059a2732ec"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         }
       ],
       "method": "ai-assisted",
@@ -1561,6 +2232,39 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_5_evaluate.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_5_evaluate.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1569,7 +2273,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_3_build_model.md",
-          "sha256": "d8772a5a2b6c369d2ffd910722e48a87dc207a758de15e3c4717fc713b8b6a6c"
+          "sha256": "125d392636e9e28faf1be4ec34fcafdf184d9e12f74051dc5ea9add070b4999d"
         }
       ],
       "method": "ai-assisted",
@@ -1601,6 +2305,22 @@
             "docs/requirements/3_3_build_model.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_3_build_model.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1609,7 +2329,7 @@
       "sources": [
         {
           "path": "docs/requirements/3_6_save_load.md",
-          "sha256": "5ef7656dbfcbd2adf433062fcd93deaa54b2ffeac619de2fb60130b16270bba4"
+          "sha256": "a1f3dc3208287efcbe9ce8ed6656246eff7f64b8f84d55d3ee1191f7a123554d"
         }
       ],
       "method": "ai-assisted",
@@ -1641,6 +2361,30 @@
             "docs/requirements/3_6_save_load.md"
           ],
           "note": "Final implementation review with OpenAI Codex: 17 tests, real smoke and four normal runs passed; docs report actual outputs and known delivery limits."
+        },
+        {
+          "at": "2026-11-12T21:11:52+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "Full recheck with OpenAI Codex: refuse verify_reload writes to finalized runs; add completed/failed/interrupted regression cases. 20 Lab 1 tests pass. Source authors and historical artifacts remain recorded in the registry."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_6_save_load.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1649,12 +2393,12 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a",
           "section": "§9.3"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "§10"
         }
       ],
@@ -1714,6 +2458,31 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1722,11 +2491,11 @@
       "sources": [
         {
           "path": "docs/requirements/3_4_train.md",
-          "sha256": "9b5b5b7a226e29f827485af8235b64b696ce3b21028f00f4b4bd9d3dea380c8f"
+          "sha256": "d0925c575da260c513dce94a426a393f3eb62f495de936c4813efbdc4ee7a03f"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff",
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c",
           "section": "6.1"
         }
       ],
@@ -1779,6 +2548,39 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:05:46+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/requirements/3_4_train.md"
+          ],
+          "note": "2026-11-12: chỉ điền Created by theo tác giả Git đầu tiên; không đổi yêu cầu"
         }
       ]
     },
@@ -1787,11 +2589,11 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+          "sha256": "72d3108f1250f8f3fbb5802928a080359578677afef940f8a85e22ced9f602b2"
         },
         {
           "path": "docs/lab_1_description.md",
-          "sha256": "691d2660ff60265fd6275dbc3413a545aa84f3db6a184b5da8f6b9599bac25ff"
+          "sha256": "6c8a587d898b4d1bd3ca7943e465bc3da019206868c03f501f999fd5a926624c"
         }
       ],
       "method": "ai-assisted",
@@ -1817,6 +2619,57 @@
             "docs/lab_1_description.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md",
+            "docs/lab_1_description.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
+        }
+      ]
+    },
+    {
+      "path": "test.py",
+      "sources": [
+        {
+          "path": "docs/verification.md",
+          "sha256": "72d3108f1250f8f3fbb5802928a080359578677afef940f8a85e22ced9f602b2"
+        }
+      ],
+      "method": "manual",
+      "created_by": "Quoc An",
+      "recorded_at": "2026-11-12T21:57:31+07:00",
+      "status": "active",
+      "note": "File rỗng, tạo bởi Quoc An tại dfd07d9 (2026-11-01). Test hiện dùng tests/ và data/tests/. Đăng ký nguồn ngày 2026-11-12 bởi HoangDang.",
+      "reviews": [
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1825,7 +2678,7 @@
       "sources": [
         {
           "path": "docs/verification.md",
-          "sha256": "80d8f70ebb4c98985d7277839231d99c869c0694f4aabb4650ce1871077eae6e"
+          "sha256": "72d3108f1250f8f3fbb5802928a080359578677afef940f8a85e22ced9f602b2"
         }
       ],
       "method": "ai-assisted",
@@ -1849,6 +2702,30 @@
             "docs/verification.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T20:42:54+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "Completion review with OpenAI Codex on 2026-11-12: 17 tests pass, smoke and four finalized normal runs pass read-only verification, strict provenance passes. Correct stale documentation of supported best checkpoint; retain source authors and frozen experiment artifacts."
+        },
+        {
+          "at": "2026-11-12T21:38:59+07:00",
+          "by": "HoangDang, hỗ trợ Claude Code (Claude Opus 5.5)",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ đổi số test 17→20 sau 25cc678 và thêm ghi chú kiểm lại; không đổi yêu cầu"
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/verification.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     },
@@ -1857,7 +2734,7 @@
       "sources": [
         {
           "path": "docs/team_plan_integrity.md",
-          "sha256": "c37d239acfe5a9446b40c32d5d7eb934935051cf5d2b8fd2f2d651cc15ecec06",
+          "sha256": "924ff868859a0f12c49c3bc547d164cad2294e601545d0e23e765e9b9fa9464a",
           "section": "§9"
         }
       ],
@@ -1912,6 +2789,14 @@
             "docs/team_plan_integrity.md"
           ],
           "note": "User requested product in codebase: use existing Git LFS for dataset/checkpoints, update delivery docs; preserve trained weights and finalized manifests. No algorithm changes."
+        },
+        {
+          "at": "2026-11-12T22:03:58+07:00",
+          "by": "HoangDang",
+          "sources_changed": [
+            "docs/team_plan_integrity.md"
+          ],
+          "note": "2026-11-12: nguồn chỉ bỏ byline công cụ và chuyển khai báo công cụ về AI_Usage.md; không đổi yêu cầu"
         }
       ]
     }

@@ -6,10 +6,10 @@
 | --- | --- |
 | Name | 3.1. Tải và chuẩn bị dữ liệu FashionMNIST |
 | Created date | Chưa xác nhận |
-| Created by | Chưa xác nhận người tạo nội dung |
+| Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-07T11:17:41+07:00 ; HoangDang ; d41a9fe |
 | Last updated | 2026-11-11T10:16:25+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Theo đặc tả chung §1.3: tạo thêm `data/reports/split_indices.json` gồm `seed=42`, `train` (54.000 chỉ số), `val` (6.000 chỉ số), dùng `torch.randperm(60000)` với generator riêng. Giữ nguyên test. Báo cáo bổ sung `sha256` bốn tệp IDX (hash byte gốc), `split_samples`, `overlap_train_val`. Mọi đầu ra lẻ có sidecar từ `record_artifact`.

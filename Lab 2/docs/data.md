@@ -6,7 +6,7 @@
 
 **Người cập nhật nguồn:** Nguyễn Thị Vân Anh (nhánh `vananh`, commit `4d3fb94`)
 
-**Nguồn đặc tả/bộ test nền:** Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `fa27469`. Phần viết lại tài liệu và triển khai dữ liệu được nhập từ Vân Anh; tên người cập nhật nguồn phía trên giữ nguyên. Ghi nhận nền đặc tả do HoangDang/OpenAI Codex đối chiếu Git ngày 2026-11-12, không chuyển tác giả phần dữ liệu của Vân Anh sang Quốc An.
+**Nguồn đặc tả/bộ test nền:** Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `fa27469`. Phần viết lại tài liệu và triển khai dữ liệu được nhập từ Vân Anh; tên người cập nhật nguồn phía trên giữ nguyên. Ghi nhận nền đặc tả do HoangDang đối chiếu Git ngày 2026-11-12, không chuyển tác giả phần dữ liệu của Vân Anh sang Quốc An.
 
 ## 0. Thông tin tài liệu
 
@@ -17,7 +17,7 @@
 | Created by | Nguyễn Thị Vân Anh (bản nội dung nhập từ `origin/vananh`) |
 | Last updated — nguồn | 2026-11-11 |
 | Updated by — nguồn | Nguyễn Thị Vân Anh |
-| Người tích hợp/kiểm chứng | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Người tích hợp/kiểm chứng | HoangDang (Nguyễn Hoàng Đăng) |
 | Ngày tích hợp/kiểm chứng bổ sung | 2026-11-12 |
 | Phạm vi | Phần dữ liệu; trạng thái chạy thật xem mục kiểm chứng cuối tài liệu |
 
@@ -268,5 +268,5 @@ Shape ảnh sau tiền xử lý: (3, 224, 224)
 
 Để kiểm tra lại, từ `Lab 2/`, đặt `PYTHONPATH=src`, chạy `python -m pytest tests/test_data.py -q`. Khi chạy `python -m lab_2.data`, dùng bản sao `configs/lab_2.yaml` với `paths.reports_dir` trỏ vào **phiên mới**; giữ nguyên tham số dữ liệu. Dataset nằm trong `data/` bị Git bỏ qua; máy mới cần tải lại qua notebook hoặc `torchvision`.
 
-Nguồn code/tài liệu dữ liệu: Nguyễn Thị Vân Anh, nhánh `vananh` (`4d3fb94`), đã nhập qua `828e5ef`. HoangDang, hỗ trợ OpenAI Codex, tích hợp kiểm tra đầu vào và thực hiện kiểm chứng bổ sung ngày 2026-11-12; không thay tên người cập nhật nguồn bằng người tích hợp.
+Nguồn code/tài liệu dữ liệu: Nguyễn Thị Vân Anh, nhánh `vananh` (`4d3fb94`), đã nhập qua `828e5ef`. HoangDang, tích hợp kiểm tra đầu vào và thực hiện kiểm chứng bổ sung ngày 2026-11-12; không thay tên người cập nhật nguồn bằng người tích hợp.
 
