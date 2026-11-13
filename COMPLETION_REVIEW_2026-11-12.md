@@ -86,3 +86,37 @@ Kiểm phạm vi Git: chỉ thay đổi notebook/tài liệu được T1, T2, T4
 
 - T1 và điều kiện toàn bộ test đạt của T6: chưa hoàn thành do lỗi nạp DLL dưới Windows Application Control; chưa xác định dependency DLL cụ thể bị chặn. Môi trường Lab 2 mới vẫn được giữ để kiểm tra tiếp, không coi `pip check` thành công là torch import thành công.
 - T3: người dùng cần chạy `Lab 2/notebooks/Lab_2_colab.ipynb` trên T4, dùng `PROJECT_DIR`, `OPERATOR`, `SESSION_ID` mới; lưu notebook có output và bàn giao `reports/sessions/<SESSION_ID>/` cùng `configs/sessions/<SESSION_ID>.yaml`. Chưa có phép đo T4 mới để nghiệm thu.
+
+
+### Kết thúc kiểm lại 2026-11-13 — T1, T3 và T6 hoàn tất
+
+Last updated: 2026-11-13T11:55:16+07:00
+
+Updated by: AI agent (thực thi kế hoạch của HoangDang)
+
+Các mục trước giữ nguyên như lịch sử từng lượt kiểm. Lỗi môi trường T1 đã được khắc phục bằng cặp wheel chính thức được kiểm chứng trên máy; phiên Colab T4 đã hoàn tất, được tiếp nhận và đối chiếu dữ liệu. Trạng thái hiện tại của T1–T6 là **Xong**.
+
+| Task | Trạng thái cuối | Bằng chứng |
+| --- | --- | --- |
+| T1 | Xong | `.venv` Lab 2 độc lập, Python 3.12.10, torch 2.9.1+cu128 và torchvision 0.24.1+cu128; import/CUDA/pip check đạt. Pytest offline đạt 93 test; diễn biến lỗi và khắc phục tại cuối `Lab 2/docs/verification.md`. Commit `f683ed0`. |
+| T2 | Xong | Chỉ bỏ metadata widget TensorBoard ở cell 23; notebook còn 42.278 byte, source/output không đổi, JSON và nbformat PASS. Commit `7f53bd4`. |
+| T3 | Xong | Phiên `colab-t4-20261113-browser-01`, source `735e556`: 17 ô pipeline hoàn tất, ô xuất bổ sung PASS; 4 run, 13 checkpoint, 38 file manifest, 10 source snapshot và event bốn run đã kiểm; notebook và ảnh TensorBoard trong phiên review riêng. TASK-13/15/16 và hai README đã cập nhật. Commit `180d81b`. |
+| T4 | Xong | Notebook QuocAn đổi tên 100% thành `Lab_3_quocan.ipynb`; tham chiếu/README/traceability cập nhật, notebook chính giữ blob gốc; 45 test và audit PASS. Commit `5b183b1`. |
+| T5 | Xong | Bảy tài liệu không đánh số có đúng chú thích nguồn dưới bảng mục 0; người/thời gian cập nhật đã ghi. Commit `296c9c0`. |
+| T6 | Xong | Kiểm cuối sau tiếp nhận T4 đạt đủ 20/93/45 test; audit PASS 40 file/8 cell, 457 liên kết tương đối không có link hỏng; kiểm phạm vi Git và bảo toàn các artifact cũ đạt. Lệnh và kết quả bên dưới. |
+
+Lệnh kiểm cuối dùng Python của `.venv` từng lab, chạy trong thư mục tương ứng, `PYTHONUTF8=1`, `PYTHONPATH=src`:
+
+| Lab | Lệnh sau `.venv/Scripts/python.exe` | Kết quả |
+| --- | --- | --- |
+| Lab 1 | `-m pytest tests data/tests -q --basetemp .venv/pytest-temp` | **20 passed**, **9,57 giây**, exit 0 |
+| Lab 2 | `-m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp` | **93 passed**, **46 warnings**, **11,60 giây**, exit 0 |
+| Lab 3 | `-m pytest test.py test_reporting.py tests -q --basetemp .venv/pytest-temp` | **45 passed**, **4 warnings**, **16,25 giây**, exit 0 |
+
+`Lab 3/.venv/Scripts/python.exe lab3.py audit` PASS, 40 file và 8 cell notebook chính. Các cảnh báo pytest thuộc pin_memory/is_pinned, mtime checkpoint và backend ảnh như các lượt đã ghi. `& 'Lab 2/.venv/Scripts/python.exe' 'Lab 2/.venv/verify_links.py'` quét 93 Markdown đang theo dõi, 457 liên kết tương đối, 0 link hỏng mới hoặc cũ trong phạm vi kiểm. Parser tự kiểm trường hợp tên notebook có ngoặc và URL-encoding; bỏ qua report/outputs/reports/source_snapshot theo kế hoạch.
+
+Tiếp nhận T4: `Lab 2/.venv/intake_colab.py` kiểm đường dẫn archive, manifest SHA-256/kích thước, config tương đương, checkpoint/epoch/validation metrics, event và source Git; model best nạp CPU cho logits hữu hạn `[1,10]`. Mười ba pointer Git LFS trong index khớp SHA-256 trọng số trong manifest. Notebook `nbformat.validate` PASS, 18 ô code, 0 output lỗi; 17 ô pipeline ngoài setup khớp source notebook repo. Setup clone source cố định từ GitHub thay mount Drive. Ảnh TensorBoard cục bộ đọc các event gốc T4, smoothing 0, hiển thị đầy đủ điểm; nguồn/hash được lưu trong `Lab 2/reports/sessions/colab-t4-review-20261113-browser-01/`.
+
+DenseNet121 được chọn bằng validation 88,24%, epoch 5; test 87,70%, macro F1 0,8757295828 trên 5.000 ảnh. Trung bình 74,591192584 giây train/epoch, latency 20,38368944 ms/ảnh trên Tesla T4; 7 KPI Đạt theo `reports/metrics.json` của phiên. Đây là một seed và một phiên phần cứng được ghi trong metrics.
+
+Kiểm phạm vi: Git không có M/D/R trong artifact cũ của các thư mục được bảo vệ hoặc BRANCH_SYNC so với `735e556`; các file thêm trong Lab 2 là phiên T4, config và hồ sơ tiếp nhận đã được T3 cho phép. Nội dung cũ của file báo cáo này giữ nguyên byte, chỉ bổ sung mục mới. Source snapshot giữ nguyên whitespace gốc và metadata review giữ nguyên CRLF trong manifest; kiểm whitespace của tài liệu đang sửa đạt. `PLAN_HOAN_THIEN_2026-11-13.md` là file chưa theo dõi có từ đầu, được giữ nguyên. Không còn task chưa làm trong T1–T6; chưa push hoặc tạo PR, chưa đóng gói sản phẩm để nộp.
