@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T08:53:18+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Thành Viên
@@ -127,6 +127,7 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-13` — AI agent thực thi T2 theo kế hoạch HoangDang: xóa đúng `cells[23].metadata.colab` (widget Colab của cell TensorBoard) trong `notebooks/Lab 2.ipynb`; giữ nguyên toàn bộ output, source và metadata khác. File còn 42.278 byte; JSON, `nbformat.validate` và so sánh toàn bộ outputs bằng `json.dumps` đều PASS. Không chạy lại notebook.
 - `2026-11-12` — HoangDang: kiểm lại sau `25cc678`, 93 test offline và verifier bàn giao PASS; môi trường mượn torch của `.venv` Lab 1, chi tiết tại [verification.md](verification.md). TASK-16 và KPI T4 chưa đổi.
 - `2026-11-12` — HoangDang đã chụp giao diện TensorBoard thật của phiên chạy lại, đủ bốn run và ba đồ thị accuracy/train loss/validation loss. Biên bản `tensorboard-review-20261112-191218/REVIEW.json` lưu nguồn và hash event. Colab đã cấp Tesla T4 cho notebook `Lab_2_T4_verification_20261112.ipynb`; kết quả đầy đủ đang chờ tiếp nhận và kiểm chứng.
 - `2026-11-12` — Phiên mới `rerun-thanhbinh-20261112-175308` hoàn tất trên RTX 5060, HoangDang thực thi từ code `5c03204`. Đủ bốn run, checkpoint/log/manifest riêng; validation chênh nguồn từ −0,04 đến +0,04 điểm. DenseNet121 được chọn: test 87,68%, macro F1 0,8755 trên 5.000 ảnh; checkpoint nguồn được kiểm lại riêng, kết quả nguồn không sửa. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md). Tốc độ T4/Run all Colab và ảnh UI TensorBoard mới chưa nghiệm thu.
