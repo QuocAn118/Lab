@@ -8,13 +8,23 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T11:51:17+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-**Trạng thái: đã nhận và kiểm chứng bản bàn giao TV3 của Thanh Bình; phiên chạy lại được lưu riêng. Chưa nghiệm thu KPI Colab T4.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
+**Trạng thái: đã kiểm chứng bản bàn giao TV3, phiên Windows và phiên Colab Tesla T4 ngày 2026-11-13. Notebook Run all đạt; cả 7 KPI của phiên T4 đạt.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
 
 Đủ 6 module package và notebook Colab. Sau ghép TV3: **93 test offline PASS** (kiểm lại sau `25cc678`), gồm 79 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**. Bộ test offline dùng dữ liệu giả, được phân biệt với smoke thật và training. Xem [kiểm chứng](docs/verification.md).
+
+## Nghiệm thu Colab T4 — 2026-11-13
+
+Phiên `colab-t4-20261113-browser-01`, source `735e5568f96819a9e52d25298ba5c34e213fa10b`, đã chạy đủ 17 ô pipeline theo thứ tự; ô xuất bổ sung đã kiểm chứng và tải dữ liệu về máy. Setup của bản Colab clone source cố định từ GitHub; các ô pipeline còn lại trùng source notebook trong repo. Người khởi chạy khai trong metrics là `OpenAI Codex, authorized by HoangDang`.
+
+DenseNet121 được chọn bằng validation **88,24%**, epoch 5; test **87,70%**, macro F1 **0,87573** trên **5.000 ảnh**. Trên Tesla T4, thời gian train trung bình của model chọn là **74,59 giây/epoch**, latency trung bình **20,38 ms/ảnh**; cả 7 KPI đạt trong phiên này. Bộ offline trên Colab kiểm lại **93 passed**, 23,76 giây; ba smoke trong notebook kết thúc thành công.
+
+Đã nhận đủ 13 checkpoint, đối chiếu hash 38 file, 10 source snapshot với commit nguồn và event của bốn run. Model best nạp trên CPU cho output hữu hạn `[1,10]`. Notebook có 18 ô code, gồm ô xuất; không có output lỗi. Ảnh TensorBoard được chụp từ giao diện cục bộ đọc bốn event gốc T4, smoothing 0 và hiển thị toàn bộ điểm.
+
+[Metrics T4](reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json), [phiên và nguồn](reports/sessions/colab-t4-20261113-browser-01/SESSION.json), [biên bản tiếp nhận](reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json), [notebook có output](reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), [ảnh TensorBoard](reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png). Nguồn và hash của phần tiếp nhận tại [SOURCES.md](reports/sessions/colab-t4-review-20261113-browser-01/SOURCES.md). Các kết quả Windows và nguồn TV3 bên dưới thuộc những phiên riêng.
 
 ## Bàn giao cho bạn train
 

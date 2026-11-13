@@ -1,0 +1,8 @@
+torch
+torchvision
+tensorboard
+scikit-learn
+pyyaml
+matplotlib
+psutil
+pytest

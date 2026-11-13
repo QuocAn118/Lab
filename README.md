@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T11:55:16+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng dẫn làm việc trong `workflow/`. Trạng thái dưới đây căn cứ vào file hiện có; báo cáo lịch sử không thay cho kiểm thử trên máy mới.
@@ -19,12 +19,12 @@ Kho bài nhóm gồm ba lab, tài liệu học trong `Learning/` và hướng d�
 | Phần | Tài liệu bắt đầu | Trạng thái triển khai |
 | --- | --- | --- |
 | Lab 1 — FashionMNIST MLP | [README](Lab%201/README.md), [mô tả gốc](Lab%201/docs/lab_1_description.md) | Hoàn thành kỹ thuật: 20 test, smoke + 4 normal run PASS; model chọn bằng validation có test accuracy 87,70%; sản phẩm trực tiếp trong repo, input/model qua Git LFS; xem README Lab 1 |
-| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | 93 test offline và 3 smoke thật đạt; đã nhận phiên TV3 Thanh Bình (4 cấu hình, 12 checkpoint LFS), đã tái lập bốn cấu hình, test 87,68% với DenseNet121; chưa nghiệm thu KPI tốc độ T4; xem README Lab 2 |
-| Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | 44 test (cần `PYTHONPATH=src`), smoke pretrained và notebook tám cell đạt trên môi trường hiện tại; đánh giá lại 25.000 test đạt accuracy 91,012%; xem hồ sơ kiểm chứng Lab 3 |
+| Lab 2 — CIFAR-10 transfer learning | [README](Lab%202/README.md), [mô tả gốc](Lab%202/docs/lab_2_description.md) | 93 test offline đạt trên Windows và Colab; đã nhận TV3 và kiểm chứng phiên Tesla T4 với 4 cấu hình, 13 checkpoint, Run all và TensorBoard; DenseNet121 test 87,70%, 7 KPI T4 đạt; xem README Lab 2 |
+| Lab 3 — sentiment analysis | [README](Lab%203/README.md), [hướng dẫn trình bày](Lab%203/docs/huong_dan_trinh_bay.md) | 45 test (cần `PYTHONPATH=src`), smoke pretrained và notebook tám cell đạt trên môi trường hiện tại; đánh giá lại 25.000 test đạt accuracy 91,012%; xem hồ sơ kiểm chứng Lab 3 |
 
 Mỗi lab có hướng dẫn môi trường, cách chạy và tiến độ riêng. Các template `01_DEFINE.md`, `05_TOOLS.md`, `06_VERIFICATION.md`, `08_RELEASE.md` nằm trong `workflow/docs/`; không mặc định các file đó tồn tại trong `Lab X/docs/`.
 
-[Rà soát và hoàn thiện ba lab ngày 2026-11-12](COMPLETION_REVIEW_2026-11-12.md) ghi các sửa đổi, phép kiểm chứng và hạng mục còn chờ kết quả Colab T4. Số test trên là lần kiểm lại sau commit `25cc678`, ghi ở cuối file đó.
+[Rà soát và hoàn thiện ba lab ngày 2026-11-12–13](COMPLETION_REVIEW_2026-11-12.md) ghi các sửa đổi, phép kiểm chứng và kết quả tiếp nhận Colab T4. Kiểm cuối ngày 2026-11-13 đạt 20 test Lab 1, 93 test Lab 2 và 45 test Lab 3; mục cập nhật cuối báo cáo ghi lệnh, số liệu và giới hạn.
 
 ## Cấu trúc đang dùng
 

@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T22:10:18+07:00 ; HoangDang ; 77cd208 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T08:55:07+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 | Yêu cầu | Nguồn Markdown | Triển khai | Kiểm chứng |
@@ -66,6 +66,8 @@ Căn cứ yêu cầu truy nguồn được ghi nhận tại `11_AI_Usage.md` §1
 | `checkpoints/`, `reports/` | Commit gốc `7fea49d`, `186582e` và lịch sử trong nhật ký đồng bộ | Artifact kế thừa; không được diễn giải là kết quả chạy mới |
 
 Đối chiếu tác giả, thời điểm commit, hash nhánh và quyết định giữ bản hiện hành tại [BRANCH_SYNC_2026-11-11.md](../../BRANCH_SYNC_2026-11-11.md). Phần này do HoangDang tích hợp; chưa xác nhận các kiểm thử runtime của bản nhập đã đạt trên máy hiện tại.
+
+Đổi tên ngày 2026-11-13 (T4 kế hoạch hoàn thiện của HoangDang), AI agent thực hiện: `notebooks/Lab_3_quocan.ipynb` thay tên cũ `Lab_3 (1).ipynb` trong thư mục `notebooks/`, giữ nguyên byte notebook nhập từ QuocAn; căn cứ `08_implementation.md` §7 và `11_AI_Usage.md` §2, kiểm bằng Git rename/hash, pytest và source audit. Notebook chính ở repo gốc giữ nguyên.
 
 ## Nguồn và phạm vi
 

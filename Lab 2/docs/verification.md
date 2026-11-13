@@ -7,8 +7,8 @@
 | Name | Kiểm chứng chuẩn bị — Lab 2 |
 | Created date | 2026-11-11T11:06:40+07:00 |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-13T11:51:17+07:00 |
+| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
 | Phạm vi | Chuẩn bị code và bàn giao; chưa huấn luyện thật hoặc nghiệm thu KPI |
 
 ## 1. Kết quả và giới hạn
@@ -82,3 +82,183 @@ Phiên `rerun-thanhbinh-20261112-175308` đã hoàn tất 2026-11-12T18:22:42+07
 DenseNet121 validation 88,24%, test 87,68%, macro F1 0,8755; kiểm lại checkpoint nguồn cho cùng validation/test accuracy. Test của phiên mới chỉ đánh giá model đã chọn bằng validation. Phép kiểm tra checkpoint nguồn là đánh giá mới riêng, không viết thêm vào kết quả lịch sử của Bình. Hai KPI tốc độ T4 và Run all Colab đang chờ kiểm chứng. Biểu đồ so sánh đã được mở để kiểm tra bố cục.
 
 Đã chụp giao diện TensorBoard thật với bốn run và ba đồ thị accuracy, train loss, validation loss. Smoothing 0, hiển thị toàn bộ điểm dữ liệu. Server xác nhận đủ tag và hash bốn event khớp manifest phiên đã chốt. [Ảnh TensorBoard](../reports/sessions/tensorboard-review-20261112-191218/tensorboard.png), [biên bản bổ sung](../reports/sessions/tensorboard-review-20261112-191218/REVIEW.json).
+
+
+## Kiểm lại 2026-11-13
+
+Người giao việc: HoangDang; người thực hiện: AI agent. Thời gian ghi nhận: 2026-11-13T08:58:02+07:00. Nhánh `hoangdang`, nền `735e556`. T1 **chưa hoàn thành**: đã tạo `.venv` riêng và cài requirements, nhưng pytest dừng ở bước thu thập; **chưa chạy test nào**, không xác nhận lại mốc 93 passed trong lịch sử.
+
+Từ `Lab 2/`:
+
+```powershell
+python -m venv .venv
+& .venv/Scripts/python.exe -m pip install -r requirements.txt
+$env:PYTHONPATH = 'src'; $env:PYTHONUTF8 = '1'
+& .venv/Scripts/python.exe -m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
+```
+
+Môi trường vừa cài: Python **3.12.10**, distribution torch **2.15.0**, torchvision **0.29.2** (đọc qua `importlib.metadata`; import torch không thành công). `pip check`: `No broken requirements found.` Đây không phải môi trường torch 2.9.1+cu128 đã ghi ở các lần kiểm trước. PowerShell trả lỗi từ stderr thông báo cập nhật pip sau dòng `Successfully installed`; kiểm tra dependency tiếp theo xác nhận các distribution đã cài.
+
+Lần T1: **9 errors during collection, 5,26 giây**, 0 test được thực thi. Lỗi đầu tiên là `OSError: [WinError 4551] An Application Control policy has blocked this file`, khi nạp `torch/lib/torch_python.dll` hoặc dependency của DLL đó. Các lỗi `torch can only be initialized once per process` tiếp theo xuất hiện sau import thất bại đầu tiên. Đây là lỗi nạp thư viện dưới chính sách Windows; chưa xác định DLL phụ thuộc cụ thể bị chặn. Không đổi chính sách hệ thống, không sửa code, không đổi bản torch để vượt lỗi; dừng T1 theo kế hoạch. Không chạy `tests/test_smoke.py`, tải dữ liệu/model hoặc lệnh train Lab 2.
+
+T6 chạy lại đúng lệnh trên theo yêu cầu kiểm cuối: **9 errors during collection, 1,38 giây**, exit code pytest **2**; cùng lỗi chặn DLL. Output nguyên văn của lần kiểm T6 (stdout và stderr gộp, không thay đường dẫn hoặc nội dung lỗi):
+
+```text
+
+=================================== ERRORS ====================================
+_____________________ ERROR collecting tests/test_data.py _____________________
+tests\test_data.py:8: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:319: in <module>
+    _load_dll_libraries()
+.venv\Lib\site-packages\torch\__init__.py:302: in _load_dll_libraries
+    raise err
+E   OSError: [WinError 4551] An Application Control policy has blocked this file. Error loading "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\.venv\Lib\site-packages\torch\lib\torch_python.dll" or one of its dependencies.
+_____________________ ERROR collecting tests/test_demo.py _____________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_demo.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_demo.py:5: in <module>
+    from lab_2.demo import load_inputs
+src\lab_2\demo.py:9: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+__________________ ERROR collecting tests/test_evaluation.py __________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_evaluation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_evaluation.py:4: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+___________________ ERROR collecting tests/test_handoff.py ____________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_handoff.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_handoff.py:10: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+_________________ ERROR collecting tests/test_integration.py __________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_integration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_integration.py:5: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+____________________ ERROR collecting tests/test_model.py _____________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_model.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_model.py:3: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+___________________ ERROR collecting tests/test_training.py ___________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_training.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_training.py:3: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+_____________ ERROR collecting tests/test_training_standalone.py ______________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\tests\test_training_standalone.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_training_standalone.py:13: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+__________________________ ERROR collecting test.py ___________________________
+ImportError while importing test module 'C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Lab\Lab 2\test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test.py:5: in <module>
+    import torch
+.venv\Lib\site-packages\torch\__init__.py:49: in <module>
+    raise ImportError(
+E   ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a failed `import torch`.
+=========================== short test summary info ===========================
+ERROR tests/test_data.py - OSError: [WinError 4551] An Application Control po...
+ERROR tests/test_demo.py
+ERROR tests/test_evaluation.py
+ERROR tests/test_handoff.py
+ERROR tests/test_integration.py
+ERROR tests/test_model.py
+ERROR tests/test_training.py
+ERROR tests/test_training_standalone.py
+ERROR test.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 9 errors during collection !!!!!!!!!!!!!!!!!!!
+9 errors in 1.38s
+```
+
+
+### Tiếp tục T1 ngày 2026-11-13 — môi trường đã kiểm chứng
+
+AI agent tiếp tục theo yêu cầu hoàn thiện, sau khi xác định lỗi nằm ở bước nạp DLL của distribution torch 2.15.0 vừa cài. Dùng cặp wheel CUDA 12.8 đã được README và các lần kiểm Lab 1/Lab 3 trên máy này xác nhận chạy được, cài từ kho chính thức PyTorch trong `.venv` riêng Lab 2:
+
+```powershell
+& .venv/Scripts/python.exe -m pip install --disable-pip-version-check torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu128
+$env:PYTHONPATH='src'; $env:PYTHONUTF8='1'
+& .venv/Scripts/python.exe -m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
+```
+
+Kết quả thực tế: **93 passed**, **46 warnings**, **13,43 giây**, exit 0. Python **3.12.10**, torch **2.9.1+cu128**, torchvision **0.24.1+cu128**; import cả hai thư viện thành công, `torch.cuda.is_available()` trả `True`. `pip check` trả `No broken requirements found.` Các cảnh báo là DeprecationWarning của `pin_memory`/`is_pinned` trong PyTorch.
+
+T1 hoàn thành với cặp phiên bản nêu trên. Các lỗi của lần cài mới ban đầu được giữ ở mục trước để lưu vết. Thao tác khắc phục chỉ thay distribution trong `.venv` Lab 2; không thay chính sách bảo mật Windows hoặc code dự án. Bộ test này dùng dữ liệu giả và bỏ qua smoke Lab 2. Phiên Colab T4 được thực hiện riêng theo T3.
+
+
+### Tiếp nhận T3 Colab Tesla T4 — 2026-11-13
+
+Phiên `colab-t4-20261113-browser-01`, source `735e5568f96819a9e52d25298ba5c34e213fa10b`. Notebook được vận hành qua Chrome; setup clone source GitHub cố định thay bước mount Drive, khai `OPERATOR` là `OpenAI Codex, authorized by HoangDang` và mã phiên mới. So sánh source từng ô xác nhận toàn bộ pipeline ngoài setup trùng `notebooks/Lab_2_colab.ipynb` trong repo. Mười bảy ô pipeline hoàn tất với execution 1–17; ô xuất dữ liệu bổ sung hoàn tất ở execution 19. Lần xuất đầu cần bổ sung `src` vào `sys.path` của kernel vì biến `PYTHONPATH` trước đó chỉ áp dụng cho subprocess. Source và kết quả train/evaluation được giữ theo phiên đã chạy.
+
+Bộ offline Colab kiểm lại bằng `python -m pytest tests test.py --ignore=tests/test_smoke.py -q`: **93 passed**, **23,76 giây**. Ba smoke của notebook hoàn tất với returncode 0. Cấu hình dữ liệu **22.500 train / 2.500 validation / 5.000 test** được đối chiếu trong JSON. Bốn run dùng seed và tham số của config gốc, chỉ đổi đường dẫn phiên.
+
+| Run | Epoch thực tế | Best epoch | Validation accuracy | Giây train/epoch |
+| --- | ---: | ---: | ---: | ---: |
+| `resnet18_baseline` | 5 | 4 | 84.80% | 43.67651 |
+| `densenet121` | 6 | 5 | 88.24% | 74.59119 |
+| `resnet18_lr1e-2` | 6 | 5 | 83.52% | 47.07446 |
+| `resnet18_bs128` | 6 | 6 | 85.08% | 48.80730 |
+
+DenseNet121 được chọn bằng validation 88,24%, epoch 5. Test accuracy 87,70%, macro F1 0,8757295828, loss 0,3516814043 trên 5.000 ảnh. Thời gian trung bình 74,591192584 giây/epoch và latency 20,38368944 ms/ảnh được đo trên Tesla T4. Cả 7 mục KPI trong JSON có trạng thái Đạt; các mục tiêu giữ theo config gốc.
+
+Kiểm tiếp nhận trên máy bằng Python của `.venv` Lab 2, torch 2.9.1+cu128: gói tải đúng 481.715.361 byte; SHA-256 và kích thước **38 file** khớp `FILES.json`; **10 source snapshot** khớp nguyên byte commit Git. Đủ **13 checkpoint**; epoch, model và validation metrics của 12 mốc theo run khớp summary; bản best khớp hash checkpoint được chọn. Event bốn run đủ tag và số điểm epoch. Best nạp trên CPU cho logits hữu hạn `[1,10]`. `tools/verify_tv3_handoff.py` của hồ sơ lịch sử cũng PASS với 21 source, 3 manifest và 12 checkpoint nguồn.
+
+Notebook tải về được `nbformat.validate` xác nhận hợp lệ, gồm 18 ô code, không có output lỗi ở bản lưu cuối. Ảnh TensorBoard được chụp bằng Chrome từ server cục bộ đọc đúng event T4 đã nhập, kích thước 3200 × 2000 pixel, smoothing 0, không bỏ điểm ngoài thang đo. Ảnh hiển thị bốn run và Accuracy/val, Loss/train, Loss/val; hash event được ghi trong biên bản riêng.
+
+[Metrics](../reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json), [config phiên](../configs/sessions/colab-t4-20261113-browser-01.yaml), [SESSION.json](../reports/sessions/colab-t4-20261113-browser-01/SESSION.json), [manifest phiên](../reports/sessions/colab-t4-20261113-browser-01/FILES.json), [biên bản tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json), [notebook](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), [ảnh TensorBoard](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png). Biên bản/hash tiếp nhận được lưu ở thư mục review riêng. TASK-13, TASK-15 và TASK-16 đã được cập nhật theo phiên T4 này. Giới hạn kết quả là một seed và một phiên phần cứng đã ghi trong metrics.
