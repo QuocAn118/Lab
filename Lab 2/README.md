@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-13T11:51:17+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
+| Last updated | 2026-11-13T14:14:27+07:00 |
+| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 **Trạng thái: đã kiểm chứng bản bàn giao TV3, phiên Windows và phiên Colab Tesla T4 ngày 2026-11-13. Notebook Run all đạt; cả 7 KPI của phiên T4 đạt.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
@@ -71,7 +71,7 @@ Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Col
 ## Tài liệu và nguồn
 
 - [Đặc tả tổng quan](docs/lab_2_description.md), [dữ liệu](docs/data.md), [model](docs/model.md), [huấn luyện](docs/training.md).
-- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): giữ ô chờ số đo thật.
+- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): số đo thật theo từng phiên Windows/T4; bảng nghiệm thu trong đặc tả đã cập nhật đủ 11 AC, có [bằng chứng in kiến trúc bổ sung trên Colab CPU](reports/sessions/model-architecture-colab-20261113/README.md).
 - [Tiến độ, phân công](docs/plan_progress_status.md); [khai báo công cụ](docs/AI_Usage.md).
 - [Triển khai model gốc](docs/model_implementation.md), [bản tiếng Việt](docs/model_vi.md): nguồn Xuân Bảo; đã chuyển code sang package, giữ `model.py` làm lệnh tương thích cho `test.py` cũ.
 

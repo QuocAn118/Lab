@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-11-13T14:13:06+07:00",
+  "operator": "OpenAI Codex, authorized by HoangDang",
+  "notebook_url": "https://colab.research.google.com/drive/18L165weG5GGH2D13LwHJX517jgEjvPgl",
+  "archive_sha256": "b9d3d65b03d09a39e7df839b1dd982b9f7872527745e6a19790edca4f35345fc",
+  "excluded_archive_member": "__pycache__/model.cpython-313.pyc",
+  "notebook_sha256": "e85c4d46181b0e6a11e7a223b1b3c854b92bb202a955a185a4fc7915fb5105d9",
+  "notebook_code_cells": 1,
+  "execution_counts": [
+    1
+  ],
+  "error_outputs": 0,
+  "stdout_matches_architecture_file": true,
+  "source_matches_training_commit": true,
+  "model_counts_match_t4_metrics": true,
+  "files_sha256": {
+    "architecture.txt": "f3c69cb69470d643659eec5c5518080e3aa54b9492a7de860942bd203de6a64f",
+    "audit.json": "b432caab2edbf26ff26f91676833ea6e0afca60c76d047fee36d92867393ba45",
+    "FILES.json": "598e66a38756e3390d7298223f1d4e0b6010ace6f0daae9df3e30677e02c8523",
+    "Lab_2_AC01_architecture_20261113.ipynb": "e85c4d46181b0e6a11e7a223b1b3c854b92bb202a955a185a4fc7915fb5105d9",
+    "model.py": "7fd9e8db551c25c22d12089c64c403fdb66ad99aae1a0f1d2ae34af018d657a6",
+    "SOURCES.md": "bb45bb303656fdb5486989ec2b43cd8914f8a316357ece2c295c03bccf3c78d7"
+  }
+}

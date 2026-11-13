@@ -8,23 +8,64 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T11:13:30+07:00 |
+| Last updated | 2026-11-13T14:14:27+07:00 |
+| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
 | Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |
 | Người cập nhật nguồn code evaluation | Nguyễn Quốc An (Quoc An), `32ca8b1`, 2026-11-10T21:18:59+07:00 |
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-> **Trạng thái**: Đã có số đo thật trên Windows/RTX 5060, phiên `rerun-thanhbinh-20261112-175308`, hoàn tất 2026-11-12T18:22:42+07:00. Người chạy: HoangDang. Nguồn code/đặc tả Quốc An và phần TV3 Thanh Bình được giữ riêng. Chưa nghiệm thu GPU T4/Run all Colab. Nguồn bảng dưới: [metrics phiên](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json), [so sánh nguồn và chạy lại](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md).
+> **Trạng thái hiện tại**: Phiên Colab Tesla T4 `colab-t4-20261113-browser-01` đã chạy đủ 4 cấu hình, evaluation và demo; notebook có 17 ô pipeline hoàn tất. Test accuracy **87,70%**, macro F1 **0,87573**; **7 KPI Đạt**. Kết quả T4 và bằng chứng ở mục bổ sung dưới đây. Các mục 1–7 giữ số liệu Windows và notebook lịch sử theo phiên đã ghi.
 
 Mã nguồn: `src/lab_2/evaluation.py`.
 
 **Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. Theo khai báo của Quốc An trong tiến độ, code evaluation được lấy từ nhánh `lab2-ban-day-du` có, đã đối chiếu đặc tả, chạy 6 test và xem 3 biểu đồ. Đây là khai báo nguồn được giữ nguyên, không phải xác nhận độc lập về nhánh riêng đó. HoangDang tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`. Ghi nhận bổ sung ngày 2026-11-12 do HoangDang đối chiếu Git; không thay tác giả nguồn hoặc ghi số đo mới.
 
-> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Các mục dưới ghi số thật của phiên Windows; khi chạy Colab cần lập phiên riêng và đối chiếu tiếp.
+> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Các mục 1–7 ghi số thật của phiên Windows; phần bổ sung Colab dùng phiên riêng và số liệu T4 đã kiểm chứng.
 
 > Đã chạy bốn cấu hình, chọn bằng validation rồi đánh giá test một lần và demo trong phiên riêng. Các đường dẫn output trong đặc tả là tương đối với `reports_dir`/`checkpoints_dir` của config; không dùng `reports/metrics.json` tham số lịch sử ở gốc để thay cho metrics phiên.
 
-## 1. So Sánh Các Lần Chạy (Exercise 1 và 2)
+## Bổ sung Colab Tesla T4 — 2026-11-13
+
+Nguồn [metrics phiên T4](../reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json), [config](../configs/sessions/colab-t4-20261113-browser-01.yaml), [biên bản tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json). Source commit `735e5568f96819a9e52d25298ba5c34e213fa10b`; operator theo metrics là `OpenAI Codex, authorized by HoangDang`. Notebook có execution 1–17 cho các ô pipeline, ô xuất bổ sung thành công ở execution 19. [Notebook có output](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb).
+
+### So sánh Exercise 1 và 2
+
+| Run | LR | Batch | Epoch thực tế | Best epoch | Validation accuracy | Giây train/epoch |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `resnet18_baseline` | 0.001 | 64 | 5 | 4 | 84.80% | 43.68 |
+| `densenet121` | 0.001 | 64 | 6 | 5 | 88.24% | 74.59 |
+| `resnet18_lr1e-2` | 0.01 | 64 | 6 | 5 | 83.52% | 47.07 |
+| `resnet18_bs128` | 0.001 | 128 | 6 | 6 | 85.08% | 48.81 |
+
+Exercise 1: DenseNet121 cao hơn baseline **3,44 điểm phần trăm validation**, đạt 88,24% so với 84,80%. Thời gian train trung bình tăng từ 43,68 lên 74,59 giây/epoch trên T4 trong phiên này. Model tốt nhất được chọn bằng validation trước khi đánh giá test.
+
+Exercise 2: ResNet18 với LR 0,01 đạt validation 83,52%, thấp hơn baseline **1,28 điểm phần trăm**. Batch 128 đạt 85,08%, cao hơn baseline **0,28 điểm phần trăm**, thời gian trung bình 48,81 giây/epoch so với 43,68 của baseline batch 64. Các so sánh dựa trên một seed 42 và cùng phiên T4.
+
+### Test và KPI
+
+DenseNet121 epoch 5 được đánh giá trên 5.000 ảnh test: accuracy **87,70%**, macro F1 **0,8757295828**, loss **0,3516814043**. Half-width khoảng tin cậy 95% của accuracy là **0,91 điểm phần trăm** theo công thức đang dùng.
+
+| Chỉ số | Giá trị | Mục tiêu | Kết quả |
+| --- | ---: | ---: | --- |
+| Validation Accuracy | 88.24000% | 80% | Đạt |
+| Test Accuracy | 87.70000% | 80% | Đạt |
+| Test Macro F1 | 0.87573 | 0.8 | Đạt |
+| Thời gian train (giây/epoch) | 74.59119 | 300 | Đạt |
+| Độ trễ suy luận (ms/ảnh) | 20.38369 | 25 | Đạt |
+| VRAM cao nhất (GB) | 1.31141 | 4 | Đạt |
+| RAM cao nhất (GB) | 3.42210 | 6 | Đạt |
+
+### Sản phẩm và giới hạn bằng chứng
+
+- Metrics có đủ `data`, `model`, `training`, `evaluation`, `demo`; đủ 4 run và 13 checkpoint. [Manifest phiên](../reports/sessions/colab-t4-20261113-browser-01/FILES.json) đã kiểm 38 file, 10 source snapshot và hash trọng số; model best nạp CPU cho logits hữu hạn `[1,10]`.
+- Bốn file event TensorBoard đã đối chiếu số epoch. [Ảnh TensorBoard](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png) hiển thị bốn run, Accuracy/val, Loss/train và Loss/val với smoothing 0. Ảnh được chụp từ giao diện cục bộ đọc event gốc T4.
+- Các biểu đồ [validation](../reports/sessions/colab-t4-20261113-browser-01/reports/figures/val_accuracy_by_run.png), [loss](../reports/sessions/colab-t4-20261113-browser-01/reports/figures/loss_curve_best.png), [confusion matrix](../reports/sessions/colab-t4-20261113-browser-01/reports/figures/confusion_matrix.png) và [demo](../reports/sessions/colab-t4-20261113-browser-01/reports/figures/demo_probabilities.png) thuộc cùng phiên T4.
+- Early stopping được tính lại từ các giá trị validation đã lưu với patience 3 và threshold 0,01, khớp cả bốn run. Baseline có `stop_epoch=5`; DenseNet121 và batch 128 chạy đủ 6 epoch; cấu hình LR 0,01 ghi `stop_epoch=6`, bằng giới hạn số epoch.
+- AC-01: ô `run('lab_2.model')` có execution 6 nhưng `outputs=[]` trong notebook T4 đã lưu. Đã bổ sung [notebook Colab CPU và biên bản](../reports/sessions/model-architecture-colab-20261113/README.md), [stdout kiến trúc/từng tham số](../reports/sessions/model-architecture-colab-20261113/architecture.txt): một ô execution 1, không lỗi, cả ba cặp tổng/trainable khớp metrics T4. Source `model.py` trùng nguyên byte commit training; dùng `pretrained=False`, không train hoặc suy luận. Bằng chứng này chốt phần in kiến trúc của AC-01, không tạo kết quả train/benchmark T4 mới.
+- `reports/metrics.json` ở gốc là artifact lịch sử chỉ có `model`. Báo cáo hiện tại đọc đường dẫn phiên ở trên theo config. Đặc tả mục 8 hiện đã mô tả `completed_runs`, loader rỗng/logits không hữu hạn, chặn evaluation lặp và config khác cấu hình train.
+
+## 1. So Sánh Các Lần Chạy (Exercise 1 và 2) — Windows 2026-11-12
 
 So sánh bằng validation, không dùng test. Một lần chạy mỗi cấu hình, seed 42; cùng RTX 5060 và cùng config phiên.
 
@@ -218,4 +259,4 @@ Mỗi lần chạy một đường `val_accuracy` theo epoch, dùng lần lượ
 
 Kiểm chứng phần cứng ngày 2026-11-12: `evaluation.device_name` ghi tên thiết bị thật, `speed_kpi_reference` là `NVIDIA T4`. Trên RTX/CPU, hai KPI tốc độ mang trạng thái `Không đo được` theo chuẩn T4; số đo thô vẫn có ở `comparison.seconds_per_epoch` và `latency_ms`, không bị xóa hoặc đánh đồng phần cứng.
 
-**Tiêu chí đạt**: `python -m pytest tests/test_evaluation.py -q` cho `6 passed`.
+**Tiêu chí đạt**: `python -m pytest tests/test_evaluation.py -q` không có test lỗi. Kiểm lại ngày 2026-11-13 cùng `tests/test_handoff.py`: **25 passed**, 9,10 giây; không chạy lại training hoặc test set thật.
