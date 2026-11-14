@@ -8,11 +8,14 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T08:56:14+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
 
-> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, `notebooks/Lab_3_quocan.ipynb`). Tài liệu chính của bài là bộ `01_`–`12_`.
+> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, notebook chạy pipeline `notebooks/Lab_3_colab.ipynb`; `notebooks/Lab_3_quocan.ipynb` là notebook cũ tham khảo). Tài liệu chính của bài là bộ `01_`–`12_`.
+
+> Vị trí hiện hành: docs/docs demo/. Bộ chính 01–12 ở thư mục cha, theo full split 20.000/5.000/25.000 và tối đa 3 epochs. Các bảng số liệu dưới đây giữ kết quả lịch sử Quốc An (1.000/200/200, tối đa 5 epochs), không phải kết quả mới của đợt chuẩn hóa. Các đường dẫn src/, configs/, checkpoints/, reports/, notebooks/ và lệnh bên dưới tính từ Lab 3/. Xem [hướng dẫn phân biệt](README.md).
+
 
 > **Trạng thái**: Đã có số liệu chính thức từ lần chạy trên Colab, GPU Tesla T4, ngày 2026-11-06. Toàn bộ số liệu lấy từ `reports/metrics.json`. Cả 7 KPI đều đạt.
 
@@ -37,7 +40,7 @@ Số dòng phụ thuộc vào epoch dừng thực tế, tối đa 5 dòng. Ngu�
 - **Nhận xét**: Từ epoch 3, train loss tiếp tục giảm trong khi validation loss cao hơn mức thấp nhất ở epoch 2, cho thấy model bắt đầu overfit. Mốc `best` chọn theo accuracy nên là epoch 4, còn mốc `best_val_loss` là epoch 2.
 - **Biểu đồ loss**: `reports/figures/loss_curve.png`.
 
-![Biểu đồ loss](../reports/figures/loss_curve.png)
+![Biểu đồ loss](../../reports/figures/loss_curve.png)
 
 ## 2. Đối Chiếu KPI
 
@@ -72,7 +75,7 @@ Test Accuracy đạt mục tiêu, nhưng khoảng tin cậy 95% là 82,3%–91,7
 
 Model đoán sai 26/200 mẫu: 12 mẫu NEGATIVE bị đoán thành POSITIVE và 14 mẫu POSITIVE bị đoán thành NEGATIVE, nên lỗi khá cân bằng giữa 2 lớp.
 
-![Confusion matrix](../reports/figures/confusion_matrix.png)
+![Confusion matrix](../../reports/figures/confusion_matrix.png)
 
 ### Kiểm tra lại checkpoint
 
@@ -114,4 +117,4 @@ Kết quả trong `notebooks/Lab_3_quocan.ipynb`. Lần chạy này khác đặc
 ## Nguồn và phạm vi
 
 - Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
-- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.
+- [Bản chính](../01_lab_3_description.md), [nhật ký đồng bộ](../../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

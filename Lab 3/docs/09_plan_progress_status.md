@@ -8,13 +8,19 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-12T21:38:06+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-## 1. Kết quả ngày 2026-11-06
+## Hiện trạng bàn giao ngày 2026-11-14
 
-Trạng thái kiểm lại ngày 2026-11-12 được ghi tại `06_verification.md` mục 7. Notebook tám cell đã chạy trên checkpoint nhập với đủ 25.000 test. Bộ kiểm thử hiện tại đạt 44 test (kiểm lại sau `25cc678`, cần `PYTHONPATH=src`), smoke pretrained mới và manifest artifact đạt. HoangDang thực hiện sửa đường dẫn nạp model, nối lại tiện ích report/thời gian và bổ sung kiểm tra bảo vệ phiên trong bản Quốc An.
+Bộ 01–12 là tài liệu chính. Notebook hiện ở `Lab 3/Lab_3 (1).ipynb`, gồm 8 ô code; thư mục `docs/docs demo/` giữ hướng dẫn trình bày bản chính và bảy tài liệu Quốc An tham khảo. Cấu hình full 20.000/5.000/25.000, tối đa 3 epochs không thay đổi.
+
+Lần kiểm sau chuẩn hóa ngày 2026-11-14 đạt **46 test**, source audit **41 file/8 ô code**, **212 liên kết nội bộ** không hỏng và **687 file bằng chứng/notebook** giữ nguyên hash; chi tiết tại [06_verification.md mục 8](06_verification.md). Run All ngày 2026-11-12 đánh giá lại checkpoint full có sẵn, accuracy 91,012%, macro F1 0,910118. Snapshot nhập có đủ năm checkpoint; metadata thời gian khôi phục ở outputs/full là nguồn riêng. Bản chính chưa có benchmark T4 hoặc full training mới trong đợt chuẩn hóa này.
+
+## 1. Kết quả lịch sử ngày 2026-11-06
+
+Trạng thái kiểm lại ngày 2026-11-12 được ghi tại `06_verification.md` mục 7. Notebook tám cell đã chạy trên checkpoint nhập với đủ 25.000 test. Bộ kiểm thử tại thời điểm 2026-11-12 đạt 44 test (kiểm lại sau `25cc678`, cần `PYTHONPATH=src`), smoke pretrained mới và manifest artifact đạt. HoangDang thực hiện sửa đường dẫn nạp model, nối lại tiện ích report/thời gian và bổ sung kiểm tra bảo vệ phiên trong bản Quốc An.
 
 | Task | Công việc | Trạng thái | Bằng chứng |
 | --- | --- | --- | --- |
@@ -47,4 +53,4 @@ Theo báo cáo ngày 2026-11-06, phạm vi đặc tả đã hoàn tất trên m�
 
 ## 3. Notebook rút gọn
 
-Notebook hiện có 8 ô code (Exercise 1 + 7 bước Exercise 2) và hai hàm nhỏ. Dùng thư viện trực tiếp, không class tùy biến hoặc cơ chế audit/AST trong luồng chính. Đã thực thi tất cả ô sau khi sắp bảy bước; kiểm tra trước đó về luồng huấn luyện mới dùng 32/16/16 mẫu. Đánh giá lại checkpoint full trên đủ 25.000 mẫu test đạt accuracy 91.012%, macro F1 .910118; không full train lại. Căn cứ: [08_implementation.md](08_implementation.md) §6 và [06_verification.md](06_verification.md) §5.1. Lần đánh số docs chỉ đổi tham chiếu nguồn trong notebook, giữ nguyên code tính toán và output đã có.
+Notebook hiện có 8 ô code (Exercise 1 + 7 bước Exercise 2) và hai hàm nhỏ. Notebook dùng API thư viện trực tiếp; callback thời gian và ghi report nằm trong notebook_helpers.py, không đưa audit/AST vào luồng trình bày. Đã thực thi tất cả ô sau khi sắp bảy bước; kiểm tra trước đó về luồng huấn luyện mới dùng 32/16/16 mẫu. Đánh giá lại checkpoint full trên đủ 25.000 mẫu test đạt accuracy 91.012%, macro F1 .910118; không full train lại. Căn cứ: [08_implementation.md](08_implementation.md) §6 và [06_verification.md](06_verification.md) §5.1. Lần đánh số docs chỉ đổi tham chiếu nguồn trong notebook, giữ nguyên code tính toán và output đã có.

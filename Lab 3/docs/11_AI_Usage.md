@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng), hỗ trợ OpenAI Codex |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Nguồn gốc quy tắc
@@ -57,6 +57,10 @@ Byline công cụ trong các tài liệu khác của lab đã được bỏ; fil
 | Công cụ | Mục đích | AI hỗ trợ | Đóng góp của sinh viên |
 | :--- | :--- | :--- | :--- |
 | Claude Code (Claude Opus 5.5) | Rà soát, thiết kế, viết code và tài liệu | Đối chiếu đặc tả; đề xuất cấu trúc thư mục; viết `src/`, `tests/`, notebook mới; cập nhật `docs/` | Làm notebook ban đầu; cung cấp đề bài; chọn số mẫu; quyết định phạm vi, cấu trúc và các điểm sửa đặc tả; chạy trên Colab. Phần khác: chưa xác nhận |
+
+## Bổ sung ngày 2026-11-14
+
+OpenAI Codex thực hiện chuẩn hóa theo yêu cầu hoàn thiện tài liệu của chủ dự án. Bộ 01–12 được xác nhận là bản chính; giữ vị trí notebook và docs demo đã được sắp xếp, sửa liên kết, cấu hình mô tả, checkpoint, bảng truy vết và ghi nhận kiểm chứng. Phần code chỉ cập nhật đường dẫn nguồn/notebook và kiểm thử tương ứng, không thay thuật toán hoặc tham số. Không sửa output notebook, snapshot hay trọng số lịch sử; không tạo số đo train/eval mới. Người thực hiện cập nhật: OpenAI Codex; chưa ghi nhận chủ dự án duyệt kết quả cuối. Phạm vi và yêu cầu tại 08_implementation.md mục 11.
 
 ## Nguồn và phạm vi
 

@@ -1,27 +1,27 @@
-# Thiết kế triển khai và  chạy — Lab 3
+# Thiết kế triển khai và cách chạy — Lab 3
 
 ## 0. Thông tin tài liệu
 
 | Trường | Nội dung |
 | --- | --- |
-| Name | Thiết kế triển khai và  chạy — Lab 3 |
+| Name | Thiết kế triển khai và cách chạy — Lab 3 |
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Yêu cầu và quyết định đã chốt
 
 | Mã | Hành vi phải có | Căn cứ |
 | --- | --- | --- |
-| R-01 | Module A: phân tích cảm xúc, trả token/nhãn/xác suất; từ chối chuỗi rỗng | `01_lab_3_description.md` §1; notebook cũ Exercise 1 |
-| R-02 | Module B: IMDB, seed 42, chia train/validation riêng; test không chọn model | `02_data.md` §1–2 |
-| R-03 | DistilBERT hai nhãn NEGATIVE/POSITIVE; pad động, dài tối đa 256 | `03_model.md` §1; `02_data.md` §2 |
+| R-01 | Module A: phân tích cảm xúc, trả token/nhãn/xác suất; từ chối chuỗi rỗng | `01_lab_3_description.md` §2; `03_model.md` §3.5 |
+| R-02 | Module B: IMDB, seed 42, chia train/validation riêng; test không chọn model | `02_data.md` §1, §3 |
+| R-03 | DistilBERT hai nhãn NEGATIVE/POSITIVE; pad động, dài tối đa 256 | `03_model.md` §3.2–3.3; `02_data.md` §2 |
 | R-04 | AdamW, LR 2e-5, batch 16, 3 epochs, decay .01, clip 1.0; FP16 khi CUDA | `04_training.md` §1 và quyết định triển khai |
 | R-05 | Smoke riêng 2 bước optimizer, loss/gradient hữu hạn; không dùng kết quả smoke làm full | `04_training.md` §2 |
-| R-06 | Lưu final_epoch, best_val_loss, best_val_acc, best_val_pause, best; early stop patience 2, ngưỡng .01 điểm accuracy tuyệt đối | `01_lab_3_description.md` §4; `04_training.md` §3 |
+| R-06 | Lưu final_epoch, best_val_loss, best_val_acc, best_val_pause, best; early stop patience 2, ngưỡng accuracy tuyệt đối 0.01 (1 điểm phần trăm) | `01_lab_3_description.md` §4; `04_training.md` §3 |
 | R-07 | Test accuracy, macro/binary F1, precision, recall, confusion matrix; thời gian, GPU/RAM, loss curve | `05_evaluation.md`; `01_lab_3_description.md` §3 |
 | R-08 | Nạp lại best từ đĩa để demo và benchmark; không dựa model còn nằm trong RAM | `07_demo.md` |
 | R-09 | Mọi file có nguồn MD, bằng chứng không bịa, lưu cấu hình/hash/revision | `11_AI_Usage.md` §2 |
@@ -47,7 +47,7 @@ Callback đánh giá theo epoch; nếu accuracy tốt hơn trước bất kỳ m
 - `Lab_3 (1).ipynb`: giữ các bước dữ liệu, model, Trainer, đánh giá và demo; dùng tiện ích nhẹ từ `notebook_helpers.py` thay cho phần ghi thời gian/lưu model dài trong ô code.
 - `notebook_helpers.py`: ghi thời gian, train/lưu model và vẽ loss từ log; không đổi dữ liệu, kiến trúc, tham số hoặc metric.
 - `requirements.txt`: phiên bản môi trường chạy; `requirements-lock.txt` ghi freeze môi trường đã kiểm chứng.
-- `outputs/`: run artifacts, không đưa trọng số nhiều GB vào Git; nguồn/hash qua `artifacts.md` và `provenance.json`.
+- `outputs/`: run artifacts; chỉ trọng số của phiên đã chọn và có nguồn mới được đưa vào Git qua LFS. Optimizer/cache không đưa vào Git; nguồn/hash qua `artifacts.md`, `provenance.json` hoặc `SOURCES.md` tùy luồng.
 
 ## 5. Đo lường và báo cáo
 
@@ -72,7 +72,7 @@ Exercise 1 có một ô code riêng, tự import thư viện để chạy độc
 Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn vẫn được ghi bằng comment `Sources:` ở từng ô và metadata; đầu ra thực nghiệm được giữ nguyên.
 
 - Giữ nguyên train/validation/test độc lập, seed 42, max_length 256, batch 16, LR 2e-5 và tối đa 3 epochs.
-- `TRAIN` là công tắc huấn luyện. Nếu đã có checkpoint full, mặc định nạp lại để đánh giá; nếu chưa có checkpoint thì chạy huấn luyện mới. Không gọi việc nạp model là đã train lại.
+- `TRAIN` là công tắc huấn luyện. Nếu đã có checkpoint full, mặc định nạp lại để đánh giá; nếu thiếu checkpoint có trọng số thì báo lỗi và hướng dẫn tải Git LFS. Chỉ huấn luyện mới khi đặt `TRAIN=True`. Không gọi việc nạp model là đã train lại.
 - Notebook chỉ quản lý model tốt nhất bằng `load_best_model_at_end=True`, lưu tại `outputs/simple-training/<run>/best`. Chính sách 5 checkpoint và benchmark chi tiết ở §1–5 tiếp tục thuộc pipeline CLI đã kiểm chứng, không bắt buộc lặp lại trong notebook rút gọn.
 - Dùng `save_strategy=eval_strategy="epoch"`, `save_total_limit=2`, metric accuracy; early stopping patience 2, threshold .01. Trainer dùng AdamW và clipping 1.0.
 - Vẽ loss trực tiếp trong notebook. Khi nạp model full đã có, loss history lấy từ run full và ghi rõ nguồn; test metrics được tính lại. Không gán output cũ cho một lượt huấn luyện mới.
@@ -80,9 +80,9 @@ Notebook chỉ giữ các ô code, không có ô Markdown giải thích. Nguồn
 
 ## 7. Thứ tự tài liệu và hướng dẫn trình bày
 
-Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển thị theo thứ tự đọc: 01 tổng quan, 02 dữ liệu, 03 mô hình, 04 huấn luyện, 05 đánh giá, 06 kết quả kiểm chứng, 07 demo, 08 triển khai, 09 tiến độ, 10 nguồn tham khảo, 11 khai báo AI, 12 truy vết. File `huong_dan_trinh_bay.md` không đánh số. Đây là thứ tự học và trình bày, không phải mức ưu tiên thay thế quy tắc dự án.
+Tài liệu trong `Lab 3/docs` dùng tiền tố số để Explorer hiển thị theo thứ tự đọc: 01 tổng quan, 02 dữ liệu, 03 mô hình, 04 huấn luyện, 05 đánh giá, 06 kết quả kiểm chứng, 07 demo, 08 triển khai, 09 tiến độ, 10 nguồn tham khảo, 11 khai báo AI, 12 truy vết. Hướng dẫn trình bày nằm tại `docs/docs demo/huong_dan_trinh_bay.md`, vẫn giải thích bản chính. Bảy file không đánh số khác trong cùng thư mục là tài liệu Quốc An, không thay bộ 01–12. Đây là thứ tự học và trình bày, không phải mức ưu tiên thay thế quy tắc dự án.
 
-Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
+Cập nhật đường dẫn trong tài liệu, header nguồn, code hiện hành và metadata notebook khi đổi tên. Giữ nguyên output và snapshot của các run cũ; tên tài liệu trong chúng phản ánh thời điểm chạy, có thể đối chiếu qua bảng tên cũ/tên mới ở `docs demo/huong_dan_trinh_bay.md`. Chỉ thay tham chiếu tài liệu, không thay tham số hoặc thuật toán huấn luyện.
 
 ## 8. Hồ sơ model
 
@@ -123,6 +123,14 @@ Bản `src/exercise_2` kế thừa từ Quốc An được bổ sung kiểm tra 
 Demo của bản này kiểm tra báo cáo đã có mục demo trước khi nạp model. Để lưu một lượt demo mới, dùng đường dẫn reports mới trong config. Các checkpoint đã train có thể tiếp tục được nạp để đọc.
 
 Môi trường Windows được kiểm tra với pandas 2.3.3 và pyarrow 21.0.0 từ PyPI khi bản DLL cài trước bị Windows từ chối nạp. Ghi phiên bản sau kiểm chứng trong requirements và lock, cùng các dependency cần cho bản Exercise 2 nhập từ Quốc An.
+
+## 11. Chuẩn hóa tài liệu và vị trí file ngày 2026-11-14
+
+Bộ `docs/01_`–`docs/12_` là đặc tả chính, theo xác nhận của chủ dự án: 20.000 train / 5.000 validation / 25.000 test, batch 16, max length 256, tối đa 3 epochs. Giữ vị trí file đã được sắp xếp: notebook chính tại `Lab 3/Lab_3 (1).ipynb`; tài liệu Quốc An và hướng dẫn trình bày tại `docs/docs demo/`. Hướng dẫn trình bày giải thích bản chính; bảy file Quốc An là tài liệu tham khảo của pipeline riêng.
+
+Phạm vi hoàn thiện gồm README, toàn bộ tài liệu đang dùng, header nguồn và tham chiếu notebook của audit/report/test. Chỉ sửa đường dẫn tích hợp trong code; không thay thuật toán, tham số, trọng số, output notebook hoặc artifact của run cũ. Notebook và log lịch sử giữ đường dẫn/ngày thực thi cũ như bằng chứng nguồn.
+
+Các điểm cần thống nhất: cấu hình hiện hành ở đầu tài liệu; checkpoint nạp được trong snapshot nhập; `TRAIN=False` báo thiếu model thay vì tự train; vị trí file kết quả theo từng thao tác; trạng thái kiểm chứng theo ngày; bảng truy vết và vai trò hai notebook Quốc An. Tác giả nguồn được giữ nguyên, người cập nhật và thời gian chuẩn hóa ghi riêng. Kiểm tra bằng liên kết nội bộ, schema/cú pháp notebook, audit nguồn, kiểm thử phù hợp và hash trước/sau của artifact. Không ghi đây là full training, Run All hoặc benchmark T4 mới.
 
 ## Nguồn và phạm vi
 

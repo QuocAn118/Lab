@@ -1,5 +1,5 @@
-# Sources: docs/evaluation.md; docs/lab_3_description.md; docs/08_implementation.md §10
-"""Exercise 2, bước 7: đánh giá mốc `best` trên tập test và đo hiệu năng. Đặc tả: docs/evaluation.md."""
+# Sources: docs/docs demo/evaluation.md; docs/docs demo/lab_3_description.md; docs/08_implementation.md §10
+"""Exercise 2, bước 7: đánh giá mốc `best` trên tập test và đo hiệu năng. Đặc tả: docs/docs demo/evaluation.md."""
 import functools
 import statistics
 import tempfile

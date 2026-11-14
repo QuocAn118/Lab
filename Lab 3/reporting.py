@@ -126,7 +126,7 @@ class RunReport:
         files = [ROOT / source for source in SOURCES]
         files += [ROOT / "docs/01_lab_3_description.md", ROOT / "docs/02_data.md",
                   ROOT / "docs/03_model.md", ROOT / "lab3.py", ROOT / "reporting.py",
-                  ROOT / "notebook_helpers.py", ROOT.parent / "Lab_3 (1).ipynb"]
+                  ROOT / "notebook_helpers.py", ROOT / "Lab_3 (1).ipynb"]
         for source in files:
             if source.is_file():
                 relative = source.relative_to(ROOT) if source.is_relative_to(ROOT) else Path(source.name)

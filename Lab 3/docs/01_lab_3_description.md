@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Bài toán
@@ -52,6 +52,12 @@ Mỗi run có `training_time.json`. Mỗi checkpoint cũng có file này để t
 Chương trình `lab3.py` có cách lưu chi tiết hơn gồm `final_epoch`, `best_val_loss`, `best_val_acc`, `best_val_pause` và `best`. Phần mở rộng này được tách khỏi code notebook để bài dễ theo dõi.
 
 Với kết quả cũ thiếu log thời gian, chỉ sử dụng số đã ghi trong báo cáo; mốc bắt đầu hoặc kết thúc chưa lưu thì để trống. Không lấy ngày sửa file làm thời điểm huấn luyện.
+
+## 5. Vị trí bản chính và tài liệu tham khảo
+
+Bộ tài liệu `docs/01_`–`docs/12_` và notebook [Lab_3 (1).ipynb](../Lab_3%20%281%29.ipynb) trong Lab 3 là bản chính. Hướng dẫn trình bày nằm tại [docs demo/huong_dan_trinh_bay.md](docs%20demo/huong_dan_trinh_bay.md). Pipeline CLI là phần hỗ trợ của bản chính; các chế độ quick/smoke không thay full split.
+
+Bộ Quốc An tại [docs demo/README.md](docs%20demo/README.md) mô tả pipeline riêng 1.000/200/200, tối đa 5 epochs. Các score và môi trường của bản đó phải giữ nhãn riêng, không dùng làm kết quả của bản chính. Khi TRAIN=False thiếu trọng số, notebook báo lỗi thay vì tự train; cách tải model xem README.
 
 ## Nguồn và phạm vi
 

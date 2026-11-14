@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Thông tin model
@@ -71,7 +71,7 @@ Văn bản → Tokenizer → input_ids + attention_mask
 | Số lớp đầu ra | 2 |
 | Tổng tham số | 66.955.010, đếm từ `model.safetensors` hiện có |
 
-Kiến trúc đối chiếu [config.json của best](../outputs/full/checkpoints/best/config.json) và [tài liệu DistilBERT](https://huggingface.co/docs/transformers/v4.57.1/en/model_doc/distilbert). Khi train, loss cross entropy nhận logits; không áp softmax trước loss.
+Kiến trúc đối chiếu [config.json của checkpoint đang dùng](../outputs/imported-thanhbinh-40acced/full/checkpoints/best/config.json) và [tài liệu DistilBERT](https://huggingface.co/docs/transformers/v4.57.1/en/model_doc/distilbert). Khi train, loss cross entropy nhận logits; không áp softmax trước loss.
 
 ### 3.3. Input / output model
 
@@ -89,7 +89,7 @@ Kiến trúc đối chiếu [config.json của best](../outputs/full/checkpoints
 
 ### 3.4. Source file — file mã nguồn
 
-- [Lab_3 (1).ipynb](../../Lab_3%20%281%29.ipynb): nguồn thực hành chính; Exercise 2 Step 3 nạp model/tokenizer, Step 4 tokenize, Step 5–6 cấu hình và train, Step 7 đánh giá/demo.
+- [Lab_3 (1).ipynb](../Lab_3%20%281%29.ipynb): nguồn thực hành chính; Exercise 2 Step 3 nạp model/tokenizer, Step 4 tokenize, Step 5–6 cấu hình và train, Step 7 đánh giá/demo.
 - [notebook_helpers.py](../notebook_helpers.py): phần hỗ trợ ghi thời gian, train/lưu model và vẽ loss; không đổi kiến trúc hoặc tham số huấn luyện.
 - [lab3.py](../lab3.py): pipeline CLI bổ sung; `train_run` tạo model/Trainer, `load_demo` nạp model đã lưu.
 - [04_training.md](04_training.md): cấu hình train và cách ghi thời gian.
@@ -137,24 +137,30 @@ Nguồn kết quả: [06_verification.md](06_verification.md) và [nguồn thờ
 
 ### 4.3. Saving path — đường dẫn lưu
 
-Các đường dẫn dưới đây tính từ thư mục repo `Lab/`.
+Các đường dẫn dưới đây tính từ thư mục repo `Lab/`. Phân biệt checkpoint nạp được với metadata còn lại ở đường dẫn cũ.
 
 | Mục | Đường dẫn | Tình trạng |
 | --- | --- | --- |
-| Model full đang dùng | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/` | Đã nạp và đánh giá lại trên 25.000 test ngày 2026-11-12 |
-| Trọng số | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/model.safetensors` | Git LFS, hash khớp biên bản nhập |
-| Cấu hình | `Lab 3/outputs/full/checkpoints/best/config.json` | Có |
-| Tokenizer | `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json`, `vocab.txt` trong thư mục best | Có |
-| Thời gian model/run cũ | `Lab 3/outputs/full/checkpoints/best/training_time.json` | Khôi phục từ báo cáo, không có timestamp gốc |
-| Best theo accuracy | `Lab 3/outputs/full/checkpoints/best_val_acc/` | Có trọng số |
-| Best theo loss | `Lab 3/outputs/full/checkpoints/best_val_loss/` | Có trọng số; epoch 1 |
-| `best_val_pause` | `Lab 3/outputs/full/checkpoints/best_val_pause/` | Chỉ có config; chưa phải checkpoint nạp được |
-| `final_epoch` của run cũ | `Lab 3/outputs/full/checkpoints/final_epoch/` | Không có trong bản sao hiện tại |
-| Notebook train mới | `Lab 3/outputs/simple-training/<run>/best/` | Đường dẫn sẽ được tạo khi `TRAIN=True` |
-| Thời gian train mới | `Lab 3/outputs/simple-training/<run>/training_time.json` | Cùng run; từng checkpoint cũng có file thời gian |
-| Report từng lượt chạy | `Lab 3/report/<run>/` | Log, cấu hình, thời gian, metrics, nguồn/hash; không chứa bản sao trọng số |
+| Model full đang dùng | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best/` | Có model/tokenizer; đã đánh giá lại đủ 25.000 test ngày 2026-11-12 |
+| Trọng số | `model.safetensors` trong thư mục best nêu trên | Git LFS; cần `git lfs pull` sau clone |
+| Cấu hình / tokenizer | `config.json`, `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json`, `vocab.txt` cùng thư mục best | Đi cùng đúng trọng số đang nạp |
+| Bộ năm checkpoint full | `Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/{best,best_val_acc,best_val_loss,best_val_pause,final_epoch}/` | Có trọng số; best theo accuracy ở epoch 3, best theo loss ở epoch 1 |
+| Metadata full tại đường dẫn cũ | `Lab 3/outputs/full/checkpoints/` | best, best_val_acc, best_val_loss thiếu trọng số; best_val_pause chỉ có config; final_epoch không có. Không dùng các thư mục này để nạp model ở bản sao hiện tại |
+| Thời gian full khôi phục | `Lab 3/outputs/full/training_time.json`, `timing_sources.md` | Tổng 334,46 giây; không có timestamp gốc. Snapshot nhập chưa có training_time.json |
+| Notebook train mới | `Lab 3/outputs/simple-training/<run>/best/` | Tạo khi TRAIN=True; timing tại run và checkpoint |
+| Report từng thao tác | `Lab 3/report/<run>/` | Log, metrics, cấu hình, nguồn/hash; trọng số giữ ở outputs |
 
-Để nạp bản full, dùng `AutoModelForSequenceClassification.from_pretrained('Lab 3/outputs/full/checkpoints/best')` cùng tokenizer ở chính thư mục đó.
+Ví dụ nạp checkpoint hiện có, chạy từ repo gốc (dùng tokenizer cùng thư mục):
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+checkpoint = 'Lab 3/outputs/imported-thanhbinh-40acced/full/checkpoints/best'
+tokenizer = AutoTokenizer.from_pretrained(checkpoint, local_files_only=True)
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint, local_files_only=True)
+```
+
+Notebook tự chọn checkpoint bằng available_checkpoint; các đường dẫn tương đối của nó tính từ thư mục Lab 3.
 
 ## Nguồn và phạm vi
 
@@ -164,5 +170,5 @@ Ngày 2026-11-12 đã kiểm lại toàn bộ 176 file của bản nhập, gồm
 - [01_lab_3_description.md](01_lab_3_description.md), [02_data.md](02_data.md), [04_training.md](04_training.md), [05_evaluation.md](05_evaluation.md): mục đích, dữ liệu và phương pháp.
 - [06_verification.md](06_verification.md): kết quả full và giới hạn của dữ liệu lịch sử.
 - [10_sources.md S-04, S-05, S-12](10_sources.md): model card và API chính thức.
-- `outputs/full/checkpoints/best/config.json`, `model.safetensors`, `training_time.json`: cấu hình, số tham số và tệp model được đối chiếu tại lần rà soát 2026-11-07.
+- Snapshot nhập tại `outputs/imported-thanhbinh-40acced/IMPORT.json` ánh xạ cấu hình/trọng số gốc; thời gian khôi phục ở `outputs/full/` được ghi riêng, không gán timestamp cho snapshot nhập.
 - [11_AI_Usage.md](11_AI_Usage.md): phạm vi hỗ trợ AI và quy tắc ghi nguồn.

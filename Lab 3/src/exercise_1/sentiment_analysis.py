@@ -1,4 +1,4 @@
-# Sources: docs/lab_3_description.md; docs/model.md; docs/demo.md
+# Sources: docs/docs demo/lab_3_description.md; docs/docs demo/model.md; docs/docs demo/demo.md
 """Exercise 1: tokenize một câu và phân tích cảm xúc bằng model có sẵn trên Hugging Face Hub."""
 import argparse
 

@@ -1,5 +1,5 @@
-# Sources: docs/data.md; docs/lab_3_description.md
-"""Exercise 2, bước 2 và 4: tải IMDB, chia tập và tiền xử lý. Đặc tả: docs/data.md."""
+# Sources: docs/docs demo/data.md; docs/docs demo/lab_3_description.md
+"""Exercise 2, bước 2 và 4: tải IMDB, chia tập và tiền xử lý. Đặc tả: docs/docs demo/data.md."""
 from collections import Counter
 
 from datasets import load_dataset

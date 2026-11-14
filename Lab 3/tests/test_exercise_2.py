@@ -1,4 +1,4 @@
-# Sources: docs/lab_3_description.md; docs/plan_progress_status.md; docs/08_implementation.md §10
+# Sources: docs/docs demo/lab_3_description.md; docs/docs demo/plan_progress_status.md; docs/08_implementation.md §10
 """Kiểm thử logic Exercise 2, không cần GPU hay tải model."""
 import numpy as np
 import pytest

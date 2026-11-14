@@ -1,5 +1,5 @@
-# Sources: docs/training.md; docs/plan_progress_status.md
-"""Smoke test theo docs/training.md: 2 batch, mỗi batch 16 mẫu, chạy trước khi train thật."""
+# Sources: docs/docs demo/training.md; docs/docs demo/plan_progress_status.md
+"""Smoke test theo docs/docs demo/training.md: 2 batch, mỗi batch 16 mẫu, chạy trước khi train thật."""
 import torch
 from torch.utils.data import DataLoader
 from transformers import DataCollatorWithPadding

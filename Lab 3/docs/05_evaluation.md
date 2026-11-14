@@ -8,8 +8,8 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-11T08:52:28+07:00 |
-| Updated by | HoangDang (Nguyễn Hoàng Đăng) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Đo lường
@@ -36,7 +36,7 @@
 - `checkpoint_policy.json`: nguồn best, có thực sự early stop không.
 - `provenance.json`, `artifacts.md`: nguồn và hash artifact.
 
-Xem [06_verification.md](06_verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output notebook cũ; notebook hoàn thiện bỏ output cũ vì thiếu thông tin tái lập, có phần lệch code.
+Xem [06_verification.md](06_verification.md) cho kết quả thực tế. Không suy ra kết quả mới từ output cũ. Notebook chính giữ output của lần Run All ngày 2026-11-12; sửa tài liệu hoặc di chuyển notebook không tạo ra phép đánh giá mới.
 
 ## 3. Báo cáo theo từng lượt chạy
 
@@ -51,6 +51,17 @@ Các file được nhập từ output cũ có bản kê nguồn/hash. Phần ful
 Confusion matrix có 11.431 / 1.069 ở hàng NEGATIVE và 1.178 / 11.322 ở hàng POSITIVE. Loss curve được vẽ từ lịch sử nằm cạnh checkpoint nhập, có đường dẫn nguồn trong `loss_history.json`. Hai ảnh đã được mở để kiểm tra bố cục. [Metrics](../report/evaluate-20261112-204226-805293/metrics.json), [loss history](../report/evaluate-20261112-204226-805293/loss_history.json), [manifest](../report/evaluate-20261112-204226-805293/manifest.json).
 
 Người thực hiện HoangDang. Đây là đánh giá lại checkpoint có sẵn. Thời gian train lịch sử và KPI tham chiếu T4 được đọc theo đúng nguồn và thiết bị đo tương ứng.
+
+## 5. Vị trí kết quả theo thao tác
+
+| Thao tác | Kết quả cần đọc |
+| --- | --- |
+| CLI train | `outputs/<run>/metrics.json`, `test_predictions.csv`, `checkpoint_policy.json`; report có bản sao và manifest |
+| CLI demo | `report/cli-demo-<run>/demo.json`; không tạo metrics.json của lượt train |
+| Notebook Step 7 | `report/evaluate-<run>/metrics.json`, `predictions.csv`, `confusion_matrix.json`, `demo.json`; loss_history.json ghi nguồn loss cũ |
+| Notebook Exercise 1 / CLI infer | `report/<run>/inference.json` và config.json |
+
+Đường dẫn report được in khi thao tác chạy; xem [danh mục report](../report/README.md). Run ngày 2026-11-12 là nguồn số liệu đánh giá lại mới nhất đã lưu, không phải full training mới. Bản Quốc An có reports/metrics.json riêng và bộ KPI theo docs demo/evaluation.md; không trộn với report/ của bản chính.
 
 ## Nguồn và phạm vi
 

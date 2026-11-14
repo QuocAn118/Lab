@@ -20,6 +20,7 @@ import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import unquote
 from reporting import RunReport, collect_output
 
 import numpy as np
@@ -281,7 +282,7 @@ def validate_texts(texts):
 
 
 def infer_pretrained(texts):
-    """R-01; docs/03_model.md §4: multilingual five-class Module A."""
+    """R-01; docs/03_model.md §3.5: multilingual five-class Module A."""
     validate_texts(texts)
     revision = HfApi().model_info(INFERENCE_MODEL).sha
     tokenizer = AutoTokenizer.from_pretrained(INFERENCE_MODEL, revision=revision)
@@ -584,14 +585,14 @@ def audit_sources():
         elif "Sources:" not in text[:2000]:
             errors.append(f"{relative}: missing Sources header")
         # Validate explicit docs/*.md references in headers/text.
-        for ref in re.findall(r"docs/[A-Za-z0-9_/-]+\.md", text):
+        for ref in re.findall(r"docs/(?:docs demo/)?[A-Za-z0-9_/-]+\.md", text):
             if not (ROOT / ref).is_file():
                 errors.append(f"{relative}: missing source {ref}")
         if file.suffix == ".md":
             for ref in re.findall(r"\]\(([^)]+\.md)(?:#[^)]*)?\)", text):
-                if "://" not in ref and not (file.parent / ref).is_file():
+                if "://" not in ref and not (file.parent / unquote(ref)).is_file():
                     errors.append(f"{relative}: broken Markdown link {ref}")
-    notebook = json.loads((ROOT.parent / "Lab_3 (1).ipynb").read_text(encoding="utf-8"))
+    notebook = json.loads((ROOT / "Lab_3 (1).ipynb").read_text(encoding="utf-8"))
     if not notebook.get("metadata", {}).get("provenance", {}).get("sources_md"):
         errors.append("Notebook: missing provenance metadata")
     for index, cell in enumerate(notebook["cells"]):

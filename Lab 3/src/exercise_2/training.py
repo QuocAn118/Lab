@@ -1,5 +1,5 @@
-# Sources: docs/training.md; docs/lab_3_description.md; docs/08_implementation.md §10
-"""Exercise 2, bước 5 và 6: khai báo tham số, tạo Trainer và fine-tune. Đặc tả: docs/training.md."""
+# Sources: docs/docs demo/training.md; docs/docs demo/lab_3_description.md; docs/08_implementation.md §10
+"""Exercise 2, bước 5 và 6: khai báo tham số, tạo Trainer và fine-tune. Đặc tả: docs/docs demo/training.md."""
 import importlib.metadata
 import shutil
 import tempfile

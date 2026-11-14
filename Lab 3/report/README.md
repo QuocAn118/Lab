@@ -1,5 +1,16 @@
 # Báo cáo Lab 3
 
+## 0. Thông tin tài liệu
+
+| Trường | Nội dung |
+| --- | --- |
+| Name | Báo cáo Lab 3 — danh mục report |
+| Created date | Chưa xác nhận |
+| Created by | Chưa xác nhận tác giả gốc |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
+| Phạm vi | Chỉ mục đọc report; không sửa nội dung các lượt chạy |
+
 Mỗi lượt chạy có một thư mục riêng. Chạy notebook như bình thường; chương trình tự in đường dẫn report. Trọng số model được giữ trong `../outputs/`, không nhân bản vào report.
 
 ## Lượt đã lưu
@@ -44,6 +55,14 @@ Kiểm tra hash từng file, chạy từ thư mục gốc dự án:
 ```powershell
 & 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' audit --report 'Lab 3/report/<ten-luot-chay>'
 ```
+
+## Kết quả ngày 2026-11-12 và lần chuẩn hóa tài liệu
+
+- [Đánh giá lại 25.000 test](evaluate-20261112-204226-805293/summary.md): accuracy 91,012%, macro F1 0,910118; trọng số full nhập đã có.
+- [Exercise 1](infer-20261112-204208-788129/summary.md) và [smoke CLI](cli-smoke-20261112-204427-088939/summary.md): thao tác infer và smoke riêng, không phải full training mới.
+- [Đối chiếu bản nhập](completion-review-20261112/summary.md): nguồn snapshot, manifest và phép kiểm lúc tiếp nhận.
+
+Các hàng ngày 2026-11-07 bên trên là lịch sử, không phải report mới nhất. Notebook chính hiện nằm trong Lab 3; source_snapshot trong từng report giữ nguyên vị trí/nội dung tại thời điểm chạy. Chuẩn hóa tài liệu ngày 2026-11-14 không thay các report này; kết quả kiểm hiện hành ở docs/06_verification.md.
 
 ## Nguồn và phạm vi
 

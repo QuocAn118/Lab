@@ -72,6 +72,8 @@ class ReportTests(unittest.TestCase):
             events = [json.loads(line) for line in report.path("events.jsonl").read_text().splitlines()]
             self.assertEqual([e["event"] for e in events], ["run_started", "sample", "run_finished"])
             self.assertTrue(all(e["recorded_at"] for e in events))
+            notebook = Path(__file__).parent / 'Lab_3 (1).ipynb'
+            self.assertEqual(report.path('source_snapshot/Lab_3 (1).ipynb').read_bytes(), notebook.read_bytes())
             self.assertEqual(verify_report(report.directory)["status"], "PASS")
             report.path("stdout.log").write_text("tampered")
             with self.assertRaisesRegex(ValueError, "hash mismatch"):

@@ -1,5 +1,5 @@
-# Sources: docs/lab_3_description.md, docs/data.md, docs/training.md (bản nhập nhánh QuocAn; xem docs/12_traceability.md).
-# Tham số Exercise 2. Mỗi giá trị phải khớp docs/data.md và docs/training.md.
+# Sources: docs/docs demo/lab_3_description.md, docs/docs demo/data.md, docs/docs demo/training.md (bản nhập nhánh QuocAn; xem docs/12_traceability.md).
+# Tham số Exercise 2. Mỗi giá trị phải khớp docs/docs demo/data.md và docs/docs demo/training.md.
 seed: 42
 model_name: distilbert-base-uncased
 
@@ -25,7 +25,7 @@ paths:
   checkpoints_dir: checkpoints
   reports_dir: reports
 
-# Mục tiêu nghiệm thu trong docs/evaluation.md.
+# Mục tiêu nghiệm thu trong docs/docs demo/evaluation.md.
 kpi:
   accuracy: 0.85
   macro_f1: 0.85

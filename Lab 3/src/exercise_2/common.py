@@ -1,4 +1,4 @@
-# Sources: docs/lab_3_description.md; docs/08_implementation.md §10
+# Sources: docs/docs demo/lab_3_description.md; docs/08_implementation.md §10
 """Tiện ích dùng chung của Exercise 2: đọc cấu hình, ghi báo cáo, đo RAM."""
 import argparse
 import json

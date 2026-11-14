@@ -1,4 +1,4 @@
-# Sources: docs/lab_3_description.md; docs/plan_progress_status.md
+# Sources: docs/docs demo/lab_3_description.md; docs/docs demo/plan_progress_status.md
 torch
 transformers>=4.46,<6
 datasets

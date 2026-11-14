@@ -1,5 +1,5 @@
-# Sources: docs/model.md; docs/lab_3_description.md
-"""Exercise 2, bước 3: tải model và tokenizer đã huấn luyện sẵn. Đặc tả: docs/model.md."""
+# Sources: docs/docs demo/model.md; docs/docs demo/lab_3_description.md
+"""Exercise 2, bước 3: tải model và tokenizer đã huấn luyện sẵn. Đặc tả: docs/docs demo/model.md."""
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from exercise_2.common import config_from_args, update_report

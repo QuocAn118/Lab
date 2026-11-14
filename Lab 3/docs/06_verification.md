@@ -8,9 +8,13 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-06T21:05:06+07:00 ; HoangDang ; d108ed4 |
-| Last updated | 2026-11-13T08:55:07+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+
+## Phạm vi đọc kết quả hiện tại
+
+Notebook chính hiện ở `Lab 3/Lab_3 (1).ipynb`; bộ 01–12 là đặc tả chính. Các mục 1–7 và mục kiểm lại 2026-11-13 giữ kết quả theo ngày đã ghi, không phải số đo mới khi cập nhật tài liệu. Những ghi chú thiếu file của run cũ áp dụng cho đường dẫn `outputs/full/` và thời điểm đối chiếu tương ứng; snapshot tại `outputs/imported-thanhbinh-40acced/full/` có trọng số, metrics, lịch sử và manifest riêng. Metadata thời gian khôi phục vẫn ở `outputs/full/`, không gán cho snapshot nhập một timestamp chưa có bằng chứng. Xem [03_model.md §4.3](03_model.md) và mục 8 bên dưới.
 
 ## 1. Kết luận ngày 2026-11-06
 
@@ -158,6 +162,37 @@ Từ `Lab 3/`, đặt `PYTHONPATH=src`, `PYTHONUTF8=1`:
 ```
 
 Kết quả: **45 passed**, 4 cảnh báo, **14,94 giây**. Audit **PASS**, 40 file và 8 cell code. Đã đọc nhánh lệnh audit và `audit_sources` trước khi chạy: không ghi report/output khi không truyền tùy chọn. Bốn cảnh báo về mtime checkpoint và backend ảnh không tương tác phát sinh trong test với thư mục tạm. Không chạy lại notebook hoặc thực nghiệm.
+
+## 8. Chuẩn hóa tài liệu và vị trí file ngày 2026-11-14
+
+OpenAI Codex thực hiện yêu cầu hoàn thiện tài liệu, theo [08_implementation.md §11](08_implementation.md). Giữ các vị trí đã sắp xếp: notebook trong Lab 3; tài liệu Quốc An và hướng dẫn trình bày tại docs/docs demo. Cập nhật đường dẫn nguồn của code/config, đường dẫn notebook trong audit/report/test và hỗ trợ liên kết URL-encoded của thư mục có khoảng trắng. Thuật toán, tham số, trọng số và output notebook không thay đổi.
+
+Các lệnh dưới đây chạy từ repo gốc với Python của Lab 3, `PYTHONUTF8=1`, `PYTHONPATH` trỏ tuyệt đối tới Lab 3/src. Lượt pytest còn đặt HF_HUB_OFFLINE=HF_DATASETS_OFFLINE=1, dùng model/dataset đã có trong cache.
+
+```powershell
+$env:PYTHONUTF8='1'
+$env:PYTHONPATH=(Resolve-Path 'Lab 3/src').Path
+$env:HF_HUB_OFFLINE='1'
+$env:HF_DATASETS_OFFLINE='1'
+& 'Lab 3/.venv/Scripts/python.exe' -m pytest 'Lab 3/test.py' 'Lab 3/test_reporting.py' 'Lab 3/tests' -q --basetemp 'Lab 3/.venv/pytest-docs-temp'
+& 'Lab 3/.venv/Scripts/python.exe' 'Lab 3/lab3.py' audit
+& 'Lab 3/.venv/Scripts/python.exe' -m pip check
+git -c core.safecrlf=false diff --check
+```
+
+| Kiểm tra | Kết quả ngày 2026-11-14 |
+| --- | --- |
+| Pytest | **46 passed**, 4 warnings, 9,73 giây. Thêm một test nguồn có khoảng trắng/liên kết URL-encoded; test report xác nhận snapshot chứa đúng notebook sau khi di chuyển |
+| Source audit | **PASS**, 41 file và 8 ô code; tăng một file do thêm docs demo/README.md |
+| Dependency | **PASS**, pip check: No broken requirements found |
+| Liên kết nội bộ | **PASS**, 25 tài liệu đang dùng, 212 liên kết tương đối, 0 hỏng; gồm README gốc, README Lab 3, AGENTS Lab 3, docs đệ quy và chỉ mục report |
+| Notebook | **PASS** nbformat.validate và ast.parse cho 8 ô code; không có output lỗi đã lưu. Đây là kiểm tra schema/cú pháp, không phải Run All mới |
+| Lệnh hướng dẫn | **PASS** parser PowerShell cho 9 khối lệnh trong tài liệu; không thực thi lại các lệnh cài môi trường, full train hoặc lệnh Git làm thay đổi nhánh |
+| Bảo toàn bằng chứng | **PASS**, 687 file đối chiếu SHA-256 trước/sau: toàn bộ outputs/, reports/, checkpoints/, các report đã có và notebook chính. Loại riêng report/README.md vì chỉ mục được cập nhật |
+| Phạm vi code/config | AST thực thi của src/ và tests/ Quốc An, YAML tham số khớp HEAD; chỉ thay tham chiếu nguồn. Code chính chỉ đổi đường dẫn notebook, audit liên kết và test tương ứng |
+| Diff | **PASS**, git diff --check; giữ các di chuyển file đã có trong working tree, không sửa Lab 1/Lab 2/Learning |
+
+Bốn cảnh báo đến từ mtime checkpoint của Transformers và backend ảnh Agg không tương tác trong fixture test. Bộ pytest gồm smoke pretrained hai batch của bản Quốc An và train/eval model nhỏ trong thư mục tạm. Không chạy thêm CLI smoke hoặc full training, không chạy lại Run All toàn bộ notebook, không benchmark T4. Số đo chất lượng full và bảng lịch sử giữ nguyên; không coi hoàn thiện tài liệu là nghiệm thu pipeline trên phần cứng mới.
 
 ## Nguồn và phạm vi
 

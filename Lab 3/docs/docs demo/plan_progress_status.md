@@ -8,11 +8,14 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T08:56:14+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
+| Last updated | 2026-11-14T09:34:25+07:00 |
+| Updated by | OpenAI Codex (chuẩn hóa theo yêu cầu chủ dự án) |
 | Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
 
-> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, `notebooks/Lab_3_quocan.ipynb`). Tài liệu chính của bài là bộ `01_`–`12_`.
+> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, notebook chạy pipeline `notebooks/Lab_3_colab.ipynb`; `notebooks/Lab_3_quocan.ipynb` là notebook cũ tham khảo). Tài liệu chính của bài là bộ `01_`–`12_`.
+
+> Vị trí hiện hành: docs/docs demo/. Bộ chính 01–12 ở thư mục cha, theo full split 20.000/5.000/25.000 và tối đa 3 epochs. Các bảng số liệu dưới đây giữ kết quả lịch sử Quốc An (1.000/200/200, tối đa 5 epochs), không phải kết quả mới của đợt chuẩn hóa. Các đường dẫn src/, configs/, checkpoints/, reports/, notebooks/ và lệnh bên dưới tính từ Lab 3/. Xem [hướng dẫn phân biệt](README.md).
+
 
 ## 1. Bảng Công Việc
 
@@ -47,4 +50,4 @@
 ## Nguồn và phạm vi
 
 - Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
-- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.
+- [Bản chính](../01_lab_3_description.md), [nhật ký đồng bộ](../../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.
