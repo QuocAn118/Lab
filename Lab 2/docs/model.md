@@ -13,7 +13,7 @@
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-> Code gốc của Xuân Bảo (`hbao2123-debug`) đã được tích hợp vào `src/lab_2/model.py`. `Lab 2/model.py` hiện là entry point tương thích cho lệnh/test cũ. Hai báo cáo triển khai model giữ nguồn và kết quả lịch sử; báo cáo package dùng hợp đồng `total`/`trainable`.
+> Code gốc của Xuân Bảo (`hbao2123-debug`) đã được tích hợp vào `src/lab_2/model.py`; báo cáo tham số dùng hợp đồng `total`/`trainable`.
 
 Ghi nhận nguồn ngày 2026-11-12: Nguyễn Quốc An thực hiện phần đặc tả giao diện và bộ test nền; phần triển khai model của Xuân Bảo được ghi riêng như trên. HoangDang đối chiếu lịch sử và bổ sung thông tin này; không thay tên tác giả code model hoặc các báo cáo triển khai của Bảo.
 
@@ -21,7 +21,7 @@ Mã nguồn: `src/lab_2/model.py`. Tham số: mục `model` trong `configs/lab_2
 
 > **Phụ trách**: TV2. Đặc tả từng hàm đã triển khai nằm ở mục 7.
 
-> Chuẩn bị bàn giao: đã có module package và kiểm tra offline. Chưa chạy CIFAR-10/smoke thật/4 run; xem [verification.md](verification.md) và [training_handoff.md](training_handoff.md). Mọi đường dẫn output mặc định có thể được đổi bằng config phiên.
+> Đã có module và kiểm tra offline. Phần in kiến trúc trên Colab (AC-01) nằm ở ô `lab_2.model` của `notebooks/lab_2_colab.ipynb`; thứ tự chạy xem [training.md](training.md) mục 9.
 
 ## 1. Model Sử Dụng
 
@@ -56,7 +56,7 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 ## 4. Đóng Băng & Fine-Tuning
 
 - **Mặc định (transfer learning)**: Đóng băng toàn bộ tầng trích xuất đặc trưng bằng `requires_grad = False`, chỉ huấn luyện lớp phân loại. Cả 4 lần chạy đều dùng cách này.
-- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training_specification.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
+- **Fine-tuning**: `build_model(..., unfreeze=["layer4"])` mở khóa khối `layer4` của ResNet18. Để giảm thời gian dùng GPU, phần này chỉ được kiểm tra bằng smoke test trong `training.md` mục 4, không có lần chạy đầy đủ nên không có số accuracy.
 - **BatchNorm**: Khi huấn luyện, chỉ phần được mở khóa ở chế độ `train`. BatchNorm của tầng đóng băng giữ chế độ `eval` để thống kê từ ImageNet không bị thay đổi.
 
 ## 5. Tham Số
@@ -68,6 +68,10 @@ Tầng cuối 1.000 lớp của ImageNet được thay bằng khối sau:
 | ResNet18, đóng băng | 11.181.642 | 5.130 | 44,8 MB |
 | DenseNet121, đóng băng | 6.964.106 | 10.250 | 28,5 MB |
 | ResNet18, mở khóa `layer4` | 11.181.642 | 8.398.858 | 44,8 MB |
+
+- Khi đóng băng, ResNet18 và DenseNet121 chỉ huấn luyện lớp phân loại: $512 \times 10 + 10 = 5.130$ và $1024 \times 10 + 10 = 10.250$ tham số.
+- DenseNet121 có tổng tham số ít hơn ResNet18 nhưng lớp phân loại lớn gấp đôi, vì đặc trưng đầu ra có 1.024 chiều.
+- Mở khóa `layer4` làm số tham số huấn luyện được tăng từ 5.130 lên 8.398.858; tổng số tham số không đổi.
 
 ## 6. Kỹ Thuật Có Trong Model
 

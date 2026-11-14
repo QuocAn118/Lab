@@ -1,7 +1,0 @@
-densenet121 epoch 1: train=0.7050 val=0.4438 acc=0.8532
-densenet121 epoch 2: train=0.4419 val=0.3764 acc=0.8696
-densenet121 epoch 3: train=0.4055 val=0.3641 acc=0.8748
-densenet121 epoch 4: train=0.3887 val=0.3551 acc=0.8780
-densenet121 epoch 5: train=0.3859 val=0.3455 acc=0.8824
-densenet121 epoch 6: train=0.3805 val=0.3459 acc=0.8792
-Best epoch 5, val acc 0.8824, 57.72 giây/epoch

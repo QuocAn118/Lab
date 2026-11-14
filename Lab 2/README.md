@@ -8,29 +8,21 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-13T14:14:27+07:00 |
-| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
+| Last updated | 2026-11-14 |
+| Updated by | Nguyễn Quốc An (Quoc An), AI hỗ trợ: dọn repo, notebook chạy bằng VS Code |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-**Trạng thái: đã kiểm chứng bản bàn giao TV3, phiên Windows và phiên Colab Tesla T4 ngày 2026-11-13. Notebook Run all đạt; cả 7 KPI của phiên T4 đạt.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh.
+**Trạng thái 2026-11-14: code và test offline đã xong; chờ chạy lại notebook trên Colab T4.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh. Kết quả các lần chạy trước (RTX 4060, RTX 5060, Colab T4 ngày 13/11) đã gỡ khỏi repo và vẫn có trong lịch sử Git.
 
-Đủ 6 module package và notebook Colab. Sau ghép TV3: **93 test offline PASS** (kiểm lại sau `25cc678`), gồm 79 test package và 14 test tương thích; **3 smoke pretrained thật PASS trên RTX 5060 Laptop**. Bộ test offline dùng dữ liệu giả, được phân biệt với smoke thật và training. Xem [kiểm chứng](docs/verification.md).
+## Chạy trên Colab bằng VS Code
 
-## Nghiệm thu Colab T4 — 2026-11-13
+1. Push code lên nhánh `QuocAn` trên GitHub (máy Colab chỉ thấy code đã push).
+2. Mở [notebooks/lab_2_colab.ipynb](notebooks/lab_2_colab.ipynb) trong VS Code, chọn kernel Google Colab có GPU T4.
+3. Chạy lần lượt từ trên xuống. Ô đầu tự `git clone` nhánh trong biến `BRANCH`; lệnh lỗi thì notebook dừng.
+4. Ô cuối kiểm tra đủ kết quả rồi chép `checkpoints/` và `reports/` sang `MyDrive/Lab2_ket_qua/<ngày-giờ>/`.
+5. Tải thư mục đó về, chép vào `Lab 2/`, lưu notebook có output (Ctrl+S), rồi commit.
 
-Phiên `colab-t4-20261113-browser-01`, source `735e5568f96819a9e52d25298ba5c34e213fa10b`, đã chạy đủ 17 ô pipeline theo thứ tự; ô xuất bổ sung đã kiểm chứng và tải dữ liệu về máy. Setup của bản Colab clone source cố định từ GitHub; các ô pipeline còn lại trùng source notebook trong repo. Người khởi chạy khai trong metrics là `OpenAI Codex, authorized by HoangDang`.
-
-DenseNet121 được chọn bằng validation **88,24%**, epoch 5; test **87,70%**, macro F1 **0,87573** trên **5.000 ảnh**. Trên Tesla T4, thời gian train trung bình của model chọn là **74,59 giây/epoch**, latency trung bình **20,38 ms/ảnh**; cả 7 KPI đạt trong phiên này. Bộ offline trên Colab kiểm lại **93 passed**, 23,76 giây; ba smoke trong notebook kết thúc thành công.
-
-Đã nhận đủ 13 checkpoint, đối chiếu hash 38 file, 10 source snapshot với commit nguồn và event của bốn run. Model best nạp trên CPU cho output hữu hạn `[1,10]`. Notebook có 18 ô code, gồm ô xuất; không có output lỗi. Ảnh TensorBoard được chụp từ giao diện cục bộ đọc bốn event gốc T4, smoothing 0 và hiển thị toàn bộ điểm.
-
-[Metrics T4](reports/sessions/colab-t4-20261113-browser-01/reports/metrics.json), [phiên và nguồn](reports/sessions/colab-t4-20261113-browser-01/SESSION.json), [biên bản tiếp nhận](reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json), [notebook có output](reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), [ảnh TensorBoard](reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png). Nguồn và hash của phần tiếp nhận tại [SOURCES.md](reports/sessions/colab-t4-review-20261113-browser-01/SOURCES.md). Các kết quả Windows và nguồn TV3 bên dưới thuộc những phiên riêng.
-
-## Bàn giao cho bạn train
-
-Đọc [kế hoạch train và bàn giao](docs/training_handoff.md), mở [Lab_2_colab.ipynb](notebooks/Lab_2_colab.ipynb). Chọn T4 GPU, điền đường dẫn project, họ tên người chạy và mã phiên trong cell đầu. Notebook chạy lần lượt kiểm tra offline → tải dữ liệu/model → smoke thật → 4 run → đánh giá → demo → TensorBoard. Lệnh lỗi sẽ dừng cell bằng `check=True`.
-
-Code và kết quả chạy lại đã được tích hợp vào `main` tại `c6f4d54` qua PR #4. Dùng toàn bộ bản hiện hành của Lab 2 để giữ đồng bộ config, module và test.
+Thứ tự bước, điều kiện qua bước và danh sách kết quả cần có: [training.md](docs/training.md) mục 9.
 
 ## Code, input và output
 
@@ -46,13 +38,16 @@ Code và kết quả chạy lại đã được tích hợp vào `main` tại `c
 
 Input model: tensor float32 `[B,3,224,224]`, chuẩn hóa theo ImageNet; nhãn int64 0–9. Output: logits `[B,10]`; demo đổi thành xác suất bằng softmax.
 
-Notebook tạo config phiên trong `configs/sessions/<SESSION_ID>.yaml`; output thực tế nằm dưới `reports/sessions/<SESSION_ID>/`: `checkpoints/`, `reports/metrics.json`, `reports/runs/`, `reports/figures/`. Phiên mới không ghi đè báo cáo lịch sử `reports/metrics.json`. Các đường dẫn `checkpoints/`, `reports/` trong đặc tả là mặc định của config gốc; config phiên chỉ đổi nơi lưu, giữ nguyên tham số thí nghiệm.
+Kết quả sau khi chạy (tạo khi chạy notebook, không có sẵn trong repo):
 
-Phần dữ liệu của Vân Anh đã kiểm chứng với CIFAR-10 thật trên Windows ngày 2026-11-12: xem [bằng chứng dữ liệu](reports/data_validation_2026-11-12.json). Dataset trong `data/` bị Git bỏ qua; máy mới cần tải lại.
+| Vị trí | Nội dung |
+| --- | --- |
+| `checkpoints/<run>/` | `final_epoch.pth`, `best_val_loss.pth`, `best_val_acc.pth` của từng run; `checkpoints/best.pth` là model được chọn |
+| `reports/metrics.json` | Mục `data`, `model`, `training`, `evaluation`, `demo` |
+| `reports/runs/<run>/` | Log TensorBoard |
+| `reports/figures/` | Biểu đồ validation, loss, confusion matrix, demo và ảnh TensorBoard |
 
-Đã nhận **một phiên lịch sử của Thanh Bình, gồm bốn cấu hình**, tại commit `92930e6`: [biên bản nhập](reports/imported-thanhbinh-92930e6/IMPORT.json), [metrics gốc](reports/imported-thanhbinh-92930e6/metrics.json), [báo cáo gốc](reports/imported-thanhbinh-92930e6/training_report.md). Đủ 12 checkpoint LFS trong `checkpoints/<run>/`, log TensorBoard trong `reports/runs/`, source/manifest gốc trong `reports/tv3/`. Đã kiểm hash 12 checkpoint, 21 source snapshot, ba manifest và nạp bốn model. Kết quả gốc dùng RTX 4060, không phải lần chạy mới trên máy này. [metrics.json ở gốc reports](reports/metrics.json) vẫn là báo cáo tham số lịch sử của Bảo, giữ nguyên.
-
-Phiên chạy lại mới đã hoàn tất: `rerun-thanhbinh-20261112-175308`, dùng [config riêng](configs/sessions/rerun-thanhbinh-20261112-175308.yaml); trạng thái và kết quả tại [SESSION.json](reports/sessions/rerun-thanhbinh-20261112-175308/SESSION.json). Không chấm KPI tốc độ T4 từ số đo RTX; số đo thực tế vẫn được lưu.
+Dataset tải về `data/`, thư mục này bị Git bỏ qua.
 
 ## Kiểm tra offline trên máy cá nhân
 
@@ -63,24 +58,16 @@ python -m venv .venv
 & .venv/Scripts/python.exe -m pip install -r requirements.txt
 $env:PYTHONPATH = 'src'
 $env:PYTHONUTF8 = '1'
-& .venv/Scripts/python.exe -m pytest tests test.py --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
+& .venv/Scripts/python.exe -m pytest tests --ignore=tests/test_smoke.py -q --basetemp .venv/pytest-temp
 ```
 
-Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Colab dùng `export PYTHONPATH=src` và `python` của môi trường tương ứng. Bộ smoke thật nằm riêng trong `tests/test_smoke.py`, dành cho người train thực hiện trước 4 run.
+Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Colab dùng `export PYTHONPATH=src`. Bộ smoke thật nằm riêng trong `tests/test_smoke.py`, chạy trong notebook trước 4 run.
 
-## Tài liệu và nguồn
+## Tài liệu
 
 - [Đặc tả tổng quan](docs/lab_2_description.md), [dữ liệu](docs/data.md), [model](docs/model.md), [huấn luyện](docs/training.md).
-- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): số đo thật theo từng phiên Windows/T4; bảng nghiệm thu trong đặc tả đã cập nhật đủ 11 AC, có [bằng chứng in kiến trúc bổ sung trên Colab CPU](reports/sessions/model-architecture-colab-20261113/README.md).
-- [Tiến độ, phân công](docs/plan_progress_status.md); [khai báo công cụ](docs/AI_Usage.md).
-- [Triển khai model gốc](docs/model_implementation.md), [bản tiếng Việt](docs/model_vi.md): nguồn Xuân Bảo; đã chuyển code sang package, giữ `model.py` làm lệnh tương thích cho `test.py` cũ.
+- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): điền số thật sau khi chạy lại.
+- [Tiến độ, phân công](docs/plan_progress_status.md); [khai báo công cụ](docs/ai_usage.md).
+- Notebook cũ (chỉ tham khảo, khác đặc tả hiện tại): [notebooks/lab_2_old.ipynb](notebooks/lab_2_old.ipynb).
 
-Không ghi đè run đã có log/checkpoint/kết quả. Nếu phiên dở dang cần chạy lại, dùng mã phiên mới; giữ phiên cũ làm bằng chứng. Không bảo đảm đạt KPI trước khi đo; GPU khác T4 phải ghi rõ, không trình bày như số đo trên T4.
-
-## Kết quả chạy lại trên máy hiện tại
-
-DenseNet121 được chọn bằng validation 88,24%, epoch 5; test 87,68%, macro F1 0,8755 trên 5.000 ảnh. Bốn cấu hình có validation 84,76% / 88,24% / 83,52% / 85,08%; chênh bản nguồn từ −0,04 đến +0,04 điểm phần trăm. Kiểm lại trọng số DenseNet gốc của Bình cũng cho validation 88,24% và test 87,68%.
-
-[Báo cáo và biểu đồ so sánh](reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md), [báo cáo đánh giá](docs/evaluation.md), [best checkpoint mới](reports/sessions/rerun-thanhbinh-20261112-175308/checkpoints/best.pth). Phiên mới có 13 file trọng số (12 theo run và bản best), checkpoint/log/metrics gốc của Bình giữ nguyên. Lấy trọng số mới sau pull bằng Git LFS; dùng phiên/mã mới nếu tái lập, không chạy lại đè config phiên đã hoàn tất.
-
-Đã chụp [giao diện TensorBoard](reports/sessions/tensorboard-review-20261112-191218/tensorboard.png) của bốn run với accuracy, train loss và validation loss. [Biên bản kiểm tra bổ sung](reports/sessions/tensorboard-review-20261112-191218/REVIEW.json) ghi nguồn event, hash và tùy chọn hiển thị.
+Không ghi đè run đã có log/checkpoint/kết quả. Không bảo đảm đạt KPI trước khi đo; GPU khác T4 phải ghi rõ, không trình bày như số đo trên T4.

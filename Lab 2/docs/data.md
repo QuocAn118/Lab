@@ -258,15 +258,14 @@ Shape ảnh sau tiền xử lý: (3, 224, 224)
 
 ## 5. Kiểm chứng ngày 2026-11-12
 
-**Phần dữ liệu đạt trên máy Windows hiện tại:** 20 test data offline và kiểm chứng CIFAR-10 thật. Báo cáo mới: [data_validation_2026-11-12.json](../reports/data_validation_2026-11-12.json).
+**Phần dữ liệu đạt trên máy Windows:** 20 test data offline và kiểm chứng CIFAR-10 thật. File báo cáo JSON của lần kiểm này đã gỡ khi dọn repo ngày 2026-11-14; lần chạy Colab mới ghi lại mục `data` trong `reports/metrics.json`.
 
 - Archive 170.498.071 byte khớp MD5 chính thức `c58f30108f718f92721af3b95e74349a`; cả 7 file dữ liệu/metadata sau giải nén khớp MD5 của `torchvision`.
 - Chia đúng 22.500/2.500/5.000 ảnh, seed 42, không trùng chỉ số train/validation; chỉ số nằm trong dataset tương ứng và tái lập được.
 - Đã lấy batch thật: train `[64,3,224,224]`, validation/test `[128,3,224,224]`, ảnh `float32` hữu hạn, nhãn `int64` trong 0–9. DataLoader dùng đúng `num_workers=2` trong config; transform validation/test ổn định.
-- Đã chạy CLI `python -m lab_2.data --config <config phiên>` và đối chiếu thống kê 10 lớp, số mẫu với dữ liệu đọc trực tiếp. Config và báo cáo phiên cụ thể được ghi trong JSON; `reports/metrics.json` lịch sử giữ nguyên.
-- Toàn bộ Lab 2 đạt 74 test offline, gồm 60 test package và 14 test tương thích model cũ. Chưa chạy smoke model với trọng số pretrained, bốn run train, KPI hoặc Colab.
+- Đã chạy CLI `python -m lab_2.data` và đối chiếu thống kê 10 lớp, số mẫu với dữ liệu đọc trực tiếp.
 
-Để kiểm tra lại, từ `Lab 2/`, đặt `PYTHONPATH=src`, chạy `python -m pytest tests/test_data.py -q`. Khi chạy `python -m lab_2.data`, dùng bản sao `configs/lab_2.yaml` với `paths.reports_dir` trỏ vào **phiên mới**; giữ nguyên tham số dữ liệu. Dataset nằm trong `data/` bị Git bỏ qua; máy mới cần tải lại qua notebook hoặc `torchvision`.
+Để kiểm tra lại, từ `Lab 2/`, đặt `PYTHONPATH=src`, chạy `python -m pytest tests/test_data.py -q`. Dataset nằm trong `data/` bị Git bỏ qua; máy mới cần tải lại qua notebook hoặc `torchvision`.
 
 Nguồn code/tài liệu dữ liệu: Nguyễn Thị Vân Anh, nhánh `vananh` (`4d3fb94`), đã nhập qua `828e5ef`. HoangDang, tích hợp kiểm tra đầu vào và thực hiện kiểm chứng bổ sung ngày 2026-11-12; không thay tên người cập nhật nguồn bằng người tích hợp.
 

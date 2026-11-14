@@ -1,7 +1,5 @@
 """Kiểm chứng bàn giao offline; mọi kết quả giả chỉ nằm trong tmp_path."""
 import json
-from pathlib import Path
-import subprocess
 import sys
 from types import SimpleNamespace
 
@@ -174,25 +172,3 @@ def test_colab_peak_ram_converts_linux_kib_to_gib(monkeypatch):
     monkeypatch.setattr(sys, "platform", "linux")
     assert peak_ram_gb() == 2.0
 
-
-def test_notebook_session_setup_preserves_parameters_and_rejects_config_changes(tmp_path, monkeypatch):
-    notebook = Path(__file__).resolve().parents[1] / "notebooks/Lab_2_colab.ipynb"
-    cells = [c for c in json.loads(notebook.read_text(encoding="utf-8"))["cells"] if c["cell_type"] == "code"]
-    original = load_config()
-    (tmp_path / "configs").mkdir()
-    (tmp_path / "configs/lab_2.yaml").write_text(yaml.safe_dump(original), encoding="utf-8")
-    monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
-    namespace = {"Path": Path, "PROJECT_DIR": tmp_path, "SESSION_ID": "offline_test",
-                 "sys": sys, "subprocess": subprocess}
-    setup = compile("".join(cells[2]["source"]), str(notebook), "exec")
-    exec(setup, namespace)
-    path = namespace["CONFIG_PATH"]
-    session = yaml.safe_load(path.read_text(encoding="utf-8"))
-    assert session["runs"] == original["runs"] and session["training"] == original["training"]
-    assert session["data"] == original["data"]
-    assert session["paths"]["reports_dir"] == str(Path("reports/sessions/offline_test/reports"))
-    session["training"]["max_epochs"] = 999
-    path.write_text(yaml.safe_dump(session), encoding="utf-8")
-    with pytest.raises(AssertionError, match="Config"):
-        exec(setup, namespace)

@@ -1,6 +1,0 @@
-resnet18_baseline epoch 1: train=0.8438 val=0.5097 acc=0.8176
-resnet18_baseline epoch 2: train=0.5391 val=0.4481 acc=0.8384
-resnet18_baseline epoch 3: train=0.5029 val=0.4321 acc=0.8392
-resnet18_baseline epoch 4: train=0.4831 val=0.4216 acc=0.8476
-resnet18_baseline epoch 5: train=0.4712 val=0.4187 acc=0.8456
-Best epoch 4, val acc 0.8476, 25.52 giây/epoch

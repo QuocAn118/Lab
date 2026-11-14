@@ -1,6 +1,0 @@
-# Optional Windows RTX 4060 environment used by TV3.
-# Install using: pip install -r requirements-tv3-cuda.txt
---extra-index-url https://download.pytorch.org/whl/cu124
-torch==2.6.0+cu124
-torchvision==0.21.0+cu124
--r requirements.txt

@@ -20,10 +20,6 @@ Nguồn đặc tả training và bộ test nền: Nguyễn Quốc An (Quoc An). 
 
 > **Phụ trách**: TV3. Đặc tả từng hàm đã triển khai nằm ở mục 8.
 
-> Đã nhận một phiên lịch sử của TV3 gồm bốn cấu hình: [biên bản nhập](../reports/imported-thanhbinh-92930e6/IMPORT.json), [báo cáo gốc giữ nguyên](../reports/imported-thanhbinh-92930e6/training_report.md). Đủ 12 checkpoint, 21 source snapshot và ba manifest đã được đối chiếu; bản gốc dùng RTX 4060, không phải T4. `reports/metrics.json` tham số lịch sử của Bảo được giữ nguyên; metrics training gốc nằm trong thư mục nhập. Người chạy cũ chưa có tên trong manifest nên không thay bằng tên người commit.
-
-Phiên chạy lại mới dùng config trong `configs/sessions/`, với reports/checkpoints riêng. Chạy bằng `python tools/run_tv3.py --stage train --config <config phiên> --output-dir <thư mục audit mới>`. Công cụ từ chối ghi đè run/log; snapshot code và config được lưu khi bắt đầu. Lần chạy lại là kết quả mới trên máy HoangDang, tách khỏi kết quả nguồn của Bình.
-
 ## 1. Siêu Tham Số Chung
 
 | Tham số | Giá trị | Ghi chú |
@@ -74,7 +70,7 @@ Kết thúc lần chạy, nhật ký được ghi vào `training.runs.<tên lầ
 
 ## 5. TensorBoard (Exercise 3)
 
-- **Nơi lưu log**: `reports/runs/<tên lần chạy>/`. Không ghi đè log hoặc checkpoint của run đã tồn tại; dùng config/mã phiên mới để thử lại.
+- **Nơi lưu log**: `reports/runs/<tên lần chạy>/`. Không ghi đè log hoặc checkpoint của run đã tồn tại; muốn thử lại thì chạy trên máy Colab mới (xem mục 9).
 - **Cách mở**: Cell cuối của notebook chạy `%tensorboard --logdir reports/runs`. Trên máy cá nhân dùng `tensorboard --logdir reports/runs`.
 - **Bằng chứng**: Biểu đồ TensorBoard không được lưu cùng notebook, nên cần chụp ảnh và lưu tại `reports/figures/tensorboard.png`.
 
@@ -96,7 +92,7 @@ Kết thúc lần chạy, nhật ký được ghi vào `training.runs.<tên lầ
 
 | Tình huống | Cách xử lý |
 | :--- | :--- |
-| Colab ngắt phiên | Kiểm tra JSON/log. Nếu run dở đã có output, giữ nguyên và tạo phiên mới; không resume giữa epoch. |
+| Colab ngắt phiên | Không resume giữa epoch. Chạy lại cả 4 run trên máy Colab mới, xem mục 9. |
 | Không có GPU | In cảnh báo và chạy bằng CPU. KPI tốc độ và VRAM ghi "Không đo được". |
 | Một epoch đạt nhiều mốc tốt nhất | Mỗi mốc vẫn lưu trong file riêng, kể cả khi trọng số giống nhau. |
 | Lỗi khi đang lưu checkpoint | Ghi vào file tạm rồi mới thay thế, nên mốc cũ không bị hỏng. |
@@ -180,8 +176,29 @@ Tạo parser bằng `argument_parser(__doc__)`, thêm `--run` bắt buộc. Gọ
 
 Summary lưu thêm `config`, `operator` (biến môi trường `LAB2_OPERATOR`), `started_at`, `finished_at` (ISO 8601 có múi giờ) và `code_commit` (null nếu không có metadata Git). Khai báo người chạy trước khi train. Test tích hợp dùng output tạm, không tạo summary thực nghiệm trong repo.
 
-## Phiên tái lập đã hoàn tất — 2026-11-12
+## 9. Thứ Tự Chạy Và Kết Quả Cần Có
 
-Phiên `rerun-thanhbinh-20261112-175308`, code `5c03204`, người chạy HoangDang trên RTX 5060. Đã chạy đủ bốn cấu hình theo config gốc, không đổi siêu tham số sau khi xem kết quả: 5/6/6/6 epoch, checkpoint tốt nhất 4/5/5/6. [So sánh](../reports/sessions/rerun-thanhbinh-20261112-175308/comparison.md) cho validation 84,76% / 88,24% / 83,52% / 85,08%. Một seed và khác GPU/phiên bản torch so với nguồn; không coi thời gian giữa hai máy là benchmark tương đương.
+Chạy `notebooks/lab_2_colab.ipynb` trên VS Code + extension Google Colab, kernel GPU T4. Ô đầu tự `git clone` nhánh trong biến `BRANCH` (mặc định `QuocAn`), nên phải push code lên GitHub trước khi chạy. Mỗi ô gọi lệnh qua hàm `lab()`; lệnh lỗi thì notebook dừng.
 
-12 checkpoint từng run, bản sao best và TensorBoard được kiểm tra lại; [FILES.json](../reports/sessions/rerun-thanhbinh-20261112-175308/FILES.json) chốt hash artifact. DenseNet121 được chọn bằng validation; đánh giá test và demo thực tế đã chạy trong phiên riêng. Config phiên này là bằng chứng đã kết thúc; khi tái lập, sao chép config sang mã mới và đổi cả reports_dir/checkpoints_dir, không ghi đè dữ liệu cũ.
+| Bước | Ô notebook | Chỉ sang bước sau khi |
+| :---: | :--- | :--- |
+| 1 | Lấy code, cài thư viện | In đúng commit và tên GPU Tesla T4 |
+| 2 | Test offline `pytest tests --ignore=tests/test_smoke.py` | Tất cả pass |
+| 3 | `lab_2.data`, `lab_2.model` | Đúng 22.500/2.500/5.000 ảnh, 10 lớp, input $3 \times 224 \times 224$; in được kiến trúc và số tham số khớp `model.md` mục 5 |
+| 4 | Smoke `pytest tests/test_smoke.py -s` | Cả 3 smoke pass, không hết bộ nhớ |
+| 5 | 4 ô train theo đúng thứ tự mục 2 | Mỗi run có 3 checkpoint, log TensorBoard và summary; không sửa tham số giữa chừng |
+| 6 | `lab_2.evaluation` **một lần** | Chọn best bằng validation; có metrics, KPI và 3 biểu đồ |
+| 7 | `lab_2.demo`, TensorBoard | Có ảnh xác suất demo; chụp `reports/figures/tensorboard.png` |
+| 8 | Kiểm tra đủ kết quả, chép sang Drive | Ô in "Đủ ..."; kết quả nằm ở `MyDrive/Lab2_ket_qua/<ngày-giờ>/` |
+
+Run đã xong không chạy lại: code báo `FileExistsError` thay vì ghi đè. Nếu Colab ngắt giữa chừng, xóa `checkpoints/`, `reports/` trên máy Colab rồi chạy lại từ bước 5 cho cả 4 run, để 4 run cùng một môi trường.
+
+**Kết quả cần có** (tải từ Drive về, chép vào `Lab 2/`, rồi lưu notebook có output):
+
+- `checkpoints/<run>/final_epoch.pth`, `best_val_loss.pth`, `best_val_acc.pth` cho 4 run, cộng `checkpoints/best.pth`: 13 file.
+- `reports/metrics.json` đủ 5 mục `data`, `model`, `training` (4 run), `evaluation`, `demo`.
+- `reports/runs/<run>/events.out.tfevents*` của 4 run.
+- `reports/figures/val_accuracy_by_run.png`, `loss_curve_best.png`, `confusion_matrix.png`, `demo_probabilities.png`, `tensorboard.png`.
+- `notebooks/lab_2_colab.ipynb` có output của mọi ô.
+
+Sau đó TV4 điền `evaluation.md`, TV5 điền `demo.md` từ `reports/metrics.json`.

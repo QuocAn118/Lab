@@ -1,6 +1,0 @@
-resnet18_baseline epoch 1: train_loss=0.8438, val_loss=0.5097, val_accuracy=0.8176, train_seconds=27.09
-resnet18_baseline epoch 2: train_loss=0.5391, val_loss=0.4480, val_accuracy=0.8384, train_seconds=26.73
-resnet18_baseline epoch 3: train_loss=0.5029, val_loss=0.4321, val_accuracy=0.8392, train_seconds=27.67
-resnet18_baseline epoch 4: train_loss=0.4831, val_loss=0.4216, val_accuracy=0.8480, train_seconds=27.80
-resnet18_baseline epoch 5: train_loss=0.4712, val_loss=0.4187, val_accuracy=0.8456, train_seconds=27.10
-Best epoch: 4; val accuracy: 0.8480; giây/epoch: 27.28

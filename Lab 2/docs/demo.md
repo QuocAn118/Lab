@@ -21,7 +21,7 @@ Nguồn đặc tả demo và bộ test nền: Nguyễn Quốc An (Quoc An). Ph�
 
 > **Phụ trách**: TV5. Đặc tả từng hàm đã triển khai nằm ở mục 4.
 
-> Đã demo thật ba ảnh test bằng DenseNet121 đã chọn trong phiên `rerun-thanhbinh-20261112-175308`; [ảnh xác suất](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/demo_probabilities.png), [metrics/demo](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json). Người chạy HoangDang, RTX 5060; code/đặc tả nguồn giữ tên riêng. Dùng `--config` trỏ tới config phiên khi đọc model đã train, tránh nhầm checkpoint nguồn của Bình.
+> Kết quả demo (`demo` trong `reports/metrics.json`, ảnh `reports/figures/demo_probabilities.png`): chờ chạy lại notebook `notebooks/lab_2_colab.ipynb` trên Colab T4.
 
 ## 1. Cách Chạy
 

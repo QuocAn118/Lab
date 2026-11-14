@@ -1,5 +1,0 @@
-run,source_val_accuracy,rerun_val_accuracy,delta_percentage_points,source_epochs,rerun_epochs,source_seconds_per_epoch,rerun_seconds_per_epoch,source_device,rerun_device
-resnet18_baseline,0.848,0.8476,-0.04,5,5,27.277324659982696,25.51918896000002,NVIDIA GeForce RTX 4060 Laptop GPU,NVIDIA GeForce RTX 5060 Laptop GPU
-densenet121,0.8824,0.8824,0.0,6,6,64.66626198337569,57.72384383333334,NVIDIA GeForce RTX 4060 Laptop GPU,NVIDIA GeForce RTX 5060 Laptop GPU
-resnet18_lr1e-2,0.8348,0.8352,0.04,6,6,28.606115333309088,25.30885016666669,NVIDIA GeForce RTX 4060 Laptop GPU,NVIDIA GeForce RTX 5060 Laptop GPU
-resnet18_bs128,0.8508,0.8508,0.0,6,6,27.800985016627237,25.32153895000003,NVIDIA GeForce RTX 4060 Laptop GPU,NVIDIA GeForce RTX 5060 Laptop GPU
