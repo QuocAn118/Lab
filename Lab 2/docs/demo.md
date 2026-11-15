@@ -21,7 +21,7 @@ Nguồn đặc tả demo và bộ test nền: Nguyễn Quốc An (Quoc An). Ph�
 
 > **Phụ trách**: TV5. Đặc tả từng hàm đã triển khai nằm ở mục 4.
 
-> Đã demo thật ba ảnh test bằng DenseNet121 đã chọn trong phiên `rerun-thanhbinh-20261112-175308`; [ảnh xác suất](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/figures/demo_probabilities.png), [metrics/demo](../reports/sessions/rerun-thanhbinh-20261112-175308/reports/metrics.json). Người chạy HoangDang, RTX 5060; code/đặc tả nguồn giữ tên riêng. Dùng `--config` trỏ tới config phiên khi đọc model đã train, tránh nhầm checkpoint nguồn của Bình.
+> Đã demo trên Colab Tesla T4 ngày 2026-11-14 bằng `checkpoints/best.pth` (DenseNet121, epoch 5); người chạy Nguyễn Quốc An. Nguồn: mục `demo` trong [reports/metrics.json](../reports/metrics.json).
 
 ## 1. Cách Chạy
 
@@ -41,9 +41,13 @@ Nếu chưa có `checkpoints/best.pth` hoặc không đọc được ảnh, lệ
 
 | Ảnh | Dự đoán | Xác suất | Nhãn thật | Đúng/Sai |
 | :--- | :---: | :---: | :---: | :---: |
-| Ảnh test số 1 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-| Ảnh test số 2 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
-| Ảnh test số 3 | Chờ Colab | Chờ Colab | Chờ Colab | Chờ Colab |
+| Ảnh test số 1 | automobile | 34,71% | ship | Sai |
+| Ảnh test số 2 | automobile | 97,91% | automobile | Đúng |
+| Ảnh test số 3 | ship | 93,05% | ship | Đúng |
+
+Ảnh số 1 sai nhưng model không chắc chắn: ba lớp đầu gần bằng nhau (automobile 34,71%, ship 34,39%, truck 30,68%), nhãn đúng `ship` đứng thứ hai. Hai ảnh đúng có xác suất trên 93%.
+
+![Xác suất demo](../reports/figures/demo_probabilities.png)
 
 ## 3. Giới Hạn
 

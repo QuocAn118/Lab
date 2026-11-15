@@ -8,29 +8,29 @@
 | Created date | Chưa xác nhận |
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T14:14:27+07:00 |
-| Updated by | AI agent (thực thi yêu cầu kiểm tra của HoangDang) |
+| Last updated | 2026-11-14 |
+| Updated by | Nguyễn Quốc An (Quoc An), AI hỗ trợ: dọn kết quả cũ, notebook chạy bằng VS Code |
 | Updated by — nguồn đặc tả | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04` |
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
 ## 1. Bài Toán & Mục Tiêu
 
-Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguyễn Quốc An (Quoc An)**, theo `3a86e93`/`00b8d04`. Các phần triển khai của Vân Anh, Xuân Bảo, Quốc An và HoangDang được phân biệt trong [tiến độ và ghi nhận đóng góp](plan_progress_status.md). Ghi nhận nguồn bổ sung ngày 2026-11-12 do HoangDang đối chiếu lịch sử; giữ khai báo công cụ của nguồn tại [AI_Usage.md](AI_Usage.md).
+Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguyễn Quốc An (Quoc An)**, theo `3a86e93`/`00b8d04`. Các phần triển khai của Vân Anh, Xuân Bảo, Quốc An và HoangDang được phân biệt trong [tiến độ và ghi nhận đóng góp](plan_progress_status.md). Ghi nhận nguồn bổ sung ngày 2026-11-12 do HoangDang đối chiếu lịch sử; giữ khai báo công cụ của nguồn tại [ai_usage.md](ai_usage.md).
 - **Lĩnh vực**: Thị giác máy tính, phân loại ảnh bằng học chuyển giao (transfer learning).
 - **Công nghệ**: PyTorch, `torchvision.models`, `torchvision.transforms`, `torch.utils.data.DataLoader`, TensorBoard.
 - **Mục tiêu theo đề bài**:
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
 
-> Trạng thái kiểm ngày 2026-11-13: phiên Colab Tesla T4 `colab-t4-20261113-browser-01` đã có 4 run, test accuracy 87,70%, 7 KPI Đạt, 13 checkpoint và notebook có đủ 17 ô pipeline đã chạy. Mục 8 có bằng chứng cho đủ 11 AC; stdout kiến trúc AC-01 được bổ sung bằng phép kiểm riêng trên Colab CPU, cùng source model với phiên T4. Xem [báo cáo đánh giá](evaluation.md) và [kiểm chứng](verification.md).
+> Trạng thái 2026-11-14: đã chạy `notebooks/lab_2_colab.ipynb` trên VS Code + Colab Tesla T4 (commit `f1c1a84`). DenseNet121 được chọn, test accuracy 87,70%, 7/7 KPI Đạt, đủ 13 checkpoint; mục 8 đạt đủ 11 tiêu chí.
 
 ### Đầu vào và đầu ra
 
 | Giai đoạn | Đầu vào | Đầu ra |
 | :--- | :--- | :--- |
-| **Huấn luyện** | CIFAR-10 và `configs/lab_2.yaml` | Các mốc trong `checkpoints/`, `reports/metrics.json`, log trong `reports/runs/` |
-| **Đánh giá** | Mốc `best` và tập test | Kết quả test, KPI, biểu đồ trong `reports/figures/` |
+| **Huấn luyện** | Tập train và validation của CIFAR-10, `configs/lab_2.yaml` | Các mốc trong `checkpoints/`, kết quả validation trong `reports/metrics.json`, log trong `reports/runs/` |
+| **Đánh giá** | Kết quả validation của 4 run (chọn `best`), mốc `best` và tập test | Kết quả test, KPI, biểu đồ trong `reports/figures/` |
 | **Suy luận** | Một ảnh màu | 1 trong 10 lớp, kèm xác suất của từng lớp |
 
 ---
@@ -56,8 +56,8 @@ Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguy�
 
 - **Ngoài phạm vi**: VGG, dò siêu tham số tự động, triển khai thành dịch vụ, tiếp tục huấn luyện từ giữa một lần chạy.
 - **Ràng buộc môi trường**: Chuẩn bị và kiểm tra offline trên máy cá nhân; giao người train chạy file `.py` qua notebook Colab để lấy số liệu. Chưa xác nhận hiệu năng GPU ở giai đoạn chuẩn bị.
-- **Ràng buộc dữ liệu và thời gian**: Đề bài không quy định số mẫu hay số epoch. Nhóm dùng 22.500/2.500/5.000 ảnh, tối đa 6 epoch và 4 lần chạy để giảm thời gian dùng GPU.
-- **Giả định**: Colab có GPU T4 và Google Drive còn trống ít nhất 2 GB cho mỗi phiên (dự trù, chưa đo phiên thật); xem kế hoạch bàn giao.
+- **Ràng buộc dữ liệu và thời gian**: Đề bài không quy định số mẫu hay số epoch. Nhóm dùng một nửa CIFAR-10: train/validation/test 22.500/2.500/5.000 ảnh, tối đa 6 epoch và 4 lần chạy để giảm thời gian dùng GPU.
+- **Giả định**: Colab có GPU T4 và Google Drive còn trống khoảng 1 GB để chứa `checkpoints/` và `reports/` (dự trù); xem `training.md` mục 9.
 
 ---
 
@@ -81,19 +81,23 @@ flowchart LR
 flowchart LR
     Config["configs/lab_2.yaml"] --> Train["training.py"]
     CIFAR["CIFAR-10"] --> Data["data.py"]
-    Data --> Train
+    Data -- "train + validation" --> Train
     Model["model.py"] --> Train
     Train --> Ckpt["checkpoints/"]
     Train --> Logs["reports/runs/"]
-    Train --> Report["reports/metrics.json"]
-    Ckpt --> Eval["evaluation.py"]
+    Train -- "kết quả validation" --> Report["reports/metrics.json"]
+    Report -- "chọn run tốt nhất" --> Eval["evaluation.py"]
+    Ckpt --> Eval
     Data -- "chỉ tập test" --> Eval
     Eval --> Best["checkpoints/best.pth"]
     Eval --> Report
     Eval --> Fig["reports/figures/"]
     Best --> Demo["demo.py"]
+    Data -- "3 ảnh test" --> Demo
     Demo --> Report
 ```
+
+Ba tập lấy từ CIFAR-10 (seed 42): train 22.500 và validation 2.500 từ 50.000 ảnh train gốc, test 5.000 từ 10.000 ảnh test gốc; phần còn lại không dùng (`data.md` mục `split_indices`). Validation chỉ dùng trong `training.py`; `evaluation.py` đọc kết quả validation đã ghi trong `metrics.json` để chọn run, không chạy lại validation. Mọi file đều đọc `configs/lab_2.yaml` và dùng `load_checkpoint` của `model.py`; sơ đồ chỉ vẽ mũi tên chính.
 
 ### Giao diện giữa các file
 
@@ -115,7 +119,7 @@ flowchart LR
 | :--- | :--- | :--- |
 | Chỉ huấn luyện lớp cuối, dữ liệu giảm một nửa | Có thể không đạt mục tiêu accuracy $80\%$ | Giữ nguyên mục tiêu, ghi "Không đạt" kèm lý do |
 | Một thành viên viết chậm | Các phần sau không ghép được | Làm theo thứ tự trong `plan_progress_status.md` mục 2; TV5 theo dõi tiến độ và chạy `tests/test_integration.py` khi ghép |
-| Colab ngắt phiên khi đang train | Mất tiến trình của lần đang chạy | Mỗi lần chạy là một cell; chỉ cần chạy lại lần bị ngắt |
+| Colab ngắt phiên khi đang train | Mất tiến trình của lần đang chạy | Code không ghi đè run dở; chạy lại cả 4 run trên máy Colab mới (`training.md` mục 9) |
 | Không có GPU | Không đo được KPI tốc độ và VRAM | Vẫn chạy, các KPI đó ghi "Không đo được" |
 | Phiên bản thư viện thay đổi | API có thể khác | Ghi phiên bản thật vào `metrics.json` và `evaluation.md` |
 
@@ -149,21 +153,21 @@ Mỗi lần chạy có thư mục riêng `checkpoints/<tên lần chạy>/`.
 
 ## 8. Bảng Nghiệm Thu
 
-Cột "Kết quả" cập nhật theo phiên `colab-t4-20261113-browser-01`, [biên bản tiếp nhận](../reports/sessions/colab-t4-review-20261113-browser-01/intake_check.json) và [phép kiểm kiến trúc bổ sung trên Colab CPU](../reports/sessions/model-architecture-colab-20261113/README.md). Đủ 11 tiêu chí có bằng chứng đạt. Phép kiểm CPU chỉ bổ sung stdout của cùng source model, không thay kết quả huấn luyện T4. Chi tiết tại [evaluation.md](evaluation.md) và [verification.md](verification.md).
+Cột "Kết quả" theo lần chạy Colab Tesla T4 ngày 2026-11-14; số liệu chi tiết ở [evaluation.md](evaluation.md).
 
 | Mã | Phụ trách | Tiêu chí | Cách kiểm tra | Bằng chứng | Kết quả |
 | :--- | :---: | :--- | :--- | :--- | :--- |
-| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model`; kiểm bổ sung bằng cùng `build_model`/`count_parameters` | Ô model T4 execution 6; [stdout Colab CPU](../reports/sessions/model-architecture-colab-20261113/architecture.txt) in đủ ba kiến trúc, từng tham số và train/frozen, số đếm khớp T4 | Đạt; stdout bổ sung trên Colab CPU, không train lại |
-| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py`, smoke T4 | Test model offline, smoke T4 hoàn tất, best nạp CPU cho `[1,10]` | Đạt offline và T4 |
-| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Ô data execution 5, metrics ghi 22.500/2.500/5.000; CLI đã kiểm train/val không giao nhau | Đạt Windows và T4 |
-| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Ô smoke execution 7, subprocess returncode 0; bộ smoke có 3 cấu hình | Đạt Windows và T4 |
-| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | Bảng và nhận xét T4 trong `evaluation.md`; DenseNet121 hơn baseline 3,44 điểm validation | Đạt Windows và T4 |
-| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | Bảng và nhận xét T4 trong `evaluation.md`; LR 0,01 −1,28 điểm, batch 128 +0,28 điểm validation | Đạt Windows và T4 |
-| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | 4 event T4 khớp manifest; [ảnh giao diện](../reports/sessions/colab-t4-review-20261113-browser-01/tensorboard.png) | Đạt event, plot và ảnh giao diện |
-| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | 13 checkpoint khớp hash/epoch/metrics; tính lại patience 3 và threshold 0,01 khớp 4 run | Đạt Windows và T4 |
-| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Test 87,70%, macro F1 0,87573; 7 KPI T4 Đạt theo metrics và `evaluation.md` | Đạt Windows và T4 |
-| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Demo execution 14, mục `demo` và biểu đồ xác suất của phiên T4 | Đạt Windows và T4 |
-| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy notebook Colab | [Notebook đã lưu](../reports/sessions/colab-t4-review-20261113-browser-01/Lab_2_T4_verification_20261113.ipynb), execution 1–17 cho pipeline, không có error output | Đạt Colab T4; setup clone source cố định thay mount Drive |
+| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Output ô `lab_2.model` trong notebook in đủ kiến trúc và trạng thái từng tham số; mục `model` của `reports/metrics.json` khớp `model.md` mục 5 | Đạt Colab T4 |
+| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py`, smoke | Test model offline; 3 smoke pass trên T4 | Đạt offline và T4 |
+| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Mục `data` của `reports/metrics.json`: 22.500/2.500/5.000 | Đạt Windows và T4 |
+| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Ô smoke: 3 passed, VRAM 0,48/0,68/0,57 GB | Đạt T4 |
+| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1: DenseNet121 hơn baseline 3,44 điểm validation | Đạt T4 |
+| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1: LR 0,01 −1,28 điểm, batch 128 +0,28 điểm validation | Đạt T4 |
+| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/` đủ 4 run; [ảnh giao diện](../reports/figures/tensorboard.png) | Đạt T4 |
+| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | 13 file trong `checkpoints/`; baseline dừng ở epoch 5 | Đạt T4 |
+| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Test 87,70%, macro F1 0,8757; 7/7 KPI Đạt (`evaluation.md` mục 2–3) | Đạt T4 |
+| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo`, [ảnh xác suất](../reports/figures/demo_probabilities.png); 2/3 ảnh đúng | Đạt T4 |
+| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy notebook Colab | `notebooks/lab_2_colab.ipynb`: 16/16 ô code chạy, không có output lỗi | Đạt Colab T4 (VS Code) |
 
 ---
 
@@ -198,25 +202,25 @@ Trả về RAM cao nhất của tiến trình, đơn vị GB. Thử `import reso
 
 **Tiêu chí đạt**: `python -m pytest tests/test_common.py -q` cho `3 passed`.
 
-### `notebooks/Lab_2_colab.ipynb`
+### `notebooks/lab_2_colab.ipynb`
 
-Notebook chỉ gọi code trong `src/`, không chứa logic. Tạo các cell theo đúng thứ tự, có tiêu đề markdown theo bước của đề bài:
+Notebook chỉ gọi code trong `src/`, không chứa logic. Chạy trên VS Code + extension Google Colab (GPU T4); thứ tự và điều kiện qua bước ở `training.md` mục 9.
 
 | Thứ tự | Đề bài | Nội dung cell |
 | --- | --- | --- |
-| 1 | Bước 1 | Mount Drive; điền PROJECT_DIR, OPERATOR, SESSION_ID; đặt PYTHONPATH |
-| 2 | Bước 1 | Cài requirements bằng subprocess `check=True` |
-| 3 | Cấu hình phiên | In GPU, tạo config phiên giữ tham số gốc, đổi nơi lưu output; khai báo helper gọi module |
-| 4 | Kiểm tra offline | `pytest tests test.py --ignore=tests/test_smoke.py` |
-| 5 | Bước 5 | Tải archive qua mirror, `lab_2.data` kiểm tra MD5 và chia tập |
-| 6 | Bước 2–4 | `lab_2.model`: in kiến trúc/tham số và báo cáo package |
-| 7 | Smoke thật | `pytest tests/test_smoke.py -q -s` |
-| 8–11 | Bước 6, Exercise 1/2 | 4 run theo thứ tự trong training.md; mỗi run một tiến trình |
-| 12 | Bước 7 | `lab_2.evaluation` một lần |
-| 13 | Biểu đồ | Hiện 3 biểu đồ evaluation |
-| 14–15 | Demo | `lab_2.demo`, hiện demo_probabilities.png |
-| 16 | Báo cáo | Hiện bảng so sánh/KPI, số liệu test, môi trường và người chạy từ JSON thật |
-| 17 | Exercise 3 | TensorBoard với logdir của phiên; người train chụp tensorboard.png |
+| 1 | Bước 1 | `git clone` nhánh `BRANCH` (mặc định `QuocAn`), điền `OPERATOR`, đặt PYTHONPATH; khai báo `run()`/`lab()` in log từng dòng, lỗi thì dừng |
+| 2 | Bước 1 | Cài requirements, in GPU |
+| 3 | Kiểm tra offline | `pytest tests --ignore=tests/test_smoke.py` |
+| 4 | Bước 5 | Tải archive qua mirror, `lab_2.data` kiểm tra MD5 và chia tập |
+| 5 | Bước 2–4 | `lab_2.model`: in kiến trúc/tham số |
+| 6 | Smoke thật | `pytest tests/test_smoke.py -q -s` |
+| 7–10 | Bước 6, Exercise 1/2 | 4 run theo thứ tự trong training.md; mỗi run một tiến trình |
+| 11 | Bước 7 | `lab_2.evaluation` một lần |
+| 12 | Biểu đồ | Hiện 3 biểu đồ evaluation |
+| 13 | Demo | `lab_2.demo`, hiện demo_probabilities.png |
+| 14 | Báo cáo | Hiện bảng so sánh/KPI, số liệu test, môi trường và người chạy từ `reports/metrics.json` |
+| 15 | Exercise 3 | TensorBoard `reports/runs`; chụp `reports/figures/tensorboard.png` |
+| 16 | Bàn giao | Kiểm tra đủ 13 checkpoint, metrics, biểu đồ, log; mount Drive và chép `checkpoints/`, `reports/` sang `MyDrive/Lab2_ket_qua/<ngày-giờ>/` |
 
 Đặt metadata `"accelerator": "GPU"` để Colab gợi ý bật GPU.
 
@@ -273,7 +277,7 @@ Test không phủ hết các trường hợp này, người phụ trách cần t
 | :--- | :--- | :---: |
 | Chạy trên máy không có GPU | Vẫn chạy được, không gọi hàm `torch.cuda` nào gây lỗi; KPI tốc độ và VRAM ghi "Không đo được" | TV3, TV4 |
 | Dừng sớm trước `max_epochs` | Biểu đồ và bảng vẫn đúng với số epoch thực tế | TV3, TV4 |
-| Run đã tồn tại | Báo lỗi, giữ nguyên log/checkpoint/JSON; dùng mã phiên mới để chạy lại | TV3 |
+| Run đã tồn tại | Báo lỗi, giữ nguyên log/checkpoint/JSON; chạy lại trên máy Colab mới | TV3 |
 | Ảnh demo là ảnh xám, PNG có kênh trong suốt, hoặc rất lớn | Vẫn suy luận được nhờ `convert("RGB")` và `Resize` | TV5 |
 | Đường dẫn Drive có dấu cách (`.../Lab 2`) | Đặt trong dấu ngoặc kép khi gọi lệnh shell | TV5 |
 

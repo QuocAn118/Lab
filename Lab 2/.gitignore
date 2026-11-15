@@ -3,6 +3,4 @@ data/
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
-reports/sessions/
-configs/sessions/
 *.tmp

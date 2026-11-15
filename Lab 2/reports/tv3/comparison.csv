@@ -1,5 +1,0 @@
-run,purpose,model,learning_rate,batch_size,epochs_run,best_epoch,val_accuracy,val_loss,seconds_per_epoch
-resnet18_baseline,Mô hình gốc,resnet18,0.001,64,5,4,0.848,0.42157955627441407,27.277324659982696
-densenet121,"Exercise 1, đổi model",densenet121,0.001,64,6,5,0.8824,0.34545918960571287,64.66626198337569
-resnet18_lr1e-2,"Exercise 2, đổi learning rate",resnet18,0.01,64,6,5,0.8348,0.5670578689575195,28.606115333309088
-resnet18_bs128,"Exercise 2, đổi batch size",resnet18,0.001,128,6,6,0.8508,0.40919094848632814,27.800985016627237

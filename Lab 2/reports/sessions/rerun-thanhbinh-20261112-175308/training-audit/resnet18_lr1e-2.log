@@ -1,7 +1,0 @@
-resnet18_lr1e-2 epoch 1: train=0.6902 val=0.6240 acc=0.8076
-resnet18_lr1e-2 epoch 2: train=0.6773 val=0.6263 acc=0.8096
-resnet18_lr1e-2 epoch 3: train=0.6874 val=0.5923 acc=0.8340
-resnet18_lr1e-2 epoch 4: train=0.7243 val=0.6419 acc=0.8304
-resnet18_lr1e-2 epoch 5: train=0.6907 val=0.5671 acc=0.8352
-resnet18_lr1e-2 epoch 6: train=0.7276 val=0.7964 acc=0.7916
-Best epoch 5, val acc 0.8352, 25.31 giây/epoch

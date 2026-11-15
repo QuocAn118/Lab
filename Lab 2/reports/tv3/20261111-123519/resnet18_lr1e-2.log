@@ -1,7 +1,0 @@
-resnet18_lr1e-2 epoch 1: train_loss=0.6902, val_loss=0.6237, val_accuracy=0.8072, train_seconds=28.23
-resnet18_lr1e-2 epoch 2: train_loss=0.6773, val_loss=0.6270, val_accuracy=0.8088, train_seconds=27.30
-resnet18_lr1e-2 epoch 3: train_loss=0.6874, val_loss=0.5920, val_accuracy=0.8340, train_seconds=28.10
-resnet18_lr1e-2 epoch 4: train_loss=0.7244, val_loss=0.6416, val_accuracy=0.8308, train_seconds=30.03
-resnet18_lr1e-2 epoch 5: train_loss=0.6908, val_loss=0.5671, val_accuracy=0.8348, train_seconds=28.47
-resnet18_lr1e-2 epoch 6: train_loss=0.7275, val_loss=0.7961, val_accuracy=0.7916, train_seconds=29.52
-Best epoch: 5; val accuracy: 0.8348; giây/epoch: 28.61
