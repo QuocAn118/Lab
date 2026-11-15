@@ -40,7 +40,7 @@ Module không thực hiện xây dựng mô hình, tính loss, cập nhật tr�
 
 ### 2.1. Input
 
-**Dữ liệu gốc:** CIFAR-10, gồm 60.000 ảnh RGB kích thước `32 × 32`, chia sẵn thành 50.000 ảnh train và 10.000 ảnh test. Validation được tách từ train gốc.
+**Dữ liệu gốc:** CIFAR-10, gồm 60.000 ảnh RGB kích thước `32 × 32`, chia sẵn thành 50.000 ảnh train và 10.000 ảnh test. Nhóm dùng 3 tập: train 22.500 và validation 2.500 tách từ train gốc, test 5.000 lấy từ test gốc; 25.000 + 5.000 ảnh còn lại không dùng (xem `split_indices`).
 
 | Nhãn | Tên lớp | Ý nghĩa |
 | :---: | :---: | :---: |

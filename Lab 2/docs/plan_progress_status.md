@@ -110,23 +110,24 @@ Muốn đổi tên hàm, tham số hoặc khóa trong `metrics.json` thì phải
 | **TASK-01** | Hoàn thiện đặc tả `docs/` | Toàn bài | **DONE** | Team | Bộ đặc tả gốc và tài liệu bàn giao/kiểm chứng đã cập nhật theo code |
 | **TASK-02** | Viết đặc tả từng hàm, test và phân công | Toàn bài | **DONE** | Team | Mục "Đặc Tả Mã Nguồn" trong `docs/`, `tests/`, mục 1, 2 của file này |
 | **TASK-03** | Cài đặt môi trường; viết `common.py` | Bước 1 | **ĐẠT OFFLINE** | TV5 | `requirements.txt`, 3 test common đạt |
-| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT WINDOWS; CHỜ COLAB** | TV1 | 20 test data; mục `data` của `reports/metrics.json` sau khi chạy lại |
-| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐẠT OFFLINE; CHỜ COLAB** | TV2 | Test model; output ô `lab_2.model` (AC-01) |
+| **TASK-04** | Dữ liệu CIFAR-10 và `DataLoader` | Bước 5 | **ĐẠT WINDOWS VÀ T4** | TV1 | 20 test data; mục `data` của `reports/metrics.json`: 22.500/2.500/5.000 |
+| **TASK-05** | Tải model, xem kiến trúc, thay lớp cuối | Bước 2, 3, 4 | **ĐẠT OFFLINE VÀ T4** | TV2 | Test model; output ô `lab_2.model` (AC-01) |
 | **TASK-06** | Logic huấn luyện và early stopping | Bước 6 | **ĐẠT OFFLINE** | TV3 | 13 test training/điều phối; giữ chống ghi đè và kiểm tra đường dẫn |
-| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **TODO** | TV3 | Ô smoke trong notebook; AC-04 |
-| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **TODO** | TV3 | `checkpoints/resnet18_baseline/`, `reports/runs/resnet18_baseline/` |
-| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **TODO** | TV3 | `evaluation.md` mục 1; AC-05 |
-| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **TODO** | TV3 | `evaluation.md` mục 1; AC-06 |
-| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **TODO** | TV3 | `reports/runs/`, `reports/figures/tensorboard.png`; AC-07 |
+| **TASK-07** | Smoke test 2 batch | Quy trình `docs/` | **DONE** | TV3 | 3 smoke pass trên T4; AC-04 |
+| **TASK-08** | Huấn luyện mô hình gốc | Bước 6 | **DONE** | TV3 | `checkpoints/resnet18_baseline/`, `reports/runs/resnet18_baseline/`; val 84,80% |
+| **TASK-09** | So sánh ResNet18 và DenseNet121 | Exercise 1 | **DONE** | TV3 | `evaluation.md` mục 1: DenseNet121 88,24% so với 84,80%; AC-05 |
+| **TASK-10** | So sánh learning rate và batch size | Exercise 2 | **DONE** | TV3 | `evaluation.md` mục 1: LR 0,01 83,52%, batch 128 85,08%; AC-06 |
+| **TASK-11** | Theo dõi bằng TensorBoard | Exercise 3 | **DONE** | TV3 | `reports/runs/`, `reports/figures/tensorboard.png`; AC-07 |
 | **TASK-12** | Viết code đánh giá và biểu đồ | Bước 7 | **ĐẠT OFFLINE** | TV4 | `tests/test_evaluation.py` đạt |
-| **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **TODO** | TV4 | Mục `evaluation` của `reports/metrics.json`; `evaluation.md` mục 1–6; AC-09 |
-| **TASK-14** | Demo suy luận | Quy trình `docs/` | **ĐẠT OFFLINE; CHỜ COLAB** | TV5 | Test demo; `reports/figures/demo_probabilities.png`; AC-10 |
-| **TASK-15** | Ghép code, hoàn thiện notebook | Toàn bài | **ĐẠT OFFLINE** | TV5 | Test offline đạt; notebook chạy bằng VS Code + Colab, clone nhánh `QuocAn` |
-| **TASK-16** | Run all notebook trên Colab | Toàn bài | **TODO** | TV5 | `notebooks/lab_2_colab.ipynb` có output mọi ô; AC-11 |
+| **TASK-13** | Đánh giá trên tập test và đối chiếu KPI | Bước 7 | **DONE** | TV4 | Test 87,70%, macro F1 0,8757, 7/7 KPI Đạt; `evaluation.md` mục 1–6; AC-09 |
+| **TASK-14** | Demo suy luận | Quy trình `docs/` | **DONE** | TV5 | 3 ảnh test, 2 đúng; `reports/figures/demo_probabilities.png`; AC-10 |
+| **TASK-15** | Ghép code, hoàn thiện notebook | Toàn bài | **DONE** | TV5 | 71 test offline; notebook chạy bằng VS Code + Colab, clone nhánh `QuocAn` |
+| **TASK-16** | Run all notebook trên Colab | Toàn bài | **DONE** | TV5 | `notebooks/lab_2_colab.ipynb` 16/16 ô chạy trên Colab T4, không lỗi; AC-11 |
 
 ---
 
 ## 4. Nhật Ký Thực Hiện
+- `2026-11-14` — Nguyễn Quốc An chạy `notebooks/lab_2_colab.ipynb` trên VS Code + Colab Tesla T4 từ commit `f1c1a84`: 71 test offline, 3 smoke, 4 run, evaluation, demo đều đạt; DenseNet121 test 87,70%, 7/7 KPI Đạt. Kết quả đưa vào `checkpoints/`, `reports/`; AI hỗ trợ chụp `tensorboard.png` từ log và điền `evaluation.md`, `demo.md`, AC, task.
 - `2026-11-14` — Nguyễn Quốc An (AI hỗ trợ): dọn Lab 2. Gỡ kết quả các lần chạy RTX 4060, RTX 5060 và Colab T4 ngày 13/11 (checkpoint, reports, sessions), docs phụ, `model.py`/`test.py` tương thích, `tools/` TV3. Notebook đổi thành `lab_2_colab.ipynb`, chạy bằng VS Code + Colab T4, tự clone nhánh `QuocAn` và chép kết quả sang Drive. Các task chạy thật chuyển về TODO, chờ chạy lại. Lịch sử bên dưới giữ làm ghi nhận; file nhắc tới có trong lịch sử Git.
 - `2026-11-13` — AI agent kiểm lại ảnh danh sách thiếu: bổ sung báo cáo TV4 bằng số liệu T4 và nhận xét Exercise 1–2; cập nhật bảng 11 AC trong đặc tả. Ô model T4 đã chạy nhưng thiếu stdout trong notebook lưu; phép kiểm riêng trên Colab CPU in đủ ba kiến trúc/từng tham số, cùng source với training, số đếm khớp metrics T4. Hồ sơ AC-01; không train lại hoặc sửa artifact cũ. 25 test evaluation/handoff đạt.
 - `2026-11-13` — AI agent tiếp nhận T3 trên Tesla T4, phiên `colab-t4-20261113-browser-01` từ source `735e556`: 17 ô pipeline hoàn tất, 13 checkpoint và 38 file khớp manifest; 10 source khớp Git, 4 run đủ event, best nạp CPU `[1,10]`. Test 87,70%, macro F1 0,87573; 7 KPI đạt. Bộ offline Colab 93 passed/23,76 giây. Notebook và ảnh TensorBoard được lưu trong phiên review riêng; TASK-13/15/16 cập nhật theo bằng chứng. Windows kiểm lại 93 passed với torch 2.9.1+cu128.

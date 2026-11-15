@@ -9,96 +9,123 @@
 | Created by | HoangDang (Nguyễn Hoàng Đăng) |
 | Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
 | Last updated | 2026-11-14 |
-| Updated by | Nguyễn Quốc An (Quoc An), AI hỗ trợ: dọn kết quả cũ, chờ chạy lại |
+| Updated by | Nguyễn Quốc An (Quoc An), AI hỗ trợ: điền số liệu lần chạy T4 ngày 14/11 |
 | Updated by — nguồn đặc tả/TV4 | Nguyễn Quốc An (Quoc An), `3a86e93`, `00b8d04`, `f9f2fd8` |
 | Người cập nhật nguồn code evaluation | Nguyễn Quốc An (Quoc An), `32ca8b1`, 2026-11-10T21:18:59+07:00 |
 | Người tích hợp/chuẩn hóa | HoangDang (Nguyễn Hoàng Đăng) |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-> **Trạng thái 2026-11-14**: Kết quả các lần chạy trước (RTX 4060, RTX 5060, Colab T4 ngày 13/11) đã gỡ khỏi repo. Chờ chạy lại `notebooks/lab_2_colab.ipynb` trên VS Code + Colab T4, rồi điền số thật từ `reports/metrics.json` vào các bảng dưới. Ô `—` là chưa có số liệu.
+> **Trạng thái 2026-11-14**: Đã chạy `notebooks/lab_2_colab.ipynb` trên VS Code + Colab **Tesla T4**, code commit `f1c1a84`, người chạy Nguyễn Quốc An. Đủ 4 run, evaluation, demo; 13 checkpoint. Test accuracy **87,70%**, macro F1 **0,8757**; **7/7 KPI Đạt**. Nguồn số liệu: [reports/metrics.json](../reports/metrics.json).
 
 Mã nguồn: `src/lab_2/evaluation.py`.
 
 **Ghi nhận nguồn TV4:** Nguyễn Quốc An đưa `evaluation.py` vào repo tại `32ca8b1`; bộ test evaluation có trong `00b8d04`. HoangDang tích hợp vào package và thêm các kiểm tra bảo vệ tại `4176139`.
 
-> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Mục 1–6 lấy từ `reports/metrics.json` sau khi chạy notebook.
+> **Phụ trách**: TV4. Đặc tả từng hàm đã triển khai nằm ở mục 8. Mục 1–6 lấy từ `reports/metrics.json`.
 
 ## 1. So Sánh Các Lần Chạy (Exercise 1 và 2)
 
-So sánh bằng validation, không dùng test. Một lần chạy mỗi cấu hình, seed 42. Nguồn: `evaluation.comparison`; đường validation theo epoch: `reports/figures/val_accuracy_by_run.png`.
+So sánh bằng validation (2.500 ảnh), không dùng test. Một lần chạy mỗi cấu hình, seed 42, cùng Tesla T4. Nguồn: `evaluation.comparison`.
 
 | Run | Model | LR | Batch | Epoch | Best epoch | Val accuracy | Val loss | Giây/epoch |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `resnet18_baseline` | resnet18 | 0.001 | 64 | — | — | — | — | — |
-| `densenet121` | densenet121 | 0.001 | 64 | — | — | — | — | — |
-| `resnet18_lr1e-2` | resnet18 | 0.01 | 64 | — | — | — | — | — |
-| `resnet18_bs128` | resnet18 | 0.001 | 128 | — | — | — | — | — |
+| `resnet18_baseline` | resnet18 | 0.001 | 64 | 5 | 4 | 84.80% | 0.4216 | 42.36 |
+| `densenet121` | densenet121 | 0.001 | 64 | 6 | 5 | **88.24%** | **0.3455** | 68.30 |
+| `resnet18_lr1e-2` | resnet18 | 0.01 | 64 | 6 | 5 | 83.52% | 0.5669 | 42.29 |
+| `resnet18_bs128` | resnet18 | 0.001 | 128 | 6 | 6 | 85.08% | 0.4092 | 45.25 |
 
-Exercise 1 (đổi model): —
-Exercise 2 (đổi learning rate, batch size): —
+![Validation accuracy theo epoch](../reports/figures/val_accuracy_by_run.png)
+
+**Exercise 1 (đổi model):** DenseNet121 đạt 88,24%, cao hơn ResNet18 baseline **3,44 điểm phần trăm**, val loss thấp hơn (0,3455 so với 0,4216). Đổi lại, thời gian train tăng khoảng 61% (68,30 so với 42,36 giây/epoch). Lý do hợp lý: DenseNet121 cho đặc trưng 1.024 chiều so với 512 của ResNet18, nên lớp phân loại có nhiều thông tin hơn dù cả hai chỉ train lớp cuối. Baseline dừng sớm ở epoch 5 vì 3 epoch liên tiếp tăng không quá 1 điểm.
+
+**Exercise 2 (đổi learning rate, batch size):**
+- LR 0,01: val accuracy 83,52%, thấp hơn baseline **1,28 điểm**, val loss cao nhất (0,5669) và dao động mạnh; Loss/train trên TensorBoard nhiễu hơn hẳn các run khác. LR lớn làm lớp phân loại cập nhật quá mạnh, khó hội tụ.
+- Batch 128: val accuracy 85,08%, cao hơn baseline **0,28 điểm**, thời gian gần như nhau (45,25 so với 42,36 giây/epoch). Chênh lệch này nhỏ hơn sai số của 2.500 ảnh validation (khoảng ±1,4 điểm), nên chưa đủ để kết luận batch 128 tốt hơn.
+- Các kết luận dựa trên một seed; muốn chắc chắn cần chạy nhiều seed.
+
+**Exercise 3 (TensorBoard):** log 4 run tại `reports/runs/`, ảnh giao diện (smoothing 0, đủ Accuracy/val, Loss/train, Loss/val):
+
+![TensorBoard 4 run](../reports/figures/tensorboard.png)
 
 ## 2. Đối Chiếu KPI
 
-Nguồn: `evaluation.kpi`. KPI tốc độ chỉ chấm khi `evaluation.device_name` là Tesla T4.
+Nguồn: `evaluation.kpi`. Thiết bị đánh giá Tesla T4, đúng chuẩn KPI tốc độ.
 
 | Chỉ số | Giá trị | Mục tiêu | Kết quả |
 | --- | ---: | ---: | --- |
-| Validation Accuracy | — | 80% | — |
-| Test Accuracy | — | 80% | — |
-| Test Macro F1 | — | 0.8 | — |
-| Thời gian train (giây/epoch) | — | 300 | — |
-| Độ trễ suy luận (ms/ảnh) | — | 25 | — |
-| VRAM cao nhất (GB) | — | 4 | — |
-| RAM cao nhất (GB) | — | 6 | — |
+| Validation Accuracy | 88.24% | 80% | Đạt |
+| Test Accuracy | 87.70% | 80% | Đạt |
+| Test Macro F1 | 0.8757 | 0.8 | Đạt |
+| Thời gian train (giây/epoch) | 68.30 | 300 | Đạt |
+| Độ trễ suy luận (ms/ảnh) | 16.10 (p95 19.75) | 25 | Đạt |
+| VRAM cao nhất (GB) | 1.31 | 4 | Đạt |
+| RAM cao nhất (GB) | 3.42 | 6 | Đạt |
 
 ## 3. Kết Quả Trên Tập Test
 
-Chọn model bằng validation; test chỉ đánh giá một lần trên 5.000 ảnh. Nguồn: `evaluation.test_metrics`, `evaluation.per_class_accuracy`; confusion matrix: `reports/figures/confusion_matrix.png`.
+Chọn DenseNet121 bằng validation; test chỉ đánh giá một lần trên 5.000 ảnh. Nguồn: `evaluation.test_metrics`, `evaluation.per_class_accuracy`.
 
 | Run được chọn | Epoch | Accuracy | Sai số 95% (điểm %) | Macro F1 | Loss |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| — | — | — | — | — | — |
+| `densenet121` | 5 | 87.70% | ±0.91 | 0.8757 | 0.3517 |
+
+Test accuracy (87,70%) gần validation (88,24%), nên model không bị chọn quá khớp với validation.
 
 ### Accuracy từng lớp
 
 | Lớp | Accuracy |
 | --- | ---: |
-| airplane | — |
-| automobile | — |
-| bird | — |
-| cat | — |
-| deer | — |
-| dog | — |
-| frog | — |
-| horse | — |
-| ship | — |
-| truck | — |
+| airplane | 90.04% |
+| automobile | 91.98% |
+| bird | 80.39% |
+| cat | **75.41%** |
+| deer | 80.53% |
+| dog | 86.30% |
+| frog | **94.85%** |
+| horse | 92.29% |
+| ship | 89.86% |
+| truck | 94.60% |
+
+Lớp `cat` thấp nhất, kế đến `bird` và `deer`: đây là các lớp động vật dễ lẫn với nhau (cat/dog, bird/airplane, deer/horse). Các lớp phương tiện và `frog` đều trên 89%.
+
+![Confusion matrix](../reports/figures/confusion_matrix.png)
 
 ## 4. Nhật Ký Lần Chạy Tốt Nhất
 
-Nguồn: `training.runs.<run tốt nhất>.history`; đường loss: `reports/figures/loss_curve_best.png`. Train loss là trung bình theo batch.
+DenseNet121, nguồn `training.runs.densenet121.epochs`. Train loss là trung bình theo batch.
 
 | Epoch | Train loss | Val loss | Val accuracy | LR | Giây train | Mốc lưu |
 | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| — | — | — | — | — | — | — |
+| 1 | 0.7050 | 0.4438 | 85.32% | 0.001 | 69.76 | final_epoch, best_val_loss, best_val_acc |
+| 2 | 0.4419 | 0.3764 | 86.92% | 0.001 | 67.85 | final_epoch, best_val_loss, best_val_acc |
+| 3 | 0.4055 | 0.3641 | 87.40% | 0.001 | 67.77 | final_epoch, best_val_loss, best_val_acc |
+| 4 | 0.3886 | 0.3551 | 87.76% | 0.001 | 68.17 | final_epoch, best_val_loss, best_val_acc |
+| 5 | 0.3859 | 0.3455 | 88.24% | 0.001 | 68.22 | final_epoch, best_val_loss, best_val_acc |
+| 6 | 0.3805 | 0.3459 | 87.96% | 0.001 | 68.00 | final_epoch |
+
+DenseNet121 chạy đủ 6 epoch, không dừng sớm; tốt nhất ở epoch 5. Scheduler không giảm LR vì val loss vẫn giảm đến epoch 5.
+
+![Đường loss](../reports/figures/loss_curve_best.png)
 
 ## 5. Checkpoint
 
 | Mốc | Trọng số | Epoch |
 | --- | --- | ---: |
-| `final_epoch` | `checkpoints/<run tốt nhất>/final_epoch.pth` | — |
-| `best_val_loss` | `checkpoints/<run tốt nhất>/best_val_loss.pth` | — |
-| `best_val_acc` | `checkpoints/<run tốt nhất>/best_val_acc.pth` | — |
-| `best` | `checkpoints/best.pth` (bản sao model được chọn) | — |
-| `best_val_pause` | Không có file riêng; ghi `stop_epoch` | — |
+| `final_epoch` | `checkpoints/densenet121/final_epoch.pth` | 6 |
+| `best_val_loss` | `checkpoints/densenet121/best_val_loss.pth` | 5 |
+| `best_val_acc` | `checkpoints/densenet121/best_val_acc.pth` | 5 |
+| `best` | `checkpoints/best.pth` (bản sao model được chọn) | 5 |
+| `best_val_pause` | Không có file riêng; DenseNet121 không dừng sớm (`stop_epoch` rỗng) | — |
+
+Tổng 13 file: 3 mốc × 4 run và `best.pth`. Dừng sớm: baseline ở epoch 5, LR 0,01 ở epoch 6 (bằng giới hạn); DenseNet121 và batch 128 chạy đủ 6 epoch.
 
 ## 6. Môi Trường Chạy
 
 | GPU | torch | torchvision | tensorboard | scikit-learn |
 | --- | --- | --- | --- | --- |
-| — | — | — | — | — |
+| Tesla T4 (Colab, qua extension VS Code) | 2.14.1+cu130 | 0.29.1+cu130 | 2.21.0 | 1.6.1 |
 
-Người chạy, thời gian và commit code: lấy từ `training.runs.<run>` (`operator`, `started_at`, `finished_at`, `code_commit`).
+Người chạy Nguyễn Quốc An; code commit `f1c1a84` (nhánh `QuocAn`). Bốn run chạy từ 2026-11-14 16:57 đến 17:19 (giờ Việt Nam). Kết quả trùng với lần chạy T4 trước đó của nhóm ngày 13/11 (cùng seed 42), cho thấy tái lập được.
 
 ## 7. Lần Chạy Trước (Chỉ Để Tham Khảo)
 

@@ -12,7 +12,7 @@
 | Updated by | Nguyễn Quốc An (Quoc An), AI hỗ trợ: dọn repo, notebook chạy bằng VS Code |
 | Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
 
-**Trạng thái 2026-11-14: code và test offline đã xong; chờ chạy lại notebook trên Colab T4.** ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, chia CIFAR-10 22.500/2.500/5.000 ảnh. Kết quả các lần chạy trước (RTX 4060, RTX 5060, Colab T4 ngày 13/11) đã gỡ khỏi repo và vẫn có trong lịch sử Git.
+**Trạng thái 2026-11-14: đã chạy đủ notebook trên VS Code + Colab Tesla T4 (commit `f1c1a84`). DenseNet121 được chọn bằng validation 88,24%; test 87,70%, macro F1 0,8757; cả 7 KPI Đạt; đủ 11 tiêu chí nghiệm thu.** Chi tiết: [evaluation.md](docs/evaluation.md). ResNet18/DenseNet121 pre-trained, 4 cấu hình, tối đa 6 epoch, dùng một nửa CIFAR-10: train/validation/test 22.500/2.500/5.000 ảnh (validation tách từ train gốc). Kết quả các lần chạy trước (RTX 4060, RTX 5060, Colab T4 ngày 13/11) đã gỡ khỏi repo và vẫn có trong lịch sử Git.
 
 ## Chạy trên Colab bằng VS Code
 
@@ -38,7 +38,7 @@ Thứ tự bước, điều kiện qua bước và danh sách kết quả cần 
 
 Input model: tensor float32 `[B,3,224,224]`, chuẩn hóa theo ImageNet; nhãn int64 0–9. Output: logits `[B,10]`; demo đổi thành xác suất bằng softmax.
 
-Kết quả sau khi chạy (tạo khi chạy notebook, không có sẵn trong repo):
+Kết quả lần chạy T4 ngày 2026-11-14:
 
 | Vị trí | Nội dung |
 | --- | --- |
@@ -66,7 +66,7 @@ Lệnh trên không tải CIFAR-10 hoặc trọng số ImageNet. Trên Linux/Col
 ## Tài liệu
 
 - [Đặc tả tổng quan](docs/lab_2_description.md), [dữ liệu](docs/data.md), [model](docs/model.md), [huấn luyện](docs/training.md).
-- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): điền số thật sau khi chạy lại.
+- [Báo cáo đánh giá](docs/evaluation.md), [demo](docs/demo.md): số thật của lần chạy T4.
 - [Tiến độ, phân công](docs/plan_progress_status.md); [khai báo công cụ](docs/ai_usage.md).
 - Notebook cũ (chỉ tham khảo, khác đặc tả hiện tại): [notebooks/lab_2_old.ipynb](notebooks/lab_2_old.ipynb).
 

@@ -23,14 +23,14 @@ Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguy�
   - Làm quen với việc tải và dùng model pre-trained từ `torchvision.models`.
   - Hiểu cách điều chỉnh và fine-tune model pre-trained cho một bài toán cụ thể.
 
-> Trạng thái 2026-11-14: kết quả các lần chạy trước đã gỡ khỏi repo; chờ chạy lại `notebooks/lab_2_colab.ipynb` trên VS Code + Colab T4. Mục 8 ghi trạng thái từng tiêu chí.
+> Trạng thái 2026-11-14: đã chạy `notebooks/lab_2_colab.ipynb` trên VS Code + Colab Tesla T4 (commit `f1c1a84`). DenseNet121 được chọn, test accuracy 87,70%, 7/7 KPI Đạt, đủ 13 checkpoint; mục 8 đạt đủ 11 tiêu chí.
 
 ### Đầu vào và đầu ra
 
 | Giai đoạn | Đầu vào | Đầu ra |
 | :--- | :--- | :--- |
-| **Huấn luyện** | CIFAR-10 và `configs/lab_2.yaml` | Các mốc trong `checkpoints/`, `reports/metrics.json`, log trong `reports/runs/` |
-| **Đánh giá** | Mốc `best` và tập test | Kết quả test, KPI, biểu đồ trong `reports/figures/` |
+| **Huấn luyện** | Tập train và validation của CIFAR-10, `configs/lab_2.yaml` | Các mốc trong `checkpoints/`, kết quả validation trong `reports/metrics.json`, log trong `reports/runs/` |
+| **Đánh giá** | Kết quả validation của 4 run (chọn `best`), mốc `best` và tập test | Kết quả test, KPI, biểu đồ trong `reports/figures/` |
 | **Suy luận** | Một ảnh màu | 1 trong 10 lớp, kèm xác suất của từng lớp |
 
 ---
@@ -56,7 +56,7 @@ Nguồn cập nhật đặc tả, cấu hình và bộ test ban đầu: **Nguy�
 
 - **Ngoài phạm vi**: VGG, dò siêu tham số tự động, triển khai thành dịch vụ, tiếp tục huấn luyện từ giữa một lần chạy.
 - **Ràng buộc môi trường**: Chuẩn bị và kiểm tra offline trên máy cá nhân; giao người train chạy file `.py` qua notebook Colab để lấy số liệu. Chưa xác nhận hiệu năng GPU ở giai đoạn chuẩn bị.
-- **Ràng buộc dữ liệu và thời gian**: Đề bài không quy định số mẫu hay số epoch. Nhóm dùng 22.500/2.500/5.000 ảnh, tối đa 6 epoch và 4 lần chạy để giảm thời gian dùng GPU.
+- **Ràng buộc dữ liệu và thời gian**: Đề bài không quy định số mẫu hay số epoch. Nhóm dùng một nửa CIFAR-10: train/validation/test 22.500/2.500/5.000 ảnh, tối đa 6 epoch và 4 lần chạy để giảm thời gian dùng GPU.
 - **Giả định**: Colab có GPU T4 và Google Drive còn trống khoảng 1 GB để chứa `checkpoints/` và `reports/` (dự trù); xem `training.md` mục 9.
 
 ---
@@ -81,19 +81,23 @@ flowchart LR
 flowchart LR
     Config["configs/lab_2.yaml"] --> Train["training.py"]
     CIFAR["CIFAR-10"] --> Data["data.py"]
-    Data --> Train
+    Data -- "train + validation" --> Train
     Model["model.py"] --> Train
     Train --> Ckpt["checkpoints/"]
     Train --> Logs["reports/runs/"]
-    Train --> Report["reports/metrics.json"]
-    Ckpt --> Eval["evaluation.py"]
+    Train -- "kết quả validation" --> Report["reports/metrics.json"]
+    Report -- "chọn run tốt nhất" --> Eval["evaluation.py"]
+    Ckpt --> Eval
     Data -- "chỉ tập test" --> Eval
     Eval --> Best["checkpoints/best.pth"]
     Eval --> Report
     Eval --> Fig["reports/figures/"]
     Best --> Demo["demo.py"]
+    Data -- "3 ảnh test" --> Demo
     Demo --> Report
 ```
+
+Ba tập lấy từ CIFAR-10 (seed 42): train 22.500 và validation 2.500 từ 50.000 ảnh train gốc, test 5.000 từ 10.000 ảnh test gốc; phần còn lại không dùng (`data.md` mục `split_indices`). Validation chỉ dùng trong `training.py`; `evaluation.py` đọc kết quả validation đã ghi trong `metrics.json` để chọn run, không chạy lại validation. Mọi file đều đọc `configs/lab_2.yaml` và dùng `load_checkpoint` của `model.py`; sơ đồ chỉ vẽ mũi tên chính.
 
 ### Giao diện giữa các file
 
@@ -149,21 +153,21 @@ Mỗi lần chạy có thư mục riêng `checkpoints/<tên lần chạy>/`.
 
 ## 8. Bảng Nghiệm Thu
 
-Cột "Kết quả" cập nhật sau khi chạy lại notebook trên Colab T4; số liệu chi tiết ở [evaluation.md](evaluation.md).
+Cột "Kết quả" theo lần chạy Colab Tesla T4 ngày 2026-11-14; số liệu chi tiết ở [evaluation.md](evaluation.md).
 
 | Mã | Phụ trách | Tiêu chí | Cách kiểm tra | Bằng chứng | Kết quả |
 | :--- | :---: | :--- | :--- | :--- | :--- |
-| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Output ô `lab_2.model` trong notebook; mục `model` của `reports/metrics.json` | Chờ chạy Colab |
-| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py`, smoke | Test model offline; ô smoke trong notebook | Đạt offline; chờ smoke Colab |
-| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Mục `data` của `reports/metrics.json`: 22.500/2.500/5.000 | Đạt Windows; chờ Colab |
-| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Output ô smoke trong notebook | Chờ chạy Colab |
-| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | Bảng và nhận xét trong `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | Bảng và nhận xét trong `evaluation.md` mục 1 | Chờ chạy Colab |
-| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/<run>/`, `reports/figures/tensorboard.png` | Chờ chạy Colab |
-| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | 13 file trong `checkpoints/`; `stop_epoch` trong `training.runs` | Chờ chạy Colab |
-| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Mục `evaluation` của `reports/metrics.json`; `evaluation.md` mục 2–3 | Chờ chạy Colab |
-| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo`, `reports/figures/demo_probabilities.png` | Chờ chạy Colab |
-| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy notebook Colab | `notebooks/lab_2_colab.ipynb` có output mọi ô, không có lỗi | Chờ chạy Colab |
+| AC-01 | TV2 | In được kiến trúc, các tầng và số tham số | `python -m lab_2.model` | Output ô `lab_2.model` trong notebook in đủ kiến trúc và trạng thái từng tham số; mục `model` của `reports/metrics.json` khớp `model.md` mục 5 | Đạt Colab T4 |
+| AC-02 | TV2 | Lớp cuối có 10 đầu ra; chỉ phần được mở khóa mới huấn luyện | `tests/test_model.py`, smoke | Test model offline; 3 smoke pass trên T4 | Đạt offline và T4 |
+| AC-03 | TV1 | Các tập đúng số ảnh; train và val không trùng ảnh | `tests/test_data.py`, `python -m lab_2.data` | Mục `data` của `reports/metrics.json`: 22.500/2.500/5.000 | Đạt Windows và T4 |
+| AC-04 | TV3 | Smoke test 2 batch đạt | `tests/test_smoke.py` | Ô smoke: 3 passed, VRAM 0,48/0,68/0,57 GB | Đạt T4 |
+| AC-05 | TV3 | Exercise 1: có bảng so sánh ResNet18 và DenseNet121 | `python -m lab_2.training --run ...` | `evaluation.md` mục 1: DenseNet121 hơn baseline 3,44 điểm validation | Đạt T4 |
+| AC-06 | TV3 | Exercise 2: có bảng so sánh learning rate và batch size | `python -m lab_2.training --run ...` | `evaluation.md` mục 1: LR 0,01 −1,28 điểm, batch 128 +0,28 điểm validation | Đạt T4 |
+| AC-07 | TV3 | Exercise 3: có log TensorBoard của cả 4 lần chạy và xem được biểu đồ | Cell TensorBoard trong notebook | `reports/runs/` đủ 4 run; [ảnh giao diện](../reports/figures/tensorboard.png) | Đạt T4 |
+| AC-08 | TV3 | Đủ checkpoint và early stopping dừng đúng quy tắc | `python -m lab_2.training --run ...` | 13 file trong `checkpoints/`; baseline dừng ở epoch 5 | Đạt T4 |
+| AC-09 | TV4 | Đánh giá `best` trên tập test và đo đủ KPI | `python -m lab_2.evaluation` | Test 87,70%, macro F1 0,8757; 7/7 KPI Đạt (`evaluation.md` mục 2–3) | Đạt T4 |
+| AC-10 | TV5 | Demo suy luận được bằng mốc `best` | `python -m lab_2.demo` | Mục `demo`, [ảnh xác suất](../reports/figures/demo_probabilities.png); 2/3 ảnh đúng | Đạt T4 |
+| AC-11 | TV5 | Run all trên notebook không lỗi | Chạy notebook Colab | `notebooks/lab_2_colab.ipynb`: 16/16 ô code chạy, không có output lỗi | Đạt Colab T4 (VS Code) |
 
 ---
 
