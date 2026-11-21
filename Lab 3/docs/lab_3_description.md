@@ -1,19 +1,5 @@
 # Practice 3 — Get Started with Hugging Face: Đặc Tả Tổng Quan
 
-## 0. Thông tin tài liệu
-
-| Trường | Nội dung |
-| --- | --- |
-| Name | Practice 3 — Get Started with Hugging Face: Đặc Tả Tổng Quan |
-| Created date | Chưa xác nhận |
-| Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T08:56:14+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
-| Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
-
-> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, `notebooks/Lab_3_quocan.ipynb`). Tài liệu chính của bài là bộ `01_`–`12_`.
-
 ## 1. Bài Toán & Mục Tiêu
 - **Lĩnh vực**: Xử lý ngôn ngữ tự nhiên (NLP), phân loại văn bản.
 - **Công nghệ**: `transformers`, `datasets`, `evaluate`, `accelerate` và PyTorch.
@@ -151,8 +137,3 @@ Cột "Kết quả" chỉ được ghi Đạt hoặc Không đạt sau khi đã 
 | AC-07 | Tất cả KPI được đo và đối chiếu | `python -m exercise_2.evaluation` | Mục `evaluation.kpi`, `evaluation.md` | Đạt: đo đủ 7 KPI và cả 7 đều đạt |
 | AC-08 | Demo suy luận được bằng mốc `best` | `python -m exercise_2.demo` | Mục `demo`, `demo.md` | Đạt: 2/2 câu có nhãn dự đoán đúng |
 | AC-09 | Run all trên notebook không lỗi | Chạy `notebooks/Lab_3_colab.ipynb` trên Colab | Notebook đã lưu kết quả | Đạt: 13 cell code chạy theo thứ tự, không lỗi, đã lưu đầu ra |
-
-## Nguồn và phạm vi
-
-- Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
-- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

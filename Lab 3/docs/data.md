@@ -1,19 +1,5 @@
 # Dữ Liệu Thực Nghiệm (Data Specification) — Lab 3
 
-## 0. Thông tin tài liệu
-
-| Trường | Nội dung |
-| --- | --- |
-| Name | Dữ Liệu Thực Nghiệm (Data Specification) — Lab 3 |
-| Created date | Chưa xác nhận |
-| Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Ghi nhận Git đầu tiên | 2026-11-04T10:34:00+07:00 ; HoangDang ; aee3dd8 |
-| Last updated | 2026-11-13T08:56:14+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
-| Phạm vi | Tài liệu kế thừa bản QuocAn; nội dung lịch sử, xem bộ 01–12 cho bản chính |
-
-> Tài liệu của bản triển khai nhánh QuocAn (`src/exercise_*`, `notebooks/Lab_3_quocan.ipynb`). Tài liệu chính của bài là bộ `01_`–`12_`.
-
 Exercise 1 chỉ nhận một câu do người dùng nhập, không dùng dataset. Toàn bộ file này áp dụng cho Exercise 2.
 
 Mã nguồn: `src/exercise_2/data.py`. Tham số: mục `data` trong `configs/exercise_2.yaml`.
@@ -42,8 +28,3 @@ Mã nguồn: `src/exercise_2/data.py`. Tham số: mục `data` trong `configs/ex
 - **Độ dài tối đa**: `max_length = 256`, `truncation = True` cắt phần vượt quá.
 - **Padding**: Dùng `DataCollatorWithPadding` để pad động theo từng batch.
 - **Xử lý lỗi**: Nếu số mẫu yêu cầu lớn hơn số mẫu của dataset thì báo `ValueError`.
-
-## Nguồn và phạm vi
-
-- Nhập từ nhánh QuocAn, đầu nhánh `32ca8b1`; không diễn giải kết quả cũ thành số đo sau chuẩn hóa.
-- [Bản chính](01_lab_3_description.md), [nhật ký đồng bộ](../../BRANCH_SYNC_2026-11-11.md). Lần cập nhật hiện tại chỉ chuẩn hóa thông tin và phân loại tài liệu.

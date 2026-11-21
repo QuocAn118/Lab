@@ -1,79 +1,72 @@
-# Lab 3 — Phân tích cảm xúc với Transformers
+# Practice 3 — Get Started with Hugging Face
 
-## 0. Thông tin tài liệu
+Bài lab gồm 2 phần:
+- **Exercise 1**: Phân tích cảm xúc của một câu bằng model có sẵn trên Hugging Face Hub.
+- **Exercise 2**: Fine-tune `distilbert-base-uncased` để phân loại cảm xúc nhị phân trên IMDB.
 
-| Trường | Nội dung |
-| --- | --- |
-| Name | Lab 3 — Phân tích cảm xúc với Transformers |
-| Created date | Chưa xác nhận |
-| Created by | HoangDang (Nguyễn Hoàng Đăng) |
-| Ghi nhận Git đầu tiên | 2026-11-04T09:26:53+07:00 ; HoangDang ; ca3b03e |
-| Last updated | 2026-11-13T08:55:07+07:00 |
-| Updated by | AI agent (thực thi kế hoạch của HoangDang) |
-| Phạm vi | Tài liệu đang dùng; phân biệt đặc tả, code hiện có và kiểm chứng runtime |
+## Cấu Trúc Thư Mục
 
-Bản thực hành chính: **`../Lab_3 (1).ipynb`**. Notebook giữ các ô code chính viết tuần tự. Tiện ích thời gian/lưu model/vẽ loss được tách vào `notebook_helpers.py`; không dùng pipeline `lab3.py`.
-
-Tài liệu trong `docs/` được đánh số theo thứ tự đọc. Bắt đầu từ [Hướng dẫn trình bày](docs/huong_dan_trinh_bay.md), sau đó đọc 01–07 cho nội dung bài; 08–12 là tài liệu triển khai, tiến độ và nguồn để tra cứu thêm.
-
-## Bản bổ sung từ nhánh QuocAn — 2026-11-11
-
-Đã nhận thêm `src/exercise_1/`, `src/exercise_2/`, `configs/exercise_2.yaml`, `tests/`, notebook `notebooks/Lab_3_quocan.ipynb`, checkpoint trong `checkpoints/` và báo cáo trong `reports/`. Đây là bản triển khai riêng của nhánh QuocAn; không thay thế notebook gốc, pipeline `lab3.py`, báo cáo `report/` hoặc dữ liệu thực nghiệm trong `outputs/`.
-
-Tài liệu của bản này là các file không đánh số trong `docs/`, bắt đầu từ [lab_3_description.md](docs/lab_3_description.md). Danh sách thư viện gốc được giữ ở `requirements_quocan.txt`; môi trường chính tiếp tục dùng `requirements.txt` đã khóa phiên bản. Chưa kiểm chứng chạy chung hai bản. Các checkpoint mới được quản lý bằng Git LFS; xem trạng thái tải trong nhật ký đồng bộ.
-
-Người tích hợp: HoangDang. Tác giả, thời gian commit gốc, thời gian tích hợp và cách xử lý conflict được ghi trong [nhật ký đồng bộ](../BRANCH_SYNC_2026-11-11.md).
-
-## Nội dung
-
-**Exercise 1:** pretrained sentiment analysis, trong một ô code chạy độc lập.
-
-**Exercise 2:** đúng 7 bước, mỗi bước một ô code:
-
-1. Chuẩn bị thư viện.
-2. Tải và chia dữ liệu IMDB.
-3. Tải model và tokenizer.
-4. Tokenize dữ liệu.
-5. Cấu hình huấn luyện.
-6. Tạo Trainer và huấn luyện.
-7. Đánh giá, confusion matrix, loss curve và demo.
-
-## Cách chạy
-
-Mở notebook, chọn kernel **Python (Lab 3)**, chạy lần lượt hoặc **Run All**. Nếu đã có checkpoint full, mặc định nạp model để đánh giá; đặt `TRAIN=True` trong ô khai báo model để huấn luyện mới. Mỗi run mới được lưu riêng trong `Lab 3/outputs/simple-training/`.
-
-Trong VS Code, chọn **Select Kernel → Python Environments… → .venv (3.12.10)** có đường dẫn **`Lab 3\.venv\Scripts\python.exe`**. Tên hiển thị có thể khác tên kernel đăng ký. Chạy **Run All**; khi chỉ chạy Exercise 2, bắt đầu từ **Step 1**. Mục **Existing Jupyter Server…** dành cho kết nối server có URL, không cần cho môi trường cục bộ này.
-
-Giữ `Lab 3/notebook_helpers.py` đi kèm notebook khi sao chép.
-
-Môi trường đã được kiểm tra lại ngày 2026-11-12 với Python 3.12.10, torch 2.9.1+cu128, transformers 4.57.1 và datasets 4.3.0. `requirements.txt` và `requirements-lock.txt` ghi các phiên bản đã chạy, gồm pandas 2.3.3 và pyarrow 21.0.0 trên Windows. Chạy từ repo gốc để cài môi trường mới:
-
-```powershell
-$env:PYTHONUTF8='1'
-python -m venv 'Lab 3/.venv'
-& 'Lab 3/.venv/Scripts/python.exe' -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
-& 'Lab 3/.venv/Scripts/python.exe' -m pip install -r 'Lab 3/requirements.txt'
-& 'Lab 3/.venv/Scripts/python.exe' -m ipykernel install --user --name lab3 --display-name 'Python (Lab 3)'
+```text
+Lab 3/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .gitattributes               # Lưu file model bằng Git LFS
+├── configs/exercise_2.yaml      # Tham số của Exercise 2
+├── docs/                        # 7 file đặc tả
+├── notebooks/
+│   ├── Lab_3_colab.ipynb        # Notebook chạy trên Colab, chỉ gọi code trong src/
+│   └── Lab_3 (1).ipynb          # Notebook cũ, giữ làm tham khảo
+├── src/
+│   ├── exercise_1/
+│   │   └── sentiment_analysis.py
+│   └── exercise_2/
+│       ├── common.py            # Đọc cấu hình, ghi báo cáo, đo RAM
+│       ├── data.py              # Bước 2, 4
+│       ├── model.py             # Bước 3
+│       ├── training.py          # Bước 5, 6
+│       ├── evaluation.py        # Bước 7
+│       └── demo.py
+├── tests/
+│   ├── test_exercise_2.py       # Test logic
+│   └── test_smoke.py            # Smoke test 2 batch
+├── reports/                     # Tạo khi chạy: metrics.json, figures/
+└── checkpoints/                 # Tạo khi chạy; file model lưu bằng Git LFS
 ```
 
-Dataset/model được tải từ Hugging Face ở lần đầu. Sau clone/pull, chạy `git lfs pull` từ repo gốc để lấy trọng số. Notebook mặc định `TRAIN=False`, kiểm tra model trong `outputs/full/checkpoints/best`, rồi tìm snapshot đầy đủ tại `outputs/imported-thanhbinh-40acced/full/checkpoints/best`. Nếu còn pointer LFS hoặc thiếu trọng số, notebook báo đường dẫn cần tải. Checkpoint thực dùng được in và ghi trong report đánh giá. `IMPORT.json` ánh xạ nguồn và tác giả của snapshot.
+## Cách Chạy Trên Google Colab
 
-`lab3.py`, `test.py` và các manifest full là phần hỗ trợ nâng cao đã có; không cần đọc hoặc chạy chúng để theo dõi nội dung notebook rút gọn.
+1. Tải cả thư mục `Lab 3` lên `MyDrive` trên Google Drive. Drive cần trống khoảng 1 GB cho checkpoint.
+2. Mở `notebooks/Lab_3_colab.ipynb` bằng Google Colab.
+3. Chọn **Runtime → Change runtime type → T4 GPU**.
+4. Chọn **Run all** và cho phép Colab truy cập Drive khi được hỏi.
+5. Lấy kết quả trong `reports/metrics.json` và `reports/figures/` để điền vào `docs/evaluation.md`, `docs/demo.md`.
 
-## Thời gian huấn luyện
+Nếu đặt thư mục ở nơi khác trên Drive, hãy sửa `PROJECT_DIR` trong cell đầu của notebook.
 
-Mỗi run mới có `training_time.json`: bắt đầu/kết thúc, tổng số giây, trạng thái và thời lượng từng epoch. Checkpoint lưu thông tin thời gian tại lúc lưu; `best` giữ bản tổng kết. Nạp model cũ chỉ đọc thời gian đã có. Xem [cách ghi và đọc thời gian](docs/04_training.md).
+Muốn chạy từng phần, hãy đứng trong thư mục `Lab 3` và đặt `PYTHONPATH=src`:
 
-## Kiểm chứng ngày 2026-11-12
+```bash
+python -m pytest tests -q -s
+python -m exercise_1.sentiment_analysis --text "Hôm qua em tuyệt lắm!"
+python -m exercise_2.data
+python -m exercise_2.model
+python -m exercise_2.training
+python -m exercise_2.evaluation
+python -m exercise_2.demo
+```
 
-Đã chạy toàn bộ tám cell bằng kernel `.venv` hiện tại. Checkpoint full nhập từ commit `40acced` được đánh giá lại trên 25.000 mẫu test, accuracy 91,012%, macro F1 0,910118 và loss 0,346539. Exercise 1, hai biểu đồ và demo đều có kết quả mới trong notebook. [Báo cáo đánh giá](report/evaluate-20261112-204226-805293/summary.md), [suy luận đa ngôn ngữ](report/infer-20261112-204208-788129/summary.md).
+## Tài Liệu Đặc Tả
 
-Bộ kiểm thử đạt 44 test khi kiểm lại sau `25cc678` (đặt `PYTHONPATH=src`, xem [kiểm chứng mục 7.1](docs/06_verification.md)), gồm CLI, report và logic bản Quốc An. Smoke pretrained mới chạy hai optimizer step, lưu/nạp đủ năm checkpoint và verifier đạt 48 artifact. [Báo cáo smoke](report/cli-smoke-20261112-204427-088939/summary.md), [đối chiếu nguồn](report/completion-review-20261112/summary.md). Các số đo full mới thuộc phép đánh giá checkpoint đã có. Thông tin lần train gốc được đối chiếu trong `IMPORT.json`.
+1. **[`lab_3_description.md`](./docs/lab_3_description.md)**: Bài toán, đối chiếu đề bài, thiết kế, KPI, checkpoint, bảng nghiệm thu.
+2. **[`data.md`](./docs/data.md)**: Nguồn dữ liệu, cách chia tập, tiền xử lý.
+3. **[`model.md`](./docs/model.md)**: Model của từng Exercise, lớp phân loại, số tham số.
+4. **[`training.md`](./docs/training.md)**: Siêu tham số, smoke test, early stopping, xử lý tình huống.
+5. **[`evaluation.md`](./docs/evaluation.md)**: Báo cáo kết quả và đối chiếu KPI.
+6. **[`demo.md`](./docs/demo.md)**: Lệnh chạy và kết quả thử nghiệm thực tế.
+7. **[`plan_progress_status.md`](./docs/plan_progress_status.md)**: Tiến độ, nhật ký, việc dùng AI.
 
-Người hoàn thiện và kiểm chứng ngày 2026-11-12 là HoangDang. Nguồn code, metadata tác giả và các snapshot lịch sử được ghi trong Git và hồ sơ tương ứng.
+## Giới Hạn
 
-## Nguồn và phạm vi
-
-- [Đặc tả](docs/01_lab_3_description.md), [thiết kế notebook rút gọn](docs/08_implementation.md), [training](docs/04_training.md).
-- [Nguồn và khai báo AI](docs/11_AI_Usage.md), [nguồn kỹ thuật](docs/10_sources.md), [kiểm chứng](docs/06_verification.md).
-- Mỗi ô code có nguồn Markdown. Artifact mới có SOURCES.md đi kèm; các run full đã có giữ manifest lịch sử.
+- Bài dùng 1.000 mẫu train và 200 mẫu test nên kết quả có sai số khoảng ±5 điểm phần trăm.
+- Nếu Colab ngắt phiên giữa lúc huấn luyện thì phải chạy lại từ đầu.

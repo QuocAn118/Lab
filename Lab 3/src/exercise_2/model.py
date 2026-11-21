@@ -1,4 +1,3 @@
-# Sources: docs/model.md; docs/lab_3_description.md
 """Exercise 2, bước 3: tải model và tokenizer đã huấn luyện sẵn. Đặc tả: docs/model.md."""
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
